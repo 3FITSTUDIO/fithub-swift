@@ -17,7 +17,11 @@ class CommonUIConstants {
     }
     
     struct ButtonConstants {
-        static let basicButtonWidth: CGFloat = 114
+        static let smallButtonWidth: CGFloat = 114
+        static let bigButtonWidth: CGFloat = 220
+        static let labelButtonWidth: CGFloat = 120
+        
+        static let labelButtonHeight: CGFloat = 20
         static let basicButtonHeight: CGFloat = 42
     }    
 }
