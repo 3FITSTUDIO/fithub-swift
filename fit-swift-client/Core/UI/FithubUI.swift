@@ -11,10 +11,23 @@ import UIKit
 
 class FithubUI {
     
+    struct Fonts {
+        static let mainAvenir: UIFont = {
+            guard let customFont = UIFont(name: "Avenir", size: UIFont.labelFontSize) else {
+                fatalError("""
+                    Failed to load the "CustomFont-Light" font.
+                    Make sure the font file is included in the project and the font name is spelled correctly.
+                    """
+                )
+            }
+            return customFont
+        }()
+    }
+    
     struct Colors {
         static let backgroundGradient: CAGradientLayer = {
-            // #AD94D0
-            let backgroundGradientTop = UIColor(r: 173, g: 148, b: 208).cgColor
+            // #8743E5
+            let backgroundGradientTop = UIColor(r: 135, g: 67, b: 229).cgColor
             // #661F80
             let backgroundGradientBottom = UIColor(r: 102, g: 31, b: 128).cgColor
             

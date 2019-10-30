@@ -29,14 +29,39 @@ class LoginViewController: UIViewController {
         setup()
     }
     
-    func setup(){
+    private func setup(){
         view.addSubview(container)
         container.easy.layout(Edges())
         
-        let button = Button()
-        container.addSubview(button)
-        button.easy.layout(Center())
-        button
+        let logo = UIImageView()
+        logo.image = UIImage(named: "logo-text")
+        container.addSubview(logo)
+        logo.easy.layout(CenterX(), Top(100))
+        
+        setupButtons()
+        setupTextFields()
+        
+    }
+    
+    private func setupButtons() {
+        let loginButton = Button(label: "login")
+        container.addSubview(loginButton)
+        loginButton.easy.layout(CenterX(), Bottom(280))
+        loginButton.addGesture(target: self, selector: #selector(self.loginButtonTapped(_:)))
+        
+        let newAccButton = Button(type: .big, label: "create new account")
+        container.addSubview(newAccButton)
+        newAccButton.easy.layout(CenterX(), Bottom(125))
+        newAccButton.addGesture(target: self, selector: #selector(self.signUpTapped(_:)))
+        
+        let forgotButton = Button(type: .label, label: "forgot password?")
+        container.addSubview(forgotButton)
+        forgotButton.easy.layout(CenterX(), Top(15).to(loginButton))
+        forgotButton.addGesture(target: self, selector: #selector(self.forgotPasswordTapped(_:)))
+    }
+    
+    private func  setupTextFields() {
+    
     }
 
 }
@@ -45,14 +70,14 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
 
-        func loginButtonTapped() {
+        @objc private func loginButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
             router.route(to: Route.login.rawValue, from: self)
         }
-//        func signUpTapped() {
-//            router.route(to: Route.signUp.rawValue, from: self)
-//        }
-//        func forgotPasswordTapped() {
-//            router.route(to: Route.forgotPassword.rawValue, from: self)
-//        }
+        @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {
+            router.route(to: Route.signUp.rawValue, from: self)
+        }
+        @objc private func forgotPasswordTapped(_ sender: UITapGestureRecognizer? = nil) {
+            router.route(to: Route.forgotPassword.rawValue, from: self)
+        }
 }
 

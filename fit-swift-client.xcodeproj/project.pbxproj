@@ -12,6 +12,8 @@
 		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
 		8452C430235E051F009E99E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8452C42F235E051F009E99E8 /* Assets.xcassets */; };
+		84710C26236A1B3C0027AEC5 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 84710C25236A1B3C0027AEC5 /* Avenir.ttc */; };
+		84710C2A236A31F20027AEC5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84710C29236A31F20027AEC5 /* TextField.swift */; };
 		847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */; };
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
@@ -28,6 +30,8 @@
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8452C42F235E051F009E99E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84710C25236A1B3C0027AEC5 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
+		84710C29236A31F20027AEC5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUIConstants.swift; sourceTree = "<group>"; };
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
@@ -75,6 +79,7 @@
 				8452C426235CCCC9009E99E8 /* FithubUI.swift */,
 				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
 				847CE0C2234E549A002FC12E /* Button.swift */,
+				84710C29236A31F20027AEC5 /* TextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -93,6 +98,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		84710C24236A1ADE0027AEC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84710C25236A1B3C0027AEC5 /* Avenir.ttc */,
+				8452C42F235E051F009E99E8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		847CE0C8234E5F0A002FC12E /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +121,6 @@
 		84A2A1D0234D37690078EE29 = {
 			isa = PBXGroup;
 			children = (
-				8452C42F235E051F009E99E8 /* Assets.xcassets */,
 				84A2A1DB234D37690078EE29 /* fit-swift-client */,
 				84A2A1DA234D37690078EE29 /* Products */,
 				063A12911A3D6199DCA7A935 /* Pods */,
@@ -126,6 +139,7 @@
 		84A2A1DB234D37690078EE29 /* fit-swift-client */ = {
 			isa = PBXGroup;
 			children = (
+				84710C24236A1ADE0027AEC5 /* Resources */,
 				8452C429235DF3C8009E99E8 /* ViewModels */,
 				8452C421235CCB16009E99E8 /* Models */,
 				847CE0C8234E5F0A002FC12E /* Core */,
@@ -224,6 +238,7 @@
 			files = (
 				8452C430235E051F009E99E8 /* Assets.xcassets in Resources */,
 				84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */,
+				84710C26236A1B3C0027AEC5 /* Avenir.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +299,7 @@
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
+				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,

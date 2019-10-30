@@ -11,17 +11,19 @@ import UIKit
 import EasyPeasy
 
 class Button : UIView {
+    enum ButtonType {
+        case small, big, label
+    }
     
-    let basicHeight = CommonUIConstants.ButtonConstants.basicButtonHeight
-    let basicWidth = CommonUIConstants.ButtonConstants.basicButtonWidth
-    
-    let image = UIImageView()
+    var type: ButtonType = .small
 
-    let label: UILabel = {
+    let imageView = UIImageView()
+    let buttonLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.setFont(fontName: FithubUI.Fonts.mainAvenir)
         label.fontSize(size: 20)
-        label.textColor = .white
+        label.textColor = FithubUI.Colors.buttonTextColorFullOpacity
         label.adjustsFontSizeToFitWidth = false
         label.numberOfLines = 1
         return label
@@ -29,8 +31,14 @@ class Button : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setup()
         self.isUserInteractionEnabled = true
+    }
+    
+    convenience init(type: ButtonType = .small, label: String) {
+        self.init()
+        buttonLabel.text = label
+        self.type = type
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,22 +46,38 @@ class Button : UIView {
     }
     
     func setup(){
+        let width: CGFloat = {
+            switch type {
+            case .small:
+                return CommonUIConstants.ButtonConstants.smallButtonWidth
+            case .big:
+                return CommonUIConstants.ButtonConstants.bigButtonWidth
+            case .label:
+                return CommonUIConstants.ButtonConstants.labelButtonWidth
+            }
+        }()
+        let height: CGFloat = {
+            switch type {
+            case .label:
+                return CommonUIConstants.ButtonConstants.labelButtonHeight
+            default:
+                return CommonUIConstants.ButtonConstants.basicButtonHeight
+            }
+        }()
+        
+        if type == .label {
+            buttonLabel.fontSize(size: 15)
+            buttonLabel.textColor = .white
+        }
         self.easy.layout(
-            Height(basicHeight),
-            Width(basicWidth))
+            Height(height),
+            Width(width))
+        self.addSubviews(subviews: [imageView, buttonLabel])
+        imageView.easy.layout(Edges())
+        buttonLabel.easy.layout(Center())
         
-        image.easy.layout(Edges())
-        image.image = UIImage(bundleName: "button-1")
-        
-       
-        label.easy.layout(Center())
-        
-        label.text = "KASPER!"
-        
-        
-        self.layer.cornerRadius = 15
-        self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 2
-        self.layer.masksToBounds = true
+        imageView.image = {
+            return UIImage(named: "button-\(type)")
+        }()
     }
 }
