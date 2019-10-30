@@ -8,31 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		606469BA8489963620B223C0 /* Pods_fit_swift_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */; };
+		8452C423235CCB2D009E99E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C422235CCB2D009E99E8 /* User.swift */; };
+		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
+		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
+		8452C430235E051F009E99E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8452C42F235E051F009E99E8 /* Assets.xcassets */; };
 		847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */; };
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
-		84A2A1DF234D37690078EE29 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* WelcomeViewController.swift */; };
-		84A2A1E4234D376A0078EE29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E3234D376A0078EE29 /* Assets.xcassets */; };
+		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
-		84BC82C3234E508500821DD5 /* WelcomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* WelcomeRouter.swift */; };
-		84BC82C6234E509800821DD5 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C5234E509800821DD5 /* WelcomeViewModel.swift */; };
+		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23FBAC3A15CCC3D59DD73D54 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 		3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fit_swift_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
+		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8452C42F235E051F009E99E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUIConstants.swift; sourceTree = "<group>"; };
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		84A2A1D9234D37690078EE29 /* fit-swift-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fit-swift-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A2A1DC234D37690078EE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84A2A1DE234D37690078EE29 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		84A2A1E3234D376A0078EE29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84A2A1DE234D37690078EE29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84A2A1E6234D376A0078EE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84BC82C2234E508500821DD5 /* WelcomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRouter.swift; sourceTree = "<group>"; };
-		84BC82C5234E509800821DD5 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,10 +61,45 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8452C421235CCB16009E99E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8452C422235CCB2D009E99E8 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8452C428235DF3B1009E99E8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8452C426235CCCC9009E99E8 /* FithubUI.swift */,
+				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
+				847CE0C2234E549A002FC12E /* Button.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8452C429235DF3C8009E99E8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8452C42A235DF3D9009E99E8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		847CE0C8234E5F0A002FC12E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8452C42A235DF3D9009E99E8 /* Utility */,
+				8452C428235DF3B1009E99E8 /* UI */,
 				847CE0C6234E5D86002FC12E /* RouterProtocol.swift */,
+				8452C42B235DF5BD009E99E8 /* Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -68,6 +107,7 @@
 		84A2A1D0234D37690078EE29 = {
 			isa = PBXGroup;
 			children = (
+				8452C42F235E051F009E99E8 /* Assets.xcassets */,
 				84A2A1DB234D37690078EE29 /* fit-swift-client */,
 				84A2A1DA234D37690078EE29 /* Products */,
 				063A12911A3D6199DCA7A935 /* Pods */,
@@ -86,12 +126,11 @@
 		84A2A1DB234D37690078EE29 /* fit-swift-client */ = {
 			isa = PBXGroup;
 			children = (
+				8452C429235DF3C8009E99E8 /* ViewModels */,
+				8452C421235CCB16009E99E8 /* Models */,
 				847CE0C8234E5F0A002FC12E /* Core */,
-				84BC82C1234E506700821DD5 /* Common */,
-				84BC82BF234E502500821DD5 /* ViewModels */,
 				84BC82BE234E502000821DD5 /* Routers */,
 				84BC82BD234E501100821DD5 /* Controllers */,
-				84A2A1E3234D376A0078EE29 /* Assets.xcassets */,
 				84A2A1DC234D37690078EE29 /* AppDelegate.swift */,
 				84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */,
 				84A2A1E8234D376A0078EE29 /* Info.plist */,
@@ -102,7 +141,7 @@
 		84BC82BD234E501100821DD5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				84A2A1DE234D37690078EE29 /* WelcomeViewController.swift */,
+				84A2A1DE234D37690078EE29 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,26 +149,9 @@
 		84BC82BE234E502000821DD5 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				84BC82C2234E508500821DD5 /* WelcomeRouter.swift */,
+				84BC82C2234E508500821DD5 /* LoginRouter.swift */,
 			);
 			path = Routers;
-			sourceTree = "<group>";
-		};
-		84BC82BF234E502500821DD5 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				84BC82C5234E509800821DD5 /* WelcomeViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		84BC82C1234E506700821DD5 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
-				847CE0C2234E549A002FC12E /* Button.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		CD9EC9AC8EAAF3CFA40EF6A2 /* Frameworks */ = {
@@ -200,8 +222,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8452C430235E051F009E99E8 /* Assets.xcassets in Resources */,
 				84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */,
-				84A2A1E4234D376A0078EE29 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,12 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84BC82C3234E508500821DD5 /* WelcomeRouter.swift in Sources */,
+				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
-				84BC82C6234E509800821DD5 /* WelcomeViewModel.swift in Sources */,
-				84A2A1DF234D37690078EE29 /* WelcomeViewController.swift in Sources */,
+				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
+				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
+				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
+				8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */,
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

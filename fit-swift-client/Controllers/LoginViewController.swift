@@ -1,5 +1,5 @@
 //
-//  WelcomeViewController.swift
+//  LoginViewController.swift
 //  fit-swift-client
 //
 //  Created by admin on 08/10/2019.
@@ -9,16 +9,20 @@
 import UIKit
 import EasyPeasy
 
-class WelcomeViewController: UIViewController {
+class LoginViewController: UIViewController {
     enum Route: String {
         case login
         case signUp
         case forgotPassword
     }
-//    var viewModel: LoginViewModel!
-    var router: Router!
+    var router = LoginRouter()
     
     private let container = UIView()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setGradientBackground()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +32,22 @@ class WelcomeViewController: UIViewController {
     func setup(){
         view.addSubview(container)
         container.easy.layout(Edges())
-        container.backgroundColor = .blue
+        
+        let button = Button()
+        container.addSubview(button)
+        button.easy.layout(Center())
+        button
     }
 
 }
 
 // MARK: Routing
 
-extension WelcomeViewController {
+extension LoginViewController {
 
-//        func loginButtonTapped() {
-//            router.route(to: Route.login.rawValue, from: self)
-//        }
+        func loginButtonTapped() {
+            router.route(to: Route.login.rawValue, from: self)
+        }
 //        func signUpTapped() {
 //            router.route(to: Route.signUp.rawValue, from: self)
 //        }
