@@ -15,15 +15,10 @@ class LoginRouter: Router {
         guard let route = LoginViewController.Route(rawValue: routeID) else { return }
         switch route {
         case .login:
-            print("LOG IN")
+            let vc = DashboardViewController()
+            context.present(vc, animated: true, completion: nil)
         case .signUp:
             print("SIGN UP")
-//            // Push sign-up-screen:
-//            let vc = SignUpViewController()
-//            let vm = SignUpViewModel()
-//            vc.viewModel = vm
-//            vc.router = SignUpRouter(viewModel: vm)
-//            context.navigationController.push(vc, animated: true)
         case .forgotPassword:
              print("FORGOT PASSWORD")
         }

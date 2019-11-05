@@ -16,6 +16,12 @@ class LoginViewController: UIViewController {
         case forgotPassword
     }
     var router = LoginRouter()
+    var viewModel = LoginViewModel()
+    
+    let loginField = TextField()
+    let passwordField = PasswordField()
+    let loginLabel = Label(label: "login")
+    let passwordLabel = Label(label: "password")
     
     private let container = UIView()
     
@@ -61,9 +67,12 @@ class LoginViewController: UIViewController {
     }
     
     private func  setupTextFields() {
-    
+        container.addSubviews(subviews: [loginLabel, passwordLabel, loginField, passwordField])
+        loginLabel.easy.layout(Bottom(6).to(loginField), Left(78))
+        passwordLabel.easy.layout(Bottom(6).to(passwordField), Left(78))
+        loginField.easy.layout(CenterX(), Bottom(425))
+        passwordField.easy.layout(CenterX(), Bottom(345))
     }
-
 }
 
 // MARK: Routing
@@ -71,7 +80,19 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
 
         @objc private func loginButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
-            router.route(to: Route.login.rawValue, from: self)
+            let login = loginField.textField.text
+            let passwd = passwordField.textField.text
+            
+            if viewModel.authenticate(login: login, passwd: passwd){
+                router.route(to: Route.login.rawValue, from: self)
+            }
+            else {
+                loginField.textField.text = ""
+                passwordField.textField.text = ""
+                loginLabel.text = "try again! - login"
+                passwordLabel.text = "try again! - password"
+            }
+            return
         }
         @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {
             router.route(to: Route.signUp.rawValue, from: self)
