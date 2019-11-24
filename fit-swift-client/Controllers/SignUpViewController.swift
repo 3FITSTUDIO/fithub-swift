@@ -162,7 +162,7 @@ extension SignUpViewController {
     }
     @objc private func submitTapped(_ sender: UITapGestureRecognizer? = nil) {
         let enteredData = textFields.map { $0.textField.text }
-        viewModel.verifyEnteredData(data: enteredData)
+        guard viewModel.verifyEnteredData(data: enteredData) else { return }
         router.route(to: Route.submit.rawValue, from: self)
     }
 //    @objc private func forgotTapped(_ sender: UITapGestureRecognizer? = nil) {
