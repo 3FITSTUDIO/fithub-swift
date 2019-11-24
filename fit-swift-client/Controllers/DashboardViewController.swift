@@ -15,7 +15,7 @@ class DashboardViewController: UIViewController {
         case logout
     }
     let router = DashboardRouter()
-    let viewModel = LoginViewModel()
+    let viewModel = DashboardViewModel()
     
     
     private let container = UIView()

@@ -9,5 +9,7 @@
 import Foundation
 
 class SignUpViewModel {
-    
+    func verifyEnteredData(data: [String?]) {
+        return
+    }
 }
