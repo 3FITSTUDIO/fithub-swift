@@ -32,5 +32,4 @@ class Label : UILabel {
         self.setFont(fontName: FithubUI.Fonts.mainAvenir)
         self.fontSize(size: 15)
     }
-    
 }

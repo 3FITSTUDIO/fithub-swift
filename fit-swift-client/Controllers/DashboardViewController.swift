@@ -14,19 +14,15 @@ class DashboardViewController: UIViewController {
     enum Route: String {
         case logout
     }
-    var router = DashboardRouter()
-    var viewModel = LoginViewModel()
+    let router = DashboardRouter()
+    let viewModel = LoginViewModel()
     
     
     private let container = UIView()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setGradientBackground()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCommonTraits()
         setup()
     }
     
