@@ -8,39 +8,63 @@
 
 /* Begin PBXBuildFile section */
 		606469BA8489963620B223C0 /* Pods_fit_swift_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */; };
+		841DC29C237167B50075BA8C /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29B237167B50075BA8C /* PasswordField.swift */; };
+		841DC29E237169F30075BA8C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29D237169F30075BA8C /* Label.swift */; };
+		841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */; };
+		841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC2A12371C4870075BA8C /* DashboardViewController.swift */; };
 		8452C423235CCB2D009E99E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C422235CCB2D009E99E8 /* User.swift */; };
 		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
 		8452C430235E051F009E99E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8452C42F235E051F009E99E8 /* Assets.xcassets */; };
+		845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CD7A023722463002917A9 /* DashboardRouter.swift */; };
+		845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CD7A22372249D002917A9 /* DashboardViewModel.swift */; };
 		84710C26236A1B3C0027AEC5 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 84710C25236A1B3C0027AEC5 /* Avenir.ttc */; };
 		84710C2A236A31F20027AEC5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84710C29236A31F20027AEC5 /* TextField.swift */; };
 		847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */; };
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
+		8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FAFE2372C09C003E7150 /* SignUpViewController.swift */; };
+		8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB002372C134003E7150 /* SignUpRouter.swift */; };
+		8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB022372C1B6003E7150 /* SignUpViewModel.swift */; };
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
+		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
+		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
+		84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4355238A129800CF853D /* MD5Hasher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23FBAC3A15CCC3D59DD73D54 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 		3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fit_swift_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		841DC29B237167B50075BA8C /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
+		841DC29D237169F30075BA8C /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		841DC2A12371C4870075BA8C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8452C42F235E051F009E99E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		845CD7A023722463002917A9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
+		845CD7A22372249D002917A9 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		84710C25236A1B3C0027AEC5 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
 		84710C29236A31F20027AEC5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUIConstants.swift; sourceTree = "<group>"; };
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		8495FB022372C1B6003E7150 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		84A2A1D9234D37690078EE29 /* fit-swift-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fit-swift-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A2A1DC234D37690078EE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A2A1DE234D37690078EE29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84A2A1E6234D376A0078EE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
+		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
+		84EA4355238A129800CF853D /* MD5Hasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Hasher.swift; sourceTree = "<group>"; };
 		F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +92,7 @@
 		8452C421235CCB16009E99E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84EA4352238A11A700CF853D /* Enums */,
 				8452C422235CCB2D009E99E8 /* User.swift */,
 			);
 			path = Models;
@@ -80,6 +105,8 @@
 				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
 				847CE0C2234E549A002FC12E /* Button.swift */,
 				84710C29236A31F20027AEC5 /* TextField.swift */,
+				841DC29B237167B50075BA8C /* PasswordField.swift */,
+				841DC29D237169F30075BA8C /* Label.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -87,6 +114,9 @@
 		8452C429235DF3C8009E99E8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */,
+				845CD7A22372249D002917A9 /* DashboardViewModel.swift */,
+				8495FB022372C1B6003E7150 /* SignUpViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -94,6 +124,8 @@
 		8452C42A235DF3D9009E99E8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				84EA434E238A028600CF853D /* ImageUtility.swift */,
+				84EA4355238A129800CF853D /* MD5Hasher.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -156,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				84A2A1DE234D37690078EE29 /* LoginViewController.swift */,
+				841DC2A12371C4870075BA8C /* DashboardViewController.swift */,
+				8495FAFE2372C09C003E7150 /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,8 +198,18 @@
 			isa = PBXGroup;
 			children = (
 				84BC82C2234E508500821DD5 /* LoginRouter.swift */,
+				845CD7A023722463002917A9 /* DashboardRouter.swift */,
+				8495FB002372C134003E7150 /* SignUpRouter.swift */,
 			);
 			path = Routers;
+			sourceTree = "<group>";
+		};
+		84EA4352238A11A700CF853D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				84EA4350238A116E00CF853D /* AccountType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		CD9EC9AC8EAAF3CFA40EF6A2 /* Frameworks */ = {
@@ -296,12 +340,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */,
+				84EA4351238A116E00CF853D /* AccountType.swift in Sources */,
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
+				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
+				841DC29E237169F30075BA8C /* Label.swift in Sources */,
+				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
+				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
+				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
+				84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
+				845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */,
+				845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
+				841DC29C237167B50075BA8C /* PasswordField.swift in Sources */,
+				841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */,
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
 				8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */,
@@ -447,6 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8DN4ND55V5;
 				INFOPLIST_FILE = "fit-swift-client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8DN4ND55V5;
 				INFOPLIST_FILE = "fit-swift-client/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

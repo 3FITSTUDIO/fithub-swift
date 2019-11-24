@@ -13,10 +13,10 @@ class LoginViewController: UIViewController {
     enum Route: String {
         case login
         case signUp
-        case forgotPassword
+//        case forgotPassword
     }
-    var router = LoginRouter()
-    var viewModel = LoginViewModel()
+    let router = LoginRouter()
+    let viewModel = LoginViewModel()
     
     let loginField = TextField()
     let passwordField = PasswordField()
@@ -25,27 +25,23 @@ class LoginViewController: UIViewController {
     
     private let container = UIView()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setGradientBackground()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCommonTraits()
         setup()
+        resetAppearance()
     }
     
     private func setup(){
         view.addSubview(container)
         container.easy.layout(Edges())
         
+        setupButtons()
+        setupTextFields()
         let logo = UIImageView()
         logo.image = UIImage(named: "logo-text")
         container.addSubview(logo)
-        logo.easy.layout(CenterX(), Top(100))
-        
-        setupButtons()
-        setupTextFields()
+        logo.easy.layout(CenterX(), Bottom(20).to(loginLabel))
         
     }
     
@@ -63,7 +59,7 @@ class LoginViewController: UIViewController {
         let forgotButton = Button(type: .label, label: "forgot password?")
         container.addSubview(forgotButton)
         forgotButton.easy.layout(CenterX(), Top(15).to(loginButton))
-        forgotButton.addGesture(target: self, selector: #selector(self.forgotPasswordTapped(_:)))
+//        forgotButton.addGesture(target: self, selector: #selector(self.forgotPasswordTapped(_:)))
     }
     
     private func  setupTextFields() {
@@ -72,6 +68,13 @@ class LoginViewController: UIViewController {
         passwordLabel.easy.layout(Bottom(6).to(passwordField), Left(78))
         loginField.easy.layout(CenterX(), Bottom(425))
         passwordField.easy.layout(CenterX(), Bottom(345))
+    }
+    
+    func resetAppearance() {
+        loginLabel.text = "login"
+        loginField.textField.text = ""
+        passwordLabel.text = "password"
+        passwordField.textField.text = ""
     }
 }
 
@@ -97,8 +100,8 @@ extension LoginViewController {
         @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {
             router.route(to: Route.signUp.rawValue, from: self)
         }
-        @objc private func forgotPasswordTapped(_ sender: UITapGestureRecognizer? = nil) {
-            router.route(to: Route.forgotPassword.rawValue, from: self)
-        }
+//        @objc private func forgotPasswordTapped(_ sender: UITapGestureRecognizer? = nil) {
+//            router.route(to: Route.forgotPassword.rawValue, from: self)
+//        }
 }
 

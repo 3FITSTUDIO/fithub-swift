@@ -13,14 +13,13 @@ class LoginRouter: Router {
     
     func route(to routeID: String, from context: UIViewController, parameters: Any? = nil) {
         guard let route = LoginViewController.Route(rawValue: routeID) else { return }
+        let vc: UIViewController
         switch route {
         case .login:
-            let vc = DashboardViewController()
-            context.present(vc, animated: true, completion: nil)
+            vc = DashboardViewController()
         case .signUp:
-            print("SIGN UP")
-        case .forgotPassword:
-             print("FORGOT PASSWORD")
+            vc = SignUpViewController()
         }
+        context.navigationController?.pushViewController(vc, animated: false)
     }
 }

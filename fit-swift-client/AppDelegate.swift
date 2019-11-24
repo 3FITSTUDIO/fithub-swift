@@ -12,15 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationController: UINavigationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let firstScreen = LoginViewController()
-        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = firstScreen
-        window?.makeKeyAndVisible()
+               
+        if let window = window {
+            let mainVC = LoginViewController()
+            navigationController = UINavigationController(rootViewController: mainVC)
+            navigationController?.navigationBar.isHidden = true
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+        }
         return true
     }
 

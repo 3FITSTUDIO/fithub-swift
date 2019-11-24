@@ -26,11 +26,25 @@ extension UIColor {
 }
 
 extension UIViewController {
+    func setupCommonTraits() {
+        setGradientBackground()
+        hideKeyboardWhenTappedAround()
+    }
     func setGradientBackground() {
         view.backgroundColor = UIColor.clear
         let backgroundLayer = FithubUI.Colors.backgroundGradient
         backgroundLayer.frame = view.frame
         view.layer.insertSublayer(backgroundLayer, at: 0)
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

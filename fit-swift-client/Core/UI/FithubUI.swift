@@ -15,7 +15,7 @@ class FithubUI {
         static let mainAvenir: UIFont = {
             guard let customFont = UIFont(name: "Avenir", size: UIFont.labelFontSize) else {
                 fatalError("""
-                    Failed to load the "CustomFont-Light" font.
+                    Failed to load the "Avenir" font.
                     Make sure the font file is included in the project and the font name is spelled correctly.
                     """
                 )

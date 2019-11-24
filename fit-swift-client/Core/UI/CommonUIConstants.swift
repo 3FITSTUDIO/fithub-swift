@@ -11,11 +11,6 @@ import UIKit
 import EasyPeasy
 
 class CommonUIConstants {
-    
-    required init() {
-        
-    }
-    
     struct ButtonConstants {
         static let smallButtonWidth: CGFloat = 114
         static let bigButtonWidth: CGFloat = 220

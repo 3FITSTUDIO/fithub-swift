@@ -13,13 +13,12 @@ class DashboardRouter: Router {
     
     func route(to routeID: String, from context: UIViewController, parameters: Any? = nil) {
         guard let route = DashboardViewController.Route(rawValue: routeID) else { return }
+        let vc: UIViewController
         switch route {
         case .logout:
-            context.dismiss(animated: true, completion: nil)
-//            let vc = LoginViewController()
-//            context.present(vc, animated: true, completion: nil)
-        default:
-            return
+            vc = LoginViewController()
         }
+        context.navigationController?.pushViewController(vc, animated: false)
+
     }
 }

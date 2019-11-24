@@ -14,7 +14,7 @@ class LoginViewModel {
     
     func authenticate(login: String?, passwd: String?) -> Bool {
         if (login != nil && passwd != nil) {
-             return login == "admin" && passwd == "admin"
+             return login == "a" && passwd == "a"
         }
         return false
     }
