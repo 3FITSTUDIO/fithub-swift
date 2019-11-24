@@ -33,6 +33,7 @@ class SignUpViewController: UIViewController {
     let emailField = TextField()
     let passwdField = PasswordField()
     let passwdConfirmField = PasswordField()
+    var textFields = [TextField]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,6 +49,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCommonTraits()
+        textFields = [nameField, surnameField, emailField, passwdField, passwdConfirmField]
         setup()
     }
     
@@ -64,7 +66,6 @@ class SignUpViewController: UIViewController {
     }
     
     private func  setupForm() {
-        let textFields = [nameField, surnameField, emailField, passwdField, passwdConfirmField]
         textFields.forEach { $0.textField.delegate = self }
         scrollView.addSubviews(subviews: textFields)
         
@@ -111,7 +112,7 @@ class SignUpViewController: UIViewController {
 //MARK: UITextFieldDelegate
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()  //if desired
+        textField.resignFirstResponder()
         dismissKeyboard()
         return true
     }
@@ -155,12 +156,13 @@ extension SignUpViewController {
 }
 
 // MARK: Routing
-
 extension SignUpViewController {
     @objc private func cancelTapped(_ sender: UITapGestureRecognizer? = nil) {
         router.route(to: Route.cancel.rawValue, from: self)
     }
     @objc private func submitTapped(_ sender: UITapGestureRecognizer? = nil) {
+        let enteredData = textFields.map { $0.textField.text }
+        viewModel.verifyEnteredData(data: enteredData)
         router.route(to: Route.submit.rawValue, from: self)
     }
 //    @objc private func forgotTapped(_ sender: UITapGestureRecognizer? = nil) {
