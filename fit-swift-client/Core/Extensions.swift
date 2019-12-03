@@ -57,6 +57,14 @@ extension UIView {
         let tap = UITapGestureRecognizer(target: target, action: selector)
         self.addGestureRecognizer(tap)
     }
+    
+    func addShadow() {
+        self.layer.shadowColor = FithubUI.Colors.blackOneHundred.cgColor
+        self.layer.shadowOpacity = 0.16
+        self.layer.shadowOffset = CGSize(width: 0, height: 10.0)
+        self.layer.shadowRadius = 10
+        self.layer.shouldRasterize = true
+    }
 }
 
 extension UILabel {

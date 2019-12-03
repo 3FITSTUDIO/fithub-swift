@@ -31,21 +31,16 @@ class DashboardViewController: UIViewController {
         container.easy.layout(Edges())
     
         setupButtons()
+        let tile = BasicTile(size: .big)
+        container.addSubview(tile)
+        tile.easy.layout(Center())
     }
     
     private func setupButtons() {
-        let logoutButton = Button(label: "logout")
-        container.addSubview(logoutButton)
-        logoutButton.easy.layout(CenterX(), Bottom(30))
-        logoutButton.addGesture(target: self, selector: #selector(self.logoutButtonTapped(_:)))
     }
 }
 
 // MARK: Routing
 
-extension DashboardViewController {
-    @objc private func logoutButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
-        router.route(to: Route.logout.rawValue, from: self)
-    }
-}
+extension DashboardViewController {}
 

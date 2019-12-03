@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
-        view.contentSize.height = 1000
+        view.contentSize.height = 700
         return view
     }()
     
@@ -55,7 +55,7 @@ class SignUpViewController: UIViewController {
     
     private func setup(){
         view.addSubview(scrollView)
-        scrollView.easy.layout(Top(20), Bottom(20), Left(), Right())
+        scrollView.easy.layout(Top(0), Bottom(20), Left(), Right())
         
         let logo = UIImageView()
         logo.image = UIImage(named: "logo-text")
@@ -78,7 +78,7 @@ class SignUpViewController: UIViewController {
         let labels = [nameLabel, surnameLabel, emailLabel, passwdLabel, passwdConfirmLabel]
         scrollView.addSubviews(subviews: labels)
         
-        nameField.easy.layout(CenterX(), Top(250))
+        nameField.easy.layout(CenterX(), Top(200))
         var previous = nameField
         let rest = [surnameField, emailField, passwdField, passwdConfirmField]
         rest.forEach {
@@ -86,7 +86,7 @@ class SignUpViewController: UIViewController {
             previous = $0
         }
         
-        nameLabel.easy.layout(Left(82), Top(225))
+        nameLabel.easy.layout(Left(82), Top(175))
         let rest2 = [surnameLabel, emailLabel, passwdLabel, passwdConfirmLabel]
         var previous2 = nameLabel
         rest2.forEach {
@@ -101,6 +101,11 @@ class SignUpViewController: UIViewController {
         scrollView.addSubview(createAccountButton)
         createAccountButton.easy.layout(CenterX(), Top(40).to(passwdConfirmField, .bottom))
         createAccountButton.addGesture(target: self, selector: #selector(self.submitTapped(_:)))
+        
+        let cancelButton = Button(type: .small, label: "cancel")
+        scrollView.addSubview(cancelButton)
+        cancelButton.easy.layout(CenterX(), Top(30).to(createAccountButton, .bottom))
+        cancelButton.addGesture(target: self, selector: #selector(self.cancelTapped))
         
 //        let forgotPasswordButton = Label(label: "forgot password?")
 //        container.addSubview(forgotPasswordButton)

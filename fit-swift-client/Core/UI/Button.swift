@@ -17,7 +17,7 @@ class Button : UIView {
     
     var type: ButtonType = .small
 
-    let imageView = UIImageView()
+    let backgroundView = UIView()
     let buttonLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -65,19 +65,21 @@ class Button : UIView {
             }
         }()
         
-        if type == .label {
-            buttonLabel.fontSize(size: 15)
-            buttonLabel.textColor = .white
-        }
         self.easy.layout(
             Height(height),
             Width(width))
-        self.addSubviews(subviews: [imageView, buttonLabel])
-        imageView.easy.layout(Edges())
+        self.addSubviews(subviews: [backgroundView, buttonLabel])
+        backgroundView.easy.layout(Edges())
         buttonLabel.easy.layout(Center())
         
-        imageView.image = {
-            return UIImage(named: "button-\(type)")
-        }()
+        guard type != .label else {
+            buttonLabel.fontSize(size: 15)
+            buttonLabel.textColor = .white
+            return
+        }
+        backgroundView.backgroundColor = FithubUI.Colors.whiteOneHundred
+        backgroundView.layer.cornerRadius = 20
+        backgroundView.addShadow()
+        
     }
 }

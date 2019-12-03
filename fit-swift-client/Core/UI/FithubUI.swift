@@ -13,9 +13,9 @@ class FithubUI {
     
     struct Fonts {
         static let mainAvenir: UIFont = {
-            guard let customFont = UIFont(name: "Avenir", size: UIFont.labelFontSize) else {
+            guard let customFont = UIFont(name: "Avenir-Heavy", size: UIFont.labelFontSize) else {
                 fatalError("""
-                    Failed to load the "Avenir" font.
+                    Failed to load the "Avenir Bold" font.
                     Make sure the font file is included in the project and the font name is spelled correctly.
                     """
                 )
@@ -27,9 +27,9 @@ class FithubUI {
     struct Colors {
         static let backgroundGradient: CAGradientLayer = {
             // #8743E5
-            let backgroundGradientTop = UIColor(r: 135, g: 67, b: 229).cgColor
+            let backgroundGradientTop = UIColor(r: 67, g: 229, b: 111).cgColor
             // #661F80
-            let backgroundGradientBottom = UIColor(r: 102, g: 31, b: 128).cgColor
+            let backgroundGradientBottom = UIColor(r: 78, g: 214, b: 110).cgColor
             
             let gl = CAGradientLayer()
             gl.colors = [backgroundGradientTop, backgroundGradientBottom]
@@ -38,8 +38,11 @@ class FithubUI {
         }()
         
         // #7B2286
-        static let buttonTextColorFullOpacity = UIColor(r: 123, g: 34, b: 134)
+        static let buttonTextColorFullOpacity = UIColor(r: 78, g: 214, b: 110)
         static let buttonTextColorSixtyOpacity = UIColor(r: 123, g: 34, b: 134, alpha: 0.6)
+        static let whiteOneHundred = UIColor(r: 255, g: 255, b: 255)
+        static let blackOneHundred = UIColor(r: 0, g: 0, b: 0)
+
     }
     
 }
