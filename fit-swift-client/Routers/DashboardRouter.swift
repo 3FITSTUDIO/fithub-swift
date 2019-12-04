@@ -19,6 +19,5 @@ class DashboardRouter: Router {
             vc = LoginViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
-
     }
 }

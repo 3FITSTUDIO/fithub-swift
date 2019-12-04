@@ -13,7 +13,7 @@ import EasyPeasy
 class TextField : UIView {
     
     let textField = UITextField()
-    var borderView = UIImageView()
+    var borderView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class TextField : UIView {
         self.init()
         setupLayout()
         settings()
-        self.textField.placeholder = placeholder
+        textField.placeholder = placeholder
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,14 +39,16 @@ class TextField : UIView {
             Height(height),
             Width(width))
         
-        self.addSubviews(subviews: [textField, borderView])
+        self.addSubviews(subviews: [borderView, textField])
         borderView.easy.layout(Edges())
         textField.easy.layout(Left(15), Right(15), Top(), Bottom())
-        self.borderView.image = UIImage(named: "textfield")
+        borderView.layer.borderWidth = 5
+        borderView.layer.borderColor = FithubUI.Colors.whiteOneHundred.cgColor
+        borderView.layer.cornerRadius = 20
     }
     
     func settings() {
-        self.textField.textColor = .white
-        self.textField.autocapitalizationType = .none
+        textField.textColor = .white
+        textField.autocapitalizationType = .none
     }
 }

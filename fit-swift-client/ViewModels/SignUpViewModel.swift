@@ -9,7 +9,8 @@
 import Foundation
 
 class SignUpViewModel {
-    func verifyEnteredData(data: [String?]) {
-        return
+    func verifyEnteredData(data: [String?]) -> Bool{
+        // TODO: Implement verifying Form data
+        return true
     }
 }

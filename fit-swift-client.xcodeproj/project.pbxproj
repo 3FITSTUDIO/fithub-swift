@@ -30,6 +30,8 @@
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
+		84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */; };
+		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
 		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
 		84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4355238A129800CF853D /* MD5Hasher.swift */; };
@@ -62,6 +64,8 @@
 		84A2A1E6234D376A0078EE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
+		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		84EA4355238A129800CF853D /* MD5Hasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Hasher.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				84710C29236A31F20027AEC5 /* TextField.swift */,
 				841DC29B237167B50075BA8C /* PasswordField.swift */,
 				841DC29D237169F30075BA8C /* Label.swift */,
+				84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */,
+				84C888612396C38A00F2C2E3 /* ComponentTitle.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -352,9 +358,11 @@
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
 				84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
+				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
 				845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */,
 				845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */,
+				84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
 				841DC29C237167B50075BA8C /* PasswordField.swift in Sources */,
 				841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */,
@@ -503,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8DN4ND55V5;
 				INFOPLIST_FILE = "fit-swift-client/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,7 +519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Dominik-Urbaez-Gomez.fit-swift-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -523,7 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8DN4ND55V5;
 				INFOPLIST_FILE = "fit-swift-client/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Dominik-Urbaez-Gomez.fit-swift-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
