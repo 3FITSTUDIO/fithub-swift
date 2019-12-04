@@ -12,18 +12,18 @@ import EasyPeasy
 
 class Button : UIView {
     enum ButtonType {
-        case small, big, label
+        case small, big, label, nav
     }
     
-    var type: ButtonType = .small
+    private var type: ButtonType = .small
 
-    let backgroundView = UIView()
-    let buttonLabel: UILabel = {
+    private let backgroundView = UIView()
+    private let buttonLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.setFont(fontName: FithubUI.Fonts.mainAvenir)
         label.fontSize(size: 20)
-        label.textColor = FithubUI.Colors.buttonTextColorFullOpacity
+        label.textColor = FithubUI.Colors.lightishGreen
         label.adjustsFontSizeToFitWidth = false
         label.numberOfLines = 1
         return label
@@ -45,7 +45,7 @@ class Button : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(){
+    private func setup(){
         let width: CGFloat = {
             switch type {
             case .small:
@@ -54,12 +54,16 @@ class Button : UIView {
                 return CommonUIConstants.ButtonConstants.bigButtonWidth
             case .label:
                 return CommonUIConstants.ButtonConstants.labelButtonWidth
+            case .nav:
+                return CommonUIConstants.ButtonConstants.navButtonWidth
             }
         }()
         let height: CGFloat = {
             switch type {
             case .label:
                 return CommonUIConstants.ButtonConstants.labelButtonHeight
+            case .nav:
+                return CommonUIConstants.ButtonConstants.navButtonHeight
             default:
                 return CommonUIConstants.ButtonConstants.basicButtonHeight
             }
@@ -77,9 +81,14 @@ class Button : UIView {
             buttonLabel.textColor = .white
             return
         }
+        
         backgroundView.backgroundColor = FithubUI.Colors.whiteOneHundred
         backgroundView.layer.cornerRadius = 20
         backgroundView.addShadow()
+        
+        guard type == .nav else { return }
+        buttonLabel.fontSize(size: 31)
+        buttonLabel.textColor = FithubUI.Colors.lightishGreen
         
     }
 }

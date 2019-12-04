@@ -13,7 +13,7 @@ import EasyPeasy
 class TextField : UIView {
     
     let textField = UITextField()
-    var borderView = UIView()
+    private var borderView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,7 +47,7 @@ class TextField : UIView {
         borderView.layer.cornerRadius = 20
     }
     
-    func settings() {
+    private func settings() {
         textField.textColor = .white
         textField.autocapitalizationType = .none
     }

@@ -17,10 +17,11 @@ class Label : UILabel {
         setup()
     }
     
-    convenience init(label: String) {
+    convenience init(label: String, fontSize: CGFloat = 15) {
         self.init()
         setup()
         self.text = label
+        self.fontSize(size: fontSize)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,6 +31,5 @@ class Label : UILabel {
     private func setup() {
         self.textColor = .white
         self.setFont(fontName: FithubUI.Fonts.mainAvenir)
-        self.fontSize(size: 15)
     }
 }

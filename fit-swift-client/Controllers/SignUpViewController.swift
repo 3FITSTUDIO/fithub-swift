@@ -16,11 +16,11 @@ class SignUpViewController: UIViewController {
         case submit
 //        case forgot
     }
-    let router = SignUpRouter()
-    let viewModel = SignUpViewModel()
+    private let router = SignUpRouter()
+    private let viewModel = SignUpViewModel()
     
-    var scrollOffset : CGFloat = 0
-    var distance : CGFloat = 0
+    private var scrollOffset : CGFloat = 0
+    private var distance : CGFloat = 0
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -28,12 +28,12 @@ class SignUpViewController: UIViewController {
         return view
     }()
     
-    let nameField = TextField()
-    let surnameField = TextField()
-    let emailField = TextField()
-    let passwdField = PasswordField()
-    let passwdConfirmField = PasswordField()
-    var textFields = [TextField]()
+    private let nameField = TextField()
+    private let surnameField = TextField()
+    private let emailField = TextField()
+    private let passwdField = PasswordField()
+    private let passwdConfirmField = PasswordField()
+    private var textFields = [TextField]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

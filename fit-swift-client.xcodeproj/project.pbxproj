@@ -18,6 +18,7 @@
 		8452C430235E051F009E99E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8452C42F235E051F009E99E8 /* Assets.xcassets */; };
 		845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CD7A023722463002917A9 /* DashboardRouter.swift */; };
 		845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CD7A22372249D002917A9 /* DashboardViewModel.swift */; };
+		846C033D2397C28B00798397 /* BasicComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C033C2397C28B00798397 /* BasicComponentViewController.swift */; };
 		84710C26236A1B3C0027AEC5 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 84710C25236A1B3C0027AEC5 /* Avenir.ttc */; };
 		84710C2A236A31F20027AEC5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84710C29236A31F20027AEC5 /* TextField.swift */; };
 		847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */; };
@@ -50,6 +51,7 @@
 		8452C42F235E051F009E99E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845CD7A023722463002917A9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		845CD7A22372249D002917A9 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		846C033C2397C28B00798397 /* BasicComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicComponentViewController.swift; sourceTree = "<group>"; };
 		84710C25236A1B3C0027AEC5 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
 		84710C29236A31F20027AEC5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUIConstants.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				84A2A1DE234D37690078EE29 /* LoginViewController.swift */,
 				841DC2A12371C4870075BA8C /* DashboardViewController.swift */,
 				8495FAFE2372C09C003E7150 /* SignUpViewController.swift */,
+				846C033C2397C28B00798397 /* BasicComponentViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
+				846C033D2397C28B00798397 /* BasicComponentViewController.swift in Sources */,
 				845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */,
 				845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */,
 				84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */,
