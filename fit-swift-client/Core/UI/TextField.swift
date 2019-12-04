@@ -47,7 +47,7 @@ class TextField : UIView {
         borderView.layer.cornerRadius = 20
     }
     
-    private func settings() {
+    func settings() {
         textField.textColor = .white
         textField.autocapitalizationType = .none
     }

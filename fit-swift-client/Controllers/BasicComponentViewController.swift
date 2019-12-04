@@ -11,8 +11,8 @@ import EasyPeasy
 
 class BasicComponentViewController: UIViewController {
     
-    private let notchBorder = UIView()
-    private let bottomNavigationBar = UIView()
+    let notchBorder = UIView()
+    let bottomNavigationBar = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class BasicComponentViewController: UIViewController {
         setup()
     }
     
-    private func setup() {
+    func setup() {
         setupNotchBorder()
     }
     
