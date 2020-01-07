@@ -12,6 +12,7 @@
 		841DC29E237169F30075BA8C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29D237169F30075BA8C /* Label.swift */; };
 		841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */; };
 		841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC2A12371C4870075BA8C /* DashboardViewController.swift */; };
+		84209C3323BA88F400F13998 /* HealthClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84209C3223BA88F400F13998 /* HealthClockView.swift */; };
 		8452C423235CCB2D009E99E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C422235CCB2D009E99E8 /* User.swift */; };
 		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
@@ -21,15 +22,20 @@
 		846C033D2397C28B00798397 /* BasicComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C033C2397C28B00798397 /* BasicComponentViewController.swift */; };
 		84710C26236A1B3C0027AEC5 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 84710C25236A1B3C0027AEC5 /* Avenir.ttc */; };
 		84710C2A236A31F20027AEC5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84710C29236A31F20027AEC5 /* TextField.swift */; };
+		847381BE239980CB00CFB05F /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847381BD239980CB00CFB05F /* NetworkingClient.swift */; };
 		847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */; };
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
+		8489FE4123C4DC2700104C7A /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4023C4DC2700104C7A /* Record.swift */; };
+		8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4223C4DCFF00104C7A /* RecordType.swift */; };
+		8489FE4523C4DD6B00104C7A /* StepsRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4423C4DD6B00104C7A /* StepsRecord.swift */; };
 		8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FAFE2372C09C003E7150 /* SignUpViewController.swift */; };
 		8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB002372C134003E7150 /* SignUpRouter.swift */; };
 		8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB022372C1B6003E7150 /* SignUpViewModel.swift */; };
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
+		84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB96323B3C99C0017737D /* UserNetworking.swift */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
 		84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */; };
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
@@ -45,6 +51,7 @@
 		841DC29D237169F30075BA8C /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		841DC2A12371C4870075BA8C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		84209C3223BA88F400F13998 /* HealthClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthClockView.swift; sourceTree = "<group>"; };
 		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -54,9 +61,13 @@
 		846C033C2397C28B00798397 /* BasicComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicComponentViewController.swift; sourceTree = "<group>"; };
 		84710C25236A1B3C0027AEC5 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
 		84710C29236A31F20027AEC5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		847381BD239980CB00CFB05F /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUIConstants.swift; sourceTree = "<group>"; };
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		8489FE4023C4DC2700104C7A /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		8489FE4223C4DCFF00104C7A /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
+		8489FE4423C4DD6B00104C7A /* StepsRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsRecord.swift; sourceTree = "<group>"; };
 		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		8495FB022372C1B6003E7150 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -65,6 +76,7 @@
 		84A2A1DE234D37690078EE29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84A2A1E6234D376A0078EE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84BBB96323B3C99C0017737D /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
 		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
@@ -100,6 +112,8 @@
 			children = (
 				84EA4352238A11A700CF853D /* Enums */,
 				8452C422235CCB2D009E99E8 /* User.swift */,
+				8489FE4023C4DC2700104C7A /* Record.swift */,
+				8489FE4423C4DD6B00104C7A /* StepsRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +129,7 @@
 				841DC29D237169F30075BA8C /* Label.swift */,
 				84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */,
 				84C888612396C38A00F2C2E3 /* ComponentTitle.swift */,
+				84209C3223BA88F400F13998 /* HealthClockView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -147,9 +162,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		847381BF2399A35800CFB05F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
+				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		847CE0C8234E5F0A002FC12E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				847381BF2399A35800CFB05F /* Network */,
 				8452C42A235DF3D9009E99E8 /* Utility */,
 				8452C428235DF3B1009E99E8 /* UI */,
 				847CE0C6234E5D86002FC12E /* RouterProtocol.swift */,
@@ -184,7 +209,7 @@
 				8452C421235CCB16009E99E8 /* Models */,
 				847CE0C8234E5F0A002FC12E /* Core */,
 				84BC82BE234E502000821DD5 /* Routers */,
-				84BC82BD234E501100821DD5 /* Controllers */,
+				84BC82BD234E501100821DD5 /* ViewControllers */,
 				84A2A1DC234D37690078EE29 /* AppDelegate.swift */,
 				84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */,
 				84A2A1E8234D376A0078EE29 /* Info.plist */,
@@ -192,7 +217,7 @@
 			path = "fit-swift-client";
 			sourceTree = "<group>";
 		};
-		84BC82BD234E501100821DD5 /* Controllers */ = {
+		84BC82BD234E501100821DD5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				84A2A1DE234D37690078EE29 /* LoginViewController.swift */,
@@ -200,7 +225,7 @@
 				8495FAFE2372C09C003E7150 /* SignUpViewController.swift */,
 				846C033C2397C28B00798397 /* BasicComponentViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		84BC82BE234E502000821DD5 /* Routers */ = {
@@ -217,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				84EA4350238A116E00CF853D /* AccountType.swift */,
+				8489FE4223C4DCFF00104C7A /* RecordType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -329,12 +355,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,16 +378,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */,
+				84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */,
 				84EA4351238A116E00CF853D /* AccountType.swift in Sources */,
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
+				847381BE239980CB00CFB05F /* NetworkingClient.swift in Sources */,
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
+				8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
+				84209C3323BA88F400F13998 /* HealthClockView.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
 				84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */,
+				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
@@ -369,6 +402,7 @@
 				84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
 				841DC29C237167B50075BA8C /* PasswordField.swift in Sources */,
+				8489FE4523C4DD6B00104C7A /* StepsRecord.swift in Sources */,
 				841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */,
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
