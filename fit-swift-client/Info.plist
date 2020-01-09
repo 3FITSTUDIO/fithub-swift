@@ -34,6 +34,8 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<false/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>&quot;We&apos;d like to be able to acces your health data.&quot;</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
