@@ -15,13 +15,13 @@ class LoginViewController: UIViewController {
         case signUp
 //        case forgotPassword
     }
-    let router = LoginRouter()
-    let viewModel = LoginViewModel()
+    private let router = LoginRouter()
+    private let viewModel = LoginViewModel()
     
-    let loginField = TextField()
-    let passwordField = PasswordField()
-    let loginLabel = Label(label: "login")
-    let passwordLabel = Label(label: "password")
+    private let loginField = TextField()
+    private let passwordField = PasswordField()
+    private let loginLabel = Label(label: "login")
+    private let passwordLabel = Label(label: "password")
     
     private let container = UIView()
     

@@ -13,7 +13,7 @@ import EasyPeasy
 class TextField : UIView {
     
     let textField = UITextField()
-    var borderView = UIView()
+    private var borderView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

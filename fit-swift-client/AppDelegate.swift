@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import HealthKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
+    var healthStore: HKHealthStore?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,12 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
                
         if let window = window {
-            let mainVC = LoginViewController()
+            let mainVC = DashboardViewController()
             navigationController = UINavigationController(rootViewController: mainVC)
             navigationController?.navigationBar.isHidden = true
             window.rootViewController = navigationController
             window.makeKeyAndVisible()
         }
+        healthStore = HKHealthStore()
+        if let healthStore = healthStore {
+            HealthClockManager.getHealthKitPermission(healthStore)
+        }
+        
         return true
     }
 

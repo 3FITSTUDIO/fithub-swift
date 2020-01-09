@@ -37,11 +37,11 @@ class FithubUI {
             return gl
         }()
         
-        // #7B2286
-        static let buttonTextColorFullOpacity = UIColor(r: 78, g: 214, b: 110)
-        static let buttonTextColorSixtyOpacity = UIColor(r: 123, g: 34, b: 134, alpha: 0.6)
+        static let weirdGreen = UIColor(r: 67, g: 229, b: 111)
+        static let lightishGreen = UIColor(r: 78, g: 214, b: 110)
         static let whiteOneHundred = UIColor(r: 255, g: 255, b: 255)
         static let blackOneHundred = UIColor(r: 0, g: 0, b: 0)
+        static let hospitalGreen = UIColor(r: 138, g: 227, b: 159)
 
     }
     

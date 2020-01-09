@@ -12,13 +12,23 @@ import EasyPeasy
 
 class BasicTile: UIView {
     
+    //TODO: Move wide option to Button class
+    
     enum TileSize {
         case small, big, wide, cell, roundButton, custom
     }
     
-    var size: TileSize = .small
-    var customHeight: CGFloat = 0
-    var customWidth: CGFloat = 0
+    private var size: TileSize = .small
+    private var customHeight: CGFloat = 0
+    private var customWidth: CGFloat = 0
+    
+    let topLabel = Label(label: "", fontSize: 20)
+    let bottomLabel = Label(label: "", fontSize: 30)
+    let mainLabel = Label(label: "", fontSize: 50)
+    let plusLabel = Label(label: "+", fontSize: 60)
+    let counterTopLabel = Label(label: "", fontSize: 40)
+    let counterBottomLabel = Label(label: "steps", fontSize: 40)
+    let wideLabel = Label(label: "", fontSize: 30)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +37,7 @@ class BasicTile: UIView {
     
     convenience init(size: TileSize = .small) {
         self.init()
+        self.size = size
         setup()
     }
     
@@ -34,6 +45,7 @@ class BasicTile: UIView {
         self.init()
         self.customHeight = customHeight
         self.customWidth = customWidth
+        size = .custom
         setup()
     }
     
@@ -41,7 +53,7 @@ class BasicTile: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(){
+    private func setup(){
         let height: CGFloat = {
             switch size {
             case .small: return 152
@@ -50,7 +62,6 @@ class BasicTile: UIView {
             case .cell: return 104
             case .roundButton: return 80
             case .custom: return customHeight
-                
             }
         }()
         let width: CGFloat = {
@@ -64,11 +75,37 @@ class BasicTile: UIView {
             }
         }()
         
-//       TODO: labelki:  kolory, czcionki, rozmiary, reszta do subklasowania
+        setupLabels()
         
         self.addShadow()
         self.layer.cornerRadius = size == .roundButton ? 40 : 20
         self.easy.layout(Height(height), Width(width))
         self.backgroundColor = FithubUI.Colors.whiteOneHundred
+    }
+    
+    private func setupLabels() {
+        [topLabel, bottomLabel, counterBottomLabel, wideLabel].forEach { $0.textColor = FithubUI.Colors.lightishGreen }
+        [mainLabel, counterTopLabel, plusLabel].forEach { $0.textColor = .black }
+        
+        if size == .small {
+            self.addSubviews(subviews: [topLabel, bottomLabel, mainLabel])
+            topLabel.easy.layout(CenterX(), Top(11))
+            mainLabel.easy.layout(Center())
+            bottomLabel.easy.layout(CenterX(), Bottom(13))
+        }
+        else if size == .big {
+            self.addSubviews(subviews: [counterTopLabel, counterBottomLabel])
+            counterTopLabel.easy.layout(CenterX(), Top(116))
+            counterBottomLabel.easy.layout(CenterX(), Bottom(115))
+        }
+        else if size == .roundButton {
+            self.addSubview(plusLabel)
+            plusLabel.easy.layout(Center())
+        }
+        else if size == .wide {
+            self.addSubview(wideLabel)
+            wideLabel.easy.layout(Center())
+        }
+        
     }
 }
