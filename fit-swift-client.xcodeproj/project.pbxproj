@@ -12,6 +12,9 @@
 		841DC29E237169F30075BA8C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29D237169F30075BA8C /* Label.swift */; };
 		841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */; };
 		841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC2A12371C4870075BA8C /* DashboardViewController.swift */; };
+		8435558C23CB640600407CB7 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435558923CB640600407CB7 /* CountingLabel.swift */; };
+		8435558D23CB640600407CB7 /* HealthClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435558A23CB640600407CB7 /* HealthClockManager.swift */; };
+		8435558E23CB640600407CB7 /* HealthClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435558B23CB640600407CB7 /* HealthClockView.swift */; };
 		8452C423235CCB2D009E99E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C422235CCB2D009E99E8 /* User.swift */; };
 		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
@@ -45,6 +48,9 @@
 		841DC29D237169F30075BA8C /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		841DC2A12371C4870075BA8C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		8435558923CB640600407CB7 /* CountingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
+		8435558A23CB640600407CB7 /* HealthClockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthClockManager.swift; sourceTree = "<group>"; };
+		8435558B23CB640600407CB7 /* HealthClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthClockView.swift; sourceTree = "<group>"; };
 		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -93,6 +99,16 @@
 				F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8435558823CB640600407CB7 /* HealthClock */ = {
+			isa = PBXGroup;
+			children = (
+				8435558923CB640600407CB7 /* CountingLabel.swift */,
+				8435558A23CB640600407CB7 /* HealthClockManager.swift */,
+				8435558B23CB640600407CB7 /* HealthClockView.swift */,
+			);
+			path = HealthClock;
 			sourceTree = "<group>";
 		};
 		8452C421235CCB16009E99E8 /* Models */ = {
@@ -150,6 +166,7 @@
 		847CE0C8234E5F0A002FC12E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8435558823CB640600407CB7 /* HealthClock */,
 				8452C42A235DF3D9009E99E8 /* Utility */,
 				8452C428235DF3B1009E99E8 /* UI */,
 				847CE0C6234E5D86002FC12E /* RouterProtocol.swift */,
@@ -356,7 +373,9 @@
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
+				8435558C23CB640600407CB7 /* CountingLabel.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
+				8435558E23CB640600407CB7 /* HealthClockView.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
 				84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */,
@@ -369,6 +388,7 @@
 				84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
 				841DC29C237167B50075BA8C /* PasswordField.swift in Sources */,
+				8435558D23CB640600407CB7 /* HealthClockManager.swift in Sources */,
 				841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */,
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
