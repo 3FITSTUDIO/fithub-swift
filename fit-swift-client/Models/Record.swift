@@ -10,11 +10,20 @@ import Foundation
 
 class Record {
     
+    //    0 neck
+    //    1 chest
+    //    2 bicep
+    //    3 forearm
+    //    4 stomach
+    //    5 waist
+    //    6 thigh
+    //    7 calf
+    
     public var id: Int
     public var value: [Int]
     public var type: RecordType
     
-    init(id: Int, value: [Int], type: RecordType = .measurement) {
+    init(id: Int, value: [Int], type: RecordType) {
         self.id = id
         self.value = value
         self.type = type

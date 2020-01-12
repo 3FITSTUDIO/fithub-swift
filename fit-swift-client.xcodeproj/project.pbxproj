@@ -13,6 +13,9 @@
 		841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */; };
 		841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC2A12371C4870075BA8C /* DashboardViewController.swift */; };
 		84209C3323BA88F400F13998 /* HealthClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84209C3223BA88F400F13998 /* HealthClockView.swift */; };
+		8435559023CB655600407CB7 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435558F23CB655600407CB7 /* UserStore.swift */; };
+		8435559223CB837300407CB7 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559123CB837300407CB7 /* SerializationError.swift */; };
+		8435559423CB922800407CB7 /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559323CB922800407CB7 /* MainStore.swift */; };
 		8452C423235CCB2D009E99E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C422235CCB2D009E99E8 /* User.swift */; };
 		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
@@ -28,7 +31,6 @@
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
 		8489FE4123C4DC2700104C7A /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4023C4DC2700104C7A /* Record.swift */; };
 		8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4223C4DCFF00104C7A /* RecordType.swift */; };
-		8489FE4523C4DD6B00104C7A /* StepsRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4423C4DD6B00104C7A /* StepsRecord.swift */; };
 		8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FAFE2372C09C003E7150 /* SignUpViewController.swift */; };
 		8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB002372C134003E7150 /* SignUpRouter.swift */; };
 		8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB022372C1B6003E7150 /* SignUpViewModel.swift */; };
@@ -41,7 +43,6 @@
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
 		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
-		84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4355238A129800CF853D /* MD5Hasher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,9 @@
 		841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		841DC2A12371C4870075BA8C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		84209C3223BA88F400F13998 /* HealthClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthClockView.swift; sourceTree = "<group>"; };
+		8435558F23CB655600407CB7 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		8435559123CB837300407CB7 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
+		8435559323CB922800407CB7 /* MainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -67,7 +71,6 @@
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		8489FE4023C4DC2700104C7A /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		8489FE4223C4DCFF00104C7A /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
-		8489FE4423C4DD6B00104C7A /* StepsRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsRecord.swift; sourceTree = "<group>"; };
 		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		8495FB022372C1B6003E7150 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -82,7 +85,6 @@
 		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
-		84EA4355238A129800CF853D /* MD5Hasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Hasher.swift; sourceTree = "<group>"; };
 		F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,7 +115,6 @@
 				84EA4352238A11A700CF853D /* Enums */,
 				8452C422235CCB2D009E99E8 /* User.swift */,
 				8489FE4023C4DC2700104C7A /* Record.swift */,
-				8489FE4423C4DD6B00104C7A /* StepsRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				84EA434E238A028600CF853D /* ImageUtility.swift */,
-				84EA4355238A129800CF853D /* MD5Hasher.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -167,6 +167,7 @@
 			children = (
 				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
 				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
+				8435559123CB837300407CB7 /* SerializationError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -179,6 +180,8 @@
 				8452C428235DF3B1009E99E8 /* UI */,
 				847CE0C6234E5D86002FC12E /* RouterProtocol.swift */,
 				8452C42B235DF5BD009E99E8 /* Extensions.swift */,
+				8435558F23CB655600407CB7 /* UserStore.swift */,
+				8435559323CB922800407CB7 /* MainStore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -391,23 +394,24 @@
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
-				84EA4356238A129800CF853D /* MD5Hasher.swift in Sources */,
 				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
+				8435559423CB922800407CB7 /* MainStore.swift in Sources */,
 				846C033D2397C28B00798397 /* BasicComponentViewController.swift in Sources */,
 				845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */,
 				845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */,
 				84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
 				841DC29C237167B50075BA8C /* PasswordField.swift in Sources */,
-				8489FE4523C4DD6B00104C7A /* StepsRecord.swift in Sources */,
 				841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */,
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
+				8435559223CB837300407CB7 /* SerializationError.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
 				8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */,
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
+				8435559023CB655600407CB7 /* UserStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

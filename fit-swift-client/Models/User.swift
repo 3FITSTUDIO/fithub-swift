@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User : Encodable {
+struct User : Codable {
     let id: Int // TODO: Implement receiving all property contents from API
     var login: String
     let email: String
@@ -44,4 +44,35 @@ struct User : Encodable {
         guard surname.range(of: #"[A-z]+[a-zA-Z]*"#, options: .regularExpression) != nil else { return false }
         return true
     }
+}
+
+extension User {
+    init(json: [String: Any]) throws {
+        guard let id = json["id"] as? Int else {
+            throw SerializationError.missing("id")
+        }
+        
+        guard let login = json["login"] as? String else {
+            throw SerializationError.missing("login")
+        }
+        
+        guard let email = json["email"] as? String else {
+            throw SerializationError.missing("email")
+        }
+        
+        guard let name = json["name"] as? String else {
+            throw SerializationError.missing("name")
+        }
+        
+        guard let surname = json["surname"] as? String else {
+            throw SerializationError.missing("surname")
+        }
+        
+        self.id = id
+        self.login = login
+        self.email = email
+        self.name = name
+        self.surname = surname
+    }
+    
 }

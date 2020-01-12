@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationController: UINavigationController?
     var healthStore: HKHealthStore?
+    
+    var mainStore: MainStore?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -29,10 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         healthStore = HKHealthStore()
         if let healthStore = healthStore {
-            HealthClockManager.getHealthKitPermission(healthStore)
+//            HealthClockManager.getHealthKitPermission(healthStore)
         }
         
+        mainStore = MainStore()
+        
         return true
+    }
+    
+    static func provideMainStore() -> MainStore? {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        return delegate.mainStore
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

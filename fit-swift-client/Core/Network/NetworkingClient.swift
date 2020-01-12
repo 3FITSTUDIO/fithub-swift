@@ -11,10 +11,12 @@ import Alamofire
 
 class NetworkingClient {
     
+    let urlBase = "http(s)://5de516c8712f9b001451421d.mockapi.io/fithub"
+    
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     
-    static func executeJSONRequest(_ url: String, _ method: HTTPMethod, onComplete: @escaping WebServiceResponse) {
-        Alamofire.request(url, method: method).responseJSON { (response) in
+    public func executeRequest(_ url: String, _ method: HTTPMethod, parameters: Parameters? = nil, onComplete: @escaping WebServiceResponse) {
+        Alamofire.request(url, method: method, parameters: parameters).responseJSON { (response) in
             if let error = response.error {
                 onComplete(nil, error)
             }
@@ -26,5 +28,4 @@ class NetworkingClient {
             }
         }
     }
-    
 }
