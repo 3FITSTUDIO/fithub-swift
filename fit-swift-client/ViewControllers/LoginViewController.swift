@@ -56,9 +56,9 @@ class LoginViewController: UIViewController {
         newAccButton.easy.layout(CenterX(), Bottom(125))
         newAccButton.addGesture(target: self, selector: #selector(self.signUpTapped(_:)))
         
-        let forgotButton = Button(type: .label, label: "forgot password?")
-        container.addSubview(forgotButton)
-        forgotButton.easy.layout(CenterX(), Top(15).to(loginButton))
+//        let forgotButton = Button(type: .label, label: "forgot password?")
+//        container.addSubview(forgotButton)
+//        forgotButton.easy.layout(CenterX(), Top(15).to(loginButton))
 //        forgotButton.addGesture(target: self, selector: #selector(self.forgotPasswordTapped(_:)))
     }
     
@@ -83,10 +83,10 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
 
         @objc private func loginButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
-            let login = loginField.textField.text
-            let passwd = passwordField.textField.text
+            let login = loginField.textField.text ?? ""
+            let passwd = passwordField.textField.text ?? ""
             
-            if viewModel.authenticate(login: login, passwd: passwd){
+            if viewModel.authenticateOnLogin(login: login, passwd: passwd) {
                 router.route(to: Route.login.rawValue, from: self)
             }
             else {
