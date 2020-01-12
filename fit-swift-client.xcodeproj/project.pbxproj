@@ -12,7 +12,6 @@
 		841DC29E237169F30075BA8C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29D237169F30075BA8C /* Label.swift */; };
 		841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */; };
 		841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC2A12371C4870075BA8C /* DashboardViewController.swift */; };
-		84209C3323BA88F400F13998 /* HealthClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84209C3223BA88F400F13998 /* HealthClockView.swift */; };
 		8435559023CB655600407CB7 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435558F23CB655600407CB7 /* UserStore.swift */; };
 		8435559223CB837300407CB7 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559123CB837300407CB7 /* SerializationError.swift */; };
 		8435559423CB922800407CB7 /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559323CB922800407CB7 /* MainStore.swift */; };
@@ -55,7 +54,6 @@
 		841DC29D237169F30075BA8C /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		841DC2A12371C4870075BA8C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		84209C3223BA88F400F13998 /* HealthClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthClockView.swift; sourceTree = "<group>"; };
 		8435558F23CB655600407CB7 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		8435559123CB837300407CB7 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
 		8435559323CB922800407CB7 /* MainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				841DC29D237169F30075BA8C /* Label.swift */,
 				84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */,
 				84C888612396C38A00F2C2E3 /* ComponentTitle.swift */,
-				84209C3223BA88F400F13998 /* HealthClockView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -410,7 +407,6 @@
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
-				84209C3323BA88F400F13998 /* HealthClockView.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
