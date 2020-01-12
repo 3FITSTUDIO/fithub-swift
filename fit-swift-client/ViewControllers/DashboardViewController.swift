@@ -25,18 +25,21 @@ class DashboardViewController: BasicComponentViewController {
         view.addSubview(container)
         container.easy.layout(Edges())
     
-        let stepsTile = BasicTile(size: .big)
         let weightTile = BasicTile(size: .small)
         let kcalTile = BasicTile(size: .small)
         let measurementsTile = BasicTile(size: .wide)
+        let plusButton = BasicTile(size: .roundButton)
         
-        container.addSubviews(subviews: [stepsTile, weightTile, kcalTile, measurementsTile])
-        stepsTile.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
-        weightTile.easy.layout(Left(19), Top(22).to(stepsTile, .bottom))
-        kcalTile.easy.layout(Right(19), Top(22).to(stepsTile, .bottom))
+        let healthClockTile = HealthClockView()
+        
+        container.addSubviews(subviews: [healthClockTile, weightTile, kcalTile, measurementsTile, plusButton])
+        healthClockTile.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
+        
+        weightTile.easy.layout(Left(19), Top(22).to(healthClockTile, .bottom))
+        kcalTile.easy.layout(Right(19), Top(22).to(healthClockTile, .bottom))
         measurementsTile.easy.layout(CenterX(), Top(22).to(kcalTile, .bottom))
+        plusButton.easy.layout(CenterX(), Top(20).to(measurementsTile, .bottom))
         
-        stepsTile.counterTopLabel.text = "6423"
         weightTile.topLabel.text = "Weight"
         weightTile.bottomLabel.text = "kg"
         kcalTile.topLabel.text = "Calories"

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AccountType {
+enum AccountType {    
     case admin
     case regular
 }

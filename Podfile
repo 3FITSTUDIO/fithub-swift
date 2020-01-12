@@ -7,5 +7,6 @@ target 'fit-swift-client' do
 
   # Pods for fit-swift-client
   pod 'EasyPeasy'
+  pod 'Alamofire'
 
 end
