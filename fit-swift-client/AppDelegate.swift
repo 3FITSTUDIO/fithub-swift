@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         healthStore = HKHealthStore()
         if let healthStore = healthStore {
-//            HealthClockManager.getHealthKitPermission(healthStore)
+            HealthClockManager.getHealthKitPermission(healthStore)
         }
         
         mainStore = MainStore()
