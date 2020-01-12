@@ -42,6 +42,7 @@ class FithubUI {
         static let whiteOneHundred = UIColor(r: 255, g: 255, b: 255)
         static let blackOneHundred = UIColor(r: 0, g: 0, b: 0)
         static let hospitalGreen = UIColor(r: 138, g: 227, b: 159)
+        static let neonGreen = UIColor(r: 96, g: 230, b: 78)
 
     }
     

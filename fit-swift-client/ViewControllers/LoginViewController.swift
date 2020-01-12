@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
         newAccButton.addGesture(target: self, selector: #selector(self.signUpTapped(_:)))
         
         let forgotButton = Button(type: .label, label: "forgot password?")
-        container.addSubview(forgotButton)
+//        container.addSubview(forgotButton)
         forgotButton.easy.layout(CenterX(), Top(15).to(loginButton))
 //        forgotButton.addGesture(target: self, selector: #selector(self.forgotPasswordTapped(_:)))
     }

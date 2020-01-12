@@ -8,36 +8,40 @@
 
 import Foundation
 
-class User {
+struct User : Encodable {
     let id: Int // TODO: Implement receiving all property contents from API
     var login: String
     let email: String
     let name: String
     let surname: String
-    let accountType: AccountType
-    
-    init?(id: Int, login: String, email: String, name: String, surname: String, accountType: AccountType) {
-//        guard verifyLoginEmail(email: email) else { return nil }
+//    let accountType: AccountType
+
+    init?(id: Int, login: String, email: String, name: String, surname: String) {
         self.id = id
         self.login = login
         self.email = email
         self.name = name
         self.surname = surname
-        self.accountType = accountType
-    }
-    
-    fileprivate func verifyLoginEmail(login: String, email: String) -> Bool {
-        //Implement veryfing login and email format
-        return false
-    }
-    
-    fileprivate func verifyNameSurname(name: String, surname: String) -> Bool {
-        //Implement veryging name and surname format
-        return false
+//        self.accountType = accountType
+        guard verifyUserContents(login: login, email: email, name: name, surname: surname) else { return nil }
     }
     
     fileprivate func verifyUserContents(login: String, email: String, name: String, surname: String) -> Bool {
         guard verifyLoginEmail(login: login, email: email), verifyNameSurname(name: name, surname: surname) else { return false }
+        guard verifyNameSurname(name: name, surname: surname) else { return false }
+        return true
+    }
+    
+    fileprivate func verifyLoginEmail(login: String, email: String) -> Bool {
+        //Implement veryfing login and email format
+        guard login.range(of: #"[a-zA-Z][._-][a-zA-z0-9]"#, options: .regularExpression) != nil else { return false }
+        guard email.range(of: #"[A-Za-z]+_[0-9]@[a-z]+.[a-z]+"#, options: .regularExpression) != nil else { return false }
+        return true
+    }
+    
+    fileprivate func verifyNameSurname(name: String, surname: String) -> Bool {
+        guard name.range(of: #"[A-z]+[a-zA-Z]*"#, options: .regularExpression) != nil else { return false }
+        guard surname.range(of: #"[A-z]+[a-zA-Z]*"#, options: .regularExpression) != nil else { return false }
         return true
     }
 }
