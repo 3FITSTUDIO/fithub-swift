@@ -10,15 +10,11 @@ import Foundation
 import UIKit
 
 class LoginViewModel {
-    
-    private let userStore = UIApplication.shared.delegate as! AppDelegate
     private weak var vc: LoginViewController?
     private var store: UserStore?
     
     init() {
-        if let mainStore = AppDelegate.provideMainStore() {
-            store = mainStore.userStore
-        }
+        store = mainStore.userStore
     }
     
     func authenticateStub(login: String?, passwd: String?) -> Bool {

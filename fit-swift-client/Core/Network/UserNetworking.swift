@@ -18,7 +18,7 @@ class UserNetworking : NetworkingClient {
     override init() {
         super.init()
         urlUsers = urlBase + "/users"
-        urlPasswords = urlBase + "/users/password"
+        urlPasswords = urlBase + "/passwords"
     }
     
     public func authenticatePassword(forUsername login: String, inputPasswd: String) -> Bool {
@@ -39,7 +39,7 @@ class UserNetworking : NetworkingClient {
             }
         }
         if isSuccessful {
-            store?.currentUser = fetchUserData(login: login)
+            store?.currentUser = fetchUserData(byId: id)
         }
         return isSuccessful
     }
@@ -53,32 +53,34 @@ class UserNetworking : NetworkingClient {
         executeRequest(url, .get, parameters: params) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
+                debugPrint("fetch_user_id: Received error from server")
             }
             else if let json = json {
                 do {
                     user = try User(json: json[0])
                 } catch {
-                    debugPrint("Failed to deserialize user data")
+                    debugPrint("fetch_user_id: Failed to deserialize incoming data")
                 }
             }
         }
         return user?.id
     }
     
-    public func fetchUserData(login: String) -> User? {
+    public func fetchUserData(byId id: Int) -> User? {
         
-        let url = urlUsers + "/" + login
+        let url = urlUsers + "/" + String(id)
         var user: User?
         
         executeRequest(url, .get) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
+                debugPrint("fetch_user_data: Received error from server")
             }
             else if let json = json {
                 do {
                     user = try User(json: json[0])
                 } catch {
-                    debugPrint("Failed to deserialize user data")
+                    debugPrint("fetch_user_data: Failed to deserialize incoming data")
                 }
             }
         }

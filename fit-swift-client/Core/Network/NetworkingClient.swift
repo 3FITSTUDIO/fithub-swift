@@ -11,7 +11,7 @@ import Alamofire
 
 class NetworkingClient {
     
-    let urlBase = "http(s)://5de516c8712f9b001451421d.mockapi.io/fithub"
+    let urlBase = "https://5de516c8712f9b001451421d.mockapi.io/fithub"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     
