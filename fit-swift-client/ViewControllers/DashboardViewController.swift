@@ -13,24 +13,27 @@ import EasyPeasy
 class DashboardViewController: BasicComponentViewController {
     enum Route: String {
         case logout
+        case weights
+        case kcal
     }
     private let router = DashboardRouter()
     private let viewModel = DashboardViewModel()
     
+    private let weightTile = BasicTile(size: .small)
+    private let kcalTile = BasicTile(size: .small)
+    private let measurementsTile = BasicTile(size: .wide)
+    private let plusButton = BasicTile(size: .roundButton)
+    private let healthClockTile = HealthClockView()
     
-    private let container = UIView()
+    let logoutButton = UIImageView()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupButtons()
+    }
     
     override func setup(){
         super.setup()
-        view.addSubview(container)
-        container.easy.layout(Edges())
-    
-        let weightTile = BasicTile(size: .small)
-        let kcalTile = BasicTile(size: .small)
-        let measurementsTile = BasicTile(size: .wide)
-        let plusButton = BasicTile(size: .roundButton)
-        
-        let healthClockTile = HealthClockView()
         
         container.addSubviews(subviews: [healthClockTile, weightTile, kcalTile, measurementsTile, plusButton])
         healthClockTile.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
@@ -48,10 +51,38 @@ class DashboardViewController: BasicComponentViewController {
         
         weightTile.mainLabel.text = "75"
         kcalTile.mainLabel.text = "2490"
+        
+        logoutButton.image = UIImage(named: "logout")?.withTintColor(.white)
+        container.addSubview(logoutButton)
+        logoutButton.easy.layout(Top(40), Left(20), Size(40))
+    }
+    
+    private func setupButtons() {
+        weightTile.addGesture(target: self, selector: #selector(self.weightsTapped(_:)))
+        kcalTile.addGesture(target: self, selector: #selector(self.kcalTapped(_:)))
+        logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))
+        plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
     }
 }
 
 // MARK: Routing
 
-extension DashboardViewController {}
+extension DashboardViewController {
+    @objc private func weightsTapped(_ sender: UITapGestureRecognizer? = nil) {
+        router.route(to: Route.weights.rawValue, from: self)
+    }
+    
+    @objc private func kcalTapped(_ sender: UITapGestureRecognizer? = nil) {
+        router.route(to: Route.kcal.rawValue, from: self)
+    }
+    
+    @objc private func logoutTapped(_ sender: UITapGestureRecognizer? = nil) {
+        router.route(to: Route.logout.rawValue, from: self)
+    }
+    
+    @objc private func addNewTapped(_ sender: UITapGestureRecognizer? = nil) {
+        let popup = AddNewPopUp()
+        present(popup, animated: true, completion: nil)
+    }
+}
 

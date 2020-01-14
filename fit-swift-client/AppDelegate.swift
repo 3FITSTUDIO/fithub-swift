@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
                
         if let window = window {
-            let mainVC = LoginViewController()
+            let mainVC = DashboardViewController()
             navigationController = UINavigationController(rootViewController: mainVC)
             navigationController?.navigationBar.isHidden = true
             window.rootViewController = navigationController

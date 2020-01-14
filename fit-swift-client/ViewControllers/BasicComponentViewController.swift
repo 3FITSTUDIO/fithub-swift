@@ -11,6 +11,9 @@ import EasyPeasy
 
 class BasicComponentViewController: UIViewController {
     
+    let container = UIView()
+    var componentName = "Dashboard"
+    
     let notchBorder = UIView()
     let bottomNavigationBar = UIView()
 
@@ -22,12 +25,14 @@ class BasicComponentViewController: UIViewController {
     }
     
     func setup() {
+        view.addSubview(container)
+        container.easy.layout(Edges())
         setupNotchBorder()
     }
     
     private func setupNotchBorder() {
-        let componentName = Label(label: "Dashboard", fontSize: 20)
-        notchBorder.addSubview(componentName)
+        let componentNameLabel = Label(label: componentName, fontSize: 20)
+        notchBorder.addSubview(componentNameLabel)
 
         notchBorder.layer.cornerRadius = 20
         notchBorder.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -35,13 +40,13 @@ class BasicComponentViewController: UIViewController {
         notchBorder.layer.borderWidth = 5
         
         notchBorder.easy.layout(Width(200), Height(80))
-        componentName.easy.layout(CenterX(), Bottom(15))
+        componentNameLabel.easy.layout(CenterX(), Bottom(15))
         
         self.view.addSubview(notchBorder)
         notchBorder.easy.layout(CenterX(), Top(0))
     }
     
-    private func addBottomNavigationBar() {
+    func addBottomNavigationBar() {
         let bottomNavigationBar = UIView()
         bottomNavigationBar.backgroundColor = FithubUI.Colors.hospitalGreen
         let backButton = Button(type: .nav, label: "back")
@@ -54,7 +59,7 @@ class BasicComponentViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    @objc private func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+    @objc func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
         fatalError("backButtonTapped not implemented")
     }
 }
