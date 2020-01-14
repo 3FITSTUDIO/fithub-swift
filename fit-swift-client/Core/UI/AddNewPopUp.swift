@@ -10,32 +10,98 @@ import Foundation
 import UIKit
 import EasyPeasy
 
+class NewRecordButton: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.isUserInteractionEnabled = true
+    }
+    convenience init(label: String) {
+        self.init()
+        self.easy.layout(Size(90))
+        self.layer.cornerRadius = 20
+        self.layer.borderColor = FithubUI.Colors.hospitalGreen.cgColor
+        self.layer.borderWidth = 2
+        let label = Label(label: label, fontSize: 20)
+        if label.text == "measurements" {
+            label.fontSize(size: 12)
+        }
+        label.textColor = FithubUI.Colors.neonGreen
+        self.addSubview(label)
+        label.easy.layout(Center())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
 class AddNewPopUp: UIViewController {
+    enum Route: String {
+        case newWeight
+        case newCalories
+    }
+    private let router = AddNewPopUpRouter()
+    
     let container = UIView()
     let closeButton = Label(label: "close", fontSize: 15)
     
+    let weightButton = NewRecordButton(label: "weight")
+    let caloriesButton = NewRecordButton(label: "calories")
+    let measurementsButton = NewRecordButton(label: "measurements")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredContentSize = CGSize(width: 200, height: 150)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.easy.layout(Height(150), Width(200))
         view.addSubview(container)
-        container.easy.layout(Edges())
-        setup()
-        
-        self.definesPresentationContext = true
-        self.modalPresentationStyle = .overCurrentContext
-        self.modalTransitionStyle = .crossDissolve
+        container.easy.layout(Height(200), Width(310), Center())
+        setupLayout()
+        setupButtons()
     }
     
-    private func setup() {
+    private func setupLayout() {
+        let newLabel = Label(label: "new", fontSize: 30)
+        newLabel.textColor = .black
         container.backgroundColor = .white
         container.layer.cornerRadius = 20
-        container.addSubview(closeButton)
+        container.addSubviews(subviews: [closeButton, newLabel])
         closeButton.easy.layout(CenterX(), Bottom(10))
+        newLabel.easy.layout(CenterX(), Top(10))
         closeButton.textColor = FithubUI.Colors.weirdGreen
-        closeButton.addGesture(target: self, selector: #selector(self.closePopup(_:)))
+        
+        let closeArea = UIView()
+        container.addSubview(closeArea)
+        closeArea.easy.layout(Bottom(), Height(40), Left(), Right())
+        closeArea.addGesture(target: self, selector: #selector(self.closePopup(_:)))
     }
     
+    private func setupButtons() {
+        container.addSubviews(subviews: [weightButton, caloriesButton, measurementsButton])
+        weightButton.easy.layout(Left(10), CenterY())
+        caloriesButton.easy.layout(Left(10).to(weightButton, .rightMargin), CenterY())
+        measurementsButton.easy.layout(Left(10).to(caloriesButton, .rightMargin), CenterY())
+        weightButton.addGesture(target: self, selector: #selector(self.newWeightTapped(_:)))
+        caloriesButton.addGesture(target: self, selector: #selector(self.newCaloriesTapped(_:)))
+    }
+}
+
+// MARK: Navigation
+extension AddNewPopUp {
     @objc private func closePopup(_ sender: UITapGestureRecognizer? = nil) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @objc private func newWeightTapped(_ sender: UITapGestureRecognizer? = nil) {
+        router.route(to: Route.newWeight.rawValue, from: self)
+    }
+    
+    @objc private func newCaloriesTapped(_ sender: UITapGestureRecognizer? = nil) {
+        router.route(to: Route.newCalories.rawValue, from: self)
+    }
+    
+    @objc private func newMeasurementsTapped(_ sender: UITapGestureRecognizer? = nil) {
+//        router.route(to: Route.back.rawValue, from: self)
+    }
+    
 }

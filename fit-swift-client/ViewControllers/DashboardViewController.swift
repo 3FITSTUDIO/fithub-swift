@@ -83,6 +83,7 @@ extension DashboardViewController {
     @objc private func addNewTapped(_ sender: UITapGestureRecognizer? = nil) {
         let popup = AddNewPopUp()
         present(popup, animated: true, completion: nil)
+        popup.didMove(toParent: popup)
     }
 }
 
