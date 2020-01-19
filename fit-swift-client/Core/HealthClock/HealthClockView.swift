@@ -99,11 +99,12 @@ class HealthClockView : UIView {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         basicAnimation.toValue = 1
-        basicAnimation.duration = 2
+        let duration = 4 * Double(stepsAmount)/8000
+        basicAnimation.duration = duration
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = false
         shapeLayer.add(basicAnimation, forKey: "basicAnimation")
         
-        stepsCountLabel.count(from: 0, to: CGFloat(stepsAmount), withDuration: 2, andAnimationType: .easeIn, andCounterType: .intType)
+        stepsCountLabel.count(from: 0, to: CGFloat(stepsAmount), withDuration: duration, andAnimationType: .easeIn, andCounterType: .intType)
     }
 }

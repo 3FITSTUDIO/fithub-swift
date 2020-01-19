@@ -91,4 +91,8 @@ class Button : UIView {
         buttonLabel.textColor = FithubUI.Colors.lightishGreen
         
     }
+    
+    func changeBackgroundColor(toColor: UIColor) {
+        backgroundView.backgroundColor = toColor
+    }
 }

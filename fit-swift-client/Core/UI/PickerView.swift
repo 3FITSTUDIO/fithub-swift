@@ -17,12 +17,12 @@ class PickerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.easy.layout(Height(100), Width(170))
+        self.easy.layout(Height(100), Width(337))
         label.textColor = .white
         picker.setValue(UIColor.white, forKey: "textColor")
         self.addSubviews(subviews: [label, picker])
         label.easy.layout(CenterY(), Left(24))
-        picker.easy.layout(CenterY(), Left(30).to(label, .rightMargin), Width(100))
+        picker.easy.layout(CenterY(), Left(30).to(label, .rightMargin), Width(80))
     }
     
     required init?(coder: NSCoder) {

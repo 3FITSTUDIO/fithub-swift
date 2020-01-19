@@ -18,14 +18,11 @@ class NewRecordButton: UIView {
     }
     convenience init(label: String) {
         self.init()
-        self.easy.layout(Size(90))
+        self.easy.layout(Width(120), Height(90))
         self.layer.cornerRadius = 20
         self.layer.borderColor = FithubUI.Colors.hospitalGreen.cgColor
         self.layer.borderWidth = 2
         let label = Label(label: label, fontSize: 20)
-        if label.text == "measurements" {
-            label.fontSize(size: 12)
-        }
         label.textColor = FithubUI.Colors.neonGreen
         self.addSubview(label)
         label.easy.layout(Center())
@@ -44,11 +41,10 @@ class AddNewPopUp: UIViewController {
     private let router = AddNewPopUpRouter()
     
     let container = UIView()
-    let closeButton = Label(label: "close", fontSize: 15)
+    let closeButton = Label(label: "close", fontSize: 20)
     
     let weightButton = NewRecordButton(label: "weight")
     let caloriesButton = NewRecordButton(label: "calories")
-    let measurementsButton = NewRecordButton(label: "measurements")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +73,9 @@ class AddNewPopUp: UIViewController {
     }
     
     private func setupButtons() {
-        container.addSubviews(subviews: [weightButton, caloriesButton, measurementsButton])
-        weightButton.easy.layout(Left(10), CenterY())
-        caloriesButton.easy.layout(Left(10).to(weightButton, .rightMargin), CenterY())
-        measurementsButton.easy.layout(Left(10).to(caloriesButton, .rightMargin), CenterY())
+        container.addSubviews(subviews: [weightButton, caloriesButton])
+        weightButton.easy.layout(Left(25), CenterY())
+        caloriesButton.easy.layout(Right(25), CenterY())
         weightButton.addGesture(target: self, selector: #selector(self.newWeightTapped(_:)))
         caloriesButton.addGesture(target: self, selector: #selector(self.newCaloriesTapped(_:)))
     }
@@ -99,9 +94,4 @@ extension AddNewPopUp {
     @objc private func newCaloriesTapped(_ sender: UITapGestureRecognizer? = nil) {
         router.route(to: Route.newCalories.rawValue, from: self)
     }
-    
-    @objc private func newMeasurementsTapped(_ sender: UITapGestureRecognizer? = nil) {
-//        router.route(to: Route.back.rawValue, from: self)
-    }
-    
 }

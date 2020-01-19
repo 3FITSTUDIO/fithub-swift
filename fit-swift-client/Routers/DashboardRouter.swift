@@ -21,6 +21,8 @@ class DashboardRouter: Router {
             vc = WeightsViewController()
         case .kcal:
             vc = CaloriesViewController()
+        case .progress:
+            vc = ProgressViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }

@@ -53,6 +53,9 @@
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
+		84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0B23D33109001C8E94 /* ProgressViewController.swift */; };
+		84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */; };
+		84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */; };
 		84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB96323B3C99C0017737D /* UserNetworking.swift */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
 		84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */; };
@@ -107,11 +110,14 @@
 		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		8495FB022372C1B6003E7150 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		84A2A1D9234D37690078EE29 /* fit-swift-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fit-swift-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A2A1D9234D37690078EE29 /* FitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A2A1DC234D37690078EE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A2A1DE234D37690078EE29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84A2A1E6234D376A0078EE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84B06D0B23D33109001C8E94 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRouter.swift; sourceTree = "<group>"; };
+		84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewManager.swift; sourceTree = "<group>"; };
 		84BBB96323B3C99C0017737D /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 				8435E82C23CD025600867546 /* WeightsViewModel.swift */,
 				8435E83223CD1F6800867546 /* CaloriesViewModel.swift */,
 				8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */,
+				84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -257,7 +264,7 @@
 		84A2A1DA234D37690078EE29 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84A2A1D9234D37690078EE29 /* fit-swift-client.app */,
+				84A2A1D9234D37690078EE29 /* FitHub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 				8435E82323CCFBE900867546 /* WeightsViewController.swift */,
 				8435E82E23CD1E6600867546 /* CaloriesViewController.swift */,
 				8414560023CDC97C00296C15 /* AddNewValueViewController.swift */,
+				84B06D0B23D33109001C8E94 /* ProgressViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 				8435E83023CD1F4D00867546 /* CaloriesRouter.swift */,
 				841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */,
 				8414560223CDCA2A00296C15 /* AddNewRouter.swift */,
+				84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -344,7 +353,7 @@
 			);
 			name = "fit-swift-client";
 			productName = "fit-swift-client";
-			productReference = 84A2A1D9234D37690078EE29 /* fit-swift-client.app */;
+			productReference = 84A2A1D9234D37690078EE29 /* FitHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -473,7 +482,9 @@
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
 				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
+				84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
+				84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */,
 				8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
 				8435559423CB922800407CB7 /* MainStore.swift in Sources */,
@@ -490,6 +501,7 @@
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
 				8435559223CB837300407CB7 /* SerializationError.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
+				84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */,
 				8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */,
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 				8435E82623CCFC5E00867546 /* WeightsRouter.swift in Sources */,
@@ -642,7 +654,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Dominik-Urbaez-Gomez.fit-swift-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FitHub;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -663,7 +675,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Dominik-Urbaez-Gomez.fit-swift-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FitHub;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

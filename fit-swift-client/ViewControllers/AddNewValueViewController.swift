@@ -66,9 +66,9 @@ class AddNewValueViewController: BasicComponentViewController, UIPickerViewDeleg
         addBottomNavigationBar()
         
         container.addSubviews(subviews: [dateTextField, valueField, confirmAddButton])
-        dateTextField.easy.layout(CenterX(), Top(140))
+        dateTextField.easy.layout(CenterX(), Top(110))
         valueField.easy.layout(Left(30), Top(40).to(dateTextField, .bottomMargin))
-        confirmAddButton.easy.layout(CenterX(), Top(50).to(valueField, .bottomMargin))
+        confirmAddButton.easy.layout(CenterX(), Top(80).to(valueField, .bottomMargin))
         valueField.label.text = type == .weight ? "Weight: " : "Calories: "
         confirmAddButton.addGesture(target: self, selector: #selector(self.confirmAddTapped(_:)))
     }
@@ -97,12 +97,7 @@ class AddNewValueViewController: BasicComponentViewController, UIPickerViewDeleg
     }
     // MARK: Navigation
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
-        let presenter = self.presentingViewController
-        dismiss(animated: true, completion: {
-            if let presenter = presenter {
-                presenter.dismiss(animated: true, completion: nil)
-            }
-        })
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func confirmAddTapped(_ sender: UITapGestureRecognizer? = nil) {
