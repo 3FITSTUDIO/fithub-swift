@@ -45,7 +45,7 @@ class CaloriesViewController: BasicComponentViewController, UITableViewDelegate,
 
 // MARK: TableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let recordsToDisplayCount = viewModel.fetchCaloriesData().count
+        let recordsToDisplayCount = viewModel.caloriesArray.count
         return recordsToDisplayCount
     }
     
@@ -62,6 +62,7 @@ class CaloriesViewController: BasicComponentViewController, UITableViewDelegate,
 
 // MARK: Routing
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.back.rawValue, from: self)
     }
 }

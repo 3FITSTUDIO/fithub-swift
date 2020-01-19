@@ -53,6 +53,7 @@
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
+		84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A33DFD23D4998B0091E156 /* DateFormatter.swift */; };
 		84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0B23D33109001C8E94 /* ProgressViewController.swift */; };
 		84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */; };
 		84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */; };
@@ -115,6 +116,7 @@
 		84A2A1DE234D37690078EE29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84A2A1E6234D376A0078EE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A33DFD23D4998B0091E156 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		84B06D0B23D33109001C8E94 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRouter.swift; sourceTree = "<group>"; };
 		84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewManager.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				84EA434E238A028600CF853D /* ImageUtility.swift */,
+				84A33DFD23D4998B0091E156 /* DateFormatter.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				8435E82F23CD1E6600867546 /* CaloriesViewController.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
+				84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */,
 				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */,

@@ -19,11 +19,11 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
     private let progressManager = ProgressViewManager()
     private var progressView = UIView()
     
-    var avgValueLabel = Label(label: "2350", fontSize: 30)
+    var avgValueLabel = Label(label: "", fontSize: 30)
     private let avgInfLabel = Label(label: "avg", fontSize: 20)
-    var selectedValueLabel = Label(label: "3060", fontSize: 70)
+    var selectedValueLabel = Label(label: "", fontSize: 70)
     private let selectedUnitLabel = Label(label: "kg", fontSize: 27)
-    var selectedDateLabel = Label(label: "4.01.2020", fontSize: 20)
+    var selectedDateLabel = Label(label: "16.01.2020", fontSize: 20)
     
     private let weightButton = Button(type: .big, label: "Weight Progress")
     private let caloriesButton = Button(type: .big, label: "Calories Progress")
@@ -41,6 +41,7 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
         super.viewDidLoad()
         progressManager.delegate = self
         selectedValueLabel.text = String(progressManager.weightArray[0].value[0])
+        avgValueLabel.text = String(progressManager.calculateAverage())
     }
     
     private func layout() {
@@ -66,6 +67,7 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
     
 // MARK: Routing
     @objc func weightButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         progressManager.changedUnit(toUnit: .weight)
         selectedUnitLabel.text = "kg"
         weightButton.changeBackgroundColor(toColor: .white)
@@ -73,6 +75,7 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
     }
     
     @objc func caloriesButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         progressManager.changedUnit(toUnit: .calories)
         selectedUnitLabel.text = "kcal"
         weightButton.changeBackgroundColor(toColor: UIColor.white.withAlphaComponent(0.5))
@@ -80,6 +83,7 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
     }
     
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.back.rawValue, from: self)
     }
 }

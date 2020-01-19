@@ -45,7 +45,7 @@ class WeightsViewController: BasicComponentViewController, UITableViewDelegate, 
 
 // MARK: TableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let recordsToDisplayCount = viewModel.fetchWeightData().count
+        let recordsToDisplayCount = viewModel.weightArray.count
         return recordsToDisplayCount
     }
     
@@ -62,6 +62,7 @@ class WeightsViewController: BasicComponentViewController, UITableViewDelegate, 
 
 // MARK: Routing
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.back.rawValue, from: self)
     }
 }

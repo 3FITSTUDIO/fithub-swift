@@ -39,12 +39,21 @@ class SignUpViewController: UIViewController {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setupCommonTraits()
+        setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,12 +172,27 @@ extension SignUpViewController {
 // MARK: Routing
 extension SignUpViewController {
     @objc private func cancelTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.cancel.rawValue, from: self)
     }
     @objc private func submitTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         let enteredData = textFields.map { $0.textField.text }
-        guard viewModel.verifyEnteredData(data: enteredData) else { return }
-        router.route(to: Route.submit.rawValue, from: self)
+        guard viewModel.verifyEnteredData(data: enteredData) else {
+            let alertController = UIAlertController(title: "Oh no!", message: "There was an error, please try again!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
+                self.textFields.forEach { $0.textField.text = "" }
+            }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        let alertController = UIAlertController(title: "Success!", message: "Signed up correctly.", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Log in", style: .default) { (action:UIAlertAction) in
+            self.router.route(to: Route.submit.rawValue, from: self)
+        }
+        alertController.addAction(action1)
+        self.present(alertController, animated: true, completion: nil)
     }
 //    @objc private func forgotTapped(_ sender: UITapGestureRecognizer? = nil) {
 //        router.route(to: Route.forgot.rawValue, from: self)

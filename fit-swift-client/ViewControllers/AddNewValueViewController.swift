@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 import EasyPeasy
 
+public enum NewValueType: String {
+    case weight
+    case calories
+}
+
 class AddNewValueViewController: BasicComponentViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     enum Route: String {
         case back
     }
     
-    enum NewValueType: String {
-        case weight
-        case calories
-    }
+    
     
     private var type: NewValueType = .weight
     private let router = AddNewValueRouter()
@@ -97,11 +99,27 @@ class AddNewValueViewController: BasicComponentViewController, UIPickerViewDeleg
     }
     // MARK: Navigation
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         dismiss(animated: true, completion: nil)
     }
     
     @objc func confirmAddTapped(_ sender: UITapGestureRecognizer? = nil) {
-        // send data to viewModel, display "added!" and on complete:
-        backButtonTapped()
+        generator.selectionChanged()
+        let datePicker = dateTextField.subviews[0] as! UIDatePicker
+        let date = datePicker.date
+        let value = valueField.picker.selectedRow(inComponent: 0)
+        let success = viewModel.postNewRecord(value: value, date: date, type: type)
+        if success {
+            let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else{
+            let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }

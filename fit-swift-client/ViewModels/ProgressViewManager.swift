@@ -18,6 +18,7 @@ protocol ProgressViewDelegate {
 }
 
 class ProgressViewManager {
+    private var store: UserStore?
     var delegate: ProgressViewDelegate?
     enum Unit {
         case weight
@@ -52,31 +53,21 @@ class ProgressViewManager {
     var bars = [UIView]()
     var barsSelected = [Bool]()
 
+    var weightArray = [Record]()
+    var calorieArray = [Record]()
     init() {
+        store = mainStore.userStore
         maxVal = unit == .weight ? 200 : 8000
         layout()
-        stubWeightArray()
-        stubRecordArray()
+        if let store = store {
+            weightArray = store.weightData
+            calorieArray = store.caloriesData
+        }
         feedInitialData()
         setupStackViewSwipeGesture()
     }
     
-    var weightArray = [Record]()
-    private func stubWeightArray() {
-        for i in 0...31 {
-            let randWeight = Int.random(in: 95...99)
-            weightArray.append(Record(id: i, value: [randWeight], type: .weight))
-        }
-    }
-    
-    var recordArray = [Record]()
-    private func stubRecordArray() {
-        for i in 0...31 {
-            let randWeight = Int.random(in: 2300...3000)
-            recordArray.append(Record(id: i, value: [randWeight], type: .weight))
-        }
-    }
-    
+    // MARK: UI
     private func layout() {
         container.addSubviews(subviews: [barStackView, daySelector])
         barStackView.axis = .horizontal
@@ -93,6 +84,7 @@ class ProgressViewManager {
         daySelector.addGestureRecognizer(gesture)
     }
     
+    // MARK: Gestures
     var initialCenter = CGPoint()
     @objc private func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
         guard gestureRecognizer.view != nil else {return}
@@ -128,30 +120,39 @@ class ProgressViewManager {
         if predictedBarId != previousPredictedId {
             previousPredictedId = predictedBarId
             bars[predictedBarId].backgroundColor = .white
-            let generator = UISelectionFeedbackGenerator()
             generator.selectionChanged()
             for i in 0...xRange-1 {
                 if i != predictedBarId {
                     bars[i].backgroundColor = UIColor.white.withAlphaComponent(0.5)
                 }
             }
-            delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[predictedBarId].value[0]) : String(recordArray[predictedBarId].value[0])
+            delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[predictedBarId].value[0]) : String(calorieArray[predictedBarId].value[0])
+            delegate?.selectedDateLabel.text = unit == .weight ? String(weightArray[predictedBarId].id + 1) + ".01.2020" : String(calorieArray[predictedBarId].id + 1) + ".01.2020"
         }
     }
     
+    // MARK: Data Feeding
     private func feedInitialData() {
-        for i in 1...xRange {
-            let data = unit == .weight ? weightArray[i-1].value[0] : recordArray[i-1].value[0]
-            self.values.append(data/maxVal * 200)
-            barsSelected.append(false)
-            bars.append(newBar(forValue: data))
+        for _ in 1...xRange {
+            bars.append(newBar(forValue: 1))
         }
-        bars.forEach { barStackView.addArrangedSubview($0) }
+        self.bars.forEach { self.barStackView.addArrangedSubview($0) }
+
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            for i in 1...self.xRange {
+                let data = self.unit == .weight ? self.weightArray[i-1].value[0] : self.calorieArray[i-1].value[0]
+                self.values.append(data)
+                self.barsSelected.append(false)
+                self.bars[i-1].easy.layout(Height(CGFloat(Double(data)/Double(self.maxVal) * 200)))
+            }
+            self.container.layoutIfNeeded()
+        })
+        delegate?.avgValueLabel.text = String(calculateAverage())
     }
     
     private func feedNewData() {
         for i in 1...xRange {
-            let data = unit == .weight ? weightArray[i-1].value[0] : recordArray[i-1].value[0]
+            let data = unit == .weight ? weightArray[i-1].value[0] : calorieArray[i-1].value[0]
             self.values[i-1] = Int(data)
             UIView.animate(withDuration: 0.2, animations: { () -> Void in
                 self.bars[i-1].easy.layout(Height(CGFloat((Double(data)/Double(self.maxVal)) * 200)))
@@ -169,9 +170,9 @@ class ProgressViewManager {
             maxVal = 3000
         }
         feedNewData()
-        
-        let avg = values.reduce(0, +) / values.count
-        delegate?.avgValueLabel.text = String(avg)
+    
+        delegate?.avgValueLabel.text = String(calculateAverage())
+        delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[0].value[0]) : String(calorieArray[0].value[0])
         getCurrentSelection(selectorX: daySelector.center.x)
     }
 
@@ -181,5 +182,9 @@ class ProgressViewManager {
         view.layer.cornerRadius = 3
         view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         return view
+    }
+    
+    func calculateAverage() -> Int {
+        return values.reduce(0, +) / values.count
     }
 }

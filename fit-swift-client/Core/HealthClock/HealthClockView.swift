@@ -80,7 +80,7 @@ class HealthClockView : UIView {
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         
         backgroundTile.layer.addSublayer(shapeLayer)
-        backgroundTile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animate)))
+        backgroundTile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateWithGesture)))
     }
     
     private func setupLabels() {
@@ -95,7 +95,7 @@ class HealthClockView : UIView {
         stepsLabel.easy.layout(CenterX(), Bottom(114))
     }
     
-    @objc private func animate(){
+    private func animate(){
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         basicAnimation.toValue = 1
@@ -106,5 +106,10 @@ class HealthClockView : UIView {
         shapeLayer.add(basicAnimation, forKey: "basicAnimation")
         
         stepsCountLabel.count(from: 0, to: CGFloat(stepsAmount), withDuration: duration, andAnimationType: .easeIn, andCounterType: .intType)
+    }
+    
+    @objc private func animateWithGesture() {
+        generator.selectionChanged()
+        animate()
     }
 }

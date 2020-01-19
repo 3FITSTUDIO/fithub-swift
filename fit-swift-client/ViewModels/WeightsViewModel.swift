@@ -13,29 +13,22 @@ class WeightsViewModel {
     private weak var vc: WeightsViewController?
     private var store: UserStore?
     
+    var weightArray = [Record]()
+    
     init() {
         store = mainStore.userStore
-        stubRecordArray()
+        if let store = store {
+            weightArray = store.weightData
+        }
     }
     
     func fetchWeightData() -> [Record] {
-        return recordArray
+        return weightArray
     }
     
     func fetchWeightDataForCell(forIndex index: Int) -> Record {
-        let record = recordArray[index]
+        guard index <= weightArray.count else { return Record(id: 00, value: [00], date: FitHubDateFormatter.formatDate(Date.distantPast))}
+        let record = weightArray[index]
         return record
-    }
-    
-    var recordArray = [Record]()
-    private func stubRecordArray() {
-        recordArray.append(Record(id: 1, value: [88], type: .weight))
-        recordArray.append(Record(id: 2, value: [87], type: .weight))
-        recordArray.append(Record(id: 3, value: [87], type: .weight))
-        recordArray.append(Record(id: 4, value: [85], type: .weight))
-        recordArray.append(Record(id: 5, value: [85], type: .weight))
-        recordArray.append(Record(id: 6, value: [85], type: .weight))
-        recordArray.append(Record(id: 7, value: [84], type: .weight))
-        recordArray.append(Record(id: 8, value: [82], type: .weight))
     }
 }

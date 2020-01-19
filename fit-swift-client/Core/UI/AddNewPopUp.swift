@@ -84,14 +84,17 @@ class AddNewPopUp: UIViewController {
 // MARK: Navigation
 extension AddNewPopUp {
     @objc private func closePopup(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func newWeightTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.newWeight.rawValue, from: self)
     }
     
     @objc private func newCaloriesTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.newCalories.rawValue, from: self)
     }
 }

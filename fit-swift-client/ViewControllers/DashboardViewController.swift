@@ -26,11 +26,30 @@ class DashboardViewController: BasicComponentViewController {
     private let plusButton = BasicTile(size: .roundButton)
     private let healthClockTile = HealthClockView()
     
-    let logoutButton = UIImageView()
+    private let logoutButton: UIView = {
+        let gestureView = UIView()
+        let logoutButton = UIImageView()
+        gestureView.addSubview(logoutButton)
+        gestureView.easy.layout(Size(50))
+        logoutButton.easy.layout(Size(40), Center())
+        logoutButton.image = UIImage(named: "logout")?.withTintColor(.white)
+        return gestureView
+    }()
+     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
+        viewModel.postStepsData(steps: healthClockTile.stepsAmount)
     }
     
     override func setup(){
@@ -50,10 +69,9 @@ class DashboardViewController: BasicComponentViewController {
         kcalTile.bottomLabel.text = "kcal"
         seeProgressTile.wideLabel.text = "See progress"
         
-        weightTile.mainLabel.text = "75"
-        kcalTile.mainLabel.text = "2490"
+        weightTile.mainLabel.text = viewModel.provideLastWeightRecord()
+        kcalTile.mainLabel.text = viewModel.provideLastCaloriesRecord()
         
-        logoutButton.image = UIImage(named: "logout")?.withTintColor(.white)
         container.addSubview(logoutButton)
         logoutButton.easy.layout(Top(40), Left(20), Size(40))
     }
@@ -71,22 +89,28 @@ class DashboardViewController: BasicComponentViewController {
 
 extension DashboardViewController {
     @objc private func weightsTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.weights.rawValue, from: self)
     }
     
     @objc private func kcalTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.kcal.rawValue, from: self)
     }
     
     @objc private func logoutTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.logout.rawValue, from: self)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func seeProgressTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         router.route(to: Route.progress.rawValue, from: self)
     }
     
     @objc private func addNewTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
         let popup = AddNewPopUp()
         present(popup, animated: true, completion: nil)
         popup.didMove(toParent: popup)

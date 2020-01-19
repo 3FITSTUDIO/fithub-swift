@@ -10,6 +10,7 @@ import UIKit
 import HealthKit
 
 var mainStore = MainStore()
+let generator = UISelectionFeedbackGenerator()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
                
         if let window = window {
-            let mainVC = DashboardViewController()
+            let mainVC = LoginViewController()
             navigationController = UINavigationController(rootViewController: mainVC)
             navigationController?.navigationBar.isHidden = true
             window.rootViewController = navigationController
