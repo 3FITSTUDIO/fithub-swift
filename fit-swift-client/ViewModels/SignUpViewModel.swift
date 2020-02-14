@@ -9,8 +9,16 @@
 import Foundation
 
 class SignUpViewModel {
-    func verifyEnteredData(data: [String?]) -> Bool{
-        // TODO: Implement verifying Form data
-        return true
+    private var store: UserStore?
+    
+    init() {
+        store = mainStore.userStore
+    }
+    
+    func verifyEnteredData(data: [String?]) -> Bool {
+        if let store = store {
+            return store.verifyDataOnSignUp(data: data)
+        }
+        return false
     }
 }

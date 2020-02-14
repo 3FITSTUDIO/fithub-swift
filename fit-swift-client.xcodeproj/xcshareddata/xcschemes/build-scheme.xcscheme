@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84A2A1D8234D37690078EE29"
-               BuildableName = "fit-swift-client.app"
+               BuildableName = "FitHub.app"
                BlueprintName = "fit-swift-client"
                ReferencedContainer = "container:fit-swift-client.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A2A1D8234D37690078EE29"
-            BuildableName = "fit-swift-client.app"
+            BuildableName = "FitHub.app"
             BlueprintName = "fit-swift-client"
             ReferencedContainer = "container:fit-swift-client.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84A2A1D8234D37690078EE29"
-            BuildableName = "fit-swift-client.app"
+            BuildableName = "FitHub.app"
             BlueprintName = "fit-swift-client"
             ReferencedContainer = "container:fit-swift-client.xcodeproj">
          </BuildableReference>

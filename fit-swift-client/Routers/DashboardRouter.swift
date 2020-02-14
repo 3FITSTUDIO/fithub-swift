@@ -17,6 +17,12 @@ class DashboardRouter: Router {
         switch route {
         case .logout:
             vc = LoginViewController()
+        case .weights:
+            vc = WeightsViewController()
+        case .kcal:
+            vc = CaloriesViewController()
+        case .progress:
+            vc = ProgressViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }

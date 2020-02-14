@@ -12,5 +12,4 @@ enum RecordType {
     case steps
     case weight
     case kcal
-    case measurement
 }

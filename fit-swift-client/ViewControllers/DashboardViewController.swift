@@ -13,45 +13,107 @@ import EasyPeasy
 class DashboardViewController: BasicComponentViewController {
     enum Route: String {
         case logout
+        case weights
+        case kcal
+        case progress
     }
     private let router = DashboardRouter()
     private let viewModel = DashboardViewModel()
     
+    private let weightTile = BasicTile(size: .small)
+    private let kcalTile = BasicTile(size: .small)
+    private let seeProgressTile = BasicTile(size: .wide)
+    private let plusButton = BasicTile(size: .roundButton)
+    private let healthClockTile = HealthClockView()
     
-    private let container = UIView()
+    private let logoutButton: UIView = {
+        let gestureView = UIView()
+        let logoutButton = UIImageView()
+        gestureView.addSubview(logoutButton)
+        gestureView.easy.layout(Size(50))
+        logoutButton.easy.layout(Size(40), Center())
+        logoutButton.image = UIImage(named: "logout")?.withTintColor(.white)
+        return gestureView
+    }()
+     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupButtons()
+        viewModel.postStepsData(steps: healthClockTile.stepsAmount)
+    }
     
     override func setup(){
         super.setup()
-        view.addSubview(container)
-        container.easy.layout(Edges())
-    
-        let weightTile = BasicTile(size: .small)
-        let kcalTile = BasicTile(size: .small)
-        let measurementsTile = BasicTile(size: .wide)
-        let plusButton = BasicTile(size: .roundButton)
         
-        let healthClockTile = HealthClockView()
-        
-        container.addSubviews(subviews: [healthClockTile, weightTile, kcalTile, measurementsTile, plusButton])
+        container.addSubviews(subviews: [healthClockTile, weightTile, kcalTile, seeProgressTile, plusButton])
         healthClockTile.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
         
         weightTile.easy.layout(Left(19), Top(22).to(healthClockTile, .bottom))
         kcalTile.easy.layout(Right(19), Top(22).to(healthClockTile, .bottom))
-        measurementsTile.easy.layout(CenterX(), Top(22).to(kcalTile, .bottom))
-        plusButton.easy.layout(CenterX(), Top(20).to(measurementsTile, .bottom))
+        seeProgressTile.easy.layout(CenterX(), Top(22).to(kcalTile, .bottom))
+        plusButton.easy.layout(CenterX(), Top(20).to(seeProgressTile, .bottom))
         
         weightTile.topLabel.text = "Weight"
         weightTile.bottomLabel.text = "kg"
         kcalTile.topLabel.text = "Calories"
         kcalTile.bottomLabel.text = "kcal"
-        measurementsTile.wideLabel.text = "See measurements"
+        seeProgressTile.wideLabel.text = "See progress"
         
-        weightTile.mainLabel.text = "75"
-        kcalTile.mainLabel.text = "2490"
+        weightTile.mainLabel.text = viewModel.provideLastWeightRecord()
+        kcalTile.mainLabel.text = viewModel.provideLastCaloriesRecord()
+        
+        container.addSubview(logoutButton)
+        logoutButton.easy.layout(Top(40), Left(20), Size(40))
+    }
+    
+    private func setupButtons() {
+        weightTile.addGesture(target: self, selector: #selector(self.weightsTapped(_:)))
+        kcalTile.addGesture(target: self, selector: #selector(self.kcalTapped(_:)))
+        logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))
+        seeProgressTile.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
+        plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
     }
 }
 
 // MARK: Routing
 
-extension DashboardViewController {}
+extension DashboardViewController {
+    @objc private func weightsTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
+        router.route(to: Route.weights.rawValue, from: self)
+    }
+    
+    @objc private func kcalTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
+        router.route(to: Route.kcal.rawValue, from: self)
+    }
+    
+    @objc private func logoutTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
+        router.route(to: Route.logout.rawValue, from: self)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func seeProgressTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
+        router.route(to: Route.progress.rawValue, from: self)
+    }
+    
+    @objc private func addNewTapped(_ sender: UITapGestureRecognizer? = nil) {
+        generator.selectionChanged()
+        let popup = AddNewPopUp()
+        present(popup, animated: true, completion: nil)
+        popup.didMove(toParent: popup)
+    }
+}
 

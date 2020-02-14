@@ -10,27 +10,19 @@ import Foundation
 import UIKit
 
 class LoginViewModel {
-    
-    private let userStore = UIApplication.shared.delegate as! AppDelegate
     private weak var vc: LoginViewController?
     private var store: UserStore?
     
     init() {
-        if let mainStore = AppDelegate.provideMainStore() {
-            store = mainStore.userStore
-        }
-    }
-    
-    func authenticateStub(login: String?, passwd: String?) -> Bool {
-        if (login != nil && passwd != nil) {
-             return login == "a" && passwd == "a"
-        }
-        return false
+        store = mainStore.userStore
     }
     
     func authenticateOnLogin(login: String?, passwd: String?) -> Bool {
+        if (login != nil && passwd != nil) {
+             return login == "a" && passwd == "a"
+        }
         guard let login = login, let passwd = passwd, let store = store else { return false }
-        return store.apiClient.authenticatePassword(forUsername: login, inputPasswd: passwd)
+        return store.authenticatePassword(forUsername: login, inputPasswd: passwd)
     }
     
     //autentykacja

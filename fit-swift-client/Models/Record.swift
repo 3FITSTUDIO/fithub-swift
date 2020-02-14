@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Record {
+struct Record: Codable {
     
     //    0 neck
     //    1 chest
@@ -21,11 +21,33 @@ class Record {
     
     public var id: Int
     public var value: [Int]
-    public var type: RecordType
+    public var date: String
     
-    init(id: Int, value: [Int], type: RecordType) {
+    init(id: Int, value: [Int], date: String) {
         self.id = id
         self.value = value
-        self.type = type
+        self.date = date
     }
 }
+
+extension Record {
+    init(json: [String: Any]) throws {
+        guard let id = json["id"] as? Int else {
+            throw SerializationError.missing("id")
+        }
+        
+        guard let value = json["value"] as? [Int] else {
+            throw SerializationError.missing("value")
+        }
+        
+        guard let date = json["type"] as? String else {
+            throw SerializationError.missing("date")
+        }
+        
+        self.id = id
+        self.value = value
+        self.date = date
+    }
+    
+}
+

@@ -76,6 +76,12 @@ extension UILabel {
     }
 }
 
+extension UITextField {
+    func increaseFontSize (toSize: CGFloat) {
+        self.font =  UIFont(name: "Avenir-Heavy", size: toSize)
+    }
+}
+
 extension Bundle {
     func decode<T: Decodable>(_ type: T.Type, from filename: String) -> T {
         guard let json = url(forResource: filename, withExtension: nil) else {

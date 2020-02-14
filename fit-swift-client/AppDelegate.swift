@@ -9,6 +9,9 @@
 import UIKit
 import HealthKit
 
+var mainStore = MainStore()
+let generator = UISelectionFeedbackGenerator()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
     var healthStore: HKHealthStore?
     
-    var mainStore: MainStore?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -34,14 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             HealthClockManager.getHealthKitPermission(healthStore)
         }
         
-        mainStore = MainStore()
-        
         return true
-    }
-    
-    static func provideMainStore() -> MainStore? {
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        return delegate.mainStore
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

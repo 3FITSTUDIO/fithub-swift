@@ -25,6 +25,19 @@ class LoginViewController: UIViewController {
     
     private let container = UIView()
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        setupCommonTraits()
+        setup()
+        resetAppearance()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCommonTraits()
@@ -83,6 +96,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
 
         @objc private func loginButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
+            generator.selectionChanged()
             let login = loginField.textField.text ?? ""
             let passwd = passwordField.textField.text ?? ""
             
@@ -98,6 +112,7 @@ extension LoginViewController {
             return
         }
         @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {
+            generator.selectionChanged()
             router.route(to: Route.signUp.rawValue, from: self)
         }
 //        @objc private func forgotPasswordTapped(_ sender: UITapGestureRecognizer? = nil) {
