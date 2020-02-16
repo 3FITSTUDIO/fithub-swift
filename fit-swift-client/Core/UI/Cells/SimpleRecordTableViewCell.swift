@@ -52,7 +52,7 @@ class SimpleRecordTableViewCell: UITableViewCell {
     
     func configure(type: String, recordData: Record) {
         valueLabel.text = type == "Weights" ? "Weight" : "Calories"
-        date.text = String(recordData.id) + "/4/2020"
+        date.text = String(recordData.id) + "/1/2020"
         value.text = String(recordData.value[0]) + (type ==  "Weights" ? " kg" : " kcal")
     }
     

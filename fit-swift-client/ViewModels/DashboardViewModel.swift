@@ -19,11 +19,18 @@ class DashboardViewModel {
         store = mainStore.userStore
         if let store = store {
             DispatchQueue.main.async {
-                store.fetchWeightData()
-                store.fetchCaloriesData()
-                self.weightArray = store.weightData
-                self.caloriesArray = store.caloriesData
+                self.updateData()
             }
+        }
+    }
+    
+    func updateData() {
+        if let store = store {
+            store.fetchWeightData()
+            store.fetchCaloriesData()
+            self.weightArray = store.weightData
+            self.caloriesArray = store.caloriesData
+            store.updateDataInViewModels()
         }
     }
     
@@ -49,5 +56,9 @@ class DashboardViewModel {
         }
     }
     
-      
+    func clearProfileOnLogout() {
+        if let store = store {
+            store.clearProfileOnLogout()
+        }
+    }
 }

@@ -201,54 +201,62 @@ class UserNetworking : NetworkingClient {
     
     // MARK: Add New Value View Controller
     func postNewWeightsRecord(value: Int, date: Date) -> Bool {
-        let url = urlWeights
-        var params: [String: Any] = [:]
-        params["value"] = value
-        params["date"] = FitHubDateFormatter.formatDate(date)
         
-        var success = false
-        executeRequest(url, .post, parameters: params) { (json, error) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                debugPrint("fetch_user_id: Received error from server")
-            }
-            else {
-                success = true
-            }
-        }
-        return success
+        store?.weightData.append(Record(id: 1, value: [value], date: FitHubDateFormatter.formatDate(date)))
+        return true
+        
+//        let url = urlWeights
+//        var params: [String: Any] = [:]
+//        params["value"] = value
+//        params["date"] = FitHubDateFormatter.formatDate(date)
+//
+//        var success = false
+//        executeRequest(url, .post, parameters: params) { (json, error) in
+//            if let error = error {
+//                debugPrint(error.localizedDescription)
+//                debugPrint("fetch_user_id: Received error from server")
+//            }
+//            else {
+//                success = true
+//            }
+//        }
+//        return success
     }
     
     func postNewCaloriesRecord(value: Int, date: Date) -> Bool {
-        let url = urlCalories
-        var params: [String: Any] = [:]
-        params["value"] = value
-        params["date"] = FitHubDateFormatter.formatDate(date)
         
-        var success = false
-        executeRequest(url, .post, parameters: params) { (json, error) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                debugPrint("fetch_user_id: Received error from server")
-            }
-            else {
-                success = true
-            }
-        }
-        return success
+        store?.caloriesData.append(Record(id: 1, value: [value], date: FitHubDateFormatter.formatDate(date)))
+        return true
+//
+//        let url = urlCalories
+//        var params: [String: Any] = [:]
+//        params["value"] = value
+//        params["date"] = FitHubDateFormatter.formatDate(date)
+//
+//        var success = false
+//        executeRequest(url, .post, parameters: params) { (json, error) in
+//            if let error = error {
+//                debugPrint(error.localizedDescription)
+//                debugPrint("fetch_user_id: Received error from server")
+//            }
+//            else {
+//                success = true
+//            }
+//        }
+//        return success
     }
     
     // MARK: STUBS
     var weightArray = [Record]()
     private func stubWeightArray() {
-        for i in 0...31 {
+        for i in 1...31 {
             let randWeight = Int.random(in: 95...99)
             weightArray.append(Record(id: i, value: [randWeight], date: FitHubDateFormatter.formatDate(Date.distantPast)))
         }
     }
     var caloriesArray = [Record]()
     private func stubCaloriesArray() {
-        for i in 0...31 {
+        for i in 1...31 {
             let randWeight = Int.random(in: 2300...3000)
             caloriesArray.append(Record(id: i, value: [randWeight], date: FitHubDateFormatter.formatDate(Date.distantPast)))
         }

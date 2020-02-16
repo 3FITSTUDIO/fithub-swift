@@ -19,7 +19,9 @@ class WeightsViewModel {
         store = mainStore.userStore
         if let store = store {
             weightArray = store.weightData
+            store.weightsViewModel = self
         }
+        updateData()
     }
     
     func fetchWeightData() -> [Record] {
@@ -30,5 +32,11 @@ class WeightsViewModel {
         guard index <= weightArray.count else { return Record(id: 00, value: [00], date: FitHubDateFormatter.formatDate(Date.distantPast))}
         let record = weightArray[index]
         return record
+    }
+    
+    func updateData() {
+        if let store = store {
+            weightArray = store.weightData
+        }
     }
 }

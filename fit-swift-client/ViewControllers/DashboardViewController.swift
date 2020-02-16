@@ -17,6 +17,9 @@ class DashboardViewController: BasicComponentViewController {
         case kcal
         case progress
     }
+    
+    private var refreshControl = UIRefreshControl()
+    
     private let router = DashboardRouter()
     private let viewModel = DashboardViewModel()
     
@@ -33,6 +36,16 @@ class DashboardViewController: BasicComponentViewController {
         gestureView.easy.layout(Size(50))
         logoutButton.easy.layout(Size(40), Center())
         logoutButton.image = UIImage(named: "logout")?.withTintColor(.white)
+        return gestureView
+    }()
+    
+    private let refreshButton: UIView = {
+        let gestureView = UIView()
+        let refreshButton = UIImageView()
+        gestureView.addSubview(refreshButton)
+        gestureView.easy.layout(Size(50))
+        refreshButton.easy.layout(Size(40), Center())
+        refreshButton.image = UIImage(named: "refresh")?.withTintColor(.white)
         return gestureView
     }()
      
@@ -72,14 +85,16 @@ class DashboardViewController: BasicComponentViewController {
         weightTile.mainLabel.text = viewModel.provideLastWeightRecord()
         kcalTile.mainLabel.text = viewModel.provideLastCaloriesRecord()
         
-        container.addSubview(logoutButton)
+        container.addSubviews(subviews: [logoutButton, refreshButton])
         logoutButton.easy.layout(Top(40), Left(20), Size(40))
+        refreshButton.easy.layout(Top(40), Right(20), Size(40))
     }
     
     private func setupButtons() {
         weightTile.addGesture(target: self, selector: #selector(self.weightsTapped(_:)))
         kcalTile.addGesture(target: self, selector: #selector(self.kcalTapped(_:)))
         logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))
+        refreshButton.addGesture(target: self, selector: #selector(self.refresh(_:)))
         seeProgressTile.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
         plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
     }
@@ -88,6 +103,17 @@ class DashboardViewController: BasicComponentViewController {
 // MARK: Routing
 
 extension DashboardViewController {
+    
+    @objc private func refresh(_ sender: AnyObject) {
+        viewModel.updateData()
+         let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+           rotation.toValue = Double.pi * 2
+           rotation.duration = 0.5
+           rotation.isCumulative = true
+           rotation.repeatCount = 2
+           refreshButton.layer.add(rotation, forKey: "rotationAnimation")
+    }
+    
     @objc private func weightsTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         router.route(to: Route.weights.rawValue, from: self)
@@ -100,6 +126,7 @@ extension DashboardViewController {
     
     @objc private func logoutTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
+        viewModel.clearProfileOnLogout()
         router.route(to: Route.logout.rawValue, from: self)
         self.dismiss(animated: true, completion: nil)
     }

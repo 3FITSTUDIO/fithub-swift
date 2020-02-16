@@ -15,9 +15,17 @@ class UserStore {
     public var weightData = [Record]()
     public var caloriesData = [Record]()
     
+    weak var weightsViewModel: WeightsViewModel?
+    weak var caloriesViewModel: CaloriesViewModel?
+    
     init() {
         apiClient = UserNetworking()
         apiClient.store = self
+    }
+    
+    func updateDataInViewModels() {
+        weightsViewModel?.updateData()
+        caloriesViewModel?.updateData()
     }
     
     // MARK: Login View Controller, Authentication
@@ -62,5 +70,11 @@ class UserStore {
         let date = Date()
         let success = apiClient.postStepsData(steps: steps, date: date)
         return success
+    }
+    
+    func clearProfileOnLogout() {
+        currentUser = nil
+        weightData = [Record]()
+        caloriesData = [Record]()
     }
 }
