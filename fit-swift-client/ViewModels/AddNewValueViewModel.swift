@@ -18,7 +18,7 @@ class AddNewValueViewModel {
     }
     
     func postNewRecord(value: Int, date: Date, type: NewValueType) -> Bool {
-        return true
+//        return true
         var success = false
         if let store = store {
             switch type {

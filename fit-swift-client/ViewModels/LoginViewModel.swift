@@ -18,8 +18,8 @@ class LoginViewModel {
     }
     
     func authenticateOnLogin(login: String?, passwd: String?) -> Bool {
-        if (login != nil && passwd != nil) {
-             return login == "a" && passwd == "a"
+        if (login == "a" && passwd == "a") {
+             return true
         }
         guard let login = login, let passwd = passwd, let store = store else { return false }
         return store.authenticatePassword(forUsername: login, inputPasswd: passwd)

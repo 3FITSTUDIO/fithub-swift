@@ -45,6 +45,11 @@ class ProgressViewManager {
         return gestureView
     }()
     
+    private let swipeMeLabel: Label = {
+        let label = Label(label: "swipe me! ->", fontSize: 10)
+        return label
+    }()
+    
     var unit: Unit = .weight
     
     var xRange = 31
@@ -69,13 +74,14 @@ class ProgressViewManager {
     
     // MARK: UI
     private func layout() {
-        container.addSubviews(subviews: [barStackView, daySelector])
+        container.addSubviews(subviews: [barStackView, daySelector, swipeMeLabel])
         barStackView.axis = .horizontal
         barStackView.alignment = .bottom
         barStackView.distribution = .equalSpacing
         barStackView.spacing = 5
         barStackView.easy.layout(Bottom(4), CenterX())
         daySelector.easy.layout(CenterX(), Bottom(4))
+        swipeMeLabel.easy.layout(Top(80), Left(100))
     }
     
     private func setupStackViewSwipeGesture() {
@@ -87,6 +93,7 @@ class ProgressViewManager {
     // MARK: Gestures
     var initialCenter = CGPoint()
     @objc private func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
+        swipeMeLabel.removeFromSuperview()
         guard gestureRecognizer.view != nil else {return}
         let piece = gestureRecognizer.view!
         // Get the changes in the X and Y directions relative to
@@ -127,7 +134,7 @@ class ProgressViewManager {
                 }
             }
             delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[predictedBarId].value[0]) : String(calorieArray[predictedBarId].value[0])
-            delegate?.selectedDateLabel.text = unit == .weight ? String(weightArray[predictedBarId].id + 1) + ".01.2020" : String(calorieArray[predictedBarId].id + 1) + ".01.2020"
+            delegate?.selectedDateLabel.text = unit == .weight ? String(weightArray[predictedBarId].id) + ".01.2020" : String(calorieArray[predictedBarId].id) + ".01.2020"
         }
     }
     

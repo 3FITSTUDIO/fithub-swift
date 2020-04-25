@@ -19,7 +19,9 @@ class CaloriesViewModel {
         store = mainStore.userStore
         if let store = store {
             caloriesArray = store.caloriesData
+            store.caloriesViewModel = self
         }
+        updateData()
     }
     
     func fetchCaloriesData() -> [Record] {
@@ -29,5 +31,11 @@ class CaloriesViewModel {
     func fetchCaloriesDataForCell(forIndex index: Int) -> Record {
         let record = caloriesArray[index]
         return record
+    }
+    
+    func updateData() {
+        if let store = store {
+            caloriesArray = store.caloriesData
+        }
     }
 }
