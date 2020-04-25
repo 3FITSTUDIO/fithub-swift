@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		606469BA8489963620B223C0 /* Pods_fit_swift_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */; };
 		841455FD23CD4A2900296C15 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841455FC23CD4A2900296C15 /* HealthKit.framework */; };
 		841455FF23CDC91900296C15 /* AddNewPopUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */; };
 		8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414560023CDC97C00296C15 /* AddNewValueViewController.swift */; };
@@ -63,11 +62,12 @@
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
 		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
+		84F0B80D243B7DF90088FC72 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C7FCB3243B7B0B00F69953 /* Alamofire.framework */; };
+		ADF1F255AB39E622ACC1C0B2 /* Pods_fit_swift_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB38BE0FE6AB9EC35E672A34 /* Pods_fit_swift_client.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		23FBAC3A15CCC3D59DD73D54 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
-		3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fit_swift_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E68102904EDDEA18DEA5AF3 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
 		841455FB23CD4A2800296C15 /* fit-swift-client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "fit-swift-client.entitlements"; sourceTree = "<group>"; };
 		841455FC23CD4A2900296C15 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPopUpRouter.swift; sourceTree = "<group>"; };
@@ -93,6 +93,7 @@
 		8435E83023CD1F4D00867546 /* CaloriesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesRouter.swift; sourceTree = "<group>"; };
 		8435E83223CD1F6800867546 /* CaloriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewModel.swift; sourceTree = "<group>"; };
 		8435E83623CD3DFB00867546 /* AddNewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPopUp.swift; sourceTree = "<group>"; };
+		84520E692406BC99006A3204 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -122,11 +123,14 @@
 		84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewManager.swift; sourceTree = "<group>"; };
 		84BBB96323B3C99C0017737D /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		84C7FCB0243B7B0000F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C7FCB3243B7B0B00F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
 		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
-		F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
+		FB38BE0FE6AB9EC35E672A34 /* Pods_fit_swift_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fit_swift_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +138,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				606469BA8489963620B223C0 /* Pods_fit_swift_client.framework in Frameworks */,
 				841455FD23CD4A2900296C15 /* HealthKit.framework in Frameworks */,
+				84F0B80D243B7DF90088FC72 /* Alamofire.framework in Frameworks */,
+				ADF1F255AB39E622ACC1C0B2 /* Pods_fit_swift_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +150,8 @@
 		063A12911A3D6199DCA7A935 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				23FBAC3A15CCC3D59DD73D54 /* Pods-fit-swift-client.debug.xcconfig */,
-				F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */,
+				FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */,
+				1E68102904EDDEA18DEA5AF3 /* Pods-fit-swift-client.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -232,8 +237,8 @@
 		847381BF2399A35800CFB05F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
 				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
+				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
 				8435559123CB837300407CB7 /* SerializationError.swift */,
 			);
 			path = Network;
@@ -331,8 +336,11 @@
 		CD9EC9AC8EAAF3CFA40EF6A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84C7FCB3243B7B0B00F69953 /* Alamofire.framework */,
+				84C7FCB0243B7B0000F69953 /* Alamofire.framework */,
+				84520E692406BC99006A3204 /* Alamofire.framework */,
 				841455FC23CD4A2900296C15 /* HealthKit.framework */,
-				3BB627186ABA4FED942D9F22 /* Pods_fit_swift_client.framework */,
+				FB38BE0FE6AB9EC35E672A34 /* Pods_fit_swift_client.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -344,11 +352,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A2A1EB234D376A0078EE29 /* Build configuration list for PBXNativeTarget "fit-swift-client" */;
 			buildPhases = (
-				E50B652E63A4E3883C909B5F /* [CP] Check Pods Manifest.lock */,
+				F56E60E2BE981E6E25C5FBBA /* [CP] Check Pods Manifest.lock */,
 				84A2A1D5234D37690078EE29 /* Sources */,
 				84A2A1D6234D37690078EE29 /* Frameworks */,
 				84A2A1D7234D37690078EE29 /* Resources */,
-				E8EA7DA1C3BFAFFFD1CE9147 /* [CP] Embed Pods Frameworks */,
+				F99D2FD6468EEE01B9A325F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -406,7 +414,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E50B652E63A4E3883C909B5F /* [CP] Check Pods Manifest.lock */ = {
+		F56E60E2BE981E6E25C5FBBA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -428,7 +436,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E8EA7DA1C3BFAFFFD1CE9147 /* [CP] Embed Pods Frameworks */ = {
+		F99D2FD6468EEE01B9A325F7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -645,7 +653,7 @@
 		};
 		84A2A1EC234D376A0078EE29 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23FBAC3A15CCC3D59DD73D54 /* Pods-fit-swift-client.debug.xcconfig */;
+			baseConfigurationReference = FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "fit-swift-client/fit-swift-client.entitlements";
@@ -666,7 +674,7 @@
 		};
 		84A2A1ED234D376A0078EE29 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8108912A7B22E38243162D5 /* Pods-fit-swift-client.release.xcconfig */;
+			baseConfigurationReference = 1E68102904EDDEA18DEA5AF3 /* Pods-fit-swift-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "fit-swift-client/fit-swift-client.entitlements";

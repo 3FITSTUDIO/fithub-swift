@@ -30,7 +30,19 @@ class UserStore {
     
     // MARK: Login View Controller, Authentication
     func authenticatePassword(forUsername login: String, inputPasswd passwd: String) -> Bool {
-        return apiClient.authenticatePassword(forUsername: login, inputPasswd: passwd)
+        var isAuthenticated = false
+        let semaphore = DispatchSemaphore(value: 0)
+        apiClient.getUser(forUsername: login, inputPasswd: passwd) { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let user):
+                isAuthenticated = user.login == login && user.password == passwd
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
+        return isAuthenticated
     }
     
     // MARK: Sign Up View Controller
@@ -52,29 +64,5 @@ class UserStore {
         let id = 1
         let fetchedData = apiClient.fetchCaloriesData(forUserId: id)
         self.caloriesData = fetchedData
-    }
-    
-    func postNewWeightsRecord(value: Int, date: Date) -> Bool {
-        let success = apiClient.postNewWeightsRecord(value: value, date: date)
-        fetchWeightData()
-        return success
-    }
-    
-    func postNewCaloriesRecord(value: Int, date: Date) -> Bool {
-        let success = apiClient.postNewCaloriesRecord(value: value, date: date)
-        fetchCaloriesData()
-        return success
-    }
-    
-    func postStepsData(_ steps: Int) -> Bool {
-        let date = Date()
-        let success = apiClient.postStepsData(steps: steps, date: date)
-        return success
-    }
-    
-    func clearProfileOnLogout() {
-        currentUser = nil
-        weightData = [Record]()
-        caloriesData = [Record]()
     }
 }

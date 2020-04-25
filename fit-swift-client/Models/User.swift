@@ -10,39 +10,19 @@ import Foundation
 
 struct User : Codable {
     let id: Int // TODO: Implement receiving all property contents from API
-    var login: String
+    let firstName: String
+    let lastName: String
     let email: String
-    let name: String
-    let surname: String
-//    let accountType: AccountType
+    var login: String
+    var password: String
 
-    init?(id: Int, login: String, email: String, name: String, surname: String) {
+    init?(id: Int, firstName: String, lastName: String, email: String, login: String, password: String) {
         self.id = id
-        self.login = login
+        self.firstName = firstName
+        self.lastName = lastName
         self.email = email
-        self.name = name
-        self.surname = surname
-//        self.accountType = accountType
-        guard verifyUserContents(login: login, email: email, name: name, surname: surname) else { return nil }
-    }
-    
-    fileprivate func verifyUserContents(login: String, email: String, name: String, surname: String) -> Bool {
-        guard verifyLoginEmail(login: login, email: email), verifyNameSurname(name: name, surname: surname) else { return false }
-        guard verifyNameSurname(name: name, surname: surname) else { return false }
-        return true
-    }
-    
-    fileprivate func verifyLoginEmail(login: String, email: String) -> Bool {
-        //Implement veryfing login and email format
-        guard login.range(of: #"[a-zA-Z][._-][a-zA-z0-9]"#, options: .regularExpression) != nil else { return false }
-        guard email.range(of: #"[A-Za-z]+_[0-9]@[a-z]+.[a-z]+"#, options: .regularExpression) != nil else { return false }
-        return true
-    }
-    
-    fileprivate func verifyNameSurname(name: String, surname: String) -> Bool {
-        guard name.range(of: #"[A-z]+[a-zA-Z]*"#, options: .regularExpression) != nil else { return false }
-        guard surname.range(of: #"[A-z]+[a-zA-Z]*"#, options: .regularExpression) != nil else { return false }
-        return true
+        self.login = login
+        self.password = password
     }
 }
 
@@ -52,27 +32,31 @@ extension User {
             throw SerializationError.missing("id")
         }
         
-        guard let login = json["login"] as? String else {
-            throw SerializationError.missing("login")
+        guard let firstName = json["first_name"] as? String else {
+            throw SerializationError.missing("first_name")
+        }
+        
+        guard let lastName = json["last_name"] as? String else {
+            throw SerializationError.missing("last_name")
         }
         
         guard let email = json["email"] as? String else {
             throw SerializationError.missing("email")
         }
         
-        guard let name = json["name"] as? String else {
-            throw SerializationError.missing("name")
+        guard let login = json["login"] as? String else {
+            throw SerializationError.missing("login")
         }
         
-        guard let surname = json["surname"] as? String else {
-            throw SerializationError.missing("surname")
+        guard let password = json["password"] as? String else {
+            throw SerializationError.missing("password")
         }
-        
+
         self.id = id
-        self.login = login
+        self.firstName = firstName
+        self.lastName = lastName
         self.email = email
-        self.name = name
-        self.surname = surname
+        self.login = login
+        self.password = password
     }
-    
 }
