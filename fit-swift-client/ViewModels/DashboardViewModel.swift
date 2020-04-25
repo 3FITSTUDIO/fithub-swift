@@ -17,7 +17,7 @@ class DashboardViewModel {
     
     init() {
         store = mainStore.userStore
-        if let store = store {
+        if let _ = store {
             DispatchQueue.main.async {
                 self.updateData()
             }

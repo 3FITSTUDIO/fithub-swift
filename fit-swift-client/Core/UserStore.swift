@@ -35,20 +35,19 @@ class UserStore {
     }
     
     // MARK: Login View Controller, Authentication
-    func authenticatePassword(forUsername login: String, inputPasswd passwd: String) -> Bool {
+    func authenticatePassword(forUsername login: String, inputPasswd passwd: String, onComplete: @escaping(Bool) -> Void) {
         var isAuthenticated = false
-        let semaphore = DispatchSemaphore(value: 0)
         apiClient.getUser(forUsername: login, inputPasswd: passwd) { result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let user):
                 isAuthenticated = user.login == login && user.password == passwd
+                // ewentualne przypisanie currentUser
+                onComplete(isAuthenticated)
             }
-            semaphore.signal()
         }
-        semaphore.wait()
-        return isAuthenticated
     }
     
     // MARK: Sign Up View Controller

@@ -17,15 +17,16 @@ class LoginViewModel {
         store = mainStore.userStore
     }
     
-    func authenticateOnLogin(login: String?, passwd: String?) -> Bool {
+    func authenticateOnLogin(login: String?, passwd: String?, onComplete: @escaping(Bool) -> Void) {
         if (login == "a" && passwd == "a") {
-             return true
+            onComplete(true)
         }
-        guard let login = login, let passwd = passwd, let store = store else { return false }
-        return store.authenticatePassword(forUsername: login, inputPasswd: passwd)
+        guard let login = login, let passwd = passwd, let store = store else {
+            onComplete(false)
+            return
+        }
+        store.authenticatePassword(forUsername: login, inputPasswd: passwd) { result in
+            onComplete(result)
+        }
     }
-    
-    //autentykacja
-    ///loginu
-    ///rejestracji
 }

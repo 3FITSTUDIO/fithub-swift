@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5620605DC56AB41BCE9DAFB5 /* libPods-fit-swift-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0AE37B2C1ACD1FD4AB73FE /* libPods-fit-swift-client.a */; };
 		841455FD23CD4A2900296C15 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841455FC23CD4A2900296C15 /* HealthKit.framework */; };
 		841455FF23CDC91900296C15 /* AddNewPopUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */; };
 		8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414560023CDC97C00296C15 /* AddNewValueViewController.swift */; };
@@ -62,11 +63,10 @@
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
 		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
-		84F0B80D243B7DF90088FC72 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C7FCB3243B7B0B00F69953 /* Alamofire.framework */; };
-		ADF1F255AB39E622ACC1C0B2 /* Pods_fit_swift_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB38BE0FE6AB9EC35E672A34 /* Pods_fit_swift_client.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C0AE37B2C1ACD1FD4AB73FE /* libPods-fit-swift-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fit-swift-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E68102904EDDEA18DEA5AF3 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
 		841455FB23CD4A2800296C15 /* fit-swift-client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "fit-swift-client.entitlements"; sourceTree = "<group>"; };
 		841455FC23CD4A2900296C15 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -129,7 +129,6 @@
 		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
-		FB38BE0FE6AB9EC35E672A34 /* Pods_fit_swift_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fit_swift_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,8 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841455FD23CD4A2900296C15 /* HealthKit.framework in Frameworks */,
-				84F0B80D243B7DF90088FC72 /* Alamofire.framework in Frameworks */,
-				ADF1F255AB39E622ACC1C0B2 /* Pods_fit_swift_client.framework in Frameworks */,
+				5620605DC56AB41BCE9DAFB5 /* libPods-fit-swift-client.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +338,7 @@
 				84C7FCB0243B7B0000F69953 /* Alamofire.framework */,
 				84520E692406BC99006A3204 /* Alamofire.framework */,
 				841455FC23CD4A2900296C15 /* HealthKit.framework */,
-				FB38BE0FE6AB9EC35E672A34 /* Pods_fit_swift_client.framework */,
+				1C0AE37B2C1ACD1FD4AB73FE /* libPods-fit-swift-client.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -356,7 +354,6 @@
 				84A2A1D5234D37690078EE29 /* Sources */,
 				84A2A1D6234D37690078EE29 /* Frameworks */,
 				84A2A1D7234D37690078EE29 /* Resources */,
-				F99D2FD6468EEE01B9A325F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,30 +431,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F99D2FD6468EEE01B9A325F7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

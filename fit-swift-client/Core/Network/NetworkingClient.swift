@@ -10,7 +10,9 @@ import Foundation
 import Alamofire
 
 class NetworkingClient {
-    let urlBase = "http://localhost:8080"
+    
+//    let urlBase = "http://localhost:8080"
+    let urlBase = "http://e0f32156.ngrok.io"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     
