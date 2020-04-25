@@ -55,9 +55,4 @@ class SimpleRecordTableViewCell: UITableViewCell {
         date.text = String(recordData.id) + "/4/2020"
         value.text = String(recordData.value) + (type ==  "Weights" ? " kg" : " kcal")
     }
-    
-    override func prepareForReuse() {
-        
-    }
-
 }

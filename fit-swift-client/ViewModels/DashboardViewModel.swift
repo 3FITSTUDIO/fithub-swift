@@ -36,25 +36,25 @@ class DashboardViewModel {
     
     func provideLastWeightRecord() -> String {
         if let last = weightArray.last {
-            return String(last.value[0])
+            return String(last.value)
         }
         return ""
     }
     
     func provideLastCaloriesRecord() -> String {
         if let last = caloriesArray.last {
-            return String(last.value[0])
+            return String(last.value)
         }
         return ""
     }
     
-    func postStepsData(steps: Int) {
-        if let store = store {
-            if !store.postStepsData(steps) {
-                debugPrint("Failed to post steps data to server.")
-            }
-        }
-    }
+//    func postStepsData(steps: Int) {
+//        if let store = store {
+//            if !store.postStepsData(steps) {
+//                debugPrint("Failed to post steps data to server.")
+//            }
+//        }
+//    }
     
     func clearProfileOnLogout() {
         if let store = store {

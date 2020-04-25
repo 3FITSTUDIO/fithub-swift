@@ -133,7 +133,7 @@ class ProgressViewManager {
                     bars[i].backgroundColor = UIColor.white.withAlphaComponent(0.5)
                 }
             }
-            delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[predictedBarId].value[0]) : String(calorieArray[predictedBarId].value[0])
+            delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[predictedBarId].value) : String(calorieArray[predictedBarId].value)
             delegate?.selectedDateLabel.text = unit == .weight ? String(weightArray[predictedBarId].id) + ".01.2020" : String(calorieArray[predictedBarId].id) + ".01.2020"
         }
     }
@@ -147,7 +147,7 @@ class ProgressViewManager {
 
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             for i in 1...self.xRange {
-                let data = self.unit == .weight ? self.weightArray[i-1].value[0] : self.calorieArray[i-1].value[0]
+                let data = self.unit == .weight ? self.weightArray[i-1].value : self.calorieArray[i-1].value
                 self.values.append(data)
                 self.barsSelected.append(false)
                 self.bars[i-1].easy.layout(Height(CGFloat(Double(data)/Double(self.maxVal) * 200)))
@@ -159,7 +159,7 @@ class ProgressViewManager {
     
     private func feedNewData() {
         for i in 1...xRange {
-            let data = unit == .weight ? weightArray[i-1].value[0] : calorieArray[i-1].value[0]
+            let data = unit == .weight ? weightArray[i-1].value : calorieArray[i-1].value
             self.values[i-1] = Int(data)
             UIView.animate(withDuration: 0.2, animations: { () -> Void in
                 self.bars[i-1].easy.layout(Height(CGFloat((Double(data)/Double(self.maxVal)) * 200)))
@@ -179,7 +179,7 @@ class ProgressViewManager {
         feedNewData()
     
         delegate?.avgValueLabel.text = String(calculateAverage())
-        delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[0].value[0]) : String(calorieArray[0].value[0])
+        delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[0].value) : String(calorieArray[0].value)
         getCurrentSelection(selectorX: daySelector.center.x)
     }
 

@@ -29,7 +29,7 @@ class WeightsViewModel {
     }
     
     func fetchWeightDataForCell(forIndex index: Int) -> Record {
-        guard index <= weightArray.count else { return Record(id: 00, value: [00], date: FitHubDateFormatter.formatDate(Date.distantPast))}
+        guard index <= weightArray.count else { return Record(id: 00, value: 0, date: FitHubDateFormatter.formatDate(Date.distantPast))}
         let record = weightArray[index]
         return record
     }

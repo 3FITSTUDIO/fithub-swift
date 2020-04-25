@@ -17,17 +17,17 @@ class AddNewValueViewModel {
         store = mainStore.userStore
     }
     
-    func postNewRecord(value: Int, date: Date, type: NewValueType) -> Bool {
-//        return true
-        var success = false
-        if let store = store {
-            switch type {
-            case .weight:
-                success = store.postNewWeightsRecord(value: value, date: date)
-            case .calories:
-                success = store.postNewCaloriesRecord(value: value, date: date)
-            }
-        }
-        return success
-    }
+//    func postNewRecord(value: Int, date: Date, type: NewValueType) -> Bool {
+////        return true
+//        var success = false
+//        if let store = store {
+//            switch type {
+//            case .weight:
+//                success = store.postNewWeightsRecord(value: value, date: date)
+//            case .calories:
+//                success = store.postNewCaloriesRecord(value: value, date: date)
+//            }
+//        }
+//        return success
+//    }
 }

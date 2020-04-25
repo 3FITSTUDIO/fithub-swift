@@ -62,7 +62,7 @@ class DashboardViewController: BasicComponentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
-        viewModel.postStepsData(steps: healthClockTile.stepsAmount)
+//        viewModel.postStepsData(steps: healthClockTile.stepsAmount)
     }
     
     override func setup(){

@@ -28,6 +28,12 @@ class UserStore {
         caloriesViewModel?.updateData()
     }
     
+    func clearProfileOnLogout() {
+        currentUser = nil
+        weightData = [Record]()
+        caloriesData = [Record]()
+    }
+    
     // MARK: Login View Controller, Authentication
     func authenticatePassword(forUsername login: String, inputPasswd passwd: String) -> Bool {
         var isAuthenticated = false

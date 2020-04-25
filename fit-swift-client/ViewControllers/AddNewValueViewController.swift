@@ -108,18 +108,18 @@ class AddNewValueViewController: BasicComponentViewController, UIPickerViewDeleg
         let datePicker = dateTextField.subviews[0] as! UIDatePicker
         let date = datePicker.date
         let value = valueField.picker.selectedRow(inComponent: 0)
-        let success = viewModel.postNewRecord(value: value, date: date, type: type)
-        if success {
-            let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
-            alertController.addAction(action1)
-            self.present(alertController, animated: true, completion: nil)
-        }
-        else{
-            let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
-            alertController.addAction(action1)
-            self.present(alertController, animated: true, completion: nil)
-        }
+//        let success = viewModel.postNewRecord(value: value, date: date, type: type)
+//        if success {
+//            let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
+//            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+//            alertController.addAction(action1)
+//            self.present(alertController, animated: true, completion: nil)
+//        }
+//        else{
+//            let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
+//            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+//            alertController.addAction(action1)
+//            self.present(alertController, animated: true, completion: nil)
+//        }
     }
 }

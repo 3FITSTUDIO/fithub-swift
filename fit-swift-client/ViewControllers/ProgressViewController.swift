@@ -40,7 +40,7 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
         componentName = "Progress"
         super.viewDidLoad()
         progressManager.delegate = self
-        selectedValueLabel.text = String(progressManager.weightArray[0].value[0])
+        selectedValueLabel.text = String(progressManager.weightArray[0].value)
         avgValueLabel.text = String(progressManager.calculateAverage())
     }
     
