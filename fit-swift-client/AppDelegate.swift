@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         healthStore = HKHealthStore()
         if let healthStore = healthStore {
-            HealthClockManager.getHealthKitPermission(healthStore)
+            StepsProgressBarManager.getHealthKitPermission(healthStore)
         }
         
         return true

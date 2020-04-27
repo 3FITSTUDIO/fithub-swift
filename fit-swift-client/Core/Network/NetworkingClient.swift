@@ -10,9 +10,14 @@ import Foundation
 import Alamofire
 
 class NetworkingClient {
+    enum NetworkError: Error {
+        case dataNotAvailable
+        case cannotProcessData
+        case serverConnectionError
+    }
     
 //    let urlBase = "http://localhost:8080"
-    let urlBase = "http://e0f32156.ngrok.io"
+    let urlBase = "http://08a218ed.ngrok.io"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     

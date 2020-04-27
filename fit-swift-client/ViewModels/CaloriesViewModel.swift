@@ -11,12 +11,12 @@ import UIKit
 
 class CaloriesViewModel {
     private weak var vc: CaloriesViewController?
-    private var store: UserStore?
+    private var store: DataStore?
     
     var caloriesArray = [Record]()
     
     init() {
-        store = mainStore.userStore
+        store = mainStore.dataStore
         if let store = store {
             caloriesArray = store.caloriesData
             store.caloriesViewModel = self

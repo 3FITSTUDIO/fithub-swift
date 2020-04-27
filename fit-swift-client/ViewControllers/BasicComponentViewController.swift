@@ -48,12 +48,10 @@ class BasicComponentViewController: UIViewController {
     
     func addBottomNavigationBar() {
         let bottomNavigationBar = UIView()
-        bottomNavigationBar.backgroundColor = FithubUI.Colors.hospitalGreen
         let backButton = Button(type: .nav, label: "back")
         bottomNavigationBar.addSubview(backButton)
         backButton.easy.layout(Center())
         backButton.addGesture(target: self, selector: #selector(self.backButtonTapped(_:)))
-        
         self.view.addSubview(bottomNavigationBar)
         bottomNavigationBar.easy.layout(Left(), Right(), Bottom(), Height(110))
     }

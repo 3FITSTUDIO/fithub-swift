@@ -1,5 +1,5 @@
 //
-//  HealthClockView.swift
+//  StepsProgressBarView.swift
 //  fit-swift-client
 //
 //  Created by admin on 30/12/2019.
@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-class HealthClockView : UIView {
+class StepsProgressBarView : UIView {
     
     private let shapeLayer = CAShapeLayer()
     private let backgroundLayer = CAShapeLayer()
     private let container = UIView()
     private let backgroundTile = BasicTile(size: .big)
     
-    public var manager: HealthClockManager
+    public var manager: StepsProgressBarManager
     public var stepsAmount: Int = 0
     
     let stepsCountLabel: CountingLabel = {
@@ -28,7 +28,7 @@ class HealthClockView : UIView {
     }()
     
     override init(frame: CGRect) {
-        manager = HealthClockManager()
+        manager = StepsProgressBarManager()
         super.init(frame: frame)
         self.setupBackground()
         setupClock()
@@ -38,8 +38,8 @@ class HealthClockView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setupClock() {
-        manager.provideStepsCount { (steps) -> () in
+    @objc public func setupClock() {
+        manager.provideStepsCount { steps in
             self.stepsAmount = steps
             DispatchQueue.main.async {
                 self.setupProgressBar(stepsAmount: self.stepsAmount)
@@ -55,12 +55,12 @@ class HealthClockView : UIView {
         backgroundTile.easy.layout(Center())
         
         let center = CGPoint(x: 337/2, y: 323/2)
-
+        
         let backgroundCircle = UIBezierPath(arcCenter: center, radius: 130, startAngle: -0.5 * .pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         backgroundLayer.path = backgroundCircle.cgPath
         backgroundLayer.strokeColor = FithubUI.Colors.lightGray.cgColor
-        backgroundLayer.fillColor = UIColor.white.cgColor
-        backgroundLayer.lineWidth = 30
+        backgroundLayer.fillColor = UIColor.clear.cgColor
+        backgroundLayer.lineWidth = 10
         backgroundLayer.strokeEnd = 1
         backgroundTile.layer.addSublayer(backgroundLayer)
     }
@@ -75,18 +75,18 @@ class HealthClockView : UIView {
         shapeLayer.path = progressBar.cgPath
         shapeLayer.strokeColor = FithubUI.Colors.neonGreen.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 30
+        shapeLayer.lineWidth = 10
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         
         backgroundTile.layer.addSublayer(shapeLayer)
-        backgroundTile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateWithGesture)))
+        backgroundTile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setupClock)))
     }
     
     private func setupLabels() {
         let stepsLabel: Label = {
             let label = Label(label: "steps", fontSize: 39)
-            label.textColor = FithubUI.Colors.lightishGreen
+            label.textColor = FithubUI.Colors.classicWhite
             return label
         }()
         
@@ -106,10 +106,5 @@ class HealthClockView : UIView {
         shapeLayer.add(basicAnimation, forKey: "basicAnimation")
         
         stepsCountLabel.count(from: 0, to: CGFloat(stepsAmount), withDuration: duration, andAnimationType: .easeIn, andCounterType: .intType)
-    }
-    
-    @objc private func animateWithGesture() {
-        generator.selectionChanged()
-        animate()
     }
 }

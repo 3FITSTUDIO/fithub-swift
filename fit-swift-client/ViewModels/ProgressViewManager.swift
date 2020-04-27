@@ -18,7 +18,7 @@ protocol ProgressViewDelegate {
 }
 
 class ProgressViewManager {
-    private var store: UserStore?
+    private var store: DataStore?
     var delegate: ProgressViewDelegate?
     enum Unit {
         case weight
@@ -61,7 +61,7 @@ class ProgressViewManager {
     var weightArray = [Record]()
     var calorieArray = [Record]()
     init() {
-        store = mainStore.userStore
+        store = mainStore.dataStore
         maxVal = unit == .weight ? 200 : 8000
         layout()
         if let store = store {

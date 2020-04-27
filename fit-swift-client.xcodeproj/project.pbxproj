@@ -18,12 +18,12 @@
 		841DC29E237169F30075BA8C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29D237169F30075BA8C /* Label.swift */; };
 		841DC2A02371BE2E0075BA8C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */; };
 		841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841DC2A12371C4870075BA8C /* DashboardViewController.swift */; };
+		843138A12455FB0400ABC0B2 /* StepsProgressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431389F2455FB0400ABC0B2 /* StepsProgressManager.swift */; };
+		843138A22455FB0400ABC0B2 /* StepsProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843138A02455FB0400ABC0B2 /* StepsProgressView.swift */; };
 		8435559023CB655600407CB7 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435558F23CB655600407CB7 /* UserStore.swift */; };
 		8435559223CB837300407CB7 /* SerializationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559123CB837300407CB7 /* SerializationError.swift */; };
 		8435559423CB922800407CB7 /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559323CB922800407CB7 /* MainStore.swift */; };
 		8435559923CBCFDD00407CB7 /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559623CBCFDD00407CB7 /* CountingLabel.swift */; };
-		8435559A23CBCFDD00407CB7 /* HealthClockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559723CBCFDD00407CB7 /* HealthClockManager.swift */; };
-		8435559B23CBCFDD00407CB7 /* HealthClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435559823CBCFDD00407CB7 /* HealthClockView.swift */; };
 		8435E82423CCFBE900867546 /* WeightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E82323CCFBE900867546 /* WeightsViewController.swift */; };
 		8435E82623CCFC5E00867546 /* WeightsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E82523CCFC5E00867546 /* WeightsRouter.swift */; };
 		8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E82823CCFE8300867546 /* SimpleRecordTableViewCell.swift */; };
@@ -61,6 +61,8 @@
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
 		84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */; };
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
+		84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DA2454BD8400DDF5D9 /* DataStore.swift */; };
+		84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
 		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
 /* End PBXBuildFile section */
@@ -79,12 +81,12 @@
 		841DC29D237169F30075BA8C /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		841DC2A12371C4870075BA8C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		8431389F2455FB0400ABC0B2 /* StepsProgressManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsProgressManager.swift; sourceTree = "<group>"; };
+		843138A02455FB0400ABC0B2 /* StepsProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsProgressView.swift; sourceTree = "<group>"; };
 		8435558F23CB655600407CB7 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		8435559123CB837300407CB7 /* SerializationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationError.swift; sourceTree = "<group>"; };
 		8435559323CB922800407CB7 /* MainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 		8435559623CBCFDD00407CB7 /* CountingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
-		8435559723CBCFDD00407CB7 /* HealthClockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthClockManager.swift; sourceTree = "<group>"; };
-		8435559823CBCFDD00407CB7 /* HealthClockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthClockView.swift; sourceTree = "<group>"; };
 		8435E82323CCFBE900867546 /* WeightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsViewController.swift; sourceTree = "<group>"; };
 		8435E82523CCFC5E00867546 /* WeightsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsRouter.swift; sourceTree = "<group>"; };
 		8435E82823CCFE8300867546 /* SimpleRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecordTableViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,8 @@
 		84C7FCB3243B7B0B00F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
 		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
+		84D212DA2454BD8400DDF5D9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNetworking.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,14 +158,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		8435559523CBCFDD00407CB7 /* HealthClock */ = {
+		8435559523CBCFDD00407CB7 /* StepsProgress */ = {
 			isa = PBXGroup;
 			children = (
 				8435559623CBCFDD00407CB7 /* CountingLabel.swift */,
-				8435559723CBCFDD00407CB7 /* HealthClockManager.swift */,
-				8435559823CBCFDD00407CB7 /* HealthClockView.swift */,
+				8431389F2455FB0400ABC0B2 /* StepsProgressManager.swift */,
+				843138A02455FB0400ABC0B2 /* StepsProgressView.swift */,
 			);
-			path = HealthClock;
+			path = StepsProgress;
 			sourceTree = "<group>";
 		};
 		8435E82723CCFE6A00867546 /* Cells */ = {
@@ -238,6 +242,7 @@
 				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
 				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
 				8435559123CB837300407CB7 /* SerializationError.swift */,
+				84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -252,7 +257,8 @@
 				8452C42B235DF5BD009E99E8 /* Extensions.swift */,
 				8435558F23CB655600407CB7 /* UserStore.swift */,
 				8435559323CB922800407CB7 /* MainStore.swift */,
-				8435559523CBCFDD00407CB7 /* HealthClock */,
+				8435559523CBCFDD00407CB7 /* StepsProgress */,
+				84D212DA2454BD8400DDF5D9 /* DataStore.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -371,7 +377,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Dominik Urbaez Gomez";
 				TargetAttributes = {
 					84A2A1D8234D37690078EE29 = {
@@ -444,7 +450,6 @@
 				84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */,
 				84EA4351238A116E00CF853D /* AccountType.swift in Sources */,
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
-				8435559A23CBCFDD00407CB7 /* HealthClockManager.swift in Sources */,
 				8435E82423CCFBE900867546 /* WeightsViewController.swift in Sources */,
 				8435559923CBCFDD00407CB7 /* CountingLabel.swift in Sources */,
 				847381BE239980CB00CFB05F /* NetworkingClient.swift in Sources */,
@@ -453,14 +458,15 @@
 				8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */,
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
 				8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */,
+				84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */,
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
 				8435E83723CD3DFB00867546 /* AddNewPopUp.swift in Sources */,
 				8435E83123CD1F4D00867546 /* CaloriesRouter.swift in Sources */,
-				8435559B23CBCFDD00407CB7 /* HealthClockView.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
+				84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */,
 				8435E82F23CD1E6600867546 /* CaloriesViewController.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
@@ -486,11 +492,13 @@
 				8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */,
 				8435559223CB837300407CB7 /* SerializationError.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
+				843138A12455FB0400ABC0B2 /* StepsProgressManager.swift in Sources */,
 				84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */,
 				8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */,
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 				8435E82623CCFC5E00867546 /* WeightsRouter.swift in Sources */,
 				8435559023CB655600407CB7 /* UserStore.swift in Sources */,
+				843138A22455FB0400ABC0B2 /* StepsProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

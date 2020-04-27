@@ -9,28 +9,28 @@
 import Foundation
 
 class DashboardViewModel {
-    private var store: UserStore?
+    private var userStore: UserStore?
+    private var dataStore: DataStore?
     weak var vc: DashboardViewController?
     
     var weightArray = [Record]()
     var caloriesArray = [Record]()
     
     init() {
-        store = mainStore.userStore
-        if let _ = store {
-            DispatchQueue.main.async {
-                self.updateData()
-            }
-        }
+        dataStore = mainStore.dataStore
+        userStore = mainStore.userStore
+        updateData()
     }
     
     func updateData() {
-        if let store = store {
-            store.fetchWeightData()
-            store.fetchCaloriesData()
-            self.weightArray = store.weightData
-            self.caloriesArray = store.caloriesData
-            store.updateDataInViewModels()
+        if let store = dataStore {
+            DispatchQueue.main.async {
+                store.fetchWeightData()
+                store.fetchCaloriesData()
+                self.weightArray = store.weightData
+                self.caloriesArray = store.caloriesData
+                store.updateDataInViewModels()
+            }
         }
     }
     
@@ -48,17 +48,10 @@ class DashboardViewModel {
         return ""
     }
     
-//    func postStepsData(steps: Int) {
-//        if let store = store {
-//            if !store.postStepsData(steps) {
-//                debugPrint("Failed to post steps data to server.")
-//            }
-//        }
-//    }
-    
     func clearProfileOnLogout() {
-        if let store = store {
-            store.clearProfileOnLogout()
+        if let userStore = userStore, let dataStore = dataStore {
+            userStore.clearProfileOnLogout()
+            dataStore.clearDataOnLogout()
         }
     }
 }

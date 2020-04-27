@@ -27,7 +27,7 @@ class DashboardViewController: BasicComponentViewController {
     private let kcalTile = BasicTile(size: .small)
     private let seeProgressTile = BasicTile(size: .wide)
     private let plusButton = BasicTile(size: .roundButton)
-    private let healthClockTile = HealthClockView()
+    private let stepsProgressView = StepsProgressBarView()
     
     private let logoutButton: UIView = {
         let gestureView = UIView()
@@ -62,17 +62,16 @@ class DashboardViewController: BasicComponentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
-//        viewModel.postStepsData(steps: healthClockTile.stepsAmount)
     }
     
     override func setup(){
         super.setup()
         
-        container.addSubviews(subviews: [healthClockTile, weightTile, kcalTile, seeProgressTile, plusButton])
-        healthClockTile.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
+        container.addSubviews(subviews: [stepsProgressView, weightTile, kcalTile, seeProgressTile, plusButton])
+        stepsProgressView.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
         
-        weightTile.easy.layout(Left(19), Top(22).to(healthClockTile, .bottom))
-        kcalTile.easy.layout(Right(19), Top(22).to(healthClockTile, .bottom))
+        weightTile.easy.layout(Left(19), Top(22).to(stepsProgressView, .bottom))
+        kcalTile.easy.layout(Right(19), Top(22).to(stepsProgressView, .bottom))
         seeProgressTile.easy.layout(CenterX(), Top(22).to(kcalTile, .bottom))
         plusButton.easy.layout(CenterX(), Top(20).to(seeProgressTile, .bottom))
         

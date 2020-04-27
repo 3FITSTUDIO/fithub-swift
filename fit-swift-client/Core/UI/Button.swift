@@ -23,7 +23,7 @@ class Button : UIView {
         label.textAlignment = .center
         label.setFont(fontName: FithubUI.Fonts.mainAvenir)
         label.fontSize(size: 20)
-        label.textColor = FithubUI.Colors.lightishGreen
+        label.textColor = FithubUI.Colors.classicWhite
         label.adjustsFontSizeToFitWidth = false
         label.numberOfLines = 1
         return label
@@ -82,13 +82,14 @@ class Button : UIView {
             return
         }
         
-        backgroundView.backgroundColor = FithubUI.Colors.whiteOneHundred
+        backgroundView.layer.borderWidth = 5
+        backgroundView.layer.borderColor = FithubUI.Colors.whiteOneHundred.withAlphaComponent(0.5).cgColor
         backgroundView.layer.cornerRadius = 20
         backgroundView.addShadow()
         
         guard type == .nav else { return }
         buttonLabel.fontSize(size: 31)
-        buttonLabel.textColor = FithubUI.Colors.lightishGreen
+        buttonLabel.textColor = FithubUI.Colors.classicWhite
         
     }
     

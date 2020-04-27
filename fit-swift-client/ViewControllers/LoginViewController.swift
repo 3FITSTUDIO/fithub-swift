@@ -105,13 +105,12 @@ extension LoginViewController {
                 self.router.route(to: Route.login.rawValue, from: self)
             }
             else {
-                self.loginField.textField.text = ""
-                self.passwordField.textField.text = ""
                 self.loginLabel.text = "try again! - login"
                 self.passwordLabel.text = "try again! - password"
             }
         }
-        
+        self.loginField.textField.text = ""
+        self.passwordField.textField.text = ""
         return
     }
     @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {

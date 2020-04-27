@@ -27,7 +27,6 @@ class BasicTile: UIView {
     let mainLabel = Label(label: "", fontSize: 50)
     let plusLabel = Label(label: "+", fontSize: 60)
     let counterTopLabel = Label(label: "", fontSize: 40)
-    let counterBottomLabel = Label(label: "steps", fontSize: 40)
     let wideLabel = Label(label: "", fontSize: 30)
     
     override init(frame: CGRect) {
@@ -80,12 +79,12 @@ class BasicTile: UIView {
         self.addShadow()
         self.layer.cornerRadius = size == .roundButton ? 40 : 20
         self.easy.layout(Height(height), Width(width))
-        self.backgroundColor = FithubUI.Colors.whiteOneHundred
+        self.layer.borderColor = FithubUI.Colors.whiteOneHundred.cgColor
+        self.layer.borderWidth = 5
     }
     
     private func setupLabels() {
-        [topLabel, bottomLabel, counterBottomLabel, wideLabel].forEach { $0.textColor = FithubUI.Colors.lightishGreen }
-        [mainLabel, counterTopLabel, plusLabel].forEach { $0.textColor = .black }
+        [topLabel, bottomLabel, wideLabel, plusLabel, mainLabel, counterTopLabel].forEach { $0.textColor = FithubUI.Colors.classicWhite }
         
         if size == .small {
             self.addSubviews(subviews: [topLabel, bottomLabel, mainLabel])
@@ -94,9 +93,8 @@ class BasicTile: UIView {
             bottomLabel.easy.layout(CenterX(), Bottom(13))
         }
         else if size == .big {
-            self.addSubviews(subviews: [counterTopLabel, counterBottomLabel])
+            self.addSubviews(subviews: [counterTopLabel])
             counterTopLabel.easy.layout(CenterX(), Top(116))
-            counterBottomLabel.easy.layout(CenterX(), Bottom(115))
         }
         else if size == .roundButton {
             self.addSubview(plusLabel)

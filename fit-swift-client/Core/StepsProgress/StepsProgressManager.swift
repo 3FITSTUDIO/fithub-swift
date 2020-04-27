@@ -1,5 +1,5 @@
 //
-//  HealthClockManager.swift
+//  StepsProgressBarManager.swift
 //  fit-swift-client
 //
 //  Created by admin on 08/01/2020.
@@ -10,10 +10,24 @@ import Foundation
 import HealthKit
 import UIKit
 
-class HealthClockManager {
+class StepsProgressBarManager {
+    
+    let store: DataStore
+    
+    init() {
+        store = mainStore.dataStore
+    }
         
     func provideStepsCount(completion: @escaping (Int) -> Void) {
         self.getTodaysSteps { (todaysSteps) -> ()  in
+            self.store.postStepsData(Int(todaysSteps)) { result in
+                if result {
+                    debugPrint("Succesfully sent steps data.")
+                }
+                else {
+                    debugPrint("No steps data sent to server.")
+                }
+            }
             completion(Int(todaysSteps))
         }
     }

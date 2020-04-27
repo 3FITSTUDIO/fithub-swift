@@ -10,4 +10,5 @@ import Foundation
 
 class MainStore {
     public var userStore = UserStore()
+    public var dataStore = DataStore()
 }
