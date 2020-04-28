@@ -9,34 +9,34 @@
 import Foundation
 import UIKit
 
-class WeightsViewModel {
-    private weak var vc: WeightsViewController?
-    private var store: DataStore?
+class WeightsViewModel: DataSourceViewModel {    
+    weak var vc: RecordsTableViewViewController?
+    var store: DataStore?
     
-    var weightArray = [Record]()
+    var data = [Record]()
     
     init() {
         store = mainStore.dataStore
         if let store = store {
-            weightArray = store.weightData
+            data = store.weightData
             store.weightsViewModel = self
         }
         updateData()
     }
     
-    func fetchWeightData() -> [Record] {
-        return weightArray
+    func fetchData() -> [Record] {
+        return data
     }
     
-    func fetchWeightDataForCell(forIndex index: Int) -> Record {
-        guard index <= weightArray.count else { return Record(id: 00, userId: 1, value: 0, date: FitHubDateFormatter.formatDate(Date.distantPast))}
-        let record = weightArray[index]
+    func fetchDataForCell(forIndex index: Int) -> Record {
+        guard index <= data.count else { return Record(id: 00, userId: 1, value: 0, date: FitHubDateFormatter.formatDate(Date.distantPast))}
+        let record = data.reversed()[index]
         return record
     }
     
     func updateData() {
         if let store = store {
-            weightArray = store.weightData
+            data = store.weightData
         }
         // trigger view update
     }

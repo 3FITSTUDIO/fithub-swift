@@ -22,7 +22,7 @@ class StepsProgressBarView : UIView {
     
     let stepsCountLabel: CountingLabel = {
         let label = CountingLabel(label: "0", fontSize: 40)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.white
         label.textAlignment = .center
         return label
     }()

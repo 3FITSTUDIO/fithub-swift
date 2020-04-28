@@ -18,8 +18,6 @@ class DashboardViewController: BasicComponentViewController {
         case progress
     }
     
-    private var refreshControl = UIRefreshControl()
-    
     private let router = DashboardRouter()
     private let viewModel = DashboardViewModel()
     
@@ -62,6 +60,7 @@ class DashboardViewController: BasicComponentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
+        viewModel.vc = self
     }
     
     override func setup(){

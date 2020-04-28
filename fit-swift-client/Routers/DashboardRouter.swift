@@ -18,9 +18,9 @@ class DashboardRouter: Router {
         case .logout:
             vc = LoginViewController()
         case .weights:
-            vc = WeightsViewController()
+            vc = DataProvider().provideViewController(dataType: .weights)
         case .kcal:
-            vc = CaloriesViewController()
+            vc = DataProvider().provideViewController(dataType: .kcal)
         case .progress:
             vc = ProgressViewController()
         }

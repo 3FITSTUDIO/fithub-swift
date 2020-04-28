@@ -11,13 +11,18 @@ import Foundation
 class DataStore {
     public var apiClient: DataNetworking
     
-    public var weightData = [Record]()
-    public var caloriesData = [Record]()
-    
     weak var weightsViewModel: WeightsViewModel?
     weak var caloriesViewModel: CaloriesViewModel?
     
     private var currentlyStoredData = [String: Any]()
+    
+    var weightData: [Record] {
+        return currentlyStoredData["weightData"] as? [Record] ?? [Record]()
+    }
+    
+    var caloriesData: [Record] {
+        return currentlyStoredData["caloriesData"] as? [Record] ?? [Record]()
+    }
     
     init() {
         apiClient = DataNetworking()
@@ -38,8 +43,8 @@ class DataStore {
     }
     
     func clearDataOnLogout() {
-        weightData = [Record]()
-        caloriesData = [Record]()
+        currentlyStoredData["weightsData"] = [Record]()
+        currentlyStoredData["caloriesData"] = [Record]()
     }
     
     func updateDataInViewModels() {
@@ -48,32 +53,35 @@ class DataStore {
     }
     
     private func initializeCurrentlyStoredData() {
-        currentlyStoredData["stepsCount"] = 0
+        currentlyStoredData["stepsData"] = 0
+        currentlyStoredData["weightsData"] = [Record]()
+        currentlyStoredData["caloriesData"] = [Record]()
     }
     
     // MARK: Dashboard View Controller, Fetching all data, Posting steps data
     func fetchWeightData() {
         guard let user = authenticateUserProfile() else { return }
         let fetchedData = apiClient.fetchWeightData(forUserId: user.id)
-        self.weightData = fetchedData
+        currentlyStoredData["weightsData"] = fetchedData
     }
     
     func fetchCaloriesData() {
         guard let user = authenticateUserProfile() else { return }
         let fetchedData = apiClient.fetchCaloriesData(forUserId: user.id)
-        self.caloriesData = fetchedData
+        currentlyStoredData["caloriesData"] = fetchedData
     }
     
     func postStepsData(_ steps: Int, onComplete: @escaping(Bool) -> Void) {
+        return // dont post data in development
         guard let user = authenticateUserProfile() else {
             onComplete(false)
             return
         }
         
-        if currentlyStoredData["stepsCount"] as! Int != steps {
+        if currentlyStoredData["stepsData"] as! Int != steps {
             apiClient.postStepsData(steps, forId: user.id) { result in
                 // notification + "synchronised steps data"
-                self.currentlyStoredData["stepsCount"] = steps
+                self.currentlyStoredData["stepsData"] = steps
                 onComplete(result)
             }
         }
