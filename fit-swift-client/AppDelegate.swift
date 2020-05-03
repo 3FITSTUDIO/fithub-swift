@@ -9,7 +9,7 @@
 import UIKit
 import HealthKit
 
-var mainStore = MainStore()
+let mainStore = MainStore()
 let generator = UISelectionFeedbackGenerator()
 
 @UIApplicationMain

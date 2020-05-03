@@ -23,7 +23,7 @@ class BasicTile: UIView {
     private var customWidth: CGFloat = 0
     
     let topLabel = Label(label: "", fontSize: 20)
-    let bottomLabel = Label(label: "", fontSize: 30)
+    let bottomLabel = Label(label: "", fontSize: 20)
     let mainLabel = Label(label: "", fontSize: 50)
     let plusLabel = Label(label: "+", fontSize: 60)
     let counterTopLabel = Label(label: "", fontSize: 40)
@@ -84,7 +84,8 @@ class BasicTile: UIView {
     }
     
     private func setupLabels() {
-        [topLabel, bottomLabel, wideLabel, plusLabel, mainLabel, counterTopLabel].forEach { $0.textColor = FithubUI.Colors.whiteOneHundred }
+        [topLabel, bottomLabel].forEach { $0.textColor = FithubUI.Colors.whiteOneHundred }
+        [counterTopLabel, plusLabel, wideLabel, mainLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
         
         if size == .small {
             self.addSubviews(subviews: [topLabel, bottomLabel, mainLabel])

@@ -54,7 +54,7 @@ class ProgressViewManager {
     
     var xRange = 31
     var maxVal = 0
-    var values = [Int]()
+    var values = [Double]()
     var bars = [UIView]()
     var barsSelected = [Bool]()
 
@@ -160,7 +160,7 @@ class ProgressViewManager {
     private func feedNewData() {
         for i in 1...xRange {
             let data = unit == .weight ? weightArray[i-1].value : calorieArray[i-1].value
-            self.values[i-1] = Int(data)
+            self.values[i-1] = Double(data)
             UIView.animate(withDuration: 0.2, animations: { () -> Void in
                 self.bars[i-1].easy.layout(Height(CGFloat((Double(data)/Double(self.maxVal)) * 200)))
                 self.container.layoutIfNeeded()
@@ -191,7 +191,7 @@ class ProgressViewManager {
         return view
     }
     
-    func calculateAverage() -> Int {
-        return values.reduce(0, +) / values.count
+    func calculateAverage() -> Double {
+        return Double(values.reduce(0, +)) / Double(values.count)
     }
 }

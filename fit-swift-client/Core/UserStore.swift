@@ -23,18 +23,14 @@ class UserStore {
     
     // MARK: Login View Controller, Authentication
     func authenticatePassword(forUsername login: String, inputPasswd passwd: String, onComplete: @escaping(Bool) -> Void) {
-        var isAuthenticated = false
         apiClient.getUser(forUsername: login, inputPasswd: passwd) { result in
             switch result {
             case .failure(let error):
                 print(error)
                 onComplete(false)
             case .success(let user):
-                isAuthenticated = user.login == login && user.password == passwd
-                if isAuthenticated {
-                    self.currentUser = user
-                }
-                onComplete(isAuthenticated)
+                self.currentUser = user
+                onComplete(true)
             }
         }
     }

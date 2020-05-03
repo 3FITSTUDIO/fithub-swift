@@ -46,13 +46,28 @@ class SimpleRecordTableViewCell: UITableViewCell {
         valueLabel.easy.layout(Left(32), Top(20).to(dateLabel, .bottomMargin))
         date.easy.layout(Left(25).to(dateLabel, .rightMargin), Top(14))
         value.easy.layout(Left(15).to(valueLabel, .rightMargin), Top(20).to(dateLabel, .bottomMargin))
-        [dateLabel, valueLabel].forEach { $0.textColor = FithubUI.Colors.weirdGreen }
+        [dateLabel, valueLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
         [date, value].forEach { $0.textColor = .black }
     }
     
-    func configure(type: String, recordData: Record) {
-        valueLabel.text = type == "Weights" ? "Weight" : "Calories"
-        date.text = String(recordData.id) + "/4/2020"
-        value.text = String(recordData.value) + (type ==  "Weights" ? " kg" : " kcal")
+    func configure(type: DataProvider.DataType, recordData: Record) {
+        valueLabel.text = type.rawValue
+        date.text = recordData.date
+        switch type {
+        case .weights:
+            value.text = recordData.value.truncateTrailingZeros + " kg"
+        case .kcal:
+            value.text = recordData.value.truncateTrailingZeros + " kcal"
+        case .training:
+            value.text = recordData.value.truncateTrailingZeros + " kcal burned"
+        case .sleep:
+            value.text = recordData.value.truncateTrailingZeros + " hours"
+        case .pulse:
+            value.text = recordData.value.truncateTrailingZeros + " BPM"
+        case .steps:
+            value.text = recordData.value.truncateTrailingZeros + " steps"
+        case .measurements: // TODO: Handle measurements separately (different cell mode)
+            value.text = recordData.value.truncateTrailingZeros + " cm"
+        }
     }
 }

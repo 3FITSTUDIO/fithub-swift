@@ -32,6 +32,7 @@ class BasicComponentViewController: UIViewController {
     
     private func setupNotchBorder() {
         let componentNameLabel = Label(label: componentName, fontSize: 20)
+        componentNameLabel.textColor = FithubUI.Colors.highlight
         notchBorder.addSubview(componentNameLabel)
 
         notchBorder.layer.cornerRadius = 20

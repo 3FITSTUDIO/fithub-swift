@@ -12,6 +12,11 @@ class DataProvider {
     enum DataType: String {
         case weights = "Weights"
         case kcal = "Calories"
+        case training = "Trainings"
+        case sleep = "Sleep"
+        case pulse = "Pulse"
+        case steps = "Steps"
+        case measurements = "Measurements"
     }
     
     // provides VC with right VM for Dashboard Router
@@ -22,8 +27,18 @@ class DataProvider {
             viewModel = WeightsViewModel()
         case .kcal:
             viewModel = CaloriesViewModel()
+        case .sleep:
+            viewModel = SleepViewModel()
+        case .training:
+            viewModel = TrainingsViewModel()
+        case .pulse:
+            viewModel = PulseViewModel()
+        case .steps:
+            viewModel = StepsViewModel()
+        case .measurements:
+            viewModel = MeasurementsViewModel()
         }
-        let vc = RecordsTableViewViewController(viewModel: viewModel, componentName: dataType.rawValue)
+        let vc = RecordsTableViewViewController(viewModel: viewModel, dataType: dataType)
         return vc
     }
 }

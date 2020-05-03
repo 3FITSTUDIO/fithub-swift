@@ -22,7 +22,7 @@ class StepsProgressBarView : UIView {
     
     let stepsCountLabel: CountingLabel = {
         let label = CountingLabel(label: "0", fontSize: 40)
-        label.textColor = UIColor.white
+        label.textColor = FithubUI.Colors.highlight
         label.textAlignment = .center
         return label
     }()
@@ -58,9 +58,9 @@ class StepsProgressBarView : UIView {
         
         let backgroundCircle = UIBezierPath(arcCenter: center, radius: 130, startAngle: -0.5 * .pi, endAngle: 1.5 * CGFloat.pi, clockwise: true)
         backgroundLayer.path = backgroundCircle.cgPath
-        backgroundLayer.strokeColor = FithubUI.Colors.lightGray.cgColor
+        backgroundLayer.strokeColor = FithubUI.Colors.stepsCircleGray.cgColor
         backgroundLayer.fillColor = UIColor.clear.cgColor
-        backgroundLayer.lineWidth = 10
+        backgroundLayer.lineWidth = 20
         backgroundLayer.strokeEnd = 1
         backgroundTile.layer.addSublayer(backgroundLayer)
     }
@@ -73,9 +73,9 @@ class StepsProgressBarView : UIView {
         let endAngle = (CGFloat(stepsAmount) / 8000) * (2 * CGFloat.pi) - (0.5 * CGFloat.pi)
         let progressBar = UIBezierPath(arcCenter: center, radius: 130, startAngle: -0.5 * .pi, endAngle: endAngle, clockwise: true)
         shapeLayer.path = progressBar.cgPath
-        shapeLayer.strokeColor = FithubUI.Colors.neonGreen.cgColor
+        shapeLayer.strokeColor = FithubUI.Colors.highlight.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.lineWidth = 10
+        shapeLayer.lineWidth = 20
         shapeLayer.strokeEnd = 0
         shapeLayer.lineCap = CAShapeLayerLineCap.round
         
@@ -99,6 +99,7 @@ class StepsProgressBarView : UIView {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         basicAnimation.toValue = 1
+        // TODO: Settings.defaultStepsPerDay value
         let duration = 4 * Double(stepsAmount)/8000
         basicAnimation.duration = duration
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards

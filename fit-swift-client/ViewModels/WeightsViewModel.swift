@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 class WeightsViewModel: DataSourceViewModel {    
     weak var vc: RecordsTableViewViewController?
@@ -21,15 +20,9 @@ class WeightsViewModel: DataSourceViewModel {
             data = store.weightData
             store.weightsViewModel = self
         }
-        updateData()
-    }
-    
-    func fetchData() -> [Record] {
-        return data
     }
     
     func fetchDataForCell(forIndex index: Int) -> Record {
-        guard index <= data.count else { return Record(id: 00, userId: 1, value: 0, date: FitHubDateFormatter.formatDate(Date.distantPast))}
         let record = data.reversed()[index]
         return record
     }
@@ -38,6 +31,5 @@ class WeightsViewModel: DataSourceViewModel {
         if let store = store {
             data = store.weightData
         }
-        // trigger view update
     }
 }

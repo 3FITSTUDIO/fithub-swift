@@ -12,6 +12,5 @@ protocol DataSourceViewModel {
     var vc: RecordsTableViewViewController? { get set }
     var store: DataStore?  { get }
     var data: [Record]  { get }
-    func fetchData() -> [Record]
     func fetchDataForCell(forIndex index: Int) -> Record
 }

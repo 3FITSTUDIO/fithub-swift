@@ -56,6 +56,11 @@
 		84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */; };
 		84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB96323B3C99C0017737D /* UserNetworking.swift */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
+		84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */; };
+		84C1181F245F1BF500F5CFF1 /* TrainingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */; };
+		84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */; };
+		84C11823245F1C3700F5CFF1 /* StepsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */; };
+		84C11825245F1C5000F5CFF1 /* MeasurementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */; };
 		84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */; };
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DA2454BD8400DDF5D9 /* DataStore.swift */; };
@@ -65,6 +70,7 @@
 		84ED7B5924586B9C00471759 /* RecordsTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */; };
 		84ED7B5B24586C2C00471759 /* DataSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5A24586C2C00471759 /* DataSourceViewModel.swift */; };
 		84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5C24586DE000471759 /* DataProvider.swift */; };
+		84ED7B5F2458847D00471759 /* DetailDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5E2458847D00471759 /* DetailDataItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +128,11 @@
 		84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewManager.swift; sourceTree = "<group>"; };
 		84BBB96323B3C99C0017737D /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
+		84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsViewModel.swift; sourceTree = "<group>"; };
+		84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModel.swift; sourceTree = "<group>"; };
+		84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsViewModel.swift; sourceTree = "<group>"; };
+		84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementsViewModel.swift; sourceTree = "<group>"; };
 		84C7FCB0243B7B0000F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C7FCB3243B7B0B00F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
@@ -133,6 +144,7 @@
 		84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewViewController.swift; sourceTree = "<group>"; };
 		84ED7B5A24586C2C00471759 /* DataSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceViewModel.swift; sourceTree = "<group>"; };
 		84ED7B5C24586DE000471759 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		84ED7B5E2458847D00471759 /* DetailDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataItem.swift; sourceTree = "<group>"; };
 		FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +183,7 @@
 		8435E82723CCFE6A00867546 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				84ED7B5E2458847D00471759 /* DetailDataItem.swift */,
 				8435E82823CCFE8300867546 /* SimpleRecordTableViewCell.swift */,
 			);
 			path = Cells;
@@ -215,6 +228,11 @@
 				8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */,
 				84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */,
 				84ED7B5A24586C2C00471759 /* DataSourceViewModel.swift */,
+				84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */,
+				84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */,
+				84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */,
+				84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */,
+				84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -458,7 +476,9 @@
 				8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */,
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
 				8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */,
+				84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */,
 				84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */,
+				84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */,
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
 				8435E83723CD3DFB00867546 /* AddNewPopUp.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
@@ -466,9 +486,12 @@
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
 				84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */,
+				84C11825245F1C5000F5CFF1 /* MeasurementsViewModel.swift in Sources */,
+				84C11823245F1C3700F5CFF1 /* StepsViewModel.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
 				84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */,
+				84ED7B5F2458847D00471759 /* DetailDataItem.swift in Sources */,
 				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */,
@@ -498,6 +521,7 @@
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 				8435E82623CCFC5E00867546 /* RecordsTableViewRouter.swift in Sources */,
 				8435559023CB655600407CB7 /* UserStore.swift in Sources */,
+				84C1181F245F1BF500F5CFF1 /* TrainingsViewModel.swift in Sources */,
 				843138A22455FB0400ABC0B2 /* StepsProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

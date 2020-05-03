@@ -21,6 +21,16 @@ class DashboardRouter: Router {
             vc = DataProvider().provideViewController(dataType: .weights)
         case .kcal:
             vc = DataProvider().provideViewController(dataType: .kcal)
+        case .sleep:
+            vc = DataProvider().provideViewController(dataType: .sleep)
+        case .training:
+            vc = DataProvider().provideViewController(dataType: .training)
+        case .pulse:
+            vc = DataProvider().provideViewController(dataType: .pulse)
+        case .steps:
+            vc = DataProvider().provideViewController(dataType: .steps)
+        case .measurements:
+            vc = DataProvider().provideViewController(dataType: .measurements)
         case .progress:
             vc = ProgressViewController()
         }

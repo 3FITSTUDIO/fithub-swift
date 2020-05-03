@@ -16,14 +16,16 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
     }
     private let router = RecordsTableViewRouter()
     private var viewModel: DataSourceViewModel?
+    private var dataType: DataProvider.DataType = .weights
     
     private var tableView: UITableView = UITableView()
     let cellReuseIdentifier = "reusableIdentifier"
     
-    convenience init(viewModel: DataSourceViewModel, componentName name: String) {
+    convenience init(viewModel: DataSourceViewModel, dataType type: DataProvider.DataType) {
         self.init()
         self.viewModel = viewModel
-        self.componentName = name
+        self.componentName = type.rawValue
+        dataType = type
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -73,7 +75,7 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
             fatalError("Data view model error: no view model found!")
         }
         let data = viewModel.fetchDataForCell(forIndex: indexPath.row)
-        cell.configure(type: componentName, recordData: data)
+        cell.configure(type: self.dataType, recordData: data)
         
         return cell
     }

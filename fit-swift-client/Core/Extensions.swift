@@ -27,14 +27,11 @@ extension UIColor {
 
 extension UIViewController {
     func setupCommonTraits() {
-        setGradientBackground()
+        setBackgroundColor()
         hideKeyboardWhenTappedAround()
     }
-    func setGradientBackground() {
-        view.backgroundColor = UIColor.clear
-        let backgroundLayer = FithubUI.Colors.backgroundGradient
-        backgroundLayer.frame = view.frame
-        view.layer.insertSublayer(backgroundLayer, at: 0)
+    func setBackgroundColor() {
+        view.backgroundColor = FithubUI.Colors.weirdGreen
     }
     
     func hideKeyboardWhenTappedAround() {
@@ -101,3 +98,8 @@ extension Bundle {
     }
 }
 
+extension Double {
+    var truncateTrailingZeros: String {
+        return truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%g", self) : String(self)
+    }
+}

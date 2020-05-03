@@ -20,10 +20,10 @@ class NewRecordButton: UIView {
         self.init()
         self.easy.layout(Width(120), Height(90))
         self.layer.cornerRadius = 20
-        self.layer.borderColor = FithubUI.Colors.hospitalGreen.cgColor
+        self.layer.borderColor = FithubUI.Colors.highlight.cgColor
         self.layer.borderWidth = 2
         let label = Label(label: label, fontSize: 20)
-        label.textColor = FithubUI.Colors.neonGreen
+        label.textColor = FithubUI.Colors.highlight
         self.addSubview(label)
         label.easy.layout(Center())
     }
@@ -58,7 +58,7 @@ class AddNewPopUp: UIViewController {
     
     private func setupLayout() {
         let newLabel = Label(label: "new", fontSize: 30)
-        newLabel.textColor = .black
+        newLabel.textColor = FithubUI.Colors.weirdGreen
         container.backgroundColor = .white
         container.layer.cornerRadius = 20
         container.addSubviews(subviews: [closeButton, newLabel])

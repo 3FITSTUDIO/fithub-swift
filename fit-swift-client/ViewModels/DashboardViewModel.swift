@@ -13,37 +13,55 @@ class DashboardViewModel {
     private var dataStore: DataStore?
     weak var vc: DashboardViewController?
     
-    var weightArray = [Record]()
-    var caloriesArray = [Record]()
-    
     init() {
         dataStore = mainStore.dataStore
         userStore = mainStore.userStore
-        updateData()
     }
     
     func updateData() {
-        if let store = dataStore {
-            DispatchQueue.main.async {
-                store.fetchWeightData()
-                store.fetchCaloriesData()
-                self.weightArray = store.weightData
-                self.caloriesArray = store.caloriesData
-                store.updateDataInViewModels()
+        if let store = dataStore, let vc = vc {
+            store.fetchAllData() {
+                vc.weightDataButton.mainLabel.text = self.provideLastRecord(dataType: .weight)
+                vc.kcalDataButton.mainLabel.text = self.provideLastRecord(dataType: .calories)
+                vc.trainingsDataButton.mainLabel.text = self.provideLastRecord(dataType: .training)
+                vc.sleepDataButton.mainLabel.text = self.provideLastRecord(dataType: .sleep)
+                vc.pulseDataButton.mainLabel.text = self.provideLastRecord(dataType: .pulse)
+                vc.stepsDataButton.mainLabel.text = self.provideLastRecord(dataType: .steps)
+                // measurementsDataButton doesn't show any values
             }
         }
     }
     
-    func provideLastWeightRecord() -> String {
-        if let last = weightArray.last {
-            return String(last.value)
-        }
-        return ""
-    }
-    
-    func provideLastCaloriesRecord() -> String {
-        if let last = caloriesArray.last {
-            return String(last.value)
+    private func provideLastRecord(dataType: DataStore.DataType) -> String {
+        switch dataType {
+        case .weight:
+            if let last = dataStore?.weightData.last {
+                return last.value.truncateTrailingZeros
+            }
+        case .calories:
+            if let last = dataStore?.caloriesData.last {
+                return last.value.truncateTrailingZeros
+            }
+        case .training:
+            if let last = dataStore?.trainingData.last {
+                return last.value.truncateTrailingZeros
+            }
+        case .sleep:
+            if let last = dataStore?.sleepData.last {
+                return last.value.truncateTrailingZeros
+            }
+        case .pulse:
+            if let last = dataStore?.pulseData.last {
+                return last.value.truncateTrailingZeros
+            }
+        case .steps:
+            if let last = dataStore?.stepsData.last {
+                return last.value.truncateTrailingZeros
+            }
+        case .measurements:
+            if let last = dataStore?.measurementsData.last {
+                return last.value.truncateTrailingZeros
+            }
         }
         return ""
     }
@@ -51,7 +69,7 @@ class DashboardViewModel {
     func clearProfileOnLogout() {
         if let userStore = userStore, let dataStore = dataStore {
             userStore.clearProfileOnLogout()
-            dataStore.clearDataOnLogout()
+            dataStore.clearCurrentData()
         }
     }
 }

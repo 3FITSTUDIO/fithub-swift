@@ -21,10 +21,10 @@ struct Record: Codable {
     
     public var id: Int
     public var userId: Int
-    public var value: Int
+    public var value: Double
     public var date: String
     
-    init(id: Int, userId: Int, value: Int, date: String) {
+    init(id: Int, userId: Int, value: Double, date: String) {
         self.id = id
         self.userId = userId
         self.value = value
@@ -42,7 +42,7 @@ extension Record {
             throw SerializationError.missing("userId")
         }
         
-        guard let value = json["value"] as? Int else {
+        guard let value = json["value"] as? Double else {
             throw SerializationError.missing("value")
         }
         

@@ -1,14 +1,14 @@
 //
-//  CaloriesViewModel.swift
+//  SleepViewModel.swift
 //  fit-swift-client
 //
-//  Created by admin on 13/01/2020.
+//  Created by admin on 03/05/2020.
 //  Copyright © 2020 Dominik Urbaez Gomez. All rights reserved.
 //
 
 import Foundation
 
-class CaloriesViewModel: DataSourceViewModel {
+class SleepViewModel: DataSourceViewModel {
     weak var vc: RecordsTableViewViewController?
     var store: DataStore?
     
@@ -17,8 +17,8 @@ class CaloriesViewModel: DataSourceViewModel {
     init() {
         store = mainStore.dataStore
         if let store = store {
-            data = store.caloriesData
-            store.caloriesViewModel = self
+            data = store.sleepData
+            store.sleepViewModel = self
         }
     }
     
@@ -29,7 +29,7 @@ class CaloriesViewModel: DataSourceViewModel {
     
     func updateData() {
         if let store = store {
-            data = store.caloriesData
+            data = store.sleepData
         }
     }
 }
