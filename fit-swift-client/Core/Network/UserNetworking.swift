@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserNetworking : NetworkingClient {
+final class UserNetworking : NetworkingClient {
     
     weak var store: UserStore?
     private var userEndpoint = "/user"

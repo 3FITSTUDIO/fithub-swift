@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DataNetworking : NetworkingClient {
+final class DataNetworking : NetworkingClient {
     weak var store: DataStore?
     
     enum EndpointDataType: String {
