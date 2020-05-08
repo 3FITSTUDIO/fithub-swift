@@ -16,8 +16,8 @@ class NetworkingClient {
         case serverConnectionError
     }
     
-//    let urlBase = "http://localhost:8080"
-    let urlBase = "http://69cc76c8.ngrok.io"
+    let urlBase = "http://localhost:8080"
+//    let urlBase = "http://69cc76c8.ngrok.io"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     

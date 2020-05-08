@@ -15,6 +15,8 @@ class AddNewValueRouter: Router {
         let vc: UIViewController
         switch route {
         case .back:
+            vc = NewValueSelectionViewController()
+        case .added:
             vc = DashboardViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)

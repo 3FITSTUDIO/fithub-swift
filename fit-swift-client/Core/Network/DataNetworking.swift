@@ -51,6 +51,35 @@ final class DataNetworking : NetworkingClient {
         }
     }
     
+    func fetchBodyMeasurementsData(forUserId id: Int, dataType: EndpointDataType, onComplete: @escaping(Result<[BodyMeasurements], NetworkError>) -> Void) {
+        var record: BodyMeasurements?
+        var records = [BodyMeasurements]()
+        var params: [String: Any] = [:]
+        params["userId"] = id
+        
+        let endpoint = dataType.rawValue
+        executeRequest(endpoint, .get, parameters: params) { (json, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                debugPrint("fetch_" + endpoint + "_data: Received error from server")
+                onComplete(.failure(.serverConnectionError))
+            }
+            else if let json = json {
+                do {
+                    try json.forEach {
+                        record = try BodyMeasurements(json: $0)
+                        if let recordUnwrapped = record {
+                            records.append(recordUnwrapped)
+                        }
+                    }
+                } catch {
+                    debugPrint("fetch_" + endpoint + "_data: Failed to deserialize incoming data")
+                }
+                onComplete(.success(records))
+            }
+        }
+    }
+    
     // MARK: POST: Steps data
     func postStepsData(_ steps: Int, forId userId: Int, onComplete: @escaping(Bool) -> Void) {
         let date = FitHubDateFormatter.formatDate(Date.init())

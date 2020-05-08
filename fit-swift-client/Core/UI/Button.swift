@@ -12,7 +12,7 @@ import EasyPeasy
 
 class Button : UIView {
     enum ButtonType {
-        case small, big, label, nav
+        case small, big, label, nav, wide
     }
     
     private var type: ButtonType = .small
@@ -56,6 +56,8 @@ class Button : UIView {
                 return CommonUIConstants.ButtonConstants.labelButtonWidth
             case .nav:
                 return CommonUIConstants.ButtonConstants.navButtonWidth
+            case .wide:
+                return CommonUIConstants.ButtonConstants.wideButtonWidth
             }
         }()
         let height: CGFloat = {
@@ -64,6 +66,8 @@ class Button : UIView {
                 return CommonUIConstants.ButtonConstants.labelButtonHeight
             case .nav:
                 return CommonUIConstants.ButtonConstants.navButtonHeight
+            case .wide:
+                return CommonUIConstants.ButtonConstants.wideButtonHeight
             default:
                 return CommonUIConstants.ButtonConstants.basicButtonHeight
             }

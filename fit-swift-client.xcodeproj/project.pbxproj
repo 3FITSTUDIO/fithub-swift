@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5620605DC56AB41BCE9DAFB5 /* libPods-fit-swift-client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0AE37B2C1ACD1FD4AB73FE /* libPods-fit-swift-client.a */; };
 		841455FD23CD4A2900296C15 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841455FC23CD4A2900296C15 /* HealthKit.framework */; };
-		841455FF23CDC91900296C15 /* AddNewPopUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */; };
 		8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414560023CDC97C00296C15 /* AddNewValueViewController.swift */; };
 		8414560323CDCA2A00296C15 /* AddNewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414560223CDCA2A00296C15 /* AddNewRouter.swift */; };
 		8414560523CDCAB600296C15 /* AddNewValueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */; };
@@ -28,7 +27,6 @@
 		8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E82823CCFE8300867546 /* SimpleRecordTableViewCell.swift */; };
 		8435E82D23CD025600867546 /* WeightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E82C23CD025600867546 /* WeightsViewModel.swift */; };
 		8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E83223CD1F6800867546 /* CaloriesViewModel.swift */; };
-		8435E83723CD3DFB00867546 /* AddNewPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E83623CD3DFB00867546 /* AddNewPopUp.swift */; };
 		8452C423235CCB2D009E99E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C422235CCB2D009E99E8 /* User.swift */; };
 		8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C426235CCCC9009E99E8 /* FithubUI.swift */; };
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
@@ -54,6 +52,10 @@
 		84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0B23D33109001C8E94 /* ProgressViewController.swift */; };
 		84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */; };
 		84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */; };
+		84BA31B124659DC90064330F /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B024659DC90064330F /* PopupView.swift */; };
+		84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */; };
+		84BA31B52465A1100064330F /* NewValueSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */; };
+		84BA31B72465A1250064330F /* NewValueSelectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */; };
 		84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB96323B3C99C0017737D /* UserNetworking.swift */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
 		84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */; };
@@ -65,6 +67,8 @@
 		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DA2454BD8400DDF5D9 /* DataStore.swift */; };
 		84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */; };
+		84E1A1862461C3D500551D6B /* BodyMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1A1852461C3D500551D6B /* BodyMeasurements.swift */; };
+		84E1A1882461C45000551D6B /* DataFetchedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1A1872461C45000551D6B /* DataFetchedProtocol.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
 		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
 		84ED7B5924586B9C00471759 /* RecordsTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */; };
@@ -78,7 +82,6 @@
 		1E68102904EDDEA18DEA5AF3 /* Pods-fit-swift-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.release.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.release.xcconfig"; sourceTree = "<group>"; };
 		841455FB23CD4A2800296C15 /* fit-swift-client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "fit-swift-client.entitlements"; sourceTree = "<group>"; };
 		841455FC23CD4A2900296C15 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPopUpRouter.swift; sourceTree = "<group>"; };
 		8414560023CDC97C00296C15 /* AddNewValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewValueViewController.swift; sourceTree = "<group>"; };
 		8414560223CDCA2A00296C15 /* AddNewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewRouter.swift; sourceTree = "<group>"; };
 		8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewValueViewModel.swift; sourceTree = "<group>"; };
@@ -97,7 +100,6 @@
 		8435E82823CCFE8300867546 /* SimpleRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRecordTableViewCell.swift; sourceTree = "<group>"; };
 		8435E82C23CD025600867546 /* WeightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightsViewModel.swift; sourceTree = "<group>"; };
 		8435E83223CD1F6800867546 /* CaloriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesViewModel.swift; sourceTree = "<group>"; };
-		8435E83623CD3DFB00867546 /* AddNewPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPopUp.swift; sourceTree = "<group>"; };
 		84520E692406BC99006A3204 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8452C422235CCB2D009E99E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8452C426235CCCC9009E99E8 /* FithubUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubUI.swift; sourceTree = "<group>"; };
@@ -126,6 +128,10 @@
 		84B06D0B23D33109001C8E94 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRouter.swift; sourceTree = "<group>"; };
 		84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewManager.swift; sourceTree = "<group>"; };
+		84BA31B024659DC90064330F /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionViewController.swift; sourceTree = "<group>"; };
+		84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionViewModel.swift; sourceTree = "<group>"; };
+		84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionRouter.swift; sourceTree = "<group>"; };
 		84BBB96323B3C99C0017737D /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
 		84D212DA2454BD8400DDF5D9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNetworking.swift; sourceTree = "<group>"; };
+		84E1A1852461C3D500551D6B /* BodyMeasurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurements.swift; sourceTree = "<group>"; };
+		84E1A1872461C45000551D6B /* DataFetchedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchedProtocol.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
 		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +203,8 @@
 				84EA4352238A11A700CF853D /* Enums */,
 				8452C422235CCB2D009E99E8 /* User.swift */,
 				8489FE4023C4DC2700104C7A /* Record.swift */,
+				84E1A1852461C3D500551D6B /* BodyMeasurements.swift */,
+				84E1A1872461C45000551D6B /* DataFetchedProtocol.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,7 +212,7 @@
 		8452C428235DF3B1009E99E8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8435E83623CD3DFB00867546 /* AddNewPopUp.swift */,
+				84BA31AF24659DB90064330F /* Popup */,
 				8435E82723CCFE6A00867546 /* Cells */,
 				8452C426235CCCC9009E99E8 /* FithubUI.swift */,
 				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
@@ -232,6 +242,7 @@
 				84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */,
 				84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */,
 				84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */,
+				84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -318,6 +329,14 @@
 			path = "fit-swift-client";
 			sourceTree = "<group>";
 		};
+		84BA31AF24659DB90064330F /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				84BA31B024659DC90064330F /* PopupView.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
 		84BC82BD234E501100821DD5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +347,7 @@
 				846C033C2397C28B00798397 /* BasicComponentViewController.swift */,
 				8414560023CDC97C00296C15 /* AddNewValueViewController.swift */,
 				84B06D0B23D33109001C8E94 /* ProgressViewController.swift */,
+				84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -339,9 +359,9 @@
 				845CD7A023722463002917A9 /* DashboardRouter.swift */,
 				8495FB002372C134003E7150 /* SignUpRouter.swift */,
 				8435E82523CCFC5E00867546 /* RecordsTableViewRouter.swift */,
-				841455FE23CDC91900296C15 /* AddNewPopUpRouter.swift */,
 				8414560223CDCA2A00296C15 /* AddNewRouter.swift */,
 				84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */,
+				84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -466,21 +486,21 @@
 			files = (
 				8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */,
 				84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */,
+				84BA31B72465A1250064330F /* NewValueSelectionRouter.swift in Sources */,
 				84EA4351238A116E00CF853D /* AccountType.swift in Sources */,
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
 				8435559923CBCFDD00407CB7 /* CountingLabel.swift in Sources */,
 				847381BE239980CB00CFB05F /* NetworkingClient.swift in Sources */,
 				84ED7B5B24586C2C00471759 /* DataSourceProtocol.swift in Sources */,
 				8414560323CDCA2A00296C15 /* AddNewRouter.swift in Sources */,
-				841455FF23CDC91900296C15 /* AddNewPopUpRouter.swift in Sources */,
 				8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */,
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
 				8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */,
 				84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */,
+				84E1A1882461C45000551D6B /* DataFetchedProtocol.swift in Sources */,
 				84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */,
 				84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */,
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
-				8435E83723CD3DFB00867546 /* AddNewPopUp.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
@@ -490,10 +510,12 @@
 				84C11823245F1C3700F5CFF1 /* StepsViewModel.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
+				84BA31B124659DC90064330F /* PopupView.swift in Sources */,
 				84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */,
 				84ED7B5F2458847D00471759 /* DetailDataItem.swift in Sources */,
 				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
+				84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */,
 				84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */,
 				84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
@@ -501,6 +523,7 @@
 				8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
 				8435559423CB922800407CB7 /* MainStore.swift in Sources */,
+				84BA31B52465A1100064330F /* NewValueSelectionViewModel.swift in Sources */,
 				84ED7B5924586B9C00471759 /* RecordsTableViewViewController.swift in Sources */,
 				846C033D2397C28B00798397 /* BasicComponentViewController.swift in Sources */,
 				8435E82D23CD025600867546 /* WeightsViewModel.swift in Sources */,
@@ -508,6 +531,7 @@
 				845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */,
 				84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */,
 				8414560523CDCAB600296C15 /* AddNewValueViewModel.swift in Sources */,
+				84E1A1862461C3D500551D6B /* BodyMeasurements.swift in Sources */,
 				8452C423235CCB2D009E99E8 /* User.swift in Sources */,
 				8414560723CE227100296C15 /* PickerView.swift in Sources */,
 				841DC29C237167B50075BA8C /* PasswordField.swift in Sources */,

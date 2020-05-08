@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class LoginRouter: Router {
-    
     func route(to routeID: String, from context: UIViewController, parameters: Any? = nil) {
         guard let route = LoginViewController.Route(rawValue: routeID) else { return }
         let vc: UIViewController

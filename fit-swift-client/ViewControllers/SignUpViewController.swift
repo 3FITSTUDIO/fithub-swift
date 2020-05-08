@@ -31,6 +31,7 @@ class SignUpViewController: UIViewController {
     private let nameField = TextField()
     private let surnameField = TextField()
     private let emailField = TextField()
+    private let loginField = TextField()
     private let passwdField = PasswordField()
     private let passwdConfirmField = PasswordField()
     private var textFields = [TextField]()
@@ -58,8 +59,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCommonTraits()
-        textFields = [nameField, surnameField, emailField, passwdField, passwdConfirmField]
+        textFields = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField]
         setup()
+        viewModel.vc = self
     }
     
     private func setup(){
@@ -70,7 +72,7 @@ class SignUpViewController: UIViewController {
         logo.image = UIImage(named: "logo-text")
         scrollView.addSubview(logo)
         logo.image = ImageUtility.resizeImage(image: logo.image, toScale: 0.7)
-        logo.easy.layout(CenterX(), Top(80))
+        logo.easy.layout(CenterX(), Top(40))
         setupForm()
     }
     
@@ -81,22 +83,23 @@ class SignUpViewController: UIViewController {
         let nameLabel = Label(label: "name")
         let surnameLabel = Label(label: "surname")
         let emailLabel = Label(label: "email")
+        let loginLabel = Label(label: "login")
         let passwdLabel = Label(label: "password")
         let passwdConfirmLabel = Label(label: "confirm password")
         
-        let labels = [nameLabel, surnameLabel, emailLabel, passwdLabel, passwdConfirmLabel]
+        let labels = [nameLabel, surnameLabel, emailLabel, loginLabel, passwdLabel, passwdConfirmLabel]
         scrollView.addSubviews(subviews: labels)
         
-        nameField.easy.layout(CenterX(), Top(200))
+        nameField.easy.layout(CenterX(), Top(150))
         var previous = nameField
-        let rest = [surnameField, emailField, passwdField, passwdConfirmField]
+        let rest = [surnameField, emailField, loginField, passwdField, passwdConfirmField]
         rest.forEach {
             $0.easy.layout(CenterX(), Top(41).to(previous, .bottom))
             previous = $0
         }
         
-        nameLabel.easy.layout(Left(82), Top(175))
-        let rest2 = [surnameLabel, emailLabel, passwdLabel, passwdConfirmLabel]
+        nameLabel.easy.layout(Left(82), Top(125))
+        let rest2 = [surnameLabel, emailLabel, loginLabel, passwdLabel, passwdConfirmLabel]
         var previous2 = nameLabel
         rest2.forEach {
             $0.easy.layout(Left(82), Top(63).to(previous2))
@@ -115,11 +118,6 @@ class SignUpViewController: UIViewController {
         scrollView.addSubview(cancelButton)
         cancelButton.easy.layout(CenterX(), Top(30).to(createAccountButton, .bottom))
         cancelButton.addGesture(target: self, selector: #selector(self.cancelTapped))
-        
-//        let forgotPasswordButton = Label(label: "forgot password?")
-//        container.addSubview(forgotPasswordButton)
-//        forgotPasswordButton.easy.layout(CenterX(), Bottom(60))
-//        forgotPasswordButton.addGesture(target: self, selector: #selector(self.forgotTapped(_:)))
     }
 }
 
@@ -142,7 +140,7 @@ extension SignUpViewController {
             safeArea.size.height -= keyboardSize.height + (UIScreen.main.bounds.height*0.04) // Adjust buffer to your liking
 
             // determine which UIView was selected and if it is covered by keyboard
-            let activeField: UIView? = [nameField, surnameField, emailField, passwdField, passwdConfirmField].first { $0.textField.isFirstResponder }
+            let activeField: UIView? = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField].first { $0.textField.isFirstResponder }
             if let activeField = activeField {
                 if safeArea.contains(CGPoint(x: 0, y: activeField.frame.maxY)) {
                     print("No need to Scroll")
@@ -154,7 +152,7 @@ extension SignUpViewController {
                 }
             }
             // prevent scrolling while typing
-            scrollView.isScrollEnabled = false
+            scrollView.isScrollEnabled = true
         }
     }
     @objc func keyboardWillHide(notification: NSNotification) {
@@ -167,6 +165,26 @@ extension SignUpViewController {
             distance = 0
             scrollView.isScrollEnabled = true
     }
+    
+    public func displayAlert(success: Bool) {
+        if success {
+            let alertController = UIAlertController(title: "Success!", message: "Signed up correctly.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Log in", style: .default) { (action:UIAlertAction) in
+                self.router.route(to: Route.submit.rawValue, from: self)
+            }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else {
+            let alertController = UIAlertController(title: "Oh no!", message: "There was an error, please try again!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
+                self.textFields.forEach { $0.textField.text = "" }
+            }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+    }
 }
 
 // MARK: Routing
@@ -178,24 +196,7 @@ extension SignUpViewController {
     @objc private func submitTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         let enteredData = textFields.map { $0.textField.text }
-        guard viewModel.verifyEnteredData(data: enteredData) else {
-            let alertController = UIAlertController(title: "Oh no!", message: "There was an error, please try again!", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
-                self.textFields.forEach { $0.textField.text = "" }
-            }
-            alertController.addAction(action1)
-            self.present(alertController, animated: true, completion: nil)
-            return
-        }
-        let alertController = UIAlertController(title: "Success!", message: "Signed up correctly.", preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Log in", style: .default) { (action:UIAlertAction) in
-            self.router.route(to: Route.submit.rawValue, from: self)
-        }
-        alertController.addAction(action1)
-        self.present(alertController, animated: true, completion: nil)
+        viewModel.verifyEnteredData(data: enteredData)
     }
-//    @objc private func forgotTapped(_ sender: UITapGestureRecognizer? = nil) {
-//        router.route(to: Route.forgot.rawValue, from: self)
-//    }
 }
 

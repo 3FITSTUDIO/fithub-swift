@@ -63,8 +63,12 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
 // MARK: TableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
-        let recordsToDisplayCount = viewModel.data.count
-        return recordsToDisplayCount
+        switch dataType {
+        case .measurements:
+            return viewModel.bodyData.count
+        default:
+            return viewModel.data.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

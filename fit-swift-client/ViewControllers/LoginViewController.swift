@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     enum Route: String {
         case login
         case signUp
-        //        case forgotPassword
     }
     private let router = LoginRouter()
     private let viewModel = LoginViewModel()
@@ -43,6 +42,7 @@ class LoginViewController: UIViewController {
         setupCommonTraits()
         setup()
         resetAppearance()
+        viewModel.vc = self
     }
     
     private func setup(){
@@ -55,7 +55,6 @@ class LoginViewController: UIViewController {
         logo.image = UIImage(named: "logo-text")
         container.addSubview(logo)
         logo.easy.layout(CenterX(), Bottom(20).to(loginLabel))
-        
     }
     
     private func setupButtons() {
@@ -68,11 +67,6 @@ class LoginViewController: UIViewController {
         container.addSubview(newAccButton)
         newAccButton.easy.layout(CenterX(), Bottom(125))
         newAccButton.addGesture(target: self, selector: #selector(self.signUpTapped(_:)))
-        
-        //        let forgotButton = Button(type: .label, label: "forgot password?")
-        //        container.addSubview(forgotButton)
-        //        forgotButton.easy.layout(CenterX(), Top(15).to(loginButton))
-        //        forgotButton.addGesture(target: self, selector: #selector(self.forgotPasswordTapped(_:)))
     }
     
     private func  setupTextFields() {
@@ -89,6 +83,18 @@ class LoginViewController: UIViewController {
         passwordLabel.text = "password"
         passwordField.textField.text = ""
     }
+    
+    func handleLoginAction(success: Bool) {
+        if success {
+            self.router.route(to: Route.login.rawValue, from: self)
+        }
+        else {
+            self.loginLabel.text = "try again! - login"
+            self.passwordLabel.text = "try again! - password"
+            self.loginField.textField.text = ""
+            self.passwordField.textField.text = ""
+        }
+    }
 }
 
 // MARK: Routing
@@ -100,25 +106,10 @@ extension LoginViewController {
         let login = loginField.textField.text ?? ""
         let passwd = passwordField.textField.text ?? ""
         
-        viewModel.authenticateOnLogin(login: login, passwd: passwd) { authenticated in
-            if authenticated {
-                self.router.route(to: Route.login.rawValue, from: self)
-            }
-            else {
-                self.loginLabel.text = "try again! - login"
-                self.passwordLabel.text = "try again! - password"
-            }
-        }
-        self.loginField.textField.text = ""
-        self.passwordField.textField.text = ""
-        return
+        viewModel.authenticateOnLogin(login: login, passwd: passwd) {}
     }
     @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         router.route(to: Route.signUp.rawValue, from: self)
     }
-    //        @objc private func forgotPasswordTapped(_ sender: UITapGestureRecognizer? = nil) {
-    //            router.route(to: Route.forgotPassword.rawValue, from: self)
-    //        }
 }
-

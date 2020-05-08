@@ -12,7 +12,7 @@ class DataProvider {
     enum DataType: String {
         case weights = "Weights"
         case kcal = "Calories"
-        case training = "Trainings"
+        case training = "Training"
         case sleep = "Sleep"
         case pulse = "Pulse"
         case steps = "Steps"

@@ -10,23 +10,27 @@ import Foundation
 import UIKit
 
 class LoginViewModel {
-    private weak var vc: LoginViewController?
+    weak var vc: LoginViewController?
     private var store: UserStore?
     
     init() {
         store = mainStore.userStore
     }
     
-    func authenticateOnLogin(login: String?, passwd: String?, onComplete: @escaping(Bool) -> Void) {
+    func authenticateOnLogin(login: String, passwd: String, onComplete: @escaping() -> Void) {
         if (login == "a" && passwd == "a") {
-            onComplete(true)
+            vc?.handleLoginAction(success: true)
+            onComplete()
+            return
         }
-        guard let login = login, let passwd = passwd, let store = store else {
-            onComplete(false)
+        guard let store = store else {
+            vc?.handleLoginAction(success: false)
+            onComplete()
             return
         }
         store.authenticatePassword(forUsername: login, inputPasswd: passwd) { result in
-            onComplete(result)
+            self.vc?.handleLoginAction(success: result)
+            onComplete()
         }
     }
 }

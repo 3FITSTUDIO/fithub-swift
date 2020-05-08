@@ -7,3 +7,59 @@
 //
 
 import Foundation
+
+struct BodyMeasurements: Codable, DataFetched {
+    
+    //    0 neck
+    //    1 chest
+    //    2 bicep
+    //    3 forearm
+    //    4 stomach
+    //    5 waist
+    //    6 thigh
+    //    7 calf
+    
+    public var id: Int
+    public var userId: Int
+    public var values: [Double]
+    public var date: String
+    
+    public var value: Double // not used at present
+    
+    init(id: Int, userId: Int, values: [Double], date: String) {
+        self.id = id
+        self.userId = userId
+        self.values = values
+        self.date = date
+        self.value = -1
+    }
+}
+
+extension BodyMeasurements {
+    init(json: [String: Any]) throws {
+        guard let id = json["id"] as? Int else {
+            throw SerializationError.missing("id")
+        }
+        
+        guard let userId = json["userId"] as? Int else {
+            throw SerializationError.missing("userId")
+        }
+        
+        guard let values = json["values"] as? [Double] else {
+            throw SerializationError.missing("value")
+        }
+        
+        guard let date = json["date"] as? String else {
+            throw SerializationError.missing("date")
+        }
+        
+        self.id = id
+        self.userId = userId
+        self.values = values
+        self.date = date
+        self.value = -1
+    }
+    
+}
+
+

@@ -13,6 +13,7 @@ class PulseViewModel: DataSourceViewModel {
     var store: DataStore?
     
     var data = [Record]()
+    var bodyData = [BodyMeasurements]()
     
     init() {
         store = mainStore.dataStore
@@ -22,7 +23,7 @@ class PulseViewModel: DataSourceViewModel {
         }
     }
     
-    func fetchDataForCell(forIndex index: Int) -> Record {
+    func fetchDataForCell(forIndex index: Int) -> DataFetched {
         let record = data.reversed()[index]
         return record
     }

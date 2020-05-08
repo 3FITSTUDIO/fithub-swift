@@ -33,6 +33,8 @@ class DashboardRouter: Router {
             vc = DataProvider().provideViewController(dataType: .measurements)
         case .progress:
             vc = ProgressViewController()
+        case .addNew:
+            vc = NewValueSelectionViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }

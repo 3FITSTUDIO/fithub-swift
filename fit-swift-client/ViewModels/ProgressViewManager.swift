@@ -140,32 +140,33 @@ class ProgressViewManager {
     
     // MARK: Data Feeding
     private func feedInitialData() {
-        for _ in 1...xRange {
-            bars.append(newBar(forValue: 1))
-        }
-        self.bars.forEach { self.barStackView.addArrangedSubview($0) }
-
-        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-            for i in 1...self.xRange {
-                let data = self.unit == .weight ? self.weightArray[i-1].value : self.calorieArray[i-1].value
-                self.values.append(data)
-                self.barsSelected.append(false)
-                self.bars[i-1].easy.layout(Height(CGFloat(Double(data)/Double(self.maxVal) * 200)))
-            }
-            self.container.layoutIfNeeded()
-        })
-        delegate?.avgValueLabel.text = String(calculateAverage())
+        return
+//        for _ in 1...xRange {
+//            bars.append(newBar(forValue: 1))
+//        }
+//        self.bars.forEach { self.barStackView.addArrangedSubview($0) }
+//
+//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//            for i in 1...self.xRange {
+//                let data = self.unit == .weight ? self.weightArray[i-1].value : self.calorieArray[i-1].value
+//                self.values.append(data)
+//                self.barsSelected.append(false)
+//                self.bars[i-1].easy.layout(Height(CGFloat(Double(data)/Double(self.maxVal) * 200)))
+//            }
+//            self.container.layoutIfNeeded()
+//        })
+//        delegate?.avgValueLabel.text = String(calculateAverage())
     }
     
     private func feedNewData() {
-        for i in 1...xRange {
-            let data = unit == .weight ? weightArray[i-1].value : calorieArray[i-1].value
-            self.values[i-1] = Double(data)
-            UIView.animate(withDuration: 0.2, animations: { () -> Void in
-                self.bars[i-1].easy.layout(Height(CGFloat((Double(data)/Double(self.maxVal)) * 200)))
-                self.container.layoutIfNeeded()
-            })
-        }
+//        for i in 1...xRange {
+//            let data = unit == .weight ? weightArray[i-1].value : calorieArray[i-1].value
+//            self.values[i-1] = Double(data)
+//            UIView.animate(withDuration: 0.2, animations: { () -> Void in
+//                self.bars[i-1].easy.layout(Height(CGFloat((Double(data)/Double(self.maxVal)) * 200)))
+//                self.container.layoutIfNeeded()
+//            })
+//        }
     }
     
     func changedUnit(toUnit unit: Unit) {

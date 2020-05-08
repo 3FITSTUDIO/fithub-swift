@@ -10,15 +10,31 @@ import Foundation
 
 class SignUpViewModel {
     private var store: UserStore?
+    weak var vc: SignUpViewController?
     
     init() {
         store = mainStore.userStore
     }
     
-    func verifyEnteredData(data: [String?]) -> Bool {
-        if let store = store {
-            return store.verifyDataOnSignUp(data: data)
+    func verifyEnteredData(data: [String?]) {
+        // no empty data
+        data.forEach {
+            guard $0 != "" else {
+                vc?.displayAlert(success: false)
+                return
+            }
         }
-        return false
+        // passwords matching
+        guard data[4] == data[5] else {
+            vc?.displayAlert(success: false)
+            return
+        }
+        if let store = store {
+            store.verifyDataOnSignUp(data: data) { result in
+                self.vc?.displayAlert(success: result)
+                return
+            }
+        }
+        return
     }
 }

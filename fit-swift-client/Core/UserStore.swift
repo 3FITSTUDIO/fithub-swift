@@ -36,8 +36,11 @@ class UserStore {
     }
     
     // MARK: Sign Up View Controller
-    func verifyDataOnSignUp(data: [String?]) -> Bool {
-        guard apiClient.postNewAccountCreated(name: data[0], surname: data[1], email: data[2], password: data[3]) else { return false }
-        return true
+    func verifyDataOnSignUp(data: [String?], onComplete: @escaping(Bool) -> Void) {
+        apiClient.postNewAccountCreated(name: data[0], surname: data[1], email: data[2], login: data[3], password: data[4]) { result in
+            self.authenticatePassword(forUsername: data[2]!, inputPasswd: data[4]!) { _ in
+                onComplete(result)
+            }
+        }
     }
 }

@@ -15,6 +15,7 @@ class DashboardViewController: BasicComponentViewController {
         case weights, kcal, training, sleep, pulse, steps, measurements
         case logout
         case progress
+        case addNew
     }
     
     private let router = DashboardRouter()
@@ -42,7 +43,7 @@ class DashboardViewController: BasicComponentViewController {
     let stepsDataButton = BasicTile(size: .small)
 
     // Buttons - other
-    private let seeProgressButton = BasicTile(size: .wide)
+    private let seeProgressButton = Button(type: .wide, label: "See Progress")
     private let plusButton = BasicTile(size: .roundButton)
     private let stepsProgressView = StepsProgressBarView()
     
@@ -137,10 +138,8 @@ class DashboardViewController: BasicComponentViewController {
         measurementsDataButton.bottomLabel.text = "measurements"
         stepsDataButton.topLabel.text = "Steps"
         stepsDataButton.bottomLabel.text = "avg. per day"
-        
-        seeProgressButton.wideLabel.text = "See progress"
-    
-        detailDataViews = [weightDataButton, kcalDataButton, trainingsDataButton, sleepDataButton, pulseDataButton, measurementsDataButton, stepsDataButton]
+            
+        detailDataViews = [weightDataButton, kcalDataButton, trainingsDataButton, sleepDataButton, pulseDataButton, stepsDataButton, measurementsDataButton]
         for i in 0...6 {
             detailDataViews[i].tag = i
         }
@@ -191,9 +190,9 @@ extension DashboardViewController {
         case 4:
              router.route(to: Route.pulse.rawValue, from: self)
         case 5:
-             router.route(to: Route.measurements.rawValue, from: self)
-        case 6:
              router.route(to: Route.steps.rawValue, from: self)
+        case 6:
+             router.route(to: Route.measurements.rawValue, from: self)
         default:
             return
         }
@@ -213,9 +212,7 @@ extension DashboardViewController {
     
     @objc private func addNewTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        let popup = AddNewPopUp()
-        present(popup, animated: true, completion: nil)
-        popup.didMove(toParent: popup)
+        router.route(to: Route.addNew.rawValue, from: self)
     }
 }
 

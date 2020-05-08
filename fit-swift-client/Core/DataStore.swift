@@ -50,8 +50,8 @@ class DataStore {
         return currentlyStoredData[.steps] as? [Record] ?? [Record]()
     }
     
-    var measurementsData: [Record] {
-        return currentlyStoredData[.measurements] as? [Record] ?? [Record]()
+    var measurementsData: [BodyMeasurements] {
+        return currentlyStoredData[.measurements] as? [BodyMeasurements] ?? [BodyMeasurements]()
     }
     
     init() {
@@ -82,8 +82,8 @@ class DataStore {
         caloriesViewModel?.updateData()
     }
     
-    func fetchAllData(onComplete: @escaping() -> Void) {
-        guard !isDataFetched else {
+    func fetchAllData(force: Bool, onComplete: @escaping() -> Void) {
+        guard !isDataFetched || force else {
             onComplete()
             return
         }
@@ -204,7 +204,7 @@ class DataStore {
     
     func fetchMeasurementsData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .measurements) { result in
+        apiClient.fetchBodyMeasurementsData(forUserId: user.id, dataType: .measurements) { result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -216,7 +216,7 @@ class DataStore {
     }
     
     func postStepsData(_ steps: Int, onComplete: @escaping(Bool) -> Void) {
-        return // dont post data in development
+        guard currentlyStoredData[.steps] as? Int ?? 0 != steps else { return }
         guard let user = authenticateUserProfile() else {
             onComplete(false)
             return

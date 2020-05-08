@@ -15,7 +15,7 @@ class BasicTile: UIView {
     //TODO: Move wide option to Button class
     
     enum TileSize {
-        case small, big, wide, cell, roundButton, custom
+        case small, big, cell, roundButton, custom
     }
     
     private var size: TileSize = .small
@@ -27,7 +27,6 @@ class BasicTile: UIView {
     let mainLabel = Label(label: "", fontSize: 50)
     let plusLabel = Label(label: "+", fontSize: 60)
     let counterTopLabel = Label(label: "", fontSize: 40)
-    let wideLabel = Label(label: "", fontSize: 30)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,7 +56,6 @@ class BasicTile: UIView {
             switch size {
             case .small: return 152
             case .big: return 323
-            case .wide: return 73
             case .cell: return 104
             case .roundButton: return 80
             case .custom: return customHeight
@@ -67,7 +65,6 @@ class BasicTile: UIView {
             switch size {
             case .small: return 159
             case .big: return 337
-            case .wide: return 337
             case .cell: return 337
             case .roundButton: return 80
             case .custom: return customWidth
@@ -85,7 +82,7 @@ class BasicTile: UIView {
     
     private func setupLabels() {
         [topLabel, bottomLabel].forEach { $0.textColor = FithubUI.Colors.whiteOneHundred }
-        [counterTopLabel, plusLabel, wideLabel, mainLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
+        [counterTopLabel, plusLabel, mainLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
         
         if size == .small {
             self.addSubviews(subviews: [topLabel, bottomLabel, mainLabel])
@@ -101,10 +98,5 @@ class BasicTile: UIView {
             self.addSubview(plusLabel)
             plusLabel.easy.layout(Center())
         }
-        else if size == .wide {
-            self.addSubview(wideLabel)
-            wideLabel.easy.layout(Center())
-        }
-        
     }
 }

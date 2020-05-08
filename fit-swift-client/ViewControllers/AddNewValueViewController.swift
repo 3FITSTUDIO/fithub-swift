@@ -10,21 +10,17 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-public enum NewValueType: String {
-    case weight
-    case calories
-}
-
-class AddNewValueViewController: BasicComponentViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddNewValueViewController: BasicComponentViewController {
     enum Route: String {
         case back
+        case added
     }
-    
-    
-    
-    private var type: NewValueType = .weight
+
+    private var type: DataProvider.DataType = .weights
     private let router = AddNewValueRouter()
     private let viewModel = AddNewValueViewModel()
+    private var enterLabel = Label()
+    private let valueField = TextField(placeholder: "enter a number")
     
     private let dateTextField: UIView = {
         let view = UIView()
@@ -34,25 +30,24 @@ class AddNewValueViewController: BasicComponentViewController, UIPickerViewDeleg
         datePicker.backgroundColor = FithubUI.Colors.weirdGreen
         datePicker.setValue(UIColor.white, forKey: "textColor")
         datePicker.datePickerMode = .date
-        view.addSubviews(subviews: [datePicker])
+        view.addSubview(datePicker)
         datePicker.easy.layout(Center())
         return view
     }()
     
-    private let valueField = PickerView()
     private let confirmAddButton = Button(type: .nav, label: "add")
     
     override func viewDidLoad() {
-        componentName = "Add New Value"
+        componentName = "New Value"
         super.viewDidLoad()
+        viewModel.vc = self
+        styleForType()
     }
     
-    convenience init(type: NewValueType) {
+    convenience init(type: DataProvider.DataType) {
         self.init()
         self.type = type
-        valueField.picker.dataSource = self
-        valueField.picker.delegate = self
-        styleForType(type: type)
+        enterLabel = Label(label: "Enter new \(type.rawValue) value:", fontSize: 20)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -66,49 +61,36 @@ class AddNewValueViewController: BasicComponentViewController, UIPickerViewDeleg
     override func setup() {
         super.setup()
         addBottomNavigationBar()
-        
-        container.addSubviews(subviews: [dateTextField, valueField, confirmAddButton])
-        dateTextField.easy.layout(CenterX(), Top(110))
-        valueField.easy.layout(Left(30), Top(40).to(dateTextField, .bottomMargin))
-        confirmAddButton.easy.layout(CenterX(), Top(80).to(valueField, .bottomMargin))
-        valueField.label.text = type == .weight ? "Weight: " : "Calories: "
-        confirmAddButton.addGesture(target: self, selector: #selector(self.confirmAddTapped(_:)))
+        container.addSubviews(subviews: [dateTextField, enterLabel, confirmAddButton])
+        enterLabel.easy.layout(CenterX(), Top(100))
+        dateTextField.easy.layout(CenterX(), Top(20).to(enterLabel))
+//        confirmAddButton.easy.layout(CenterX(), Top(20).to(valueField, .bottomMargin))
+        confirmAddButton.addGesture(target: self, selector: #selector(confirmAddTapped(_:)))
     }
     
-    private func styleForType(type: NewValueType) {
+    private func styleForType() {
         switch type {
-        case .weight:
+        case .measurements:
             return
-        case .calories:
-            return
+        default:
+            container.addSubview(valueField)
+            valueField.easy.layout(Left(30), Top(40).to(dateTextField, .bottomMargin))
         }
     }
     
-    // MARK: PickerView Delegate, Datasource
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return type == .weight ? 201 : 51
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return type == .weight ? String(row) : String(row * 100)
-    }
     // MARK: Navigation
+    
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        dismiss(animated: true, completion: nil)
+        router.route(to: Route.back.rawValue, from: self)
     }
     
     @objc func confirmAddTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        let datePicker = dateTextField.subviews[0] as! UIDatePicker
-        let date = datePicker.date
-        let value = valueField.picker.selectedRow(inComponent: 0)
-//        let success = viewModel.postNewRecord(value: value, date: date, type: type)
+//        let datePicker = dateTextField.subviews[0] as! UIDatePicker
+//        let date = datePicker.date
+//        let value = valueField.textField.text
+        //        let success = viewModel.postNewRecord(value: value, date: date, type: type)
 //        if success {
 //            let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
 //            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }

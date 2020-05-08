@@ -60,26 +60,28 @@ final class UserNetworking : NetworkingClient {
     }
     
     // MARK: Sign Up View Controller
-    func postNewAccountCreated(name: String?, surname: String?, email: String?, password: String?) -> Bool {
-        guard name != nil && surname != nil && email != nil && password != nil else { return false }
+    func postNewAccountCreated(name: String?, surname: String?, email: String?, login: String?, password: String?, onComplete: @escaping(Bool) -> Void) {
+        guard name != nil && surname != nil && email != nil && password != nil else {
+            onComplete(false)
+            return
+        }
         
         var params: [String: Any] = [:]
         params["first_name"] = name
         params["last_name"] = surname
         params["email"] = email
-        //        params["login"] = login // DODAC LOGIN
+        params["login"] = login
         params["password"] = password
         
-        var success = false
         executeRequest(userEndpoint, .post, parameters: params) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 debugPrint("fetch_user_id: Received error from server")
+                onComplete(false)
             }
             else {
-                success = true
+                onComplete(true)
             }
         }
-        return success
     }
 }

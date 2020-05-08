@@ -8,28 +8,29 @@
 
 import Foundation
 
-class MeasurementsViewModel: DataSourceViewModel {
+class MeasurementsViewModel: DataSourceViewModel {    
     weak var vc: RecordsTableViewViewController?
     var store: DataStore?
     
     var data = [Record]()
+    var bodyData = [BodyMeasurements]()
     
     init() {
         store = mainStore.dataStore
         if let store = store {
-            data = store.measurementsData
+            bodyData = store.measurementsData
             store.measurementsViewModel = self
         }
     }
     
-    func fetchDataForCell(forIndex index: Int) -> Record {
-        let record = data.reversed()[index]
+    func fetchDataForCell(forIndex index: Int) -> DataFetched {
+        let record = bodyData.reversed()[index]
         return record
     }
     
     func updateData() {
         if let store = store {
-            data = store.measurementsData
+            bodyData = store.measurementsData
         }
     }
 }

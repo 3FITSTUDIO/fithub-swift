@@ -16,10 +16,12 @@ class CommonUIConstants {
         static let bigButtonWidth: CGFloat = 220
         static let navButtonWidth: CGFloat = 125
         static let labelButtonWidth: CGFloat = 120
+        static let wideButtonWidth: CGFloat = 337
         
         static let navButtonHeight: CGFloat = 74
         static let labelButtonHeight: CGFloat = 20
         static let basicButtonHeight: CGFloat = 46
+        static let wideButtonHeight: CGFloat = 73
     }    
 }
 

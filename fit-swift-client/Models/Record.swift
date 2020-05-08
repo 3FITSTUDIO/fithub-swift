@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Record: Codable {
+struct Record: Codable, DataFetched {
     
     //    0 neck
     //    1 chest
@@ -24,11 +24,14 @@ struct Record: Codable {
     public var value: Double
     public var date: String
     
+    var values: [Double]
+    
     init(id: Int, userId: Int, value: Double, date: String) {
         self.id = id
         self.userId = userId
         self.value = value
         self.date = date
+        self.values = [Double]()
     }
 }
 
@@ -54,6 +57,7 @@ extension Record {
         self.userId = userId
         self.value = value
         self.date = date
+        self.values = [Double]()
     }
     
 }
