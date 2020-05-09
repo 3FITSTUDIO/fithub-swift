@@ -41,10 +41,10 @@
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
 		8489FE4123C4DC2700104C7A /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4023C4DC2700104C7A /* Record.swift */; };
-		8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4223C4DCFF00104C7A /* RecordType.swift */; };
 		8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FAFE2372C09C003E7150 /* SignUpViewController.swift */; };
 		8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB002372C134003E7150 /* SignUpRouter.swift */; };
 		8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB022372C1B6003E7150 /* SignUpViewModel.swift */; };
+		849A03C924670DC2009F8FEB /* AlertDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A03C824670DC2009F8FEB /* AlertDisplayViewController.swift */; };
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
@@ -70,7 +70,6 @@
 		84E1A1862461C3D500551D6B /* BodyMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1A1852461C3D500551D6B /* BodyMeasurements.swift */; };
 		84E1A1882461C45000551D6B /* DataFetchedProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1A1872461C45000551D6B /* DataFetchedProtocol.swift */; };
 		84EA434F238A028600CF853D /* ImageUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA434E238A028600CF853D /* ImageUtility.swift */; };
-		84EA4351238A116E00CF853D /* AccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA4350238A116E00CF853D /* AccountType.swift */; };
 		84ED7B5924586B9C00471759 /* RecordsTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */; };
 		84ED7B5B24586C2C00471759 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5A24586C2C00471759 /* DataSourceProtocol.swift */; };
 		84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5C24586DE000471759 /* DataProvider.swift */; };
@@ -115,10 +114,10 @@
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		8489FE4023C4DC2700104C7A /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		8489FE4223C4DCFF00104C7A /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		8495FB022372C1B6003E7150 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		849A03C824670DC2009F8FEB /* AlertDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayViewController.swift; sourceTree = "<group>"; };
 		84A2A1D9234D37690078EE29 /* FitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A2A1DC234D37690078EE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A2A1DE234D37690078EE29 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 		84E1A1852461C3D500551D6B /* BodyMeasurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurements.swift; sourceTree = "<group>"; };
 		84E1A1872461C45000551D6B /* DataFetchedProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetchedProtocol.swift; sourceTree = "<group>"; };
 		84EA434E238A028600CF853D /* ImageUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtility.swift; sourceTree = "<group>"; };
-		84EA4350238A116E00CF853D /* AccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountType.swift; sourceTree = "<group>"; };
 		84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewViewController.swift; sourceTree = "<group>"; };
 		84ED7B5A24586C2C00471759 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
 		84ED7B5C24586DE000471759 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				8435559623CBCFDD00407CB7 /* CountingLabel.swift */,
-				8431389F2455FB0400ABC0B2 /* StepsProgressManager.swift */,
 				843138A02455FB0400ABC0B2 /* StepsProgressView.swift */,
 			);
 			path = StepsProgress;
@@ -200,7 +197,6 @@
 		8452C421235CCB16009E99E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				84EA4352238A11A700CF853D /* Enums */,
 				8452C422235CCB2D009E99E8 /* User.swift */,
 				8489FE4023C4DC2700104C7A /* Record.swift */,
 				84E1A1852461C3D500551D6B /* BodyMeasurements.swift */,
@@ -212,44 +208,21 @@
 		8452C428235DF3B1009E99E8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				849A03C824670DC2009F8FEB /* AlertDisplayViewController.swift */,
+				846C033C2397C28B00798397 /* BasicComponentViewController.swift */,
+				849A03CB24670F1F009F8FEB /* Views */,
 				84BA31AF24659DB90064330F /* Popup */,
 				8435E82723CCFE6A00867546 /* Cells */,
 				8452C426235CCCC9009E99E8 /* FithubUI.swift */,
 				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
-				847CE0C2234E549A002FC12E /* Button.swift */,
-				84710C29236A31F20027AEC5 /* TextField.swift */,
-				841DC29B237167B50075BA8C /* PasswordField.swift */,
-				841DC29D237169F30075BA8C /* Label.swift */,
-				84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */,
-				84C888612396C38A00F2C2E3 /* ComponentTitle.swift */,
-				8414560623CE227100296C15 /* PickerView.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		8452C429235DF3C8009E99E8 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */,
-				845CD7A22372249D002917A9 /* DashboardViewModel.swift */,
-				8495FB022372C1B6003E7150 /* SignUpViewModel.swift */,
-				8435E82C23CD025600867546 /* WeightsViewModel.swift */,
-				8435E83223CD1F6800867546 /* CaloriesViewModel.swift */,
-				8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */,
-				84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */,
-				84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */,
-				84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */,
-				84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */,
-				84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */,
-				84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */,
-				84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */,
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8452C42A235DF3D9009E99E8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8452C42B235DF5BD009E99E8 /* Extensions.swift */,
 				84EA434E238A028600CF853D /* ImageUtility.swift */,
 				84A33DFD23D4998B0091E156 /* DateFormatter.swift */,
 			);
@@ -268,9 +241,9 @@
 		847381BF2399A35800CFB05F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
+				849A03D624671160009F8FEB /* Enums */,
 				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
-				8435559123CB837300407CB7 /* SerializationError.swift */,
+				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
 				84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */,
 			);
 			path = Network;
@@ -279,19 +252,146 @@
 		847CE0C8234E5F0A002FC12E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				84ED7B5A24586C2C00471759 /* DataSourceProtocol.swift */,
+				849A03D3246710BB009F8FEB /* Data */,
 				847381BF2399A35800CFB05F /* Network */,
 				8452C42A235DF3D9009E99E8 /* Utility */,
 				8452C428235DF3B1009E99E8 /* UI */,
 				847CE0C6234E5D86002FC12E /* RouterProtocol.swift */,
-				8452C42B235DF5BD009E99E8 /* Extensions.swift */,
-				8435558F23CB655600407CB7 /* UserStore.swift */,
-				8435559323CB922800407CB7 /* MainStore.swift */,
-				8435559523CBCFDD00407CB7 /* StepsProgress */,
-				84D212DA2454BD8400DDF5D9 /* DataStore.swift */,
-				84ED7B5C24586DE000471759 /* DataProvider.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		849A03CA24670EF2009F8FEB /* UserComponent */ = {
+			isa = PBXGroup;
+			children = (
+				849A03D124671047009F8FEB /* Signup */,
+				849A03D024671042009F8FEB /* Login */,
+			);
+			path = UserComponent;
+			sourceTree = "<group>";
+		};
+		849A03CB24670F1F009F8FEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84C888612396C38A00F2C2E3 /* ComponentTitle.swift */,
+				84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */,
+				8435559523CBCFDD00407CB7 /* StepsProgress */,
+				841DC29D237169F30075BA8C /* Label.swift */,
+				841DC29B237167B50075BA8C /* PasswordField.swift */,
+				847CE0C2234E549A002FC12E /* Button.swift */,
+				84710C29236A31F20027AEC5 /* TextField.swift */,
+				8414560623CE227100296C15 /* PickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		849A03CC24670F6B009F8FEB /* DataComponent */ = {
+			isa = PBXGroup;
+			children = (
+				849A03D2246710A4009F8FEB /* Routers */,
+				84ED7B5C24586DE000471759 /* DataProvider.swift */,
+				849A03CE24671005009F8FEB /* ViewControllers */,
+				849A03CD24670F80009F8FEB /* ViewModels */,
+			);
+			path = DataComponent;
+			sourceTree = "<group>";
+		};
+		849A03CD24670F80009F8FEB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				849A03D4246710E2009F8FEB /* DataSource */,
+				845CD7A22372249D002917A9 /* DashboardViewModel.swift */,
+				8431389F2455FB0400ABC0B2 /* StepsProgressManager.swift */,
+				8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */,
+				84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */,
+				84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		849A03CE24671005009F8FEB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */,
+				841DC2A12371C4870075BA8C /* DashboardViewController.swift */,
+				8414560023CDC97C00296C15 /* AddNewValueViewController.swift */,
+				84B06D0B23D33109001C8E94 /* ProgressViewController.swift */,
+				84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		849A03D024671042009F8FEB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				84BC82C2234E508500821DD5 /* LoginRouter.swift */,
+				84A2A1DE234D37690078EE29 /* LoginViewController.swift */,
+				841DC29F2371BE2E0075BA8C /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		849A03D124671047009F8FEB /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				8495FB002372C134003E7150 /* SignUpRouter.swift */,
+				8495FAFE2372C09C003E7150 /* SignUpViewController.swift */,
+				8495FB022372C1B6003E7150 /* SignUpViewModel.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		849A03D2246710A4009F8FEB /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				845CD7A023722463002917A9 /* DashboardRouter.swift */,
+				8435E82523CCFC5E00867546 /* RecordsTableViewRouter.swift */,
+				8414560223CDCA2A00296C15 /* AddNewRouter.swift */,
+				84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */,
+				84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		849A03D3246710BB009F8FEB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8435559323CB922800407CB7 /* MainStore.swift */,
+				8435558F23CB655600407CB7 /* UserStore.swift */,
+				84D212DA2454BD8400DDF5D9 /* DataStore.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		849A03D4246710E2009F8FEB /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				84ED7B5A24586C2C00471759 /* DataSourceProtocol.swift */,
+				849A03D5246710F2009F8FEB /* ViewModels */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		849A03D5246710F2009F8FEB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8435E82C23CD025600867546 /* WeightsViewModel.swift */,
+				8435E83223CD1F6800867546 /* CaloriesViewModel.swift */,
+				84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */,
+				84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */,
+				84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */,
+				84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */,
+				84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		849A03D624671160009F8FEB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8435559123CB837300407CB7 /* SerializationError.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		84A2A1D0234D37690078EE29 = {
@@ -315,13 +415,12 @@
 		84A2A1DB234D37690078EE29 /* fit-swift-client */ = {
 			isa = PBXGroup;
 			children = (
+				849A03CC24670F6B009F8FEB /* DataComponent */,
+				849A03CA24670EF2009F8FEB /* UserComponent */,
 				841455FB23CD4A2800296C15 /* fit-swift-client.entitlements */,
 				84710C24236A1ADE0027AEC5 /* Resources */,
-				8452C429235DF3C8009E99E8 /* ViewModels */,
 				8452C421235CCB16009E99E8 /* Models */,
 				847CE0C8234E5F0A002FC12E /* Core */,
-				84BC82BE234E502000821DD5 /* Routers */,
-				84BC82BD234E501100821DD5 /* ViewControllers */,
 				84A2A1DC234D37690078EE29 /* AppDelegate.swift */,
 				84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */,
 				84A2A1E8234D376A0078EE29 /* Info.plist */,
@@ -335,44 +434,6 @@
 				84BA31B024659DC90064330F /* PopupView.swift */,
 			);
 			path = Popup;
-			sourceTree = "<group>";
-		};
-		84BC82BD234E501100821DD5 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */,
-				84A2A1DE234D37690078EE29 /* LoginViewController.swift */,
-				841DC2A12371C4870075BA8C /* DashboardViewController.swift */,
-				8495FAFE2372C09C003E7150 /* SignUpViewController.swift */,
-				846C033C2397C28B00798397 /* BasicComponentViewController.swift */,
-				8414560023CDC97C00296C15 /* AddNewValueViewController.swift */,
-				84B06D0B23D33109001C8E94 /* ProgressViewController.swift */,
-				84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		84BC82BE234E502000821DD5 /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				84BC82C2234E508500821DD5 /* LoginRouter.swift */,
-				845CD7A023722463002917A9 /* DashboardRouter.swift */,
-				8495FB002372C134003E7150 /* SignUpRouter.swift */,
-				8435E82523CCFC5E00867546 /* RecordsTableViewRouter.swift */,
-				8414560223CDCA2A00296C15 /* AddNewRouter.swift */,
-				84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */,
-				84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */,
-			);
-			path = Routers;
-			sourceTree = "<group>";
-		};
-		84EA4352238A11A700CF853D /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				84EA4350238A116E00CF853D /* AccountType.swift */,
-				8489FE4223C4DCFF00104C7A /* RecordType.swift */,
-			);
-			path = Enums;
 			sourceTree = "<group>";
 		};
 		CD9EC9AC8EAAF3CFA40EF6A2 /* Frameworks */ = {
@@ -487,7 +548,6 @@
 				8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */,
 				84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */,
 				84BA31B72465A1250064330F /* NewValueSelectionRouter.swift in Sources */,
-				84EA4351238A116E00CF853D /* AccountType.swift in Sources */,
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
 				8435559923CBCFDD00407CB7 /* CountingLabel.swift in Sources */,
 				847381BE239980CB00CFB05F /* NetworkingClient.swift in Sources */,
@@ -495,11 +555,11 @@
 				8414560323CDCA2A00296C15 /* AddNewRouter.swift in Sources */,
 				8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */,
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
-				8489FE4323C4DCFF00104C7A /* RecordType.swift in Sources */,
 				84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */,
 				84E1A1882461C45000551D6B /* DataFetchedProtocol.swift in Sources */,
 				84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */,
 				84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */,
+				849A03C924670DC2009F8FEB /* AlertDisplayViewController.swift in Sources */,
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
