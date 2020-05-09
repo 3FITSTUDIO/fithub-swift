@@ -103,3 +103,9 @@ extension Double {
         return truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%g", self) : String(self)
     }
 }
+
+extension String  {
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+}

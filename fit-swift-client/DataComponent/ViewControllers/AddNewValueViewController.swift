@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-class AddNewValueViewController: BasicComponentViewController {
+class AddNewValueViewController: BasicComponentViewController, UITextFieldDelegate {
     enum Route: String {
         case back
         case added
@@ -20,7 +20,11 @@ class AddNewValueViewController: BasicComponentViewController {
     private let router = AddNewValueRouter()
     private let viewModel = AddNewValueViewModel()
     private var enterLabel = Label()
-    private let valueField = TextField(placeholder: "enter a number")
+    private let valueField: TextField = {
+        let txtField = TextField(placeholder: "enter the value")
+        txtField.easy.layout(Width(160))
+        return txtField
+    }()
     
     private let dateTextField: UIView = {
         let view = UIView()
@@ -62,9 +66,9 @@ class AddNewValueViewController: BasicComponentViewController {
         super.setup()
         addBottomNavigationBar()
         container.addSubviews(subviews: [dateTextField, enterLabel, confirmAddButton])
-        enterLabel.easy.layout(CenterX(), Top(100))
+        enterLabel.easy.layout(CenterX(), Top(200))
         dateTextField.easy.layout(CenterX(), Top(20).to(enterLabel))
-//        confirmAddButton.easy.layout(CenterX(), Top(20).to(valueField, .bottomMargin))
+        confirmAddButton.easy.layout(CenterX(), Bottom(150))
         confirmAddButton.addGesture(target: self, selector: #selector(confirmAddTapped(_:)))
     }
     
@@ -74,8 +78,14 @@ class AddNewValueViewController: BasicComponentViewController {
             return
         default:
             container.addSubview(valueField)
-            valueField.easy.layout(Left(30), Top(40).to(dateTextField, .bottomMargin))
+            valueField.easy.layout(CenterX(), Top(40).to(dateTextField, .bottomMargin))
         }
+    }
+    
+    // MARK: UITextFiedlDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return string.isNumber
     }
     
     // MARK: Navigation
