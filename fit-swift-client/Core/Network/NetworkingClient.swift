@@ -17,14 +17,14 @@ class NetworkingClient {
     }
     
     let urlBase = "http://localhost:8080"
-//    let urlBase = "http://69cc76c8.ngrok.io"
+//    let urlBase = "http://89e58a09.ngrok.io"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     
-    public func executeRequest(_ endpoint: String, _ method: HTTPMethod, parameters: Parameters? = nil, onComplete: @escaping WebServiceResponse) {
+    public func executeRequest(_ endpoint: String, _ method: HTTPMethod, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, onComplete: @escaping WebServiceResponse) {
         let url = urlBase + endpoint
         
-        Alamofire.request(url, method: method, parameters: parameters).responseJSON { (response) in
+        Alamofire.request(url, method: method, parameters: parameters, encoding: encoding).responseJSON { (response) in
             if let error = response.error {
                 onComplete(nil, error)
             }

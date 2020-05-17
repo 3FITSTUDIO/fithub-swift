@@ -12,6 +12,6 @@ protocol DataFetched {
     var id: Int { get set }
     var userId: Int { get set }
     var date: String { get set }
-    var value: Double { get set }
-    var values: [Double] { get set }
+    var value: Float { get set }
+    var values: [Float] { get set }
 }

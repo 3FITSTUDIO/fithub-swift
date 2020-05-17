@@ -21,12 +21,12 @@ struct BodyMeasurements: Codable, DataFetched {
     
     public var id: Int
     public var userId: Int
-    public var values: [Double]
+    public var values: [Float]
     public var date: String
     
-    public var value: Double // not used at present
+    public var value: Float // not used at present
     
-    init(id: Int, userId: Int, values: [Double], date: String) {
+    init(id: Int, userId: Int, values: [Float], date: String) {
         self.id = id
         self.userId = userId
         self.values = values
@@ -45,7 +45,7 @@ extension BodyMeasurements {
             throw SerializationError.missing("userId")
         }
         
-        guard let values = json["values"] as? [Double] else {
+        guard let values = json["values"] as? [Float] else {
             throw SerializationError.missing("value")
         }
         
@@ -61,5 +61,3 @@ extension BodyMeasurements {
     }
     
 }
-
-

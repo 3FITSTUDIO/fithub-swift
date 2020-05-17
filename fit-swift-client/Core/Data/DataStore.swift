@@ -97,7 +97,7 @@ class DataStore {
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        fetchTrainingsData {
+        fetchTrainingData {
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
@@ -150,7 +150,7 @@ class DataStore {
         }
     }
     
-    func fetchTrainingsData(onComplete: @escaping() -> Void)  {
+    func fetchTrainingData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .trainings) { result in
             switch result {
@@ -222,18 +222,69 @@ class DataStore {
             return
         }
         
-        if currentlyStoredData[.steps] as! Int != steps {
+        if currentlyStoredData[.steps] as? Int != steps {
             apiClient.postStepsData(steps, forId: user.id) { result in
                 // notification + "synchronised steps data"
-                self.currentlyStoredData[.steps] = steps
-                onComplete(result)
+                if result {
+                    self.fetchStepsData {
+                        onComplete(result)
+                    }
+                }
+                else {
+                    debugPrint("Failed to update steps data.")
+                    onComplete(false)
+                }
             }
         }
         else {
             debugPrint("Steps data not modified.")
             onComplete(false)
         }
-        
+    }
+    
+    func postRegularData(type: DataProvider.DataType, value: Float, date: String, onComplete: @escaping(Bool) -> Void) {
+        guard let user = authenticateUserProfile() else {
+            onComplete(false)
+            return
+        }
+        apiClient.postRegularData(type: type, value: value, date: date, userId: user.id) { result in
+            if result {
+                switch type {
+                case .weights:
+                    self.fetchWeightData {
+                        onComplete(true)
+                    }
+                case .kcal:
+                    self.fetchCaloriesData {
+                        onComplete(true)
+                    }
+                case .training:
+                    self.fetchTrainingData {
+                        onComplete(true)
+                    }
+                case .sleep:
+                    self.fetchSleepData {
+                        onComplete(true)
+                    }
+                case .pulse:
+                    self.fetchPulseData {
+                        onComplete(true)
+                    }
+                case .steps:
+                    self.fetchStepsData {
+                        onComplete(true)
+                    }
+                case .measurements:
+                    self.fetchMeasurementsData {
+                        onComplete(true)
+                    }
+                }
+            }
+            else {
+                debugPrint("Failed to update \(type.rawValue) data.")
+                onComplete(result)
+            }
+        }
     }
 }
 

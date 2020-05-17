@@ -11,23 +11,29 @@ import UIKit
 
 class AddNewValueViewModel {
     weak var vc: AddNewValueViewController?
-    private var store: UserStore?
+    private var store: DataStore?
     
     init() {
-        store = mainStore.userStore
+        store = mainStore.dataStore
     }
     
-//    func postNewRecord(value: Int, date: Date, type: NewValueType) -> Bool {
-////        return true
-//        var success = false
-//        if let store = store {
-//            switch type {
-//            case .weight:
-//                success = store.postNewWeightsRecord(value: value, date: date)
-//            case .calories:
-//                success = store.postNewCaloriesRecord(value: value, date: date)
-//            }
-//        }
-//        return success
-//    }
+    func validateEnteredData(value: String) -> Bool {
+        guard value != "" else { return false }
+        guard value.first != Character("0") else { return false }
+        return true
+    }
+    
+    func postNewRecord(value: String, date: Date, type: DataProvider.DataType, onComplete: @escaping(Bool) -> Void) {
+        let valueFormatted = Float(value)
+        let dateFormatted = FitHubDateFormatter.formatDate(date)
+        if let store = store, let val = valueFormatted {
+            store.postRegularData(type: type, value: val, date: dateFormatted) { result in
+                onComplete(result)
+            }
+        }
+        else {
+            debugPrint("VM_ERROR: Failed to post \(type.rawValue) data")
+            onComplete(false)
+        }
+    }
 }

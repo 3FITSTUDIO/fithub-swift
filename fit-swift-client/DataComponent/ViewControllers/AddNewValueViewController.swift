@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import EasyPeasy
 
-class AddNewValueViewController: BasicComponentViewController, UITextFieldDelegate {
+class AddNewValueViewController: BasicComponentViewController {
     enum Route: String {
         case back
         case added
@@ -23,6 +23,7 @@ class AddNewValueViewController: BasicComponentViewController, UITextFieldDelega
     private let valueField: TextField = {
         let txtField = TextField(placeholder: "enter the value")
         txtField.easy.layout(Width(160))
+        txtField.textField.keyboardType = .decimalPad
         return txtField
     }()
     
@@ -82,12 +83,6 @@ class AddNewValueViewController: BasicComponentViewController, UITextFieldDelega
         }
     }
     
-    // MARK: UITextFiedlDelegate
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return string.isNumber
-    }
-    
     // MARK: Navigation
     
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
@@ -97,21 +92,27 @@ class AddNewValueViewController: BasicComponentViewController, UITextFieldDelega
     
     @objc func confirmAddTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-//        let datePicker = dateTextField.subviews[0] as! UIDatePicker
-//        let date = datePicker.date
-//        let value = valueField.textField.text
-        //        let success = viewModel.postNewRecord(value: value, date: date, type: type)
-//        if success {
-//            let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
-//            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
-//            alertController.addAction(action1)
-//            self.present(alertController, animated: true, completion: nil)
-//        }
-//        else{
-//            let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
-//            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
-//            alertController.addAction(action1)
-//            self.present(alertController, animated: true, completion: nil)
-//        }
+        let datePicker = dateTextField.subviews[0] as! UIDatePicker
+        let date = datePicker.date
+        let value = valueField.textField.text ?? ""
+        guard viewModel.validateEnteredData(value: value) else {
+            // TODO: Alert: "Invalidate input"
+            return
+        }
+        
+        viewModel.postNewRecord(value: value, date: date, type: type) { result in
+            if result {
+                let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
+                let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+                alertController.addAction(action1)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else{
+                let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
+                let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+                alertController.addAction(action1)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
 }

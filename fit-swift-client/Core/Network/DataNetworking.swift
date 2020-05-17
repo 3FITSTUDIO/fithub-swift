@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 final class DataNetworking : NetworkingClient {
     weak var store: DataStore?
@@ -22,7 +23,7 @@ final class DataNetworking : NetworkingClient {
     }
     
     // MARK: GET: Dashboard View Controller, Fetching data
-    func fetchRegularData(forUserId id: Int, dataType: EndpointDataType, onComplete: @escaping(Result<[Record], NetworkError>) -> Void) {
+    func fetchRegularData(forUserId id: Int, dataType: EndpointDataType, onComplete: @escaping(Swift.Result<[Record], NetworkError>) -> Void) {
         var record: Record?
         var records = [Record]()
         var params: [String: Any] = [:]
@@ -51,7 +52,7 @@ final class DataNetworking : NetworkingClient {
         }
     }
     
-    func fetchBodyMeasurementsData(forUserId id: Int, dataType: EndpointDataType, onComplete: @escaping(Result<[BodyMeasurements], NetworkError>) -> Void) {
+    func fetchBodyMeasurementsData(forUserId id: Int, dataType: EndpointDataType, onComplete: @escaping(Swift.Result<[BodyMeasurements], NetworkError>) -> Void) {
         var record: BodyMeasurements?
         var records = [BodyMeasurements]()
         var params: [String: Any] = [:]
@@ -102,4 +103,41 @@ final class DataNetworking : NetworkingClient {
     }
     
     // MARK: Add New Value View Controller
+    
+    func postRegularData(type: DataProvider.DataType, value: Float, date: String, userId: Int, onComplete: @escaping(Bool) -> Void) {
+        let date = FitHubDateFormatter.formatDate(Date.init())
+        var params: [String: Any] = [:]
+        params["userId"] = userId
+        params["date"] = date
+        params["value"] = value
+        
+        var endpoint = ""
+        switch type {
+        case .weights:
+            endpoint = EndpointDataType.weights.rawValue
+        case .kcal:
+             endpoint = EndpointDataType.calories.rawValue
+        case .training:
+             endpoint = EndpointDataType.trainings.rawValue
+        case .sleep:
+            endpoint = EndpointDataType.sleep.rawValue
+        case .pulse:
+             endpoint = EndpointDataType.pulse.rawValue
+        case .steps:
+             endpoint = EndpointDataType.steps.rawValue
+        case .measurements:
+             endpoint = EndpointDataType.measurements.rawValue
+        }
+        
+        executeRequest(endpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
+            if let error = error {
+                debugPrint("SERVER_ERROR: Failed to post \(endpoint) data to server")
+                debugPrint(error.localizedDescription)
+                onComplete(false)
+            }
+            else {
+                onComplete(true)
+            }
+        }
+    }
 }

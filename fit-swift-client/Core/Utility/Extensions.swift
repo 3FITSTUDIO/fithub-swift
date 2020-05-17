@@ -98,7 +98,7 @@ extension Bundle {
     }
 }
 
-extension Double {
+extension Float {
     var truncateTrailingZeros: String {
         return truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%g", self) : String(self)
     }

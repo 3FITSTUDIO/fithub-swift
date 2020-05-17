@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 final class UserNetworking : NetworkingClient {
     
@@ -14,7 +15,7 @@ final class UserNetworking : NetworkingClient {
     private var userEndpoint = "/user"
     
     // MARK: Login View Controller, Authentication
-    func getUser(forUsername login: String, inputPasswd: String, onComplete: @escaping(Result<User, NetworkError>) -> Void) {
+    func getUser(forUsername login: String, inputPasswd: String, onComplete: @escaping(Swift.Result<User, NetworkError>) -> Void) {
         var params = [String: Any]()
         params["login"] = login
         params["password"] = inputPasswd
@@ -39,7 +40,7 @@ final class UserNetworking : NetworkingClient {
         }
     }
     
-    func fetchUserData(byId id: Int, onComplete: @escaping(Result<User, NetworkError>) -> Void) {
+    func fetchUserData(byId id: Int, onComplete: @escaping(Swift.Result<User, NetworkError>) -> Void) {
         let endpoint = userEndpoint + "/" + String(id)
         
         executeRequest(endpoint, .get) { (json, error) in
@@ -73,7 +74,7 @@ final class UserNetworking : NetworkingClient {
         params["login"] = login
         params["password"] = password
         
-        executeRequest(userEndpoint, .post, parameters: params) { (json, error) in
+        executeRequest(userEndpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 debugPrint("fetch_user_id: Received error from server")

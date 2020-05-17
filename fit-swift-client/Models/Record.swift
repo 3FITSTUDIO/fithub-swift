@@ -10,28 +10,20 @@ import Foundation
 
 struct Record: Codable, DataFetched {
     
-    //    0 neck
-    //    1 chest
-    //    2 bicep
-    //    3 forearm
-    //    4 stomach
-    //    5 waist
-    //    6 thigh
-    //    7 calf
-    
     public var id: Int
     public var userId: Int
-    public var value: Double
+    public var value: Float
     public var date: String
     
-    var values: [Double]
+    var values: [Float]
     
-    init(id: Int, userId: Int, value: Double, date: String) {
+    init(id: Int, userId: Int, value: Float, date: String) {
         self.id = id
         self.userId = userId
         self.value = value
         self.date = date
-        self.values = [Double]()
+        
+        self.values = [Float]() // not used at present
     }
 }
 
@@ -45,20 +37,19 @@ extension Record {
             throw SerializationError.missing("userId")
         }
         
-        guard let value = json["value"] as? Double else {
+        guard let valueRaw = json["value"] as? Float else {
             throw SerializationError.missing("value")
         }
-        
+
         guard let date = json["date"] as? String else {
             throw SerializationError.missing("date")
         }
         
         self.id = id
         self.userId = userId
-        self.value = value
         self.date = date
-        self.values = [Double]()
+        self.value = valueRaw
+        self.values = [Float]()
     }
-    
 }
 

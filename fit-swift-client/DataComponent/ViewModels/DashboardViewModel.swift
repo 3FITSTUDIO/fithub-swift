@@ -66,11 +66,11 @@ class DashboardViewModel {
     
     private func providePulseAvgRecord() -> String {
         if let records = dataStore?.pulseData {
-            var sum: Double = 0
+            var sum: Float = 0
             records.forEach {
                 sum += $0.value
             }
-            let avg = sum / Double(records.count)
+            let avg = sum / Float(records.count)
             let avgRounded = round(10 * avg) / 10
             return avgRounded.truncateTrailingZeros
         }
