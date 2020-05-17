@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Record: Codable, DataFetched {
+struct Record: DataFetched {
     
     public var id: Int
     public var userId: Int

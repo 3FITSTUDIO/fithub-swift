@@ -216,7 +216,8 @@ class DataStore {
     }
     
     func postStepsData(_ steps: Int, onComplete: @escaping(Bool) -> Void) {
-        guard currentlyStoredData[.steps] as? Int ?? 0 != steps else { return }
+        let currrentlyStoredStepsValue = (currentlyStoredData[.steps] as? [Record])?.last?.value ?? 0
+        guard currrentlyStoredStepsValue != Float(steps), currrentlyStoredStepsValue != 0 else { return }
         guard let user = authenticateUserProfile() else {
             onComplete(false)
             return

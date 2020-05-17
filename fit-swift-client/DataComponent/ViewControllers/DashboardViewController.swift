@@ -41,7 +41,7 @@ class DashboardViewController: BasicComponentViewController {
     let trainingsDataButton = BasicTile(size: .small)
     let measurementsDataButton = BasicTile(size: .small)
     let stepsDataButton = BasicTile(size: .small)
-
+    
     // Buttons - other
     private let seeProgressButton = Button(type: .wide, label: "See Progress")
     private let plusButton = BasicTile(size: .roundButton)
@@ -66,7 +66,7 @@ class DashboardViewController: BasicComponentViewController {
         refreshButton.image = UIImage(named: "refresh")?.withTintColor(.white)
         return gestureView
     }()
-     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -82,7 +82,7 @@ class DashboardViewController: BasicComponentViewController {
         setupButtons()
         configureTileButtons()
         viewModel.vc = self
-        viewModel.updateData()
+        viewModel.updateData(force: false)
     }
     
     // MARK: Setup
@@ -113,12 +113,12 @@ class DashboardViewController: BasicComponentViewController {
          stepsDataButton].forEach {
             $0.addGesture(target: self, selector: #selector(self.detailDataButtonTapped(_:)))
         }
-    
+        
         // Navigation
         /// TODO: Fix array indexing in StepsProgressManager.swift
-//        seeProgressButton.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
+        seeProgressButton.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
         plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
-
+        
         logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))
         refreshButton.addGesture(target: self, selector: #selector(self.refresh(_:)))
     }
@@ -138,7 +138,7 @@ class DashboardViewController: BasicComponentViewController {
         measurementsDataButton.bottomLabel.text = "measurements"
         stepsDataButton.topLabel.text = "Steps"
         stepsDataButton.bottomLabel.text = "avg. per day"
-            
+        
         detailDataViews = [weightDataButton, kcalDataButton, trainingsDataButton, sleepDataButton, pulseDataButton, stepsDataButton, measurementsDataButton]
         for i in 0...6 {
             detailDataViews[i].tag = i
@@ -167,7 +167,7 @@ extension DashboardViewController: UICollectionViewDataSource, UICollectionViewD
 extension DashboardViewController {
     
     @objc private func refresh(_ sender: AnyObject) {
-        viewModel.updateData()
+        viewModel.updateData(force: true)
         let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         rotation.toValue = Double.pi * 2
         rotation.duration = 0.5
@@ -184,15 +184,15 @@ extension DashboardViewController {
         case 1:
             router.route(to: Route.kcal.rawValue, from: self)
         case 2:
-             router.route(to: Route.training.rawValue, from: self)
+            router.route(to: Route.training.rawValue, from: self)
         case 3:
-             router.route(to: Route.sleep.rawValue, from: self)
+            router.route(to: Route.sleep.rawValue, from: self)
         case 4:
-             router.route(to: Route.pulse.rawValue, from: self)
+            router.route(to: Route.pulse.rawValue, from: self)
         case 5:
-             router.route(to: Route.steps.rawValue, from: self)
+            router.route(to: Route.steps.rawValue, from: self)
         case 6:
-             router.route(to: Route.measurements.rawValue, from: self)
+            router.route(to: Route.measurements.rawValue, from: self)
         default:
             return
         }

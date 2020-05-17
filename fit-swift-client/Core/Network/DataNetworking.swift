@@ -44,8 +44,9 @@ final class DataNetworking : NetworkingClient {
                             records.append(recordUnwrapped)
                         }
                     }
-                } catch {
+                } catch (let error) {
                     debugPrint("fetch_" + endpoint + "_data: Failed to deserialize incoming data")
+                    debugPrint(error)
                 }
                 onComplete(.success(records))
             }
@@ -90,7 +91,7 @@ final class DataNetworking : NetworkingClient {
         params["value"] = steps
         
         let endpoint = EndpointDataType.steps.rawValue
-        executeRequest(endpoint, .post, parameters: params) { (json, error) in
+        executeRequest(endpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
             if let error = error {
                 debugPrint("post_steps_data: Received error from server")
                 debugPrint(error.localizedDescription)

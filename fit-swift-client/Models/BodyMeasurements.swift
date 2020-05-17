@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BodyMeasurements: Codable, DataFetched {
+struct BodyMeasurements: DataFetched {
     
     //    0 neck
     //    1 chest

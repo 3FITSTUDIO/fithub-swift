@@ -18,9 +18,9 @@ class DashboardViewModel {
         userStore = mainStore.userStore
     }
     
-    func updateData() {
+    func updateData(force: Bool) {
         if let store = dataStore, let vc = vc {
-            store.fetchAllData(force: true) {
+            store.fetchAllData(force: force) {
                 vc.weightDataButton.mainLabel.text = self.provideLastRecord(dataType: .weight)
                 vc.kcalDataButton.mainLabel.text = self.provideLastRecord(dataType: .calories)
                 vc.trainingsDataButton.mainLabel.text = self.provideLastRecord(dataType: .training)

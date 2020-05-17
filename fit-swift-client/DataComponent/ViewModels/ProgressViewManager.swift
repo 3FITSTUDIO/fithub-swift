@@ -54,7 +54,8 @@ class ProgressViewManager {
     
     var xRange = 31
     var maxVal = 0
-    var values = [Double]()
+    var heightMultiplier = 200
+    var values = [Float]()
     var bars = [UIView]()
     var barsSelected = [Bool]()
 
@@ -67,7 +68,14 @@ class ProgressViewManager {
         if let store = store {
             weightArray = store.weightData
             calorieArray = store.caloriesData
+            if store.weightData.count >= 31 {
+                weightArray = Array(store.weightData[0..<31])
+            }
+            if store.caloriesData.count >= 31 {
+                calorieArray = Array(store.caloriesData[0..<31])
+            }
         }
+        xRange = weightArray.count
         feedInitialData()
         setupStackViewSwipeGesture()
     }
@@ -108,7 +116,7 @@ class ProgressViewManager {
             // Add the X and Y translation to the view's original position.
             
             let newX = initialCenter.x + translation.x
-            if newX >= 6.0 && newX <= 339.0 {
+            if newX >= 172 - barStackView.frame.width/2 && newX <= 173 + barStackView.frame.width/2 {
                 let newCenter = CGPoint(x: newX, y: initialCenter.y)
                 piece.center = newCenter
                 getCurrentSelection(selectorX: newX)
@@ -122,8 +130,9 @@ class ProgressViewManager {
     
     var previousPredictedId = 0
     private func getCurrentSelection(selectorX: CGFloat) {
-        let left = selectorX - 6
-        let predictedBarId = Int((left / 11).rounded() + 0.5)
+        let leftMargin = 172 - barStackView.frame.size.width / 2
+        let predictedBarId = Int((selectorX - leftMargin)/11)
+        debugPrint("Predicted barID: \(predictedBarId)\n, selectorX: \(selectorX)")
         if predictedBarId != previousPredictedId {
             previousPredictedId = predictedBarId
             bars[predictedBarId].backgroundColor = .white
@@ -134,39 +143,31 @@ class ProgressViewManager {
                 }
             }
             delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[predictedBarId].value) : String(calorieArray[predictedBarId].value)
-            delegate?.selectedDateLabel.text = unit == .weight ? String(weightArray[predictedBarId].id) + ".01.2020" : String(calorieArray[predictedBarId].id) + ".01.2020"
+            delegate?.selectedDateLabel.text = unit == .weight ? weightArray[predictedBarId].date : calorieArray[predictedBarId].date
         }
     }
     
     // MARK: Data Feeding
     private func feedInitialData() {
-        return
-//        for _ in 1...xRange {
-//            bars.append(newBar(forValue: 1))
-//        }
-//        self.bars.forEach { self.barStackView.addArrangedSubview($0) }
-//
-//        UIView.animate(withDuration: 0.2, animations: { () -> Void in
-//            for i in 1...self.xRange {
-//                let data = self.unit == .weight ? self.weightArray[i-1].value : self.calorieArray[i-1].value
-//                self.values.append(data)
-//                self.barsSelected.append(false)
-//                self.bars[i-1].easy.layout(Height(CGFloat(Double(data)/Double(self.maxVal) * 200)))
-//            }
-//            self.container.layoutIfNeeded()
-//        })
-//        delegate?.avgValueLabel.text = String(calculateAverage())
-    }
-    
-    private func feedNewData() {
-//        for i in 1...xRange {
-//            let data = unit == .weight ? weightArray[i-1].value : calorieArray[i-1].value
-//            self.values[i-1] = Double(data)
-//            UIView.animate(withDuration: 0.2, animations: { () -> Void in
-//                self.bars[i-1].easy.layout(Height(CGFloat((Double(data)/Double(self.maxVal)) * 200)))
-//                self.container.layoutIfNeeded()
-//            })
-//        }
+        values = [Float]()
+        bars = [UIView]()
+        barStackView.subviews.forEach { $0.removeFromSuperview() }
+        barStackView.arrangedSubviews.forEach { barStackView.removeArrangedSubview($0) }
+        for _ in 1...xRange {
+            bars.append(newBar(forValue: 1))
+        }
+        self.bars.forEach { self.barStackView.addArrangedSubview($0) }
+
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            for i in 1...self.xRange {
+                let data = self.unit == .weight ? self.weightArray[i-1].value : self.calorieArray[i-1].value
+                self.values.append(data)
+                self.barsSelected.append(false)
+                self.bars[i-1].easy.layout(Height(CGFloat(Float(data)/Float(self.maxVal) * Float(self.heightMultiplier))))
+            }
+            self.container.layoutIfNeeded()
+        })
+        delegate?.avgValueLabel.text = String(calculateAverage())
     }
     
     func changedUnit(toUnit unit: Unit) {
@@ -174,10 +175,14 @@ class ProgressViewManager {
         switch unit {
         case .weight:
             maxVal = 200
+            heightMultiplier = 200
+            xRange = weightArray.count
         case .calories:
             maxVal = 3000
+            heightMultiplier = 120
+            xRange = calorieArray.count
         }
-        feedNewData()
+        feedInitialData()
     
         delegate?.avgValueLabel.text = String(calculateAverage())
         delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[0].value) : String(calorieArray[0].value)
@@ -192,7 +197,7 @@ class ProgressViewManager {
         return view
     }
     
-    func calculateAverage() -> Double {
-        return Double(values.reduce(0, +)) / Double(values.count)
+    func calculateAverage() -> Float {
+        return Float(values.reduce(0, +)) / Float(values.count)
     }
 }
