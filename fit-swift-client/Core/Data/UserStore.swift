@@ -9,7 +9,7 @@
 import Foundation
 
 class UserStore {
-    public var apiClient: UserNetworking
+    private var apiClient: UserNetworking
     public var currentUser: User?
     
     init() {

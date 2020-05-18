@@ -17,7 +17,7 @@ class NetworkingClient {
     }
     
     let urlBase = "http://localhost:8080"
-//    let urlBase = "http://89e58a09.ngrok.io"
+//    let urlBase = "https://dcfed692.ngrok.io"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     

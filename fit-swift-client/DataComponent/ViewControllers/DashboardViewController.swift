@@ -16,6 +16,7 @@ class DashboardViewController: BasicComponentViewController {
         case logout
         case progress
         case addNew
+        case notifications
     }
     
     private let router = DashboardRouter()
@@ -41,6 +42,7 @@ class DashboardViewController: BasicComponentViewController {
     let trainingsDataButton = BasicTile(size: .small)
     let measurementsDataButton = BasicTile(size: .small)
     let stepsDataButton = BasicTile(size: .small)
+    let notificationsButton = BasicTile(size: .small)
     
     // Buttons - other
     private let seeDiagramsButton = Button(type: .wide, label: "See Diagrams")
@@ -103,6 +105,13 @@ class DashboardViewController: BasicComponentViewController {
     }
     
     private func setupButtons() {
+        if let bodyImage = UIImage(named: "body") {
+            measurementsDataButton.setImage(image: bodyImage)
+        }
+        if let notifImage = UIImage(named: "notification-bell") {
+            notificationsButton.setImage(image: notifImage)
+        }
+        
         // Data Buttons
         [weightDataButton,
          kcalDataButton,
@@ -110,7 +119,8 @@ class DashboardViewController: BasicComponentViewController {
          sleepDataButton,
          pulseDataButton,
          measurementsDataButton,
-         stepsDataButton].forEach {
+         stepsDataButton,
+         notificationsButton].forEach {
             $0.addGesture(target: self, selector: #selector(self.detailDataButtonTapped(_:)))
         }
         
@@ -138,9 +148,11 @@ class DashboardViewController: BasicComponentViewController {
         measurementsDataButton.bottomLabel.text = "measurements"
         stepsDataButton.topLabel.text = "Steps"
         stepsDataButton.bottomLabel.text = "avg. per day"
+        notificationsButton.topLabel.text = "See"
+        notificationsButton.bottomLabel.text = "notifications"
         
-        detailDataViews = [weightDataButton, kcalDataButton, trainingsDataButton, sleepDataButton, pulseDataButton, stepsDataButton, measurementsDataButton]
-        for i in 0...6 {
+        detailDataViews = [weightDataButton, kcalDataButton, trainingsDataButton, sleepDataButton, pulseDataButton, stepsDataButton, measurementsDataButton, notificationsButton]
+        for i in 0...7 {
             detailDataViews[i].tag = i
         }
     }
@@ -193,6 +205,8 @@ extension DashboardViewController {
             router.route(to: Route.steps.rawValue, from: self)
         case 6:
             router.route(to: Route.measurements.rawValue, from: self)
+        case 7:
+            router.route(to: Route.notifications.rawValue, from: self)
         default:
             return
         }

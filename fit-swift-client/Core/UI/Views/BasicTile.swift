@@ -28,6 +28,8 @@ class BasicTile: UIView {
     let plusLabel = Label(label: "+", fontSize: 60)
     let counterTopLabel = Label(label: "", fontSize: 40)
     
+    public var image: UIImage?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.isUserInteractionEnabled = true
@@ -98,5 +100,12 @@ class BasicTile: UIView {
             self.addSubview(plusLabel)
             plusLabel.easy.layout(Center())
         }
+    }
+    
+    public func setImage(image: UIImage) {
+        self.image = image.withTintColor(.white)
+        let imageView = UIImageView(image: self.image)
+        self.addSubview(imageView)
+        imageView.easy.layout(Center(), Size(80))
     }
 }

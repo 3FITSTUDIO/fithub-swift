@@ -57,7 +57,7 @@ class SimpleRecordTableViewCell: UITableViewCell {
     
     private func sharedLayout() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(container)
+        contentView.addSubview(container)
         container.easy.layout(Edges())
         container.addSubview(cellView)
         cellView.easy.layout(Top(), Left(), Right(), Bottom(15))

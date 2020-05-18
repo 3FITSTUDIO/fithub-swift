@@ -18,8 +18,10 @@ final class UserNetworking : NetworkingClient {
     func getUser(forUsername login: String, inputPasswd: String, onComplete: @escaping(Swift.Result<User, NetworkError>) -> Void) {
         var params = [String: Any]()
         params["login"] = login
-        params["password"] = Security.sha256(str: inputPasswd)
-
+        if Validation.validatePassword(password: inputPasswd) {
+            params["password"] = Security.sha256(str: inputPasswd)
+        }
+        
         executeRequest(userEndpoint, .get, parameters: params) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -68,12 +70,20 @@ final class UserNetworking : NetworkingClient {
         }
         
         var params: [String: Any] = [:]
-        params["first_name"] = name
-        params["last_name"] = surname
-        params["email"] = email
+        if Validation.validateName(name: name!) {
+            params["first_name"] = name
+        }
+        if Validation.validateName(name: surname!) {
+            params["last_name"] = surname
+        }
+        if Validation.validateEmailId(emailID: email!){
+            params["email"] = email
+        }
         params["login"] = login
-        if let passwd = password {
-            params["password"] = Security.sha256(str: passwd)
+        if Validation.validatePassword(password: password!) {
+            if let passwd = password {
+                params["password"] = Security.sha256(str: passwd)
+            }
         }
         
         executeRequest(userEndpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in

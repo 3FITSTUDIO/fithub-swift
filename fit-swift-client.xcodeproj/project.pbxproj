@@ -77,6 +77,13 @@
 		84ED7B5B24586C2C00471759 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5A24586C2C00471759 /* DataSourceProtocol.swift */; };
 		84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5C24586DE000471759 /* DataProvider.swift */; };
 		84ED7B5F2458847D00471759 /* DetailDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ED7B5E2458847D00471759 /* DetailDataItem.swift */; };
+		84FEA3CE2472B47900093E30 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3CD2472B47900093E30 /* NotificationsViewController.swift */; };
+		84FEA3D02472B4BC00093E30 /* NotificationsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3CF2472B4BC00093E30 /* NotificationsRouter.swift */; };
+		84FEA3D22472B50800093E30 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D12472B50800093E30 /* NotificationsManager.swift */; };
+		84FEA3D42472BF4800093E30 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */; };
+		84FEA3D62472C03900093E30 /* FithubNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D52472C03900093E30 /* FithubNotification.swift */; };
+		84FEA3D82472C0AE00093E30 /* NotificationsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D72472C0AE00093E30 /* NotificationsNetworking.swift */; };
+		84FEA3DA2472C10600093E30 /* DataStore+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D92472C10600093E30 /* DataStore+Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +164,13 @@
 		84ED7B5A24586C2C00471759 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
 		84ED7B5C24586DE000471759 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		84ED7B5E2458847D00471759 /* DetailDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataItem.swift; sourceTree = "<group>"; };
+		84FEA3CD2472B47900093E30 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		84FEA3CF2472B4BC00093E30 /* NotificationsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsRouter.swift; sourceTree = "<group>"; };
+		84FEA3D12472B50800093E30 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		84FEA3D52472C03900093E30 /* FithubNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubNotification.swift; sourceTree = "<group>"; };
+		84FEA3D72472C0AE00093E30 /* NotificationsNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsNetworking.swift; sourceTree = "<group>"; };
+		84FEA3D92472C10600093E30 /* DataStore+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataStore+Notifications.swift"; sourceTree = "<group>"; };
 		FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -253,6 +267,7 @@
 				847381BD239980CB00CFB05F /* NetworkingClient.swift */,
 				84BBB96323B3C99C0017737D /* UserNetworking.swift */,
 				84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */,
+				84FEA3D72472C0AE00093E30 /* NotificationsNetworking.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -260,6 +275,7 @@
 		847CE0C8234E5F0A002FC12E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				84FEA3CC2472B46400093E30 /* Notifications */,
 				849A03D3246710BB009F8FEB /* Data */,
 				847381BF2399A35800CFB05F /* Network */,
 				8452C42A235DF3D9009E99E8 /* Utility */,
@@ -368,6 +384,7 @@
 				8435559323CB922800407CB7 /* MainStore.swift */,
 				8435558F23CB655600407CB7 /* UserStore.swift */,
 				84D212DA2454BD8400DDF5D9 /* DataStore.swift */,
+				84FEA3D92472C10600093E30 /* DataStore+Notifications.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -451,6 +468,18 @@
 				84BA31B024659DC90064330F /* PopupView.swift */,
 			);
 			path = Popup;
+			sourceTree = "<group>";
+		};
+		84FEA3CC2472B46400093E30 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				84FEA3CD2472B47900093E30 /* NotificationsViewController.swift */,
+				84FEA3CF2472B4BC00093E30 /* NotificationsRouter.swift */,
+				84FEA3D12472B50800093E30 /* NotificationsManager.swift */,
+				84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */,
+				84FEA3D52472C03900093E30 /* FithubNotification.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		CD9EC9AC8EAAF3CFA40EF6A2 /* Frameworks */ = {
@@ -574,6 +603,7 @@
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
 				84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */,
 				84E1A1882461C45000551D6B /* DataFetchedProtocol.swift in Sources */,
+				84FEA3D02472B4BC00093E30 /* NotificationsRouter.swift in Sources */,
 				84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */,
 				849A03D8246712D3009F8FEB /* Validation.swift in Sources */,
 				84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */,
@@ -591,7 +621,10 @@
 				84BA31B124659DC90064330F /* PopupView.swift in Sources */,
 				84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */,
 				843A456E2472AC04002402EE /* Security.swift in Sources */,
+				84FEA3D22472B50800093E30 /* NotificationsManager.swift in Sources */,
+				84FEA3D82472C0AE00093E30 /* NotificationsNetworking.swift in Sources */,
 				84ED7B5F2458847D00471759 /* DetailDataItem.swift in Sources */,
+				84FEA3D62472C03900093E30 /* FithubNotification.swift in Sources */,
 				8489FE4123C4DC2700104C7A /* Record.swift in Sources */,
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */,
@@ -599,6 +632,7 @@
 				84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				84AE53292471CF2A00F91EF9 /* AddBodyMeasurementsView.swift in Sources */,
+				84FEA3D42472BF4800093E30 /* NotificationTableViewCell.swift in Sources */,
 				84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */,
 				8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
@@ -625,6 +659,8 @@
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 				8435E82623CCFC5E00867546 /* RecordsTableViewRouter.swift in Sources */,
 				8435559023CB655600407CB7 /* UserStore.swift in Sources */,
+				84FEA3DA2472C10600093E30 /* DataStore+Notifications.swift in Sources */,
+				84FEA3CE2472B47900093E30 /* NotificationsViewController.swift in Sources */,
 				84C1181F245F1BF500F5CFF1 /* TrainingsViewModel.swift in Sources */,
 				843138A22455FB0400ABC0B2 /* StepsProgressView.swift in Sources */,
 			);

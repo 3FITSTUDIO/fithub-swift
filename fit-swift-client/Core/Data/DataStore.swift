@@ -9,7 +9,8 @@
 import Foundation
 
 class DataStore {
-    public var apiClient: DataNetworking
+    private var apiClient: DataNetworking
+    public var notificationsManager = NotificationsManager()
     
     weak var weightsViewModel: WeightsViewModel?
     weak var caloriesViewModel: CaloriesViewModel?
@@ -64,7 +65,7 @@ class DataStore {
         return mainStore.userStore.currentUser
     }
     
-    private func authenticateUserProfile() -> User? {
+    func authenticateUserProfile() -> User? {
         guard let user = currentUser() else {
             debugPrint("USER_ERROR: Failed to authenticate user profile.")
             return nil
@@ -74,6 +75,7 @@ class DataStore {
     
     func clearCurrentData() {
         currentlyStoredData.keys.forEach { currentlyStoredData[$0] = nil }
+        notificationsManager.clearAllData()
         isDataFetched = false
     }
     
@@ -116,8 +118,13 @@ class DataStore {
         fetchMeasurementsData {
             dispatchGroup.leave()
         }
+        dispatchGroup.enter()
+        notificationsManager.updateAllNotifications() {
+            dispatchGroup.leave()
+        }
+        
         dispatchGroup.notify(queue: .main) {
-            debugPrint("Fetched all data successfully")
+            debugPrint("Finished fetching all data.")
             self.isDataFetched = true
             onComplete()
         }

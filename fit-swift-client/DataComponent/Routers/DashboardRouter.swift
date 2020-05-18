@@ -35,6 +35,8 @@ class DashboardRouter: Router {
             vc = ProgressViewController()
         case .addNew:
             vc = NewValueSelectionViewController()
+        case .notifications:
+            vc = NotificationsViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }
