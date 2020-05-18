@@ -37,7 +37,7 @@ class ProgressViewController: BasicComponentViewController, ProgressViewDelegate
     }
     
     override func viewDidLoad() {
-        componentName = "Progress"
+        componentName = "Diagram"
         super.viewDidLoad()
         progressManager.delegate = self
         selectedValueLabel.text = String(progressManager.weightArray[0].value)

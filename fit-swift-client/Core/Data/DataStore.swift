@@ -287,5 +287,25 @@ class DataStore {
             }
         }
     }
+    
+    func postBodyData(values: [Float], date: String, onComplete: @escaping(Bool) -> Void) {
+        guard let user = authenticateUserProfile() else {
+            onComplete(false)
+            return
+        }
+        
+        apiClient.postBodyData(values: values, forId: user.id) { result in
+            // notification + "synchronised steps data"
+            if result {
+                self.fetchMeasurementsData {
+                    onComplete(result)
+                }
+            }
+            else {
+                debugPrint("Failed to update body measurements data.")
+                onComplete(false)
+            }
+        }
+    }
 }
 

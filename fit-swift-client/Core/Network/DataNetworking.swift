@@ -141,4 +141,26 @@ final class DataNetworking : NetworkingClient {
             }
         }
     }
+    
+    func postBodyData(values: [Float], forId userId: Int, onComplete: @escaping(Bool) -> Void) {
+        let date = FitHubDateFormatter.formatDate(Date.init())
+        var params: [String: Any] = [:]
+        params["userId"] = userId
+        params["date"] = date
+        params["values"] = values
+        
+        let endpoint = EndpointDataType.measurements.rawValue
+        executeRequest(endpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
+            if let error = error {
+                debugPrint("post_body_measurements_data: Received error from server")
+                debugPrint(error.localizedDescription)
+                onComplete(false)
+            }
+            else {
+                onComplete(true)
+            }
+        }
+    }
+    
+    
 }

@@ -43,7 +43,7 @@ class DashboardViewController: BasicComponentViewController {
     let stepsDataButton = BasicTile(size: .small)
     
     // Buttons - other
-    private let seeProgressButton = Button(type: .wide, label: "See Progress")
+    private let seeDiagramsButton = Button(type: .wide, label: "See Diagrams")
     private let plusButton = BasicTile(size: .roundButton)
     private let stepsProgressView = StepsProgressBarView()
     
@@ -92,11 +92,11 @@ class DashboardViewController: BasicComponentViewController {
         dataDetailsView.dataSource = self
         dataDetailsView.delegate = self
         
-        container.addSubviews(subviews: [stepsProgressView, seeProgressButton, plusButton, logoutButton, refreshButton, dataDetailsView])
+        container.addSubviews(subviews: [stepsProgressView, seeDiagramsButton, plusButton, logoutButton, refreshButton, dataDetailsView])
         stepsProgressView.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
         dataDetailsView.easy.layout(Left(19), Right(19), Top(22).to(stepsProgressView, .bottom), Height(152))
-        seeProgressButton.easy.layout(CenterX(), Top(22).to(dataDetailsView, .bottom))
-        plusButton.easy.layout(CenterX(), Top(20).to(seeProgressButton, .bottom))
+        seeDiagramsButton.easy.layout(CenterX(), Top(22).to(dataDetailsView, .bottom))
+        plusButton.easy.layout(CenterX(), Top(20).to(seeDiagramsButton, .bottom))
         logoutButton.easy.layout(Top(40), Left(20), Size(40))
         refreshButton.easy.layout(Top(40), Right(20), Size(40))
         dataDetailsView.backgroundColor = .clear
@@ -116,7 +116,7 @@ class DashboardViewController: BasicComponentViewController {
         
         // Navigation
         /// TODO: Fix array indexing in StepsProgressManager.swift
-        seeProgressButton.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
+        seeDiagramsButton.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
         plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
         
         logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))

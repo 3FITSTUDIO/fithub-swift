@@ -23,6 +23,32 @@ class AddNewValueViewModel {
         return true
     }
     
+    func validateBodyData(values: [String?]) -> Bool {
+        var flag = true
+        values.forEach {
+            if let value = $0 {
+                // starts with 0
+                if value.first == "0" {
+                    flag = false
+                    return
+                } // empty string
+                if value == "" {
+                    flag = false
+                    return
+                } // more than 3 characters
+                if value.count > 3 {
+                    flag = false
+                    return
+                }
+            }
+            else { // any value is nil
+                flag = false
+                return
+            }
+        }
+        return flag
+    }
+    
     func postNewRecord(value: String, date: Date, type: DataProvider.DataType, onComplete: @escaping(Bool) -> Void) {
         let valueFormatted = Float(value)
         let dateFormatted = FitHubDateFormatter.formatDate(date)
@@ -33,6 +59,21 @@ class AddNewValueViewModel {
         }
         else {
             debugPrint("VM_ERROR: Failed to post \(type.rawValue) data")
+            onComplete(false)
+        }
+    }
+    
+    func postBodyData(values: [String], date: Date, onComplete: @escaping(Bool) -> Void) {
+        let valuesToFloat = values.map { Float($0) }
+        let dateFormatted = FitHubDateFormatter.formatDate(date)
+        if let store = store {
+            let valFloatUnwrapped = valuesToFloat.map { $0 ?? 0 }
+            store.postBodyData(values: valFloatUnwrapped, date: dateFormatted) { result in
+                onComplete(result)
+            }
+        }
+        else {
+            debugPrint("VM_ERROR: Failed to post \(DataProvider.DataType.measurements.rawValue) data")
             onComplete(false)
         }
     }

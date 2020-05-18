@@ -165,7 +165,10 @@ extension SignUpViewController {
             distance = 0
             scrollView.isScrollEnabled = true
     }
-    
+}
+
+// MARK: Display Alerts
+extension SignUpViewController {
     public func displayAlert(success: Bool) {
         if success {
             let alertController = UIAlertController(title: "Success!", message: "Signed up correctly.", preferredStyle: .alert)

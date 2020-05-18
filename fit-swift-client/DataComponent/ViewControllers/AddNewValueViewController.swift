@@ -15,7 +15,7 @@ class AddNewValueViewController: BasicComponentViewController {
         case back
         case added
     }
-
+    
     private var type: DataProvider.DataType = .weights
     private let router = AddNewValueRouter()
     private let viewModel = AddNewValueViewModel()
@@ -27,7 +27,9 @@ class AddNewValueViewController: BasicComponentViewController {
         return txtField
     }()
     
-    private let dateTextField: UIView = {
+    private let bodyMeasurementsField = AddBodyMeasurementsView()
+    
+    private let datePickerView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 20
         view.easy.layout(Height(200), Width(337))
@@ -66,20 +68,24 @@ class AddNewValueViewController: BasicComponentViewController {
     override func setup() {
         super.setup()
         addBottomNavigationBar()
-        container.addSubviews(subviews: [dateTextField, enterLabel, confirmAddButton])
-        enterLabel.easy.layout(CenterX(), Top(200))
-        dateTextField.easy.layout(CenterX(), Top(20).to(enterLabel))
-        confirmAddButton.easy.layout(CenterX(), Bottom(150))
+        container.addSubviews(subviews: [datePickerView, enterLabel, confirmAddButton])
         confirmAddButton.addGesture(target: self, selector: #selector(confirmAddTapped(_:)))
     }
     
     private func styleForType() {
         switch type {
         case .measurements:
-            return
+            enterLabel.easy.layout(CenterX(), Top(85))
+            datePickerView.easy.layout(CenterX(), Top(5).to(enterLabel))
+            container.addSubview(bodyMeasurementsField)
+            bodyMeasurementsField.easy.layout(CenterX(), Top(5).to(datePickerView, .bottomMargin))
+            confirmAddButton.easy.layout(CenterX(), Bottom(100))
         default:
+            enterLabel.easy.layout(CenterX(), Top(200))
+            datePickerView.easy.layout(CenterX(), Top(20).to(enterLabel))
             container.addSubview(valueField)
-            valueField.easy.layout(CenterX(), Top(40).to(dateTextField, .bottomMargin))
+            valueField.easy.layout(CenterX(), Top(40).to(datePickerView, .bottomMargin))
+            confirmAddButton.easy.layout(CenterX(), Bottom(150))
         }
     }
     
@@ -92,27 +98,77 @@ class AddNewValueViewController: BasicComponentViewController {
     
     @objc func confirmAddTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        let datePicker = dateTextField.subviews[0] as! UIDatePicker
+        let datePicker = datePickerView.subviews[0] as! UIDatePicker
         let date = datePicker.date
-        let value = valueField.textField.text ?? ""
-        guard viewModel.validateEnteredData(value: value) else {
-            // TODO: Alert: "Invalidate input"
-            return
+        if type == .measurements {
+            let values = bodyMeasurementsField.dataFields.map { $0.textField.text }
+            guard viewModel.validateBodyData(values: values) else {
+                displayAlert(type: .invalidDataEntered)
+                clearTextFields()
+                return
+            }
+            let valuesUnwrapped = values.map { $0 ?? "" }
+            viewModel.postBodyData(values: valuesUnwrapped, date: date) { result in
+                if result {
+                    self.displayAlert(type: .success)
+                }
+                else{
+                    self.displayAlert(type: .somethingWentWrong)
+                    self.clearTextFields()
+                }
+            }
+        }
+        else {
+            let value = valueField.textField.text ?? ""
+            guard viewModel.validateEnteredData(value: value) else {
+                displayAlert(type: .invalidDataEntered)
+                clearTextFields()
+                return
+            }
+            
+            viewModel.postNewRecord(value: value, date: date, type: type) { result in
+                if result {
+                    self.displayAlert(type: .success)
+                }
+                else{
+                    self.displayAlert(type: .somethingWentWrong)
+                    self.clearTextFields()
+                }
+            }
+        }
+    }
+    
+    func clearTextFields() {
+        valueField.textField.text = ""
+        bodyMeasurementsField.dataFields.forEach { $0.textField.text = "" }
+    }
+    
+    // MARK: Alert Display
+    
+    enum AlertTypeMessage {
+        case invalidDataEntered
+        case somethingWentWrong
+        case success
+    }
+    
+    public func displayAlert(type: AlertTypeMessage) {
+        switch type {
+        case .invalidDataEntered:
+            let alertController = UIAlertController(title: "Oops!", message: "Invalid input.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        case .somethingWentWrong:
+            let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        case .success:
+            let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
         }
         
-        viewModel.postNewRecord(value: value, date: date, type: type) { result in
-            if result {
-                let alertController = UIAlertController(title: "Success!", message: "Added new record.", preferredStyle: .alert)
-                let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
-                alertController.addAction(action1)
-                self.present(alertController, animated: true, completion: nil)
-            }
-            else{
-                let alertController = UIAlertController(title: "Oops!", message: "Something went wrong.", preferredStyle: .alert)
-                let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
-                alertController.addAction(action1)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
     }
 }

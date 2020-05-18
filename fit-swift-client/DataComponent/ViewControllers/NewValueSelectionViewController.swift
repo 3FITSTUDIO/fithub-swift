@@ -36,7 +36,7 @@ class NewValueSelectionViewController: BasicComponentViewController {
     private func layout() {
         let middleContainer = UIView()
         container.addSubview(middleContainer)
-        middleContainer.easy.layout(Center(), Width(337), Height(214))
+        middleContainer.easy.layout(Center(), Width(337), Height(314))
         middleContainer.addSubviews(subviews: [weightButton, caloriesButton, trainingButton, sleepButton, pulseButton, stepsButton, measurementsButton])
         weightButton.easy.layout(Left(), Top())
         caloriesButton.easy.layout(Right(), Top())

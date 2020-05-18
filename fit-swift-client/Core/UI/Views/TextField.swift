@@ -17,13 +17,13 @@ class TextField : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
+        setupLayout(FithubUI.Colors.whiteOneHundred.cgColor)
         settings()
     }
     
-    convenience init(placeholder: String = "") {
+    convenience init(placeholder: String = "", borderColor: CGColor = FithubUI.Colors.whiteOneHundred.cgColor, width: CGFloat = 254) {
         self.init()
-        setupLayout()
+        setupLayout(widthProvided: width, borderColor)
         settings()
         textField.placeholder = placeholder
     }
@@ -32,9 +32,9 @@ class TextField : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
-        let width: CGFloat = 254
-        let height: CGFloat = 42
+    private func setupLayout(widthProvided: CGFloat = 254, _ borderColor: CGColor) {
+        let width: CGFloat = widthProvided
+        let height: CGFloat = widthProvided == 254 ? 42 : 38
         self.easy.layout(
             Height(height),
             Width(width))
@@ -42,8 +42,8 @@ class TextField : UIView {
         self.addSubviews(subviews: [borderView, textField])
         borderView.easy.layout(Edges())
         textField.easy.layout(Left(15), Right(15), Top(), Bottom())
-        borderView.layer.borderWidth = 5
-        borderView.layer.borderColor = FithubUI.Colors.whiteOneHundred.cgColor
+        borderView.layer.borderWidth = widthProvided == 254 ? 5 : 3
+        borderView.layer.borderColor = borderColor
         borderView.layer.cornerRadius = 20
     }
     
