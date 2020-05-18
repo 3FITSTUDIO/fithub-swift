@@ -13,7 +13,7 @@ import EasyPeasy
 class DashboardViewController: BasicComponentViewController {
     enum Route: String {
         case weights, kcal, training, sleep, pulse, steps, measurements
-        case logout
+        case profile
         case progress
         case addNew
         case notifications
@@ -49,13 +49,13 @@ class DashboardViewController: BasicComponentViewController {
     private let plusButton = BasicTile(size: .roundButton)
     private let stepsProgressView = StepsProgressBarView()
     
-    private let logoutButton: UIView = {
+    private let profileButton: UIView = {
         let gestureView = UIView()
         let logoutButton = UIImageView()
         gestureView.addSubview(logoutButton)
         gestureView.easy.layout(Size(50))
         logoutButton.easy.layout(Size(40), Center())
-        logoutButton.image = UIImage(named: "logout")?.withTintColor(.white)
+        logoutButton.image = UIImage(named: "profile")?.withTintColor(.white)
         return gestureView
     }()
     
@@ -94,12 +94,12 @@ class DashboardViewController: BasicComponentViewController {
         dataDetailsView.dataSource = self
         dataDetailsView.delegate = self
         
-        container.addSubviews(subviews: [stepsProgressView, seeDiagramsButton, plusButton, logoutButton, refreshButton, dataDetailsView])
+        container.addSubviews(subviews: [stepsProgressView, seeDiagramsButton, plusButton, profileButton, refreshButton, dataDetailsView])
         stepsProgressView.easy.layout(CenterX(), Top(15).to(notchBorder, .bottom))
         dataDetailsView.easy.layout(Left(19), Right(19), Top(22).to(stepsProgressView, .bottom), Height(152))
         seeDiagramsButton.easy.layout(CenterX(), Top(22).to(dataDetailsView, .bottom))
         plusButton.easy.layout(CenterX(), Top(20).to(seeDiagramsButton, .bottom))
-        logoutButton.easy.layout(Top(40), Left(20), Size(40))
+        profileButton.easy.layout(Top(40), Left(20), Size(40))
         refreshButton.easy.layout(Top(40), Right(20), Size(40))
         dataDetailsView.backgroundColor = .clear
     }
@@ -129,7 +129,7 @@ class DashboardViewController: BasicComponentViewController {
         seeDiagramsButton.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
         plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
         
-        logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))
+        profileButton.addGesture(target: self, selector: #selector(self.profileTapped(_:)))
         refreshButton.addGesture(target: self, selector: #selector(self.refresh(_:)))
     }
     
@@ -212,11 +212,9 @@ extension DashboardViewController {
         }
     }
     
-    @objc private func logoutTapped(_ sender: UITapGestureRecognizer? = nil) {
+    @objc private func profileTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        viewModel.clearProfileOnLogout()
-        router.route(to: Route.logout.rawValue, from: self)
-        self.dismiss(animated: true, completion: nil)
+        router.route(to: Route.profile.rawValue, from: self)
     }
     
     @objc private func seeProgressTapped(_ sender: UITapGestureRecognizer? = nil) {

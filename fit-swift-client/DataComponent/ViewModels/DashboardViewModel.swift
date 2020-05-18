@@ -26,7 +26,7 @@ class DashboardViewModel {
                 vc.trainingsDataButton.mainLabel.text = self.provideLastRecord(dataType: .training)
                 vc.sleepDataButton.mainLabel.text = self.provideLastRecord(dataType: .sleep)
                 vc.pulseDataButton.mainLabel.text = self.providePulseAvgRecord()
-                vc.stepsDataButton.mainLabel.text = self.provideLastRecord(dataType: .steps)
+                vc.stepsDataButton.mainLabel.text = self.provideStepsAvgRecord()
                 // measurementsDataButton doesn't show any values
             }
         }
@@ -73,6 +73,19 @@ class DashboardViewModel {
             let avg = sum / Float(records.count)
             let avgRounded = round(10 * avg) / 10
             return avgRounded.truncateTrailingZeros
+        }
+        return ""
+    }
+    
+    private func provideStepsAvgRecord() -> String {
+        if let records = dataStore?.stepsData {
+            var sum: Float = 0
+            records.forEach {
+                sum += $0.value
+            }
+            let avg = sum / Float(records.count)
+            let avgRounded = round(10 * avg) / 10
+            return avgRounded.rounded().truncateTrailingZeros
         }
         return ""
     }

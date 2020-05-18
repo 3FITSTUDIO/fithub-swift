@@ -15,7 +15,7 @@ class LoginRouter: Router {
         let vc: UIViewController
         switch route {
         case .login:
-            vc = DashboardViewController()
+            vc = ProfileViewController()
         case .signUp:
             vc = SignUpViewController()
         }

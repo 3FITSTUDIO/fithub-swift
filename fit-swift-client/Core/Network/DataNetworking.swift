@@ -28,6 +28,9 @@ final class DataNetworking : NetworkingClient {
         var records = [Record]()
         var params: [String: Any] = [:]
         params["userId"] = id
+        params["_sort"] = "date"
+        params["_order"] = "desc"
+        params["_limit"] = 30
         
         let endpoint = dataType.rawValue
         executeRequest(endpoint, .get, parameters: params) { (json, error) in
@@ -58,6 +61,9 @@ final class DataNetworking : NetworkingClient {
         var records = [BodyMeasurements]()
         var params: [String: Any] = [:]
         params["userId"] = id
+        params["_sort"] = "date"
+        params["_order"] = "desc"
+        params["_limit"] = 30
         
         let endpoint = dataType.rawValue
         executeRequest(endpoint, .get, parameters: params) { (json, error) in

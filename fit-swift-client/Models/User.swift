@@ -15,14 +15,22 @@ struct User : Codable {
     let email: String
     var login: String
     var password: String
+    var sex: String
+    var height: Int
+    var yearOfBirth: Int
+    var age: Int
 
-    init?(id: Int, firstName: String, lastName: String, email: String, login: String, password: String) {
+    init?(id: Int, firstName: String, lastName: String, email: String, login: String, password: String, sex: String, height: Int, yearOfBirth: Int) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.login = login
         self.password = password
+        self.sex = sex
+        self.height = height
+        self.yearOfBirth = yearOfBirth
+        self.age = Int(Calendar.current.component(.year, from: Date())) - self.yearOfBirth
     }
 }
 
@@ -51,6 +59,18 @@ extension User {
         guard let password = json["password"] as? String else {
             throw SerializationError.missing("password")
         }
+        
+        guard let sex = json["sex"] as? String else {
+            throw SerializationError.missing("sex")
+        }
+        
+        guard let height = json["height"] as? Int else {
+            throw SerializationError.missing("height")
+        }
+        
+        guard let yearOfBirth = json["yearOfBirth"] as? Int else {
+            throw SerializationError.missing("yearOfBirth")
+        }
 
         self.id = id
         self.firstName = firstName
@@ -58,5 +78,9 @@ extension User {
         self.email = email
         self.login = login
         self.password = password
+        self.sex = sex
+        self.height = height
+        self.yearOfBirth = yearOfBirth
+        self.age = Int(Calendar.current.component(.year, from: Date())) - self.yearOfBirth
     }
 }

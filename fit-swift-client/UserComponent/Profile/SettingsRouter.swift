@@ -1,5 +1,5 @@
 //
-//  NotificationsRouter.swift
+//  SettingsRouter.swift
 //  fit-swift-client
 //
 //  Created by admin on 18/05/2020.
@@ -9,18 +9,13 @@
 import Foundation
 import UIKit
 
-class NotificationsRouter: Router {
+class SettingsRouter: Router {
     func route(to routeID: String, from context: UIViewController, parameters: Any? = nil) {
-        guard let route = NotificationsViewController.Route(rawValue: routeID) else { return }
+        guard let route = SettingsViewController.Route(rawValue: routeID) else { return }
         let vc: UIViewController
         switch route {
         case .back:
-            if let presentingVC = parameters as? NotificationsViewController.PresentingVCType, presentingVC == .dashboard {
-                vc = DashboardViewController()
-            }
-            else {
-                vc = ProfileViewController()
-            }
+            vc = ProfileViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }

@@ -85,6 +85,9 @@ class DataStore {
     }
     
     func fetchAllData(force: Bool, onComplete: @escaping() -> Void) {
+//        HealthKitDataHandler.getLatestHearRateSample { _ in
+//            return
+//        }
         guard !isDataFetched || force else {
             onComplete()
             return
@@ -122,7 +125,7 @@ class DataStore {
         notificationsManager.updateAllNotifications() {
             dispatchGroup.leave()
         }
-        
+
         dispatchGroup.notify(queue: .main) {
             debugPrint("Finished fetching all data.")
             self.isDataFetched = true
@@ -223,8 +226,8 @@ class DataStore {
     }
     
     func postStepsData(_ steps: Int, onComplete: @escaping(Bool) -> Void) {
-        let currrentlyStoredStepsValue = (currentlyStoredData[.steps] as? [Record])?.last?.value ?? 0
-        guard currrentlyStoredStepsValue != Float(steps), currrentlyStoredStepsValue != 0 else { return }
+        let currentlyStoredStepsValue = (currentlyStoredData[.steps] as? [Record])?.last?.value ?? 0
+        guard currentlyStoredStepsValue != Float(steps), currentlyStoredStepsValue != 0 else { return }
         guard let user = authenticateUserProfile() else {
             onComplete(false)
             return

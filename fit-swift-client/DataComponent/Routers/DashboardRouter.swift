@@ -15,8 +15,8 @@ class DashboardRouter: Router {
         guard let route = DashboardViewController.Route(rawValue: routeID) else { return }
         let vc: UIViewController
         switch route {
-        case .logout:
-            vc = LoginViewController()
+        case .profile:
+            vc = ProfileViewController()
         case .weights:
             vc = DataProvider().provideViewController(dataType: .weights)
         case .kcal:

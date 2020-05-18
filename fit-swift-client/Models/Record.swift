@@ -37,7 +37,7 @@ extension Record {
             throw SerializationError.missing("userId")
         }
         
-        guard let valueRaw = json["value"] as? Float else {
+        guard let valueRaw = json["value"] as? NSNumber else {
             throw SerializationError.missing("value")
         }
 
@@ -48,7 +48,7 @@ extension Record {
         self.id = id
         self.userId = userId
         self.date = date
-        self.value = valueRaw
+        self.value = Float(truncating: valueRaw)
         self.values = [Float]()
     }
 }

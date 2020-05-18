@@ -15,8 +15,14 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
         case back
     }
     
+    enum PresentingVCType {
+        case dashboard, profile
+    }
+    
     private let router = NotificationsRouter()
     private let manager = mainStore.dataStore.notificationsManager
+    
+    private var presentingVC: PresentingVCType = .profile
     
     let tableView = UITableView()
     let cellReuseIdentifier = "reusableNotificationCellIdentifier"
@@ -30,6 +36,19 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
         refreshButton.image = UIImage(named: "refresh")?.withTintColor(.white)
         return gestureView
     }()
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    convenience init(from vc: PresentingVCType) {
+        self.init()
+        self.presentingVC = vc
+    }
     
     override func viewDidLoad() {
         componentName = "Notifications"
@@ -105,7 +124,7 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
     
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        router.route(to: Route.back.rawValue, from: self)
+        router.route(to: Route.back.rawValue, from: self, parameters: presentingVC)
     }
     
     @objc private func refresh(_ sender: AnyObject) {
