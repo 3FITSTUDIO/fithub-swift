@@ -20,13 +20,6 @@ class ProfileRouter: Router {
             vc = DashboardViewController()
         case .notifications:
             vc = NotificationsViewController()
-        case .settings:
-            if let vm = parameters as? ProfileViewModel {
-                vc = SettingsViewController(viewModel: vm)
-            }
-            else {
-                vc = SettingsViewController(viewModel: ProfileViewModel())
-            }
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }

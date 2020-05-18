@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class ProgressRouter: Router {
+class ChartRouter: Router {
     func route(to routeID: String, from context: UIViewController, parameters: Any? = nil) {
-        guard let route = ProgressViewController.Route(rawValue: routeID) else { return }
+        guard let route = ChartViewController.Route(rawValue: routeID) else { return }
         let vc: UIViewController
         switch route {
         case .back:

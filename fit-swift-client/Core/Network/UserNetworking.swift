@@ -63,8 +63,8 @@ final class UserNetworking : NetworkingClient {
     }
     
     // MARK: Sign Up View Controller
-    func postNewAccountCreated(name: String?, surname: String?, email: String?, login: String?, password: String?, onComplete: @escaping(Bool) -> Void) {
-        guard name != nil && surname != nil && email != nil && password != nil else {
+    func postNewAccountCreated(name: String?, surname: String?, email: String?, login: String?, password: String?, sex: String?, height: String?, yearOfBirth: String?, onComplete: @escaping(Bool) -> Void) {
+        guard name != nil && surname != nil && email != nil && password != nil, sex != nil, height != nil, yearOfBirth != nil else {
             onComplete(false)
             return
         }
@@ -85,7 +85,18 @@ final class UserNetworking : NetworkingClient {
                 params["password"] = Security.sha256(str: passwd)
             }
         }
-        
+        else {
+            debugPrint("Invalidate Password!")
+            onComplete(false)
+        }
+        params["sex"] = sex
+        if let height = height {
+            params["height"] = Int(height)
+        }
+        if let year = yearOfBirth {
+            params["yearOfBirth"] = Int(year)
+        }
+
         executeRequest(userEndpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)

@@ -52,9 +52,8 @@
 		84A2A1E7234D376A0078EE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */; };
 		84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A33DFD23D4998B0091E156 /* DateFormatter.swift */; };
 		84AE53292471CF2A00F91EF9 /* AddBodyMeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE53282471CF2A00F91EF9 /* AddBodyMeasurementsView.swift */; };
-		84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0B23D33109001C8E94 /* ProgressViewController.swift */; };
-		84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */; };
-		84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */; };
+		84B06D0E23D331A4001C8E94 /* ChartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0D23D331A4001C8E94 /* ChartRouter.swift */; };
+		84B06D1023D33286001C8E94 /* ChartViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ChartViewManager.swift */; };
 		84BA31B124659DC90064330F /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B024659DC90064330F /* PopupView.swift */; };
 		84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */; };
 		84BA31B52465A1100064330F /* NewValueSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */; };
@@ -89,8 +88,7 @@
 		84FEA3E224731E1600093E30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E124731E1600093E30 /* ProfileViewController.swift */; };
 		84FEA3E424731E2D00093E30 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E324731E2D00093E30 /* ProfileRouter.swift */; };
 		84FEA3E624731E3A00093E30 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E524731E3A00093E30 /* ProfileViewModel.swift */; };
-		84FEA3E824732E3600093E30 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E724732E3600093E30 /* SettingsViewController.swift */; };
-		84FEA3EA24732F2B00093E30 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E924732F2B00093E30 /* SettingsRouter.swift */; };
+		84FEA3EE2473324800093E30 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3ED2473324800093E30 /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,9 +142,8 @@
 		84A2A1E8234D376A0078EE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A33DFD23D4998B0091E156 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		84AE53282471CF2A00F91EF9 /* AddBodyMeasurementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBodyMeasurementsView.swift; sourceTree = "<group>"; };
-		84B06D0B23D33109001C8E94 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
-		84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRouter.swift; sourceTree = "<group>"; };
-		84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewManager.swift; sourceTree = "<group>"; };
+		84B06D0D23D331A4001C8E94 /* ChartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRouter.swift; sourceTree = "<group>"; };
+		84B06D0F23D33286001C8E94 /* ChartViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewManager.swift; sourceTree = "<group>"; };
 		84BA31B024659DC90064330F /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionViewController.swift; sourceTree = "<group>"; };
 		84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionViewModel.swift; sourceTree = "<group>"; };
@@ -183,8 +180,7 @@
 		84FEA3E124731E1600093E30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		84FEA3E324731E2D00093E30 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
 		84FEA3E524731E3A00093E30 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		84FEA3E724732E3600093E30 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		84FEA3E924732F2B00093E30 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		84FEA3ED2473324800093E30 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		FDED3CF722E0B3A4ABC91BC0 /* Pods-fit-swift-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fit-swift-client.debug.xcconfig"; path = "Target Support Files/Pods-fit-swift-client/Pods-fit-swift-client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -344,7 +340,7 @@
 				845CD7A22372249D002917A9 /* DashboardViewModel.swift */,
 				8431389F2455FB0400ABC0B2 /* StepsProgressManager.swift */,
 				8414560423CDCAB600296C15 /* AddNewValueViewModel.swift */,
-				84B06D0F23D33286001C8E94 /* ProgressViewManager.swift */,
+				84B06D0F23D33286001C8E94 /* ChartViewManager.swift */,
 				84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */,
 			);
 			path = ViewModels;
@@ -353,10 +349,10 @@
 		849A03CE24671005009F8FEB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84FEA3ED2473324800093E30 /* ChartViewController.swift */,
 				84ED7B5824586B9C00471759 /* RecordsTableViewViewController.swift */,
 				841DC2A12371C4870075BA8C /* DashboardViewController.swift */,
 				8414560023CDC97C00296C15 /* AddNewValueViewController.swift */,
-				84B06D0B23D33109001C8E94 /* ProgressViewController.swift */,
 				84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */,
 			);
 			path = ViewControllers;
@@ -388,7 +384,7 @@
 				845CD7A023722463002917A9 /* DashboardRouter.swift */,
 				8435E82523CCFC5E00867546 /* RecordsTableViewRouter.swift */,
 				8414560223CDCA2A00296C15 /* AddNewRouter.swift */,
-				84B06D0D23D331A4001C8E94 /* ProgressRouter.swift */,
+				84B06D0D23D331A4001C8E94 /* ChartRouter.swift */,
 				84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */,
 			);
 			path = Routers;
@@ -513,8 +509,6 @@
 				84FEA3E124731E1600093E30 /* ProfileViewController.swift */,
 				84FEA3E324731E2D00093E30 /* ProfileRouter.swift */,
 				84FEA3E524731E3A00093E30 /* ProfileViewModel.swift */,
-				84FEA3E724732E3600093E30 /* SettingsViewController.swift */,
-				84FEA3E924732F2B00093E30 /* SettingsRouter.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -634,6 +628,7 @@
 				84FEA3DF24730C0200093E30 /* HealthKitHelper.swift in Sources */,
 				84BA31B72465A1250064330F /* NewValueSelectionRouter.swift in Sources */,
 				84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */,
+				84FEA3EE2473324800093E30 /* ChartViewController.swift in Sources */,
 				8435559923CBCFDD00407CB7 /* CountingLabel.swift in Sources */,
 				847381BE239980CB00CFB05F /* NetworkingClient.swift in Sources */,
 				84ED7B5B24586C2C00471759 /* DataSourceProtocol.swift in Sources */,
@@ -650,9 +645,7 @@
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
-				84FEA3EA24732F2B00093E30 /* SettingsRouter.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
-				84FEA3E824732E3600093E30 /* SettingsViewController.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
 				84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */,
 				84C11825245F1C5000F5CFF1 /* MeasurementsViewModel.swift in Sources */,
@@ -670,11 +663,10 @@
 				84710C2A236A31F20027AEC5 /* TextField.swift in Sources */,
 				84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */,
 				84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */,
-				84B06D0E23D331A4001C8E94 /* ProgressRouter.swift in Sources */,
+				84B06D0E23D331A4001C8E94 /* ChartRouter.swift in Sources */,
 				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				84AE53292471CF2A00F91EF9 /* AddBodyMeasurementsView.swift in Sources */,
 				84FEA3D42472BF4800093E30 /* NotificationTableViewCell.swift in Sources */,
-				84B06D0C23D33109001C8E94 /* ProgressViewController.swift in Sources */,
 				8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */,
 				847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */,
 				8435559423CB922800407CB7 /* MainStore.swift in Sources */,
@@ -696,7 +688,7 @@
 				8435559223CB837300407CB7 /* SerializationError.swift in Sources */,
 				84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */,
 				843138A12455FB0400ABC0B2 /* StepsProgressManager.swift in Sources */,
-				84B06D1023D33286001C8E94 /* ProgressViewManager.swift in Sources */,
+				84B06D1023D33286001C8E94 /* ChartViewManager.swift in Sources */,
 				8452C427235CCCC9009E99E8 /* FithubUI.swift in Sources */,
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 				8435E82623CCFC5E00867546 /* RecordsTableViewRouter.swift in Sources */,

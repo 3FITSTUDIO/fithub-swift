@@ -11,15 +11,15 @@ import UIKit
 import EasyPeasy
 import AudioToolbox
 
-protocol ProgressViewDelegate {
+protocol ChartViewDelegate {
     var avgValueLabel: Label { get set }
     var selectedValueLabel: Label { get set }
     var selectedDateLabel: Label { get set }
 }
 
-class ProgressViewManager {
+class ChartViewManager {
     private var store: DataStore?
-    var delegate: ProgressViewDelegate?
+    var delegate: ChartViewDelegate?
     enum Unit {
         case weight
         case calories

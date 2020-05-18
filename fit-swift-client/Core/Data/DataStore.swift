@@ -26,6 +26,7 @@ class DataStore {
     
     private var currentlyStoredData = [DataType: Any?]()
     private var isDataFetched = false
+    private var isStepsDataPosted = false
     
     var weightData: [Record] {
         return currentlyStoredData[.weight] as? [Record] ?? [Record]()
@@ -85,9 +86,9 @@ class DataStore {
     }
     
     func fetchAllData(force: Bool, onComplete: @escaping() -> Void) {
-//        HealthKitDataHandler.getLatestHearRateSample { _ in
-//            return
-//        }
+        //        HealthKitDataHandler.getLatestHearRateSample { _ in
+        //            return
+        //        }
         guard !isDataFetched || force else {
             onComplete()
             return
@@ -125,7 +126,7 @@ class DataStore {
         notificationsManager.updateAllNotifications() {
             dispatchGroup.leave()
         }
-
+        
         dispatchGroup.notify(queue: .main) {
             debugPrint("Finished fetching all data.")
             self.isDataFetched = true
@@ -226,8 +227,7 @@ class DataStore {
     }
     
     func postStepsData(_ steps: Int, onComplete: @escaping(Bool) -> Void) {
-        let currentlyStoredStepsValue = (currentlyStoredData[.steps] as? [Record])?.last?.value ?? 0
-        guard currentlyStoredStepsValue != Float(steps), currentlyStoredStepsValue != 0 else { return }
+        guard !isStepsDataPosted else { return }
         guard let user = authenticateUserProfile() else {
             onComplete(false)
             return
@@ -238,6 +238,7 @@ class DataStore {
                 // notification + "synchronised steps data"
                 if result {
                     self.fetchStepsData {
+                        self.isStepsDataPosted = true
                         onComplete(result)
                     }
                 }

@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
-        view.contentSize.height = 700
+        view.contentSize.height = 1100
         return view
     }()
     
@@ -34,6 +34,9 @@ class SignUpViewController: UIViewController {
     private let loginField = TextField()
     private let passwdField = PasswordField()
     private let passwdConfirmField = PasswordField()
+    private let sexField = TextField()
+    private let heightField = TextField()
+    private let yearOfBirthField = TextField()
     private var textFields = [TextField]()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +62,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCommonTraits()
-        textFields = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField]
+        textFields = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField, sexField, heightField, yearOfBirthField]
         setup()
         viewModel.vc = self
     }
@@ -86,20 +89,23 @@ class SignUpViewController: UIViewController {
         let loginLabel = Label(label: "login")
         let passwdLabel = Label(label: "password")
         let passwdConfirmLabel = Label(label: "confirm password")
+        let sexLabel = Label(label: "sex (M/F)")
+        let heightLabel = Label(label: "height (cm)")
+        let yearLabel = Label(label: "year of birth")
         
-        let labels = [nameLabel, surnameLabel, emailLabel, loginLabel, passwdLabel, passwdConfirmLabel]
+        let labels = [nameLabel, surnameLabel, emailLabel, loginLabel, passwdLabel, passwdConfirmLabel, sexLabel, heightLabel, yearLabel]
         scrollView.addSubviews(subviews: labels)
         
         nameField.easy.layout(CenterX(), Top(150))
         var previous = nameField
-        let rest = [surnameField, emailField, loginField, passwdField, passwdConfirmField]
+        let rest = [surnameField, emailField, loginField, passwdField, passwdConfirmField, sexField, heightField, yearOfBirthField]
         rest.forEach {
             $0.easy.layout(CenterX(), Top(41).to(previous, .bottom))
             previous = $0
         }
         
         nameLabel.easy.layout(Left(82), Top(125))
-        let rest2 = [surnameLabel, emailLabel, loginLabel, passwdLabel, passwdConfirmLabel]
+        let rest2 = [surnameLabel, emailLabel, loginLabel, passwdLabel, passwdConfirmLabel, sexLabel, heightLabel, yearLabel]
         var previous2 = nameLabel
         rest2.forEach {
             $0.easy.layout(Left(82), Top(63).to(previous2))
@@ -111,7 +117,7 @@ class SignUpViewController: UIViewController {
     private func setupButtons() {
         let createAccountButton = Button(type: .big, label: "create new account")
         scrollView.addSubview(createAccountButton)
-        createAccountButton.easy.layout(CenterX(), Top(40).to(passwdConfirmField, .bottom))
+        createAccountButton.easy.layout(CenterX(), Top(40).to(yearOfBirthField, .bottom))
         createAccountButton.addGesture(target: self, selector: #selector(self.submitTapped(_:)))
         
         let cancelButton = Button(type: .small, label: "cancel")
@@ -140,7 +146,7 @@ extension SignUpViewController {
             safeArea.size.height -= keyboardSize.height + (UIScreen.main.bounds.height*0.04) // Adjust buffer to your liking
 
             // determine which UIView was selected and if it is covered by keyboard
-            let activeField: UIView? = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField].first { $0.textField.isFirstResponder }
+            let activeField: UIView? = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField, sexField, heightField, yearOfBirthField].first { $0.textField.isFirstResponder }
             if let activeField = activeField {
                 if safeArea.contains(CGPoint(x: 0, y: activeField.frame.maxY)) {
                     print("No need to Scroll")
@@ -169,23 +175,44 @@ extension SignUpViewController {
 
 // MARK: Display Alerts
 extension SignUpViewController {
-    public func displayAlert(success: Bool) {
-        if success {
+    enum AlertType {
+        case invalidPassword
+        case passwordsDontMatch
+        case emptyFields
+        case success
+    
+    }
+    public func displayAlert(type: AlertType) {
+        switch type {
+        case .invalidPassword:
+            let alertController = UIAlertController(title: "Oh no!", message: "Password needs to have min. 8 characters (1 number)!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
+                [self.passwdField, self.passwdConfirmField].forEach { $0.textField.text = "" }
+            }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        case .passwordsDontMatch:
+            let alertController = UIAlertController(title: "Oh no!", message: "Passwords don't match!!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
+                [self.passwdField, self.passwdConfirmField].forEach { $0.textField.text = "" }
+            }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        case .emptyFields:
+            let alertController = UIAlertController(title: "Oh no!", message: "Some fields were left empty!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        case .success:
             let alertController = UIAlertController(title: "Success!", message: "Signed up correctly.", preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Log in", style: .default) { (action:UIAlertAction) in
                 self.router.route(to: Route.submit.rawValue, from: self)
             }
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)
-        }
-        else {
-            let alertController = UIAlertController(title: "Oh no!", message: "There was an error, please try again!", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
-                self.textFields.forEach { $0.textField.text = "" }
-            }
-            alertController.addAction(action1)
-            self.present(alertController, animated: true, completion: nil)
-            return
         }
     }
 }

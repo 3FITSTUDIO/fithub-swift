@@ -15,7 +15,6 @@ class ProfileViewController: BasicComponentViewController {
         case logout
         case dashboard
         case notifications
-        case settings
     }
     
     private let router = ProfileRouter()
@@ -40,16 +39,6 @@ class ProfileViewController: BasicComponentViewController {
         return gestureView
     }()
     
-    private let settingsButton: UIView = {
-        let gestureView = UIView()
-        let logoutButton = UIImageView()
-        gestureView.addSubview(logoutButton)
-        gestureView.easy.layout(Size(50))
-        logoutButton.easy.layout(Size(40), Center())
-        logoutButton.image = UIImage(named: "settings")?.withTintColor(.white)
-        return gestureView
-    }()
-    
     private let stepsProgressView = StepsProgressBarView()
     
     override func viewDidLoad() {
@@ -61,24 +50,22 @@ class ProfileViewController: BasicComponentViewController {
     }
     
     private func layout() {
-        container.addSubviews(subviews: [helloLabel, nameLabel, stepsProgressView, dashboardButton, notificationsButton, logoutButton, settingsButton])
-        helloLabel.easy.layout(Left(80), Top(100))
-        nameLabel.easy.layout(Left(5).to(helloLabel), Top(100))
+        container.addSubviews(subviews: [helloLabel, nameLabel, stepsProgressView, dashboardButton, notificationsButton, logoutButton])
+        helloLabel.easy.layout(Left(80), Top(120))
+        nameLabel.easy.layout(Left(5).to(helloLabel), Top(120))
         let userName = viewModel.getUserName()
         nameLabel.text = userName
         
-        stepsProgressView.easy.layout(CenterX(), Top(20).to(helloLabel, .bottom))
-        dashboardButton.easy.layout(Top(20).to(stepsProgressView), CenterX())
-        notificationsButton.easy.layout(Top(20).to(dashboardButton), CenterX())
+        stepsProgressView.easy.layout(CenterX(), Top(30).to(helloLabel, .bottom))
+        dashboardButton.easy.layout(Top(25).to(stepsProgressView), CenterX())
+        notificationsButton.easy.layout(Top(25).to(dashboardButton), CenterX())
         logoutButton.easy.layout(Top(40), Left(20), Size(40))
-        settingsButton.easy.layout(Top(40), Right(20), Size(40))
     }
     
     private func setupButtonInteractions() {
         dashboardButton.addGesture(target: self, selector: #selector(dashboardTapped(_:)))
         notificationsButton.addGesture(target: self, selector: #selector(notificationsTapped(_:)))
         logoutButton.addGesture(target: self, selector: #selector(self.logoutTapped(_:)))
-        settingsButton.addGesture(target: self, selector: #selector(self.settingsTapped(_:)))
     }
     
     // MARK: Navigation
@@ -99,10 +86,5 @@ class ProfileViewController: BasicComponentViewController {
         generator.selectionChanged()
         viewModel.clearProfileOnLogout()
         router.route(to: Route.logout.rawValue, from: self)
-    }
-    
-    @objc private func settingsTapped(_ sender: UITapGestureRecognizer? = nil) {
-        generator.selectionChanged()
-        router.route(to: Route.settings.rawValue, from: self, parameters: viewModel)
     }
 }

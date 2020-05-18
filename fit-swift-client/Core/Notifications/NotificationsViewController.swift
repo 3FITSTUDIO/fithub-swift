@@ -99,6 +99,7 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let closeAction = UIContextualAction(style: .normal, title:  "Mark as Read", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            generator.selectionChanged()
             self.manager.markAsRead(atIndex: indexPath.row) {
                 tableView.reloadData()
             }
@@ -111,6 +112,7 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let closeAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            generator.selectionChanged()
             self.manager.deleteNotification(atIndex: indexPath.row) {
                 tableView.reloadData()
             }

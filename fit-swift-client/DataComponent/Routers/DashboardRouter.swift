@@ -32,7 +32,7 @@ class DashboardRouter: Router {
         case .measurements:
             vc = DataProvider().provideViewController(dataType: .measurements)
         case .progress:
-            vc = ProgressViewController()
+            vc = ChartViewController()
         case .addNew:
             vc = NewValueSelectionViewController()
         case .notifications:
