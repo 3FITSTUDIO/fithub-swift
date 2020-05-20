@@ -19,8 +19,8 @@ class StepsProgressBarManager {
     }
         
     func provideStepsCount(completion: @escaping (Int) -> Void) {
-        HealthKitDataHandler.getTodaysSteps { (todaysSteps) -> ()  in
-            self.store.postStepsData(Int(todaysSteps)) { result in
+        HealthKitDataHandler.getTodaysSteps { [weak self] todaysSteps  in
+            self?.store.postStepsData(Int(todaysSteps)) { result in
                 if result {
                     debugPrint("Succesfully sent steps data.")
                 }

@@ -17,13 +17,8 @@ class SignUpRouter : Router {
         switch route {
         case .cancel:
             vc = LoginViewController()
-            //TODO: pass newAccountCreated = false
         case .submit:
-            vc = DashboardViewController()
-            //TODO: pass newAccountCreated = true
-//        case .forgot:
-//            return
-//            //no-op
+            vc = ProfileViewController()
         }
         context.navigationController?.pushViewController(vc, animated: false)
     }

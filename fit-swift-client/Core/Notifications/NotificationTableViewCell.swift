@@ -14,9 +14,7 @@ class NotificationTableViewCell: UITableViewCell {
     let cellView = UIView()
     
     let dateValue = Label(label: "", fontSize: 10)
-    let messageContent = Label(label: "This is a really long text message. This is a really long text message. This is a really long text message. This is a really long text message. This is a really long text message.", fontSize: 14)
-    
-    // This is a really long text message. This is a really long text message. This is a really long text message. This is a really long text message. This is a really long text message.
+    let messageContent = Label(label: "", fontSize: 14)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

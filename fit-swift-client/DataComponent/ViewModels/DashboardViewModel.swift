@@ -20,13 +20,13 @@ class DashboardViewModel {
     
     func updateData(force: Bool) {
         if let store = dataStore, let vc = vc {
-            store.fetchAllData(force: force) {
-                vc.weightDataButton.mainLabel.text = self.provideLastRecord(dataType: .weight)
-                vc.kcalDataButton.mainLabel.text = self.provideLastRecord(dataType: .calories)
-                vc.trainingsDataButton.mainLabel.text = self.provideLastRecord(dataType: .training)
-                vc.sleepDataButton.mainLabel.text = self.provideLastRecord(dataType: .sleep)
-                vc.pulseDataButton.mainLabel.text = self.providePulseAvgRecord()
-                vc.stepsDataButton.mainLabel.text = self.provideStepsAvgRecord()
+            store.fetchAllData(force: force) { [weak self] in
+                vc.weightDataButton.mainLabel.text = self?.provideLastRecord(dataType: .weight)
+                vc.kcalDataButton.mainLabel.text = self?.provideLastRecord(dataType: .calories)
+                vc.trainingsDataButton.mainLabel.text = self?.provideLastRecord(dataType: .training)
+                vc.sleepDataButton.mainLabel.text = self?.provideLastRecord(dataType: .sleep)
+                vc.pulseDataButton.mainLabel.text = self?.providePulseAvgRecord()
+                vc.stepsDataButton.mainLabel.text = self?.provideStepsAvgRecord()
                 // measurementsDataButton doesn't show any values
             }
         }
@@ -95,5 +95,12 @@ class DashboardViewModel {
             userStore.clearProfileOnLogout()
             dataStore.clearCurrentData()
         }
+    }
+    
+    func diagramsCanBeShown() -> Bool {
+        if let weightArray = dataStore?.weightData, let caloriesArray = dataStore?.caloriesData {
+            return !weightArray.isEmpty && !caloriesArray.isEmpty
+        }
+        return false
     }
 }

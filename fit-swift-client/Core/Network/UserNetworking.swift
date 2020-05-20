@@ -18,9 +18,7 @@ final class UserNetworking : NetworkingClient {
     func getUser(forUsername login: String, inputPasswd: String, onComplete: @escaping(Swift.Result<User, NetworkError>) -> Void) {
         var params = [String: Any]()
         params["login"] = login
-        if Validation.validatePassword(password: inputPasswd) {
-            params["password"] = Security.sha256(str: inputPasswd)
-        }
+        let passwordToCheck = Security.sha256(str: inputPasswd)
         
         executeRequest(userEndpoint, .get, parameters: params) { (json, error) in
             if let error = error {
@@ -31,13 +29,25 @@ final class UserNetworking : NetworkingClient {
             else if let jsonData = json?.first {
                 do {
                     let user = try User(json: jsonData)
-                    onComplete(.success(user))
-                    return
+                    if user.password == passwordToCheck {
+                        onComplete(.success(user))
+                        return
+                    }
+                    else {
+                        onComplete(.failure(.noAuthentication))
+                        return
+                    }
+                    
                 } catch {
                     debugPrint("fetch_user_data: Failed to deserialize incoming data")
                     onComplete(.failure(.cannotProcessData))
                     return
                 }
+            }
+            else {
+                debugPrint("fetch_user_data: No incoming data")
+                onComplete(.failure(.cannotProcessData))
+                return
             }
         }
     }

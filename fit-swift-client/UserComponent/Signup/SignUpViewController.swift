@@ -186,16 +186,16 @@ extension SignUpViewController {
         switch type {
         case .invalidPassword:
             let alertController = UIAlertController(title: "Oh no!", message: "Password needs to have min. 8 characters (1 number)!", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
-                [self.passwdField, self.passwdConfirmField].forEach { $0.textField.text = "" }
+            let action1 = UIAlertAction(title: "Try again", style: .default) { [weak self] (action:UIAlertAction) in
+                [self?.passwdField, self?.passwdConfirmField].forEach { $0?.textField.text = "" }
             }
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)
             return
         case .passwordsDontMatch:
             let alertController = UIAlertController(title: "Oh no!", message: "Passwords don't match!!", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in
-                [self.passwdField, self.passwdConfirmField].forEach { $0.textField.text = "" }
+            let action1 = UIAlertAction(title: "Try again", style: .default) { [weak self] (action:UIAlertAction) in
+                [self?.passwdField, self?.passwdConfirmField].forEach { $0?.textField.text = "" }
             }
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)

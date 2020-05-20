@@ -137,12 +137,12 @@ class DataStore {
     // MARK: Dashboard View Controller, Fetching all data, Posting steps data
     func fetchWeightData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .weights) { result in
+        apiClient.fetchRegularData(forUserId: user.id, dataType: .weights) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.weight] = fetchedData
+                self?.currentlyStoredData[.weight] = fetchedData
             }
             onComplete()
         }
@@ -150,12 +150,12 @@ class DataStore {
     
     func fetchCaloriesData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .calories) { result in
+        apiClient.fetchRegularData(forUserId: user.id, dataType: .calories) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.calories] = fetchedData
+                self?.currentlyStoredData[.calories] = fetchedData
             }
             onComplete()
         }
@@ -163,12 +163,12 @@ class DataStore {
     
     func fetchTrainingData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .trainings) { result in
+        apiClient.fetchRegularData(forUserId: user.id, dataType: .trainings) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.training] = fetchedData
+                self?.currentlyStoredData[.training] = fetchedData
             }
             onComplete()
         }
@@ -176,12 +176,12 @@ class DataStore {
     
     func fetchSleepData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .sleep) { result in
+        apiClient.fetchRegularData(forUserId: user.id, dataType: .sleep) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.sleep] = fetchedData
+                self?.currentlyStoredData[.sleep] = fetchedData
             }
             onComplete()
         }
@@ -189,12 +189,12 @@ class DataStore {
     
     func fetchPulseData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .pulse) { result in
+        apiClient.fetchRegularData(forUserId: user.id, dataType: .pulse) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.pulse] = fetchedData
+                self?.currentlyStoredData[.pulse] = fetchedData
             }
             onComplete()
         }
@@ -202,12 +202,12 @@ class DataStore {
     
     func fetchStepsData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchRegularData(forUserId: user.id, dataType: .steps) { result in
+        apiClient.fetchRegularData(forUserId: user.id, dataType: .steps) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.steps] = fetchedData
+                self?.currentlyStoredData[.steps] = fetchedData
             }
             onComplete()
         }
@@ -215,12 +215,12 @@ class DataStore {
     
     func fetchMeasurementsData(onComplete: @escaping() -> Void)  {
         guard let user = authenticateUserProfile() else { return }
-        apiClient.fetchBodyMeasurementsData(forUserId: user.id, dataType: .measurements) { result in
+        apiClient.fetchBodyMeasurementsData(forUserId: user.id, dataType: .measurements) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.currentlyStoredData[.measurements] = fetchedData
+                self?.currentlyStoredData[.measurements] = fetchedData
             }
             onComplete()
         }
@@ -234,11 +234,11 @@ class DataStore {
         }
         
         if currentlyStoredData[.steps] as? Int != steps {
-            apiClient.postStepsData(steps, forId: user.id) { result in
+            apiClient.postStepsData(steps, forId: user.id) { [weak self] result in
                 // notification + "synchronised steps data"
                 if result {
-                    self.fetchStepsData {
-                        self.isStepsDataPosted = true
+                    self?.fetchStepsData {
+                        self?.isStepsDataPosted = true
                         onComplete(result)
                     }
                 }
@@ -259,35 +259,35 @@ class DataStore {
             onComplete(false)
             return
         }
-        apiClient.postRegularData(type: type, value: value, date: date, userId: user.id) { result in
+        apiClient.postRegularData(type: type, value: value, date: date, userId: user.id) { [weak self] result in
             if result {
                 switch type {
                 case .weights:
-                    self.fetchWeightData {
+                    self?.fetchWeightData {
                         onComplete(true)
                     }
                 case .kcal:
-                    self.fetchCaloriesData {
+                    self?.fetchCaloriesData {
                         onComplete(true)
                     }
                 case .training:
-                    self.fetchTrainingData {
+                    self?.fetchTrainingData {
                         onComplete(true)
                     }
                 case .sleep:
-                    self.fetchSleepData {
+                    self?.fetchSleepData {
                         onComplete(true)
                     }
                 case .pulse:
-                    self.fetchPulseData {
+                    self?.fetchPulseData {
                         onComplete(true)
                     }
                 case .steps:
-                    self.fetchStepsData {
+                    self?.fetchStepsData {
                         onComplete(true)
                     }
                 case .measurements:
-                    self.fetchMeasurementsData {
+                    self?.fetchMeasurementsData {
                         onComplete(true)
                     }
                 }
@@ -305,10 +305,10 @@ class DataStore {
             return
         }
         
-        apiClient.postBodyData(values: values, forId: user.id) { result in
+        apiClient.postBodyData(values: values, forId: user.id) { [weak self] result in
             // notification + "synchronised steps data"
             if result {
-                self.fetchMeasurementsData {
+                self?.fetchMeasurementsData {
                     onComplete(result)
                 }
             }

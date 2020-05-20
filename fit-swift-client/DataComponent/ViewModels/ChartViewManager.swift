@@ -132,7 +132,7 @@ class ChartViewManager {
     private func getCurrentSelection(selectorX: CGFloat) {
         let leftMargin = 172 - barStackView.frame.size.width / 2
         let predictedBarId = Int((selectorX - leftMargin)/11)
-        debugPrint("Predicted barID: \(predictedBarId)\n, selectorX: \(selectorX)")
+//        debugPrint("Predicted barID: \(predictedBarId)\n, selectorX: \(selectorX)")
         if predictedBarId != previousPredictedId {
             previousPredictedId = predictedBarId
             bars[predictedBarId].backgroundColor = .white

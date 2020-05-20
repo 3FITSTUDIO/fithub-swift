@@ -84,15 +84,37 @@ class LoginViewController: UIViewController {
         passwordField.textField.text = ""
     }
     
-    func handleLoginAction(success: Bool) {
-        if success {
+    private func clearFields() {
+        loginLabel.text = "try again! - login"
+        passwordLabel.text = "try again! - password"
+        loginField.textField.text = ""
+        passwordField.textField.text = ""
+    }
+    
+    enum AlertType {
+        case success
+        case invalidInput
+        case noStore
+    }
+    
+    func handleLoginAction(type: AlertType) {
+        switch type {
+        case .success:
             self.router.route(to: Route.login.rawValue, from: self)
-        }
-        else {
-            self.loginLabel.text = "try again! - login"
-            self.passwordLabel.text = "try again! - password"
-            self.loginField.textField.text = ""
-            self.passwordField.textField.text = ""
+        case .invalidInput:
+            let alertController = UIAlertController(title: "Oh no!", message: "You entered the wrong password!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            clearFields()
+            self.present(alertController, animated: true, completion: nil)
+            return
+        case .noStore:
+            let alertController = UIAlertController(title: "Oh no!", message: "Something went wrong, please restart the app!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Try again", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            clearFields()
+            self.present(alertController, animated: true, completion: nil)
+            return
         }
     }
 }
@@ -105,8 +127,7 @@ extension LoginViewController {
         generator.selectionChanged()
         let login = loginField.textField.text ?? ""
         let passwd = passwordField.textField.text ?? ""
-        
-        viewModel.authenticateOnLogin(login: login, passwd: passwd) {}
+        viewModel.authenticateOnLogin(login: login, passwd: passwd)
     }
     @objc private func signUpTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()

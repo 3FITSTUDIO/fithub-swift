@@ -14,6 +14,7 @@ class NetworkingClient {
         case dataNotAvailable
         case cannotProcessData
         case serverConnectionError
+        case noAuthentication
     }
     
     let urlBase = "http://localhost:8080"

@@ -33,11 +33,6 @@ class Security {
                 sha256String += String(format:"%02x", UInt8(byte))
             }
             
-            if sha256String.uppercased() == "E8721A6EBEA3B23768D943D075035C7819662B581E487456FDB1A7129C769188" {
-                print("Matching sha256 hash: E8721A6EBEA3B23768D943D075035C7819662B581E487456FDB1A7129C769188")
-            } else {
-                print("sha256 hash does not match: \(sha256String)")
-            }
             return sha256String
         }
         return ""

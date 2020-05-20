@@ -108,13 +108,13 @@ class AddNewValueViewController: BasicComponentViewController {
                 return
             }
             let valuesUnwrapped = values.map { $0 ?? "" }
-            viewModel.postBodyData(values: valuesUnwrapped, date: date) { result in
+            viewModel.postBodyData(values: valuesUnwrapped, date: date) { [weak self] result in
                 if result {
-                    self.displayAlert(type: .success)
+                    self?.displayAlert(type: .success)
                 }
                 else{
-                    self.displayAlert(type: .somethingWentWrong)
-                    self.clearTextFields()
+                    self?.displayAlert(type: .somethingWentWrong)
+                    self?.clearTextFields()
                 }
             }
         }
@@ -126,13 +126,13 @@ class AddNewValueViewController: BasicComponentViewController {
                 return
             }
             
-            viewModel.postNewRecord(value: value, date: date, type: type) { result in
+            viewModel.postNewRecord(value: value, date: date, type: type) { [weak self] result in
                 if result {
-                    self.displayAlert(type: .success)
+                    self?.displayAlert(type: .success)
                 }
                 else{
-                    self.displayAlert(type: .somethingWentWrong)
-                    self.clearTextFields()
+                    self?.displayAlert(type: .somethingWentWrong)
+                    self?.clearTextFields()
                 }
             }
         }

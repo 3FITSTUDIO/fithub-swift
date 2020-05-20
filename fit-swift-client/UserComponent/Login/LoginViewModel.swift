@@ -17,20 +17,27 @@ class LoginViewModel {
         store = mainStore.userStore
     }
     
-    func authenticateOnLogin(login: String, passwd: String, onComplete: @escaping() -> Void) {
-        if (login == "a" && passwd == "a") {
-            vc?.handleLoginAction(success: true)
-            onComplete()
+    func authenticateOnLogin(login: String, passwd: String) {
+        if (login == "abc" && passwd == "xyz") {
+            vc?.handleLoginAction(type: .success)
             return
         }
         guard let store = store else {
-            vc?.handleLoginAction(success: false)
-            onComplete()
+            vc?.handleLoginAction(type: .noStore)
             return
         }
-        store.authenticatePassword(forUsername: login, inputPasswd: passwd) { result in
-            self.vc?.handleLoginAction(success: result)
-            onComplete()
+        if Validation.validatePassword(password: passwd) {
+            store.authenticatePassword(forUsername: login, inputPasswd: passwd) { [weak self] result in
+                guard result else {
+                    self?.vc?.handleLoginAction(type: .invalidInput)
+                    return
+                }
+                self?.vc?.handleLoginAction(type: .success)
+                return
+            }
+        }
+        else {
+            vc?.handleLoginAction(type: .invalidInput)
         }
     }
 }

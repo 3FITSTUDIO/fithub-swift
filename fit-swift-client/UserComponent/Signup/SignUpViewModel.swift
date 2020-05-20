@@ -24,25 +24,26 @@ class SignUpViewModel {
                 return
             }
         }
-        // passwords matching
+        // passwords matching regex rules
         if let passwd = data[4]{
             guard Validation.validatePassword(password: passwd) else {
                 vc?.displayAlert(type: .invalidPassword)
                 return
             }
-        }
+        } // empty fields
         else {
             vc?.displayAlert(type: .emptyFields)
             return
         }
         
+        // passwords matching
         guard data[4] == data[5] else {
             vc?.displayAlert(type: .passwordsDontMatch)
             return
         }
         if let store = store {
-            store.verifyDataOnSignUp(data: data) { result in
-                self.vc?.displayAlert(type: .success)
+            store.tryCreateNewUser(data: data) { [weak self] result in
+                self?.vc?.displayAlert(type: .success)
                 return
             }
         }

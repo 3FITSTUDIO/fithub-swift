@@ -27,12 +27,12 @@ class NotificationsManager {
             onComplete()
             return
         }
-        apiClient.fetchAllUserNotifications(forUserId: user.id) { result in
+        apiClient.fetchAllUserNotifications(forUserId: user.id) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                self.notificationData = fetchedData.reversed()
+                self?.notificationData = fetchedData.reversed()
             }
             onComplete()
         }
@@ -59,9 +59,9 @@ class NotificationsManager {
     
     func deleteNotification(atIndex index: Int, onComplete: @escaping() -> Void) {
         let removed = notificationData.remove(at: index)
-        apiClient.deleteNotification(id: removed.id) { result in
+        apiClient.deleteNotification(id: removed.id) { [weak self] result in
             if result {
-                self.updateAllNotifications() {
+                self?.updateAllNotifications() {
                     debugPrint("Notification update completed")
                     onComplete()
                 }

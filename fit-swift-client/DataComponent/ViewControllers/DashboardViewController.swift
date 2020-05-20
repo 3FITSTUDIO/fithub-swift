@@ -126,7 +126,7 @@ class DashboardViewController: BasicComponentViewController {
         
         // Navigation
         /// TODO: Fix array indexing in StepsProgressManager.swift
-        seeDiagramsButton.addGesture(target: self, selector: #selector(self.seeProgressTapped(_:)))
+        seeDiagramsButton.addGesture(target: self, selector: #selector(self.seeDiagramsTapped(_:)))
         plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
         
         profileButton.addGesture(target: self, selector: #selector(self.profileTapped(_:)))
@@ -174,6 +174,24 @@ extension DashboardViewController: UICollectionViewDataSource, UICollectionViewD
     }
 }
 
+// MARK: Alert Display
+extension DashboardViewController {
+    enum AlertType {
+        case noDiagramData
+        
+    }
+    public func displayAlert(type: AlertType) {
+        switch type {
+        case .noDiagramData:
+            let alertController = UIAlertController(title: "Oh no!", message: "No data to display, try updating first.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+    }
+}
+
 // MARK: Routing
 
 extension DashboardViewController {
@@ -217,9 +235,14 @@ extension DashboardViewController {
         router.route(to: Route.profile.rawValue, from: self)
     }
     
-    @objc private func seeProgressTapped(_ sender: UITapGestureRecognizer? = nil) {
+    @objc private func seeDiagramsTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
-        router.route(to: Route.progress.rawValue, from: self)
+        if viewModel.diagramsCanBeShown() {
+            router.route(to: Route.progress.rawValue, from: self)
+        }
+        else {
+            displayAlert(type: .noDiagramData)
+        }
     }
     
     @objc private func addNewTapped(_ sender: UITapGestureRecognizer? = nil) {
