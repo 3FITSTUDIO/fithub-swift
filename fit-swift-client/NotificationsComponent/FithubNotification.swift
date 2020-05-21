@@ -22,7 +22,7 @@ class FithubNotification {
         guard let userId = json["userId"] as? Int else {
             throw SerializationError.missing("userId")
         }
-
+        
         guard let date = json["date"] as? String else {
             throw SerializationError.missing("date")
         }

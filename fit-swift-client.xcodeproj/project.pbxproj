@@ -45,11 +45,11 @@
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
 		847D24A12477159300316DE6 /* DataNetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D24A02477159300316DE6 /* DataNetworkHandler.swift */; };
+		847D24A92477258500316DE6 /* FitHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D24A82477258500316DE6 /* FitHubTests.swift */; };
 		8489FE4123C4DC2700104C7A /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4023C4DC2700104C7A /* Record.swift */; };
 		8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FAFE2372C09C003E7150 /* SignUpViewController.swift */; };
 		8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB002372C134003E7150 /* SignUpRouter.swift */; };
 		8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB022372C1B6003E7150 /* SignUpViewModel.swift */; };
-		849A03C924670DC2009F8FEB /* AlertDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A03C824670DC2009F8FEB /* AlertDisplayViewController.swift */; };
 		849A03D8246712D3009F8FEB /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849A03D7246712D3009F8FEB /* Validation.swift */; };
 		84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DC234D37690078EE29 /* AppDelegate.swift */; };
 		84A2A1DF234D37690078EE29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2A1DE234D37690078EE29 /* LoginViewController.swift */; };
@@ -58,7 +58,6 @@
 		84AE53292471CF2A00F91EF9 /* AddBodyMeasurementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE53282471CF2A00F91EF9 /* AddBodyMeasurementsView.swift */; };
 		84B06D0E23D331A4001C8E94 /* ChartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0D23D331A4001C8E94 /* ChartRouter.swift */; };
 		84B06D1023D33286001C8E94 /* ChartViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B06D0F23D33286001C8E94 /* ChartViewManager.swift */; };
-		84BA31B124659DC90064330F /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B024659DC90064330F /* PopupView.swift */; };
 		84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */; };
 		84BA31B52465A1100064330F /* NewValueSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */; };
 		84BA31B72465A1250064330F /* NewValueSelectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */; };
@@ -70,7 +69,6 @@
 		84C11823245F1C3700F5CFF1 /* StepsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C11822245F1C3700F5CFF1 /* StepsViewModel.swift */; };
 		84C11825245F1C5000F5CFF1 /* MeasurementsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C11824245F1C5000F5CFF1 /* MeasurementsViewModel.swift */; };
 		84C888602396BFEE00F2C2E3 /* BasicTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */; };
-		84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C888612396C38A00F2C2E3 /* ComponentTitle.swift */; };
 		84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DA2454BD8400DDF5D9 /* DataStore.swift */; };
 		84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */; };
 		84E1A1862461C3D500551D6B /* BodyMeasurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1A1852461C3D500551D6B /* BodyMeasurements.swift */; };
@@ -93,6 +91,16 @@
 		84FEA3E624731E3A00093E30 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E524731E3A00093E30 /* ProfileViewModel.swift */; };
 		84FEA3EE2473324800093E30 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3ED2473324800093E30 /* ChartViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		847D24AB2477258500316DE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84A2A1D1234D37690078EE29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84A2A1D8234D37690078EE29;
+			remoteInfo = "fit-swift-client";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1C0AE37B2C1ACD1FD4AB73FE /* libPods-fit-swift-client.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fit-swift-client.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,11 +144,13 @@
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		847D24A02477159300316DE6 /* DataNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNetworkHandler.swift; sourceTree = "<group>"; };
+		847D24A62477258500316DE6 /* FitHubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FitHubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		847D24A82477258500316DE6 /* FitHubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitHubTests.swift; sourceTree = "<group>"; };
+		847D24AA2477258500316DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8489FE4023C4DC2700104C7A /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		8495FB022372C1B6003E7150 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		849A03C824670DC2009F8FEB /* AlertDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDisplayViewController.swift; sourceTree = "<group>"; };
 		849A03D7246712D3009F8FEB /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		84A2A1D9234D37690078EE29 /* FitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A2A1DC234D37690078EE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +161,6 @@
 		84AE53282471CF2A00F91EF9 /* AddBodyMeasurementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBodyMeasurementsView.swift; sourceTree = "<group>"; };
 		84B06D0D23D331A4001C8E94 /* ChartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRouter.swift; sourceTree = "<group>"; };
 		84B06D0F23D33286001C8E94 /* ChartViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewManager.swift; sourceTree = "<group>"; };
-		84BA31B024659DC90064330F /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		84BA31B22465A0720064330F /* NewValueSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionViewController.swift; sourceTree = "<group>"; };
 		84BA31B42465A1100064330F /* NewValueSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionViewModel.swift; sourceTree = "<group>"; };
 		84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionRouter.swift; sourceTree = "<group>"; };
@@ -165,7 +174,6 @@
 		84C7FCB0243B7B0000F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C7FCB3243B7B0B00F69953 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTile.swift; sourceTree = "<group>"; };
-		84C888612396C38A00F2C2E3 /* ComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTitle.swift; sourceTree = "<group>"; };
 		84D212DA2454BD8400DDF5D9 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		84D212DC2454BE2600DDF5D9 /* DataNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNetworking.swift; sourceTree = "<group>"; };
 		84E1A1852461C3D500551D6B /* BodyMeasurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurements.swift; sourceTree = "<group>"; };
@@ -191,6 +199,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		847D24A32477258500316DE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A2A1D6234D37690078EE29 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,10 +259,8 @@
 		8452C428235DF3B1009E99E8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				849A03C824670DC2009F8FEB /* AlertDisplayViewController.swift */,
 				846C033C2397C28B00798397 /* BasicComponentViewController.swift */,
 				849A03CB24670F1F009F8FEB /* Views */,
-				84BA31AF24659DB90064330F /* Popup */,
 				8435E82723CCFE6A00867546 /* Cells */,
 				8452C426235CCCC9009E99E8 /* FithubUI.swift */,
 				847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */,
@@ -309,6 +322,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		847D24A72477258500316DE6 /* FitHubTests */ = {
+			isa = PBXGroup;
+			children = (
+				847D24A82477258500316DE6 /* FitHubTests.swift */,
+				847D24AA2477258500316DE6 /* Info.plist */,
+			);
+			path = FitHubTests;
+			sourceTree = "<group>";
+		};
 		849A03CA24670EF2009F8FEB /* UserComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +344,6 @@
 		849A03CB24670F1F009F8FEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				84C888612396C38A00F2C2E3 /* ComponentTitle.swift */,
 				84C8885F2396BFEE00F2C2E3 /* BasicTile.swift */,
 				8435559523CBCFDD00407CB7 /* StepsProgress */,
 				841DC29D237169F30075BA8C /* Label.swift */,
@@ -450,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				84A2A1DB234D37690078EE29 /* fit-swift-client */,
+				847D24A72477258500316DE6 /* FitHubTests */,
 				84A2A1DA234D37690078EE29 /* Products */,
 				063A12911A3D6199DCA7A935 /* Pods */,
 				CD9EC9AC8EAAF3CFA40EF6A2 /* Frameworks */,
@@ -460,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				84A2A1D9234D37690078EE29 /* FitHub.app */,
+				847D24A62477258500316DE6 /* FitHubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -488,14 +511,6 @@
 				84AE53282471CF2A00F91EF9 /* AddBodyMeasurementsView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		84BA31AF24659DB90064330F /* Popup */ = {
-			isa = PBXGroup;
-			children = (
-				84BA31B024659DC90064330F /* PopupView.swift */,
-			);
-			path = Popup;
 			sourceTree = "<group>";
 		};
 		84FEA3CC2472B46400093E30 /* NotificationsComponent */ = {
@@ -545,6 +560,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		847D24A52477258500316DE6 /* FitHubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847D24AD2477258500316DE6 /* Build configuration list for PBXNativeTarget "FitHubTests" */;
+			buildPhases = (
+				847D24A22477258500316DE6 /* Sources */,
+				847D24A32477258500316DE6 /* Frameworks */,
+				847D24A42477258500316DE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				847D24AC2477258500316DE6 /* PBXTargetDependency */,
+			);
+			name = FitHubTests;
+			productName = FitHubTests;
+			productReference = 847D24A62477258500316DE6 /* FitHubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		84A2A1D8234D37690078EE29 /* fit-swift-client */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A2A1EB234D376A0078EE29 /* Build configuration list for PBXNativeTarget "fit-swift-client" */;
@@ -569,10 +602,15 @@
 		84A2A1D1234D37690078EE29 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				DefaultBuildSystemTypeForWorkspace = Latest;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Dominik Urbaez Gomez";
 				TargetAttributes = {
+					847D24A52477258500316DE6 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 84A2A1D8234D37690078EE29;
+					};
 					84A2A1D8234D37690078EE29 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -592,11 +630,19 @@
 			projectRoot = "";
 			targets = (
 				84A2A1D8234D37690078EE29 /* fit-swift-client */,
+				847D24A52477258500316DE6 /* FitHubTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		847D24A42477258500316DE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A2A1D7234D37690078EE29 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -635,6 +681,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		847D24A22477258500316DE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847D24A92477258500316DE6 /* FitHubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A2A1D5234D37690078EE29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,7 +713,6 @@
 				84D212DB2454BD8400DDF5D9 /* DataStore.swift in Sources */,
 				849A03D8246712D3009F8FEB /* Validation.swift in Sources */,
 				84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */,
-				849A03C924670DC2009F8FEB /* AlertDisplayViewController.swift in Sources */,
 				847D24A12477159300316DE6 /* DataNetworkHandler.swift in Sources */,
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
@@ -672,7 +725,6 @@
 				84C11823245F1C3700F5CFF1 /* StepsViewModel.swift in Sources */,
 				8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */,
 				84EA434F238A028600CF853D /* ImageUtility.swift in Sources */,
-				84BA31B124659DC90064330F /* PopupView.swift in Sources */,
 				84A33DFE23D4998B0091E156 /* DateFormatter.swift in Sources */,
 				843A456E2472AC04002402EE /* Security.swift in Sources */,
 				84FEA3D22472B50800093E30 /* NotificationsManager.swift in Sources */,
@@ -685,7 +737,6 @@
 				84BA31B32465A0720064330F /* NewValueSelectionViewController.swift in Sources */,
 				84ED7B5D24586DE000471759 /* DataProvider.swift in Sources */,
 				84B06D0E23D331A4001C8E94 /* ChartRouter.swift in Sources */,
-				84C888622396C38A00F2C2E3 /* ComponentTitle.swift in Sources */,
 				84AE53292471CF2A00F91EF9 /* AddBodyMeasurementsView.swift in Sources */,
 				84FEA3D42472BF4800093E30 /* NotificationTableViewCell.swift in Sources */,
 				8435E82923CCFE8300867546 /* SimpleRecordTableViewCell.swift in Sources */,
@@ -724,6 +775,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		847D24AC2477258500316DE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84A2A1D8234D37690078EE29 /* fit-swift-client */;
+			targetProxy = 847D24AB2477258500316DE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		84A2A1E5234D376A0078EE29 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -736,6 +795,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		847D24AE2477258500316DE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8DN4ND55V5;
+				INFOPLIST_FILE = FitHubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Dominik-Urbaez-Gomez.FitHubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitHub.app/FitHub";
+			};
+			name = Debug;
+		};
+		847D24AF2477258500316DE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8DN4ND55V5;
+				INFOPLIST_FILE = FitHubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Dominik-Urbaez-Gomez.FitHubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FitHub.app/FitHub";
+			};
+			name = Release;
+		};
 		84A2A1E9234D376A0078EE29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -897,6 +998,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		847D24AD2477258500316DE6 /* Build configuration list for PBXNativeTarget "FitHubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847D24AE2477258500316DE6 /* Debug */,
+				847D24AF2477258500316DE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84A2A1D4234D37690078EE29 /* Build configuration list for PBXProject "fit-swift-client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

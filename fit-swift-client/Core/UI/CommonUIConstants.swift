@@ -24,6 +24,3 @@ class CommonUIConstants {
         static let wideButtonHeight: CGFloat = 73
     }    
 }
-
-
-

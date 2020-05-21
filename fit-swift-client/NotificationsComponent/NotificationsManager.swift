@@ -7,12 +7,23 @@
 //
 
 import Foundation
+import RxSwift
 
 class NotificationsManager {
     
     private let apiClient = NotificationsNetworking()
     weak var delegate: NotificationsViewController?
-    private var notificationData = [FithubNotification]()
+    
+    private var notificationDataSubject = BehaviorSubject.init(value: [FithubNotification]())
+    var notificationDataObservable: Observable<[FithubNotification]> {
+        return notificationDataSubject.asObservable()
+    }
+    
+    var notificationData = [FithubNotification]() {
+        didSet {
+            notificationDataSubject.onNext(notificationData)
+        }
+    }
     
     func authenticateUserProfile() -> User? {
         guard let user = mainStore.userStore.currentUser else {
@@ -44,7 +55,7 @@ class NotificationsManager {
             return
         }
         let date = FitHubDateFormatter.formatDate(Date())
-    
+        
         apiClient.postNotification(userId: userId, date: date, message: message) { result in
             switch result {
             case .failure:
@@ -55,10 +66,6 @@ class NotificationsManager {
                 onComplete(true)
             }
         }
-    }
-    
-    func provideCurrentNotificationsCount() -> Int {
-        return notificationData.count
     }
     
     func dataForNotification(forIndex index: Int) -> FithubNotification {

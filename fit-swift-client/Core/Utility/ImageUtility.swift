@@ -44,6 +44,5 @@ struct ImageUtility {
         else {
             return UIImage()
         }
-        
     }
 }

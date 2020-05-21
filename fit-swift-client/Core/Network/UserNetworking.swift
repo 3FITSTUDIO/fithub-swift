@@ -106,7 +106,7 @@ final class UserNetworking : NetworkingClient {
         if let year = yearOfBirth {
             params["yearOfBirth"] = Int(year)
         }
-
+        
         executeRequest(userEndpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)

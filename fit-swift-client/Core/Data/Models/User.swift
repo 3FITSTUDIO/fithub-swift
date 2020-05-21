@@ -19,7 +19,7 @@ struct User : Codable {
     var height: Int
     var yearOfBirth: Int
     var age: Int
-
+    
     init?(id: Int, firstName: String, lastName: String, email: String, login: String, password: String, sex: String, height: Int, yearOfBirth: Int) {
         self.id = id
         self.firstName = firstName
@@ -71,7 +71,7 @@ extension User {
         guard let yearOfBirth = json["yearOfBirth"] as? Int else {
             throw SerializationError.missing("yearOfBirth")
         }
-
+        
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

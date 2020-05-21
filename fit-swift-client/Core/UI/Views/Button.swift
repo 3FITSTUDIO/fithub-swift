@@ -16,7 +16,7 @@ class Button : UIView {
     }
     
     private var type: ButtonType = .small
-
+    
     private let backgroundView = UIView()
     private let buttonLabel: UILabel = {
         let label = UILabel()

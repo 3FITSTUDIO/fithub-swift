@@ -10,7 +10,7 @@ import Foundation
 import HealthKit
 
 class HealthKitDataHandler {
-        
+    
     // MARK: Get Permissions
     static func getHealthKitPermission(_ healthStore: HKHealthStore) {
         let stepsType = HKObjectType.quantityType(forIdentifier: .stepCount)!

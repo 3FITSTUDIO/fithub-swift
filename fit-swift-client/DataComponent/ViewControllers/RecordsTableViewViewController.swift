@@ -59,8 +59,8 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelection = false
     }
-
-// MARK: TableViewDelegate
+    
+    // MARK: TableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch dataType {
         case .measurements:
@@ -79,8 +79,8 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
         
         return cell
     }
-
-// MARK: Routing
+    
+    // MARK: Routing
     @objc override func backButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         router.route(to: Route.back.rawValue, from: self)

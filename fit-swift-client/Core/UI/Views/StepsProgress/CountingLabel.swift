@@ -22,14 +22,14 @@ class CountingLabel: Label {
         case intType
         case CGFloatType
     }
-
+    
     var startNumber: CGFloat = 0
     var endNumber: CGFloat = 0
     
     var progress: TimeInterval!
     var duration: TimeInterval!
     var lastUpdate: TimeInterval!
-
+    
     var timer: Timer?
     
     var counterType: CounterType!

@@ -9,44 +9,74 @@
 import Foundation
 
 class SignUpViewModel {
-    private var store: UserStore?
+    private var store: UserStore
     weak var vc: SignUpViewController?
     
     init() {
         store = mainStore.userStore
     }
     
-    func verifyEnteredData(data: [String?]) {
+    enum ValidationResult {
+        case emptyFields
+        case invalidPassword
+        case passwordsDontMatch
+        case success
+        case unknownError
+    }
+    
+    func handleSignupAction(enteredData: [String?]) {
+        let result = verifyEnteredData(data: enteredData)
+        handleValidationResult(result: result)
+    }
+    
+    func verifyEnteredData(data: [String?]) -> ValidationResult {
+        var validationResult: ValidationResult = .emptyFields
+        
         // no empty data
+        var flag = true
         data.forEach {
             guard $0 != "" else {
-                vc?.displayAlert(type: .emptyFields)
+                validationResult = .emptyFields
+                flag = false
                 return
             }
         }
+        guard flag else { return validationResult }
+        
         // passwords matching regex rules
         if let passwd = data[4]{
             guard Validation.validatePassword(password: passwd) else {
-                vc?.displayAlert(type: .invalidPassword)
-                return
+                validationResult = .invalidPassword
+                return validationResult
             }
         } // empty fields
         else {
-            vc?.displayAlert(type: .emptyFields)
-            return
+            return .emptyFields
         }
         
         // passwords matching
         guard data[4] == data[5] else {
+            return .passwordsDontMatch
+        }
+        
+        store.tryCreateNewUser(data: data) { result in
+            validationResult = result ? .success : .unknownError
+        }
+        return validationResult
+    }
+    
+    private func handleValidationResult(result: ValidationResult) {
+        switch result {
+        case .emptyFields:
+            vc?.displayAlert(type: .emptyFields)
+        case .invalidPassword:
+            vc?.displayAlert(type: .invalidPassword)
+        case .passwordsDontMatch:
             vc?.displayAlert(type: .passwordsDontMatch)
-            return
+        case .success:
+            vc?.displayAlert(type: .success)
+        case .unknownError:
+            vc?.displayAlert(type: .unknownServerError)
         }
-        if let store = store {
-            store.tryCreateNewUser(data: data) { [weak self] result in
-                self?.vc?.displayAlert(type: .success)
-                return
-            }
-        }
-        return
     }
 }

@@ -43,31 +43,31 @@ class DataStore {
     private func bindToHandler(_ handler: DataNetworkHandler) {
         handler.weightData.subscribe(onNext: { [weak self] data in
             self?.weightData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         handler.caloriesData.subscribe(onNext: { [weak self] data in
             self?.caloriesData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         handler.trainingData.subscribe(onNext: { [weak self] data in
             self?.trainingData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         handler.sleepData.subscribe(onNext: { [weak self] data in
             self?.sleepData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         handler.pulseData.subscribe(onNext: { [weak self] data in
             self?.pulseData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         handler.stepsData.subscribe(onNext: { [weak self] data in
             self?.stepsData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         handler.measurementsData.subscribe(onNext: { [weak self] data in
             self?.measurementsData = data
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     func clearCurrentData() {

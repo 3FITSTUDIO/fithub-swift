@@ -16,7 +16,7 @@ class NewValueSelectionViewController: BasicComponentViewController {
     }
     
     private let router = NewValueSelectionRouter()
-
+    
     override func viewDidLoad() {
         componentName = "Select Type"
         super.viewDidLoad()
@@ -58,9 +58,9 @@ class NewValueSelectionViewController: BasicComponentViewController {
         }
         buttons.forEach { $0.addGesture(target: self, selector: #selector(handleNewValuePath(_:))) }
     }
-
+    
     // MARK: - Navigation
-
+    
     @objc private func handleNewValuePath(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         var selectedType: DataProvider.DataType

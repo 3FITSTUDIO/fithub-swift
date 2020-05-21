@@ -48,7 +48,6 @@ class ProfileViewController: BasicComponentViewController {
         viewModel.vc = self
         layout()
         setupButtonInteractions()
-        viewModel.provideNotificationsCount()
         viewModel.updateData(force: true)
     }
     

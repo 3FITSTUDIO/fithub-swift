@@ -21,7 +21,7 @@ class HealthKitHelper {
                 lastHeartRate = sample.quantity.doubleValue(for: .day())
             }
         }
-
+        
         return results
     }
 }

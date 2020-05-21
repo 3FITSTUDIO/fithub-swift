@@ -55,7 +55,7 @@ class ChartViewController: BasicComponentViewController, ChartViewDelegate {
         caloriesButton.easy.layout(CenterX(), Bottom(181))
         weightButton.easy.layout(CenterX(), Bottom(34).to(caloriesButton, .topMargin))
         caloriesButton.changeBackgroundColor(toColor: UIColor.white.withAlphaComponent(0.5))
-
+        
         container.addSubview(chartView)
         chartView.easy.layout(CenterX(), Top(10).to(selectedDateLabel))
     }
@@ -65,7 +65,7 @@ class ChartViewController: BasicComponentViewController, ChartViewDelegate {
         caloriesButton.addGesture(target: self, selector: #selector(caloriesButtonTapped(_:)))
     }
     
-// MARK: Routing
+    // MARK: Routing
     @objc func weightButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         chartManager.changedUnit(toUnit: .weight)

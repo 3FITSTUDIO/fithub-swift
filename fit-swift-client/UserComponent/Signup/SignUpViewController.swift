@@ -14,7 +14,7 @@ class SignUpViewController: UIViewController {
     enum Route: String {
         case cancel
         case submit
-//        case forgot
+        //        case forgot
     }
     private let router = SignUpRouter()
     private let viewModel = SignUpViewModel()
@@ -51,13 +51,13 @@ class SignUpViewController: UIViewController {
         super.viewDidAppear(animated)
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +113,7 @@ class SignUpViewController: UIViewController {
         }
         setupButtons()
     }
-        
+    
     private func setupButtons() {
         let createAccountButton = Button(type: .big, label: "create new account")
         scrollView.addSubview(createAccountButton)
@@ -140,11 +140,11 @@ extension SignUpViewController: UITextFieldDelegate {
 extension SignUpViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-
+            
             var safeArea = self.view.frame
             safeArea.size.height += scrollView.contentOffset.y
             safeArea.size.height -= keyboardSize.height + (UIScreen.main.bounds.height*0.04) // Adjust buffer to your liking
-
+            
             // determine which UIView was selected and if it is covered by keyboard
             let activeField: UIView? = [nameField, surnameField, emailField, loginField, passwdField, passwdConfirmField, sexField, heightField, yearOfBirthField].first { $0.textField.isFirstResponder }
             if let activeField = activeField {
@@ -162,14 +162,14 @@ extension SignUpViewController {
         }
     }
     @objc func keyboardWillHide(notification: NSNotification) {
-            if distance == 0 {
-                return
-            }
-            // return to origin scrollOffset
-            self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            scrollOffset = 0
-            distance = 0
-            scrollView.isScrollEnabled = true
+        if distance == 0 {
+            return
+        }
+        // return to origin scrollOffset
+        self.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        scrollOffset = 0
+        distance = 0
+        scrollView.isScrollEnabled = true
     }
 }
 
@@ -180,7 +180,8 @@ extension SignUpViewController {
         case passwordsDontMatch
         case emptyFields
         case success
-    
+        case unknownServerError
+        
     }
     public func displayAlert(type: AlertType) {
         switch type {
@@ -213,6 +214,11 @@ extension SignUpViewController {
             }
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)
+        case .unknownServerError:
+            let alertController = UIAlertController(title: "Oops!", message: "Something went wrong, try later.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Close", style: .default) { (action:UIAlertAction) in }
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }
@@ -226,7 +232,7 @@ extension SignUpViewController {
     @objc private func submitTapped(_ sender: UITapGestureRecognizer? = nil) {
         generator.selectionChanged()
         let enteredData = textFields.map { $0.textField.text }
-        viewModel.verifyEnteredData(data: enteredData)
+        viewModel.handleSignupAction(enteredData: enteredData)
     }
 }
 

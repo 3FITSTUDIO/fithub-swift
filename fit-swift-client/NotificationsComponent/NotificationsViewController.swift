@@ -76,11 +76,11 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
         refreshButton.easy.layout(Top(40), Right(20), Size(40))
         refreshButton.addGesture(target: self, selector: #selector(self.refresh(_:)))
     }
-
+    
     // MARK: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manager.provideCurrentNotificationsCount()
+        return manager.notificationData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

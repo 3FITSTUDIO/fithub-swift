@@ -40,7 +40,7 @@ extension Record {
         guard let valueRaw = json["value"] as? NSNumber else {
             throw SerializationError.missing("value")
         }
-
+        
         guard let date = json["date"] as? String else {
             throw SerializationError.missing("date")
         }

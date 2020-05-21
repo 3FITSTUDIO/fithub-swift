@@ -32,7 +32,7 @@ class ChartViewManager {
     }()
     
     let barStackView = UIStackView()
-
+    
     private let daySelector: UIView = {
         let gestureView = UIView()
         let view = UIView()
@@ -58,7 +58,7 @@ class ChartViewManager {
     var values = [Float]()
     var bars = [UIView]()
     var barsSelected = [Bool]()
-
+    
     var weightArray = [Record]()
     var calorieArray = [Record]()
     init() {
@@ -132,7 +132,7 @@ class ChartViewManager {
     private func getCurrentSelection(selectorX: CGFloat) {
         let leftMargin = 172 - barStackView.frame.size.width / 2
         let predictedBarId = Int((selectorX - leftMargin)/11)
-//        debugPrint("Predicted barID: \(predictedBarId)\n, selectorX: \(selectorX)")
+        //        debugPrint("Predicted barID: \(predictedBarId)\n, selectorX: \(selectorX)")
         if predictedBarId != previousPredictedId {
             previousPredictedId = predictedBarId
             bars[predictedBarId].backgroundColor = .white
@@ -157,7 +157,7 @@ class ChartViewManager {
             bars.append(newBar(forValue: 1))
         }
         self.bars.forEach { self.barStackView.addArrangedSubview($0) }
-
+        
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             for i in 1...self.xRange {
                 let data = self.unit == .weight ? self.weightArray[i-1].value : self.calorieArray[i-1].value
@@ -183,12 +183,12 @@ class ChartViewManager {
             xRange = calorieArray.count
         }
         feedInitialData()
-    
+        
         delegate?.avgValueLabel.text = String(calculateAverage())
         delegate?.selectedValueLabel.text = unit == .weight ? String(weightArray[0].value) : String(calorieArray[0].value)
         getCurrentSelection(selectorX: daySelector.center.x)
     }
-
+    
     private func newBar(forValue value: Int) -> UIView {
         let view = UIView()
         view.easy.layout(Height(CGFloat(value)), Width(6))

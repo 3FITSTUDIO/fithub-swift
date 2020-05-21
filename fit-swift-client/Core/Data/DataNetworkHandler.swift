@@ -81,7 +81,7 @@ class DataNetworkHandler {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                 self?.caloriesDataSubject.onNext(fetchedData)
+                self?.caloriesDataSubject.onNext(fetchedData)
             }
             onComplete()
         }
@@ -94,7 +94,7 @@ class DataNetworkHandler {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                 self?.trainingDataSubject.onNext(fetchedData)
+                self?.trainingDataSubject.onNext(fetchedData)
             }
             onComplete()
         }
@@ -107,7 +107,7 @@ class DataNetworkHandler {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                 self?.sleepDataSubject.onNext(fetchedData)
+                self?.sleepDataSubject.onNext(fetchedData)
             }
             onComplete()
         }
@@ -120,7 +120,7 @@ class DataNetworkHandler {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                 self?.pulseDataSubject.onNext(fetchedData)
+                self?.pulseDataSubject.onNext(fetchedData)
             }
             onComplete()
         }
@@ -133,7 +133,7 @@ class DataNetworkHandler {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                 self?.stepsDataSubject.onNext(fetchedData)
+                self?.stepsDataSubject.onNext(fetchedData)
             }
             onComplete()
         }
@@ -146,7 +146,7 @@ class DataNetworkHandler {
             case .failure(let error):
                 print(error)
             case .success(let fetchedData):
-                 self?.measurementsDataSubject.onNext(fetchedData)
+                self?.measurementsDataSubject.onNext(fetchedData)
             }
             onComplete()
         }

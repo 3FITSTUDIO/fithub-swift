@@ -16,7 +16,7 @@ class RecordsTableViewRouter: Router {
         switch route {
         case .back:
             vc = DashboardViewController()
-        context.navigationController?.pushViewController(vc, animated: false)
+            context.navigationController?.pushViewController(vc, animated: false)
         }
     }
 }

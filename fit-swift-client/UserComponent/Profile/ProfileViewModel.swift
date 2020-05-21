@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import RxSwift
 
 class ProfileViewModel {
     
-    private var userStore: UserStore?
-    private var dataStore: DataStore?
+    let disposeBag = DisposeBag()
+    
+    private var userStore: UserStore
+    private var dataStore: DataStore
     weak var vc: ProfileViewController?
     
     private var initialNotificationsSent = false
@@ -19,16 +22,12 @@ class ProfileViewModel {
     init() {
         dataStore = mainStore.dataStore
         userStore = mainStore.userStore
-        dataStore?.notificationsManager.updateAllNotifications(onComplete: {
-            self.provideNotificationsCount()
-        })
+        subscribeToNotificationsCount()
     }
     
     func clearProfileOnLogout() {
-        if let userStore = userStore, let dataStore = dataStore {
-            userStore.clearProfileOnLogout()
-            dataStore.clearCurrentData()
-        }
+        userStore.clearProfileOnLogout()
+        dataStore.clearCurrentData()
     }
     
     private func currentUser() -> User? {
@@ -49,26 +48,18 @@ class ProfileViewModel {
     }
     
     func updateData(force: Bool) {
-        
-        if let store = dataStore {
-            store.fetchAllData(force: force) { [weak self] in
-                self?.triggerNotificationsFetch {
-                    self?.provideNotificationsCount()
-                }
-            }
-        }
+        dataStore.fetchAllData(force: force) { }
     }
     
     func triggerNotificationsFetch(onComplete: @escaping() -> Void) {
-        dataStore?.notificationsManager.updateAllNotifications {
+        dataStore.notificationsManager.updateAllNotifications {
             onComplete()
         }
     }
     
-    func provideNotificationsCount() {
-        if let store = dataStore, let vc = vc {
-            let count = store.notificationsManager.provideCurrentNotificationsCount()
-            vc.notificationsCountIcon.updateDisplayCount(newVal: count)
-        }
+    private func subscribeToNotificationsCount() {
+        dataStore.notificationsManager.notificationDataObservable.subscribe(onNext: { [weak self] data in
+            self?.vc?.notificationsCountIcon.updateDisplayCount(newVal: data.count)
+        }).disposed(by: disposeBag)
     }
 }

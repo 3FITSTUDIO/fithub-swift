@@ -16,7 +16,7 @@ class BasicComponentViewController: UIViewController {
     
     let notchBorder = UIView()
     let bottomNavigationBar = UIView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
@@ -34,7 +34,7 @@ class BasicComponentViewController: UIViewController {
         let componentNameLabel = Label(label: componentName, fontSize: 20)
         componentNameLabel.textColor = FithubUI.Colors.greenHighlight
         notchBorder.addSubview(componentNameLabel)
-
+        
         notchBorder.layer.cornerRadius = 20
         notchBorder.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         notchBorder.layer.borderColor = FithubUI.Colors.whiteOneHundred.cgColor
