@@ -33,6 +33,8 @@
 		8452C42C235DF5BD009E99E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8452C42B235DF5BD009E99E8 /* Extensions.swift */; };
 		8452C430235E051F009E99E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8452C42F235E051F009E99E8 /* Assets.xcassets */; };
 		845420FF2475B375001825C2 /* NotificationsCountIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845420FE2475B375001825C2 /* NotificationsCountIcon.swift */; };
+		845421022475B723001825C2 /* DataAssistantAnalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845421012475B723001825C2 /* DataAssistantAnalyst.swift */; };
+		845421042475B9F9001825C2 /* DataAssistantNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845421032475B9F9001825C2 /* DataAssistantNotificationHandler.swift */; };
 		845CD7A123722463002917A9 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CD7A023722463002917A9 /* DashboardRouter.swift */; };
 		845CD7A32372249D002917A9 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845CD7A22372249D002917A9 /* DashboardViewModel.swift */; };
 		846C033D2397C28B00798397 /* BasicComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C033C2397C28B00798397 /* BasicComponentViewController.swift */; };
@@ -42,6 +44,7 @@
 		847CE0C1234E52D8002FC12E /* CommonUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */; };
 		847CE0C3234E549A002FC12E /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C2234E549A002FC12E /* Button.swift */; };
 		847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CE0C6234E5D86002FC12E /* RouterProtocol.swift */; };
+		847D24A12477159300316DE6 /* DataNetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D24A02477159300316DE6 /* DataNetworkHandler.swift */; };
 		8489FE4123C4DC2700104C7A /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489FE4023C4DC2700104C7A /* Record.swift */; };
 		8495FAFF2372C09C003E7150 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FAFE2372C09C003E7150 /* SignUpViewController.swift */; };
 		8495FB012372C134003E7150 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495FB002372C134003E7150 /* SignUpRouter.swift */; };
@@ -83,7 +86,6 @@
 		84FEA3D42472BF4800093E30 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */; };
 		84FEA3D62472C03900093E30 /* FithubNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D52472C03900093E30 /* FithubNotification.swift */; };
 		84FEA3D82472C0AE00093E30 /* NotificationsNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D72472C0AE00093E30 /* NotificationsNetworking.swift */; };
-		84FEA3DA2472C10600093E30 /* DataStore+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3D92472C10600093E30 /* DataStore+Notifications.swift */; };
 		84FEA3DC247306DD00093E30 /* HealthKitDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3DB247306DD00093E30 /* HealthKitDataHandler.swift */; };
 		84FEA3DF24730C0200093E30 /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3DE24730C0200093E30 /* HealthKitHelper.swift */; };
 		84FEA3E224731E1600093E30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEA3E124731E1600093E30 /* ProfileViewController.swift */; };
@@ -122,6 +124,8 @@
 		8452C42B235DF5BD009E99E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8452C42F235E051F009E99E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845420FE2475B375001825C2 /* NotificationsCountIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCountIcon.swift; sourceTree = "<group>"; };
+		845421012475B723001825C2 /* DataAssistantAnalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssistantAnalyst.swift; sourceTree = "<group>"; };
+		845421032475B9F9001825C2 /* DataAssistantNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAssistantNotificationHandler.swift; sourceTree = "<group>"; };
 		845CD7A023722463002917A9 /* DashboardRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		845CD7A22372249D002917A9 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		846C033C2397C28B00798397 /* BasicComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicComponentViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		847CE0C0234E52D8002FC12E /* CommonUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUIConstants.swift; sourceTree = "<group>"; };
 		847CE0C2234E549A002FC12E /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		847CE0C6234E5D86002FC12E /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		847D24A02477159300316DE6 /* DataNetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNetworkHandler.swift; sourceTree = "<group>"; };
 		8489FE4023C4DC2700104C7A /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		8495FAFE2372C09C003E7150 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8495FB002372C134003E7150 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
@@ -176,7 +181,6 @@
 		84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		84FEA3D52472C03900093E30 /* FithubNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FithubNotification.swift; sourceTree = "<group>"; };
 		84FEA3D72472C0AE00093E30 /* NotificationsNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsNetworking.swift; sourceTree = "<group>"; };
-		84FEA3D92472C10600093E30 /* DataStore+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataStore+Notifications.swift"; sourceTree = "<group>"; };
 		84FEA3DB247306DD00093E30 /* HealthKitDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataHandler.swift; sourceTree = "<group>"; };
 		84FEA3DE24730C0200093E30 /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
 		84FEA3E124731E1600093E30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +265,15 @@
 				843A456D2472AC04002402EE /* Security.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		845421002475B6FB001825C2 /* DataAssistantComponent */ = {
+			isa = PBXGroup;
+			children = (
+				845421012475B723001825C2 /* DataAssistantAnalyst.swift */,
+				845421032475B9F9001825C2 /* DataAssistantNotificationHandler.swift */,
+			);
+			path = DataAssistantComponent;
 			sourceTree = "<group>";
 		};
 		84710C24236A1ADE0027AEC5 /* Resources */ = {
@@ -397,7 +410,7 @@
 				8435559323CB922800407CB7 /* MainStore.swift */,
 				8435558F23CB655600407CB7 /* UserStore.swift */,
 				84D212DA2454BD8400DDF5D9 /* DataStore.swift */,
-				84FEA3D92472C10600093E30 /* DataStore+Notifications.swift */,
+				847D24A02477159300316DE6 /* DataNetworkHandler.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -454,6 +467,7 @@
 		84A2A1DB234D37690078EE29 /* fit-swift-client */ = {
 			isa = PBXGroup;
 			children = (
+				845421002475B6FB001825C2 /* DataAssistantComponent */,
 				84FEA3CC2472B46400093E30 /* NotificationsComponent */,
 				84FEA3DD24730BEB00093E30 /* HealthKitComponent */,
 				849A03CC24670F6B009F8FEB /* DataComponent */,
@@ -637,6 +651,7 @@
 				84ED7B5B24586C2C00471759 /* DataSourceProtocol.swift in Sources */,
 				8414560323CDCA2A00296C15 /* AddNewRouter.swift in Sources */,
 				8414560123CDC97C00296C15 /* AddNewValueViewController.swift in Sources */,
+				845421022475B723001825C2 /* DataAssistantAnalyst.swift in Sources */,
 				841DC2A22371C4870075BA8C /* DashboardViewController.swift in Sources */,
 				84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */,
 				84E1A1882461C45000551D6B /* DataFetchedProtocol.swift in Sources */,
@@ -645,11 +660,13 @@
 				849A03D8246712D3009F8FEB /* Validation.swift in Sources */,
 				84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */,
 				849A03C924670DC2009F8FEB /* AlertDisplayViewController.swift in Sources */,
+				847D24A12477159300316DE6 /* DataNetworkHandler.swift in Sources */,
 				8435E83323CD1F6800867546 /* CaloriesViewModel.swift in Sources */,
 				847CE0C3234E549A002FC12E /* Button.swift in Sources */,
 				841DC29E237169F30075BA8C /* Label.swift in Sources */,
 				8495FB032372C1B6003E7150 /* SignUpViewModel.swift in Sources */,
 				847CE0C7234E5D86002FC12E /* RouterProtocol.swift in Sources */,
+				845421042475B9F9001825C2 /* DataAssistantNotificationHandler.swift in Sources */,
 				84D212DD2454BE2600DDF5D9 /* DataNetworking.swift in Sources */,
 				84C11825245F1C5000F5CFF1 /* MeasurementsViewModel.swift in Sources */,
 				84C11823245F1C3700F5CFF1 /* StepsViewModel.swift in Sources */,
@@ -697,7 +714,6 @@
 				84A2A1DD234D37690078EE29 /* AppDelegate.swift in Sources */,
 				8435E82623CCFC5E00867546 /* RecordsTableViewRouter.swift in Sources */,
 				8435559023CB655600407CB7 /* UserStore.swift in Sources */,
-				84FEA3DA2472C10600093E30 /* DataStore+Notifications.swift in Sources */,
 				84FEA3CE2472B47900093E30 /* NotificationsViewController.swift in Sources */,
 				84C1181F245F1BF500F5CFF1 /* TrainingsViewModel.swift in Sources */,
 				84FEA3E224731E1600093E30 /* ProfileViewController.swift in Sources */,

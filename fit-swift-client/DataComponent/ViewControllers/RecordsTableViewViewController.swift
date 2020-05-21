@@ -15,7 +15,7 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
         case back
     }
     private let router = RecordsTableViewRouter()
-    private var viewModel: DataSourceViewModel?
+    private var viewModel: DataSourceViewModel!
     private var dataType: DataProvider.DataType = .weights
     
     private var tableView: UITableView = UITableView()
@@ -47,7 +47,7 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
         tableView.easy.layout(CenterX(), Top(90), Bottom(120), Left(19), Right(19))
         setupTableView()
         
-        viewModel?.vc = self
+        viewModel.vc = self
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -62,7 +62,6 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
 
 // MARK: TableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let viewModel = viewModel else { return 0 }
         switch dataType {
         case .measurements:
             return viewModel.bodyData.count
@@ -74,9 +73,6 @@ class RecordsTableViewViewController: BasicComponentViewController, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? SimpleRecordTableViewCell else {
             fatalError("The dequeued cell is not an instance of SimpleRecordTableViewCell.")
-        }
-        guard let viewModel = viewModel else {
-            fatalError("Data view model error: no view model found!")
         }
         let data = viewModel.fetchDataForCell(forIndex: indexPath.row)
         cell.configure(type: self.dataType, recordData: data)

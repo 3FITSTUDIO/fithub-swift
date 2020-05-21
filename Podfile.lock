@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.8.2)
   - EasyPeasy (1.9.0)
+  - RxSwift (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
   - EasyPeasy
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - EasyPeasy
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   EasyPeasy: 19a84ef8f8bbcf925b9fecc29d1d78b7dab96718
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: ba519bde79a411cb10fa864a3efe42ef8a5f38e3
+PODFILE CHECKSUM: c7cce7ba2c47804cda584dbe7f072f1acd57a640
 
 COCOAPODS: 1.6.1

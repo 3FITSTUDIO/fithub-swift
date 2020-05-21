@@ -8,5 +8,6 @@ target 'fit-swift-client' do
   # Pods for fit-swift-client
   pod 'EasyPeasy'
   pod 'Alamofire', '~> 4.8.2'
+  pod 'RxSwift'
 
 end
