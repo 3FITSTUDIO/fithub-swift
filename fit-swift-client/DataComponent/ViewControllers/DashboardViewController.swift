@@ -125,7 +125,6 @@ class DashboardViewController: BasicComponentViewController {
         }
         
         // Navigation
-        /// TODO: Fix array indexing in StepsProgressManager.swift
         seeDiagramsButton.addGesture(target: self, selector: #selector(self.seeDiagramsTapped(_:)))
         plusButton.addGesture(target: self, selector: #selector(self.addNewTapped(_:)))
         

@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 final class DataNetworking : NetworkingClient {
-    weak var store: DataStore?
     
     enum EndpointDataType: String {
         case weights = "/weights"
@@ -123,17 +122,17 @@ final class DataNetworking : NetworkingClient {
         case .weights:
             endpoint = EndpointDataType.weights.rawValue
         case .kcal:
-             endpoint = EndpointDataType.calories.rawValue
+            endpoint = EndpointDataType.calories.rawValue
         case .training:
-             endpoint = EndpointDataType.trainings.rawValue
+            endpoint = EndpointDataType.trainings.rawValue
         case .sleep:
             endpoint = EndpointDataType.sleep.rawValue
         case .pulse:
-             endpoint = EndpointDataType.pulse.rawValue
+            endpoint = EndpointDataType.pulse.rawValue
         case .steps:
-             endpoint = EndpointDataType.steps.rawValue
+            endpoint = EndpointDataType.steps.rawValue
         case .measurements:
-             endpoint = EndpointDataType.measurements.rawValue
+            endpoint = EndpointDataType.measurements.rawValue
         }
         
         executeRequest(endpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
@@ -167,6 +166,4 @@ final class DataNetworking : NetworkingClient {
             }
         }
     }
-    
-    
 }

@@ -12,8 +12,6 @@ import EasyPeasy
 
 class BasicTile: UIView {
     
-    //TODO: Move wide option to Button class
-    
     enum TileSize {
         case small, big, cell, roundButton, custom
     }

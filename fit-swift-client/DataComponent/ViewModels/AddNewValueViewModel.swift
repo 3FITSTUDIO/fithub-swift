@@ -11,7 +11,7 @@ import UIKit
 
 class AddNewValueViewModel {
     weak var vc: AddNewValueViewController?
-    private var store: DataStore?
+    private var store: DataStore
     
     init() {
         store = mainStore.dataStore
@@ -52,8 +52,8 @@ class AddNewValueViewModel {
     func postNewRecord(value: String, date: Date, type: DataProvider.DataType, onComplete: @escaping(Bool) -> Void) {
         let valueFormatted = Float(value)
         let dateFormatted = FitHubDateFormatter.formatDate(date)
-        if let store = store, let val = valueFormatted {
-            store.postRegularData(type: type, value: val, date: dateFormatted) { result in
+        if let val = valueFormatted {
+            store.handler.postRegularData(type: type, value: val, date: dateFormatted) { result in
                 onComplete(result)
             }
         }
@@ -66,15 +66,9 @@ class AddNewValueViewModel {
     func postBodyData(values: [String], date: Date, onComplete: @escaping(Bool) -> Void) {
         let valuesToFloat = values.map { Float($0) }
         let dateFormatted = FitHubDateFormatter.formatDate(date)
-        if let store = store {
-            let valFloatUnwrapped = valuesToFloat.map { $0 ?? 0 }
-            store.postBodyData(values: valFloatUnwrapped, date: dateFormatted) { result in
-                onComplete(result)
-            }
-        }
-        else {
-            debugPrint("VM_ERROR: Failed to post \(DataProvider.DataType.measurements.rawValue) data")
-            onComplete(false)
+        let valFloatUnwrapped = valuesToFloat.map { $0 ?? 0 }
+        store.handler.postBodyData(values: valFloatUnwrapped, date: dateFormatted) { result in
+            onComplete(result)
         }
     }
 }

@@ -10,27 +10,18 @@ import Foundation
 
 class PulseViewModel: DataSourceViewModel {
     weak var vc: RecordsTableViewViewController?
-    var store: DataStore?
+    var store: DataStore
     
     var data = [Record]()
     var bodyData = [BodyMeasurements]()
     
     init() {
         store = mainStore.dataStore
-        if let store = store {
-            data = store.pulseData
-            store.pulseViewModel = self
-        }
+        data = store.pulseData
     }
     
     func fetchDataForCell(forIndex index: Int) -> DataFetched {
         let record = data.reversed()[index]
         return record
-    }
-    
-    func updateData() {
-        if let store = store {
-            data = store.pulseData
-        }
     }
 }

@@ -99,7 +99,6 @@ class StepsProgressBarView : UIView {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         basicAnimation.toValue = 1
-        // TODO: Settings.defaultStepsPerDay value
         let duration = 4 * Double(stepsAmount)/8000
         basicAnimation.duration = duration
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
