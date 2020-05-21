@@ -22,7 +22,7 @@ class StepsProgressBarView : UIView {
     
     let stepsCountLabel: CountingLabel = {
         let label = CountingLabel(label: "0", fontSize: 40)
-        label.textColor = FithubUI.Colors.highlight
+        label.textColor = FithubUI.Colors.greenHighlight
         label.textAlignment = .center
         return label
     }()
@@ -73,7 +73,7 @@ class StepsProgressBarView : UIView {
         let endAngle = (CGFloat(stepsAmount) / 8000) * (2 * CGFloat.pi) - (0.5 * CGFloat.pi)
         let progressBar = UIBezierPath(arcCenter: center, radius: 130, startAngle: -0.5 * .pi, endAngle: endAngle, clockwise: true)
         shapeLayer.path = progressBar.cgPath
-        shapeLayer.strokeColor = FithubUI.Colors.highlight.cgColor
+        shapeLayer.strokeColor = FithubUI.Colors.greenHighlight.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = 20
         shapeLayer.strokeEnd = 0

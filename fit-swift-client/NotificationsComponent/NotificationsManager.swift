@@ -38,7 +38,26 @@ class NotificationsManager {
         }
     }
     
-    func notificationsToDisplay() -> Int {
+    func createNewNotification(message: String, onComplete: @escaping(Bool) -> Void) {
+        guard let userId = authenticateUserProfile()?.id else {
+            onComplete(false)
+            return
+        }
+        let date = FitHubDateFormatter.formatDate(Date())
+    
+        apiClient.postNotification(userId: userId, date: date, message: message) { result in
+            switch result {
+            case .failure:
+                debugPrint("Failed to create notification")
+                onComplete(false)
+            case .success(let notification):
+                self.notificationData.append(notification)
+                onComplete(true)
+            }
+        }
+    }
+    
+    func provideCurrentNotificationsCount() -> Int {
         return notificationData.count
     }
     

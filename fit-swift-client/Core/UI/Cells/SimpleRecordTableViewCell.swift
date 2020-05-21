@@ -69,7 +69,7 @@ class SimpleRecordTableViewCell: UITableViewCell {
         cellView.addSubviews(subviews: [dateLabel, date])
         dateLabel.easy.layout(Left(margin), Top(14))
         date.easy.layout(Left(25).to(dateLabel, .rightMargin), Top(14))
-        [dateLabel, valueLabel, neckLabel, chestLabel, bicepLabel, forearmLabel, stomachLabel, waistLabel, thighLabel, calfLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
+        [dateLabel, valueLabel, neckLabel, chestLabel, bicepLabel, forearmLabel, stomachLabel, waistLabel, thighLabel, calfLabel].forEach { $0.textColor = FithubUI.Colors.greenHighlight }
         [date, value, neck, chest, bicep, forearm, stomach, waist, thigh, calf].forEach { $0.textColor = .black }
     }
     

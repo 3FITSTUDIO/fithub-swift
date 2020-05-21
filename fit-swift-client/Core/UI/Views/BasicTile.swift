@@ -84,7 +84,7 @@ class BasicTile: UIView {
     
     private func setupLabels() {
         [topLabel, bottomLabel].forEach { $0.textColor = FithubUI.Colors.whiteOneHundred }
-        [counterTopLabel, plusLabel, mainLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
+        [counterTopLabel, plusLabel, mainLabel].forEach { $0.textColor = FithubUI.Colors.greenHighlight }
         
         if size == .small {
             self.addSubviews(subviews: [topLabel, bottomLabel, mainLabel])

@@ -28,7 +28,8 @@ class FithubUI {
         static let weirdGreen = UIColor(r: 150, g: 209, b: 166)
         static let classicWhite = UIColor(r: 239, g: 239, b: 239)
         static let stepsCircleGray = UIColor(r: 220, g: 224, b: 220)
-        static let highlight = UIColor(r: 63, g: 147, b: 128)
+        static let greenHighlight = UIColor(r: 63, g: 147, b: 128)
+        static let yellowHighlight = UIColor(r: 247,g: 219,b: 97)
         
         static let whiteOneHundred = UIColor(r: 255, g: 255, b: 255)
         static let blackOneHundred = UIColor(r: 0, g: 0, b: 0)

@@ -14,9 +14,14 @@ class ProfileViewModel {
     private var dataStore: DataStore?
     weak var vc: ProfileViewController?
     
+    private var initialNotificationsSent = false
+    
     init() {
         dataStore = mainStore.dataStore
         userStore = mainStore.userStore
+        dataStore?.notificationsManager.updateAllNotifications(onComplete: {
+            self.provideNotificationsCount()
+        })
     }
     
     func clearProfileOnLogout() {
@@ -43,15 +48,27 @@ class ProfileViewModel {
         return user.firstName
     }
     
+    func updateData(force: Bool) {
+        
+        if let store = dataStore {
+            store.fetchAllData(force: force) { [weak self] in
+                self?.triggerNotificationsFetch {
+                    self?.provideNotificationsCount()
+                }
+            }
+        }
+    }
+    
     func triggerNotificationsFetch(onComplete: @escaping() -> Void) {
         dataStore?.notificationsManager.updateAllNotifications {
             onComplete()
         }
     }
     
-    // MARK: Settings Handler
-    
-    func saveSettings(onComplete: @escaping() -> Void) {
-        onComplete()
+    func provideNotificationsCount() {
+        if let store = dataStore, let vc = vc {
+            let count = store.notificationsManager.provideCurrentNotificationsCount()
+            vc.notificationsCountIcon.updateDisplayCount(newVal: count)
+        }
     }
 }

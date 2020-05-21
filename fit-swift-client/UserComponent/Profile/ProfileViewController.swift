@@ -23,11 +23,12 @@ class ProfileViewController: BasicComponentViewController {
     let helloLabel = Label(label: "Hello, ", fontSize: 30)
     let nameLabel: Label = {
         let label = Label(label: "", fontSize: 30)
-        label.textColor = FithubUI.Colors.highlight
+        label.textColor = FithubUI.Colors.greenHighlight
         return label
     }()
     let dashboardButton = Button(type: .wide, label: "See dashboard")
     let notificationsButton = Button(type: .wide, label: "See notifications")
+    let notificationsCountIcon = NotificationsCountIcon()
     
     private let logoutButton: UIView = {
         let gestureView = UIView()
@@ -47,6 +48,8 @@ class ProfileViewController: BasicComponentViewController {
         viewModel.vc = self
         layout()
         setupButtonInteractions()
+        viewModel.provideNotificationsCount()
+        viewModel.updateData(force: true)
     }
     
     private func layout() {
@@ -60,6 +63,8 @@ class ProfileViewController: BasicComponentViewController {
         dashboardButton.easy.layout(Top(25).to(stepsProgressView), CenterX())
         notificationsButton.easy.layout(Top(25).to(dashboardButton), CenterX())
         logoutButton.easy.layout(Top(40), Left(20), Size(40))
+        notificationsButton.addSubview(notificationsCountIcon)
+        notificationsCountIcon.easy.layout(CenterY(), Right(30))
     }
     
     private func setupButtonInteractions() {

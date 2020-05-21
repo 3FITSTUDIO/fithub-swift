@@ -43,6 +43,29 @@ class NotificationsNetworking: NetworkingClient {
         }
     }
     
+    func postNotification(userId: Int,  date: String, message: String, onComplete: @escaping(Swift.Result<FithubNotification, NetworkError>) -> Void) {
+        var params: [String: Any] = [:]
+        params["userId"] = userId
+        params["date"] = date
+        params["message"] = message
+        
+        executeRequest(notificationsEndpoint, .post, parameters: params, encoding: JSONEncoding.default) { (json, error) in
+            if let error = error {
+                debugPrint("post_notification_data: Received error from server: \n" + error.localizedDescription)
+                onComplete(.failure(.dataNotAvailable))
+            }
+            else if let jsonData = json?.first {
+                do {
+                    let notification = try FithubNotification(json: jsonData)
+                    onComplete(.success(notification))
+                } catch {
+                    debugPrint("fetch_user_data: Failed to deserialize incoming data")
+                    onComplete(.failure(.cannotProcessData))
+                }
+            }
+        }
+    }
+    
     func deleteNotification(id: Int, onComplete: @escaping(Bool) -> Void) {
         let endpoint = notificationsEndpoint + "/\(id)"
         executeRequest(endpoint, .delete, parameters: nil) { (json, error) in

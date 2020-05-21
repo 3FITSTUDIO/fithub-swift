@@ -37,7 +37,7 @@ class NotificationTableViewCell: UITableViewCell {
         
         if selected {
             cellView.layer.borderWidth = 2
-            cellView.layer.borderColor = FithubUI.Colors.highlight.cgColor
+            cellView.layer.borderColor = FithubUI.Colors.greenHighlight.cgColor
         }
         else {
             cellView.layer.borderWidth = 0
@@ -61,7 +61,7 @@ class NotificationTableViewCell: UITableViewCell {
         cellView.addSubviews(subviews: [dateValue, messageContent])
         dateValue.easy.layout(CenterX(), Top(15))
         messageContent.easy.layout(Top(5).to(dateValue), Left(10), Right(10), Bottom(5))
-        dateValue.textColor = FithubUI.Colors.highlight
+        dateValue.textColor = FithubUI.Colors.greenHighlight
         messageContent.textColor = .black
         messageContent.textAlignment = .justified
         messageContent.lineBreakMode = .byWordWrapping

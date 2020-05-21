@@ -23,7 +23,7 @@ class Button : UIView {
         label.textAlignment = .center
         label.setFont(fontName: FithubUI.Fonts.mainAvenir)
         label.fontSize(size: 20)
-        label.textColor = FithubUI.Colors.highlight
+        label.textColor = FithubUI.Colors.greenHighlight
         label.adjustsFontSizeToFitWidth = false
         label.numberOfLines = 1
         return label

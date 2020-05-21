@@ -54,7 +54,7 @@ class AddBodyMeasurementsView: UIView {
         self.backgroundColor = .white
         self.layer.cornerRadius = 19
         self.addShadow()
-        [neckLabel, chestLabel, bicepLabel, forearmLabel, stomachLabel, waistLabel, thighLabel, calfLabel].forEach { $0.textColor = FithubUI.Colors.highlight }
+        [neckLabel, chestLabel, bicepLabel, forearmLabel, stomachLabel, waistLabel, thighLabel, calfLabel].forEach { $0.textColor = FithubUI.Colors.greenHighlight }
         [neckField, chestField, bicepField, forearmField, stomachField, waistField, thighField, calfField].forEach { $0.textField.textColor = .black }
     }
     
