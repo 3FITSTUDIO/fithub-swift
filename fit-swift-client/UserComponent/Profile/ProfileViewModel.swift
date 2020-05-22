@@ -22,6 +22,7 @@ class ProfileViewModel {
     init() {
         dataStore = mainStore.dataStore
         userStore = mainStore.userStore
+        dataStore.profileViewModel = self
         subscribeToNotificationsCount()
     }
     
@@ -54,6 +55,12 @@ class ProfileViewModel {
     func triggerNotificationsFetch(onComplete: @escaping() -> Void) {
         dataStore.notificationsManager.updateAllNotifications {
             onComplete()
+        }
+    }
+    
+    func updateTriggered() {
+        if let vc = vc {
+            vc.rotateRefreshButton()
         }
     }
     

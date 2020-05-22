@@ -15,7 +15,9 @@ class DataStore {
     public var notificationsManager = NotificationsManager()
     private var dataAssistant = DataAssistantAnalyst()
     var handler: DataNetworkHandler!
-    
+    var dashboardViewModel: DashboardViewModel?
+    var profileViewModel: ProfileViewModel?
+        
     private var initialConfigComplete = false
     
     enum DataType {
@@ -38,6 +40,10 @@ class DataStore {
         dataAssistant.configureNotificationsHandler()
         clearCurrentData()
         bindToHandler(dataHandler)
+        var backgroundUpdateTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: { _ in
+            self.dashboardViewModel?.updateData(force: true)
+            self.profileViewModel?.updateTriggered()
+        })
     }
     
     private func bindToHandler(_ handler: DataNetworkHandler) {
@@ -76,10 +82,8 @@ class DataStore {
         initialConfigComplete = false
     }
     
+    @objc
     func fetchAllData(force: Bool, onComplete: @escaping() -> Void) {
-        //        HealthKitDataHandler.getLatestHearRateSample { _ in
-        //            return
-        //        }
         guard !initialConfigComplete || force else {
             onComplete()
             return

@@ -9,17 +9,19 @@
 import Foundation
 
 class DashboardViewModel {
-    private var userStore: UserStore
-    private var dataStore: DataStore
+    var userStore: UserStore
+    var dataStore: DataStore
     weak var vc: DashboardViewController?
     
-    init() {
-        dataStore = mainStore.dataStore
-        userStore = mainStore.userStore
+    init(dataStore: DataStore, userStore: UserStore) {
+        self.dataStore = dataStore
+        self.userStore = userStore
+        dataStore.dashboardViewModel = self
     }
     
     func updateData(force: Bool) {
         if let vc = vc {
+            vc.rotateRefreshButton()
             dataStore.fetchAllData(force: force) { [weak self] in
                 vc.weightDataButton.mainLabel.text = self?.provideLastRecord(dataType: .weight)
                 vc.kcalDataButton.mainLabel.text = self?.provideLastRecord(dataType: .calories)
@@ -32,7 +34,9 @@ class DashboardViewModel {
         }
     }
     
-    private func provideLastRecord(dataType: DataStore.DataType) -> String {
+    // methods internal for testing
+    
+    func provideLastRecord(dataType: DataStore.DataType) -> String {
         switch dataType {
         case .weight:
             if let last = dataStore.weightData.last {
@@ -64,7 +68,7 @@ class DashboardViewModel {
         return ""
     }
     
-    private func providePulseAvgRecord() -> String {
+    func providePulseAvgRecord() -> String {
         let records = dataStore.pulseData
         var sum: Float = 0
         records.forEach {
@@ -75,7 +79,7 @@ class DashboardViewModel {
         return avgRounded.truncateTrailingZeros
     }
     
-    private func provideStepsAvgRecord() -> String {
+    func provideStepsAvgRecord() -> String {
         let records = dataStore.stepsData
         var sum: Float = 0
         records.forEach {

@@ -20,7 +20,7 @@ class DashboardViewController: BasicComponentViewController {
     }
     
     private let router = DashboardRouter()
-    private let viewModel = DashboardViewModel()
+    private let viewModel = DashboardViewModel(dataStore: mainStore.dataStore, userStore: mainStore.userStore)
     
     // Collection View
     private let reuseIdentifier = "detailsDataButton"
@@ -155,6 +155,15 @@ class DashboardViewController: BasicComponentViewController {
             detailDataViews[i].tag = i
         }
     }
+    
+    func rotateRefreshButton() {
+        let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotation.toValue = Double.pi * 2
+        rotation.duration = 0.5
+        rotation.isCumulative = true
+        rotation.repeatCount = 2
+        refreshButton.layer.add(rotation, forKey: "rotationAnimation")
+    }
 }
 
 extension DashboardViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -197,12 +206,6 @@ extension DashboardViewController {
     
     @objc private func refresh(_ sender: AnyObject) {
         viewModel.updateData(force: true)
-        let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        rotation.toValue = Double.pi * 2
-        rotation.duration = 0.5
-        rotation.isCumulative = true
-        rotation.repeatCount = 2
-        refreshButton.layer.add(rotation, forKey: "rotationAnimation")
     }
     
     @objc private func detailDataButtonTapped(_ sender: UITapGestureRecognizer? = nil) {
