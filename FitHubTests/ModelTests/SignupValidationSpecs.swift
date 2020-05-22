@@ -14,8 +14,8 @@ import Foundation
 class SignupValidationSpecs: QuickSpec {
     override func spec() {
         var viewModel: SignUpViewModel!
-        describe("Record Model Tests") {
-            context("Can be created with valid JSON") {
+        describe("Signup Validation Tests") {
+            context("validates signup entered data correctly") {
                 afterEach {
                     viewModel = nil
                 }

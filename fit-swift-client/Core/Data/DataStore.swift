@@ -18,12 +18,11 @@ class DataStore {
     var dashboardViewModel: DashboardViewModel?
     var profileViewModel: ProfileViewModel?
         
-    private var initialConfigComplete = false
+    var initialConfigComplete = false
     
     enum DataType {
         case weight, calories, training, sleep, pulse, steps, measurements
     }
-    private var currentlyStoredData = [DataType: Any?]()
     
     var weightData = [Record]()
     var caloriesData = [Record]()
@@ -77,7 +76,14 @@ class DataStore {
     }
     
     func clearCurrentData() {
-        currentlyStoredData.keys.forEach { currentlyStoredData[$0] = nil }
+        weightData = [Record]()
+        caloriesData = [Record]()
+        trainingData = [Record]()
+        sleepData = [Record]()
+        pulseData = [Record]()
+        stepsData = [Record]()
+        measurementsData = [BodyMeasurements]()
+        
         notificationsManager.clearAllData()
         initialConfigComplete = false
     }

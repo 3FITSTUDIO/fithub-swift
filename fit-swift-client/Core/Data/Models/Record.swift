@@ -53,3 +53,13 @@ extension Record {
     }
 }
 
+extension Record: Equatable {
+    static func ==(lhs: Record, rhs: Record) -> Bool {
+        guard lhs.id == rhs.id else { return false }
+        guard lhs.userId == rhs.userId else { return false }
+        guard lhs.value == rhs.value else { return false }
+        guard lhs.date == rhs.date else { return false }
+        return  true
+    }
+}
+

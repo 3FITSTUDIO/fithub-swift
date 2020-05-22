@@ -63,6 +63,8 @@ class LoginViewController: UIViewController {
         loginButton.easy.layout(CenterX(), Bottom(280))
         loginButton.addGesture(target: self, selector: #selector(self.loginButtonTapped(_:)))
         
+        loginButton.accessibilityLabel = "loginButton"
+        
         let newAccButton = Button(type: .big, label: "create new account")
         container.addSubview(newAccButton)
         newAccButton.easy.layout(CenterX(), Bottom(125))
@@ -75,6 +77,9 @@ class LoginViewController: UIViewController {
         passwordLabel.easy.layout(Bottom(6).to(passwordField), Left(78))
         loginField.easy.layout(CenterX(), Bottom(425))
         passwordField.easy.layout(CenterX(), Bottom(345))
+        
+        loginField.textField.accessibilityLabel = "loginField"
+        passwordField.textField.accessibilityLabel = "passwordField"
     }
     
     func resetAppearance() {

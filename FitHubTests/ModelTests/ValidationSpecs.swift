@@ -13,8 +13,8 @@ import Foundation
 
 class ValidationSpecs: QuickSpec {
     override func spec() {
-        describe("Record Model Tests") {
-            context("Can be created with valid JSON") {
+        describe("Validation Static class Tests") {
+            context("validates entered string data") {
                 it("can validate names correctly") {
                     let name1 = ""
                     let name2 = "Dominik"

@@ -10,20 +10,19 @@ import Foundation
 @testable import FitHub
 
 class Mocks {
-    static func RecordMock() -> Record? {
+    static func RecordMock(value: Int = 10) -> Record? {
         var record: Record
         do {
             var json = [String: Any]()
             json["id"] = 1
             json["userId"] = 2
             json["date"] = "15/04/2020"
-            json["value"] = 10
+            json["value"] = value
             record = try Record(json: json)
         } catch {
             return nil
         }
         return record
-        
     }
     
     static func BodyMeasurementsMock() -> BodyMeasurements? {
@@ -42,8 +41,24 @@ class Mocks {
         return record
     }
     
+    static func FithubNotificationMock(message: String = "default mock message") -> FithubNotification? {
+        var notification: FithubNotification
+        do {
+            var json = [String: Any]()
+            json["id"] = 1
+            json["userId"] = 2
+            json["date"] = "15/04/2020"
+            json["message"] = message
+            notification = try FithubNotification(json: json)
+        } catch {
+            return nil
+        }
+        return notification
+    }
+    
     static func DataStoreMock() -> DataStore {
         let store = DataStore()
+        store.initialConfigComplete = true
         store.weightData = [Record]()
         for _ in 0...5 {
             if let record = RecordMock() {

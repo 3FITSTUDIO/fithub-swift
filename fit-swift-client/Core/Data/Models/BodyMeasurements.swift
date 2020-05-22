@@ -59,5 +59,14 @@ extension BodyMeasurements {
         self.date = date
         self.value = -1
     }
-    
+}
+
+extension BodyMeasurements: Equatable {
+    static func ==(lhs: BodyMeasurements, rhs: BodyMeasurements) -> Bool {
+        guard lhs.id == rhs.id else { return false }
+        guard lhs.userId == rhs.userId else { return false }
+        guard lhs.values == rhs.values else { return false }
+        guard lhs.date == rhs.date else { return false }
+        return  true
+    }
 }

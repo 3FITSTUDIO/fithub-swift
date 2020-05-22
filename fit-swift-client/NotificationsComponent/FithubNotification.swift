@@ -37,3 +37,13 @@ class FithubNotification {
         self.message = message
     }
 }
+
+extension FithubNotification: Equatable {
+    static func ==(lhs: FithubNotification, rhs: FithubNotification) -> Bool {
+        guard lhs.id == rhs.id else { return false }
+        guard lhs.userId == rhs.userId else { return false }
+        guard lhs.message == rhs.message else { return false }
+        guard lhs.date == rhs.date else { return false }
+        return  true
+    }
+}

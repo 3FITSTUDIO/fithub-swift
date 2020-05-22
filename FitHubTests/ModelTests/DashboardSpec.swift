@@ -16,8 +16,8 @@ class DashboardSpecs: QuickSpec {
         var dataStoreMock: DataStore!
         var userStoreMock: UserStore!
         var viewModel: DashboardViewModel!
-        describe("Record Model Tests") {
-            context("Can be created with valid JSON") {
+        describe("Dashboard View Model Tests") {
+            context("provides correct values to display in view controller") {
                 afterEach {
                     dataStoreMock = nil
                     userStoreMock = nil

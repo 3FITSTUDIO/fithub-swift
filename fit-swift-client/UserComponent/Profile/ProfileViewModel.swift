@@ -16,12 +16,13 @@ class ProfileViewModel {
     private var userStore: UserStore
     private var dataStore: DataStore
     weak var vc: ProfileViewController?
+    var currentNotificationsCount = 0
     
     private var initialNotificationsSent = false
     
-    init() {
-        dataStore = mainStore.dataStore
-        userStore = mainStore.userStore
+    init(dataStore: DataStore, userStore: UserStore) {
+        self.dataStore = dataStore
+        self.userStore = userStore
         dataStore.profileViewModel = self
         subscribeToNotificationsCount()
     }
@@ -66,7 +67,8 @@ class ProfileViewModel {
     
     private func subscribeToNotificationsCount() {
         dataStore.notificationsManager.notificationDataObservable.subscribe(onNext: { [weak self] data in
-            self?.vc?.notificationsCountIcon.updateDisplayCount(newVal: data.count)
+            self?.currentNotificationsCount = data.count
+            self?.vc?.notificationsCountIcon.updateDisplayCount(newVal: self?.currentNotificationsCount ?? 0)
         }).disposed(by: disposeBag)
     }
 }

@@ -18,12 +18,13 @@ class ProfileViewController: BasicComponentViewController {
     }
     
     private let router = ProfileRouter()
-    private let viewModel = ProfileViewModel()
+    private let viewModel = ProfileViewModel(dataStore: mainStore.dataStore, userStore: mainStore.userStore)
     
     let helloLabel = Label(label: "Hello, ", fontSize: 30)
     let nameLabel: Label = {
         let label = Label(label: "", fontSize: 30)
         label.textColor = FithubUI.Colors.greenHighlight
+        label.accessibilityIdentifier = "profileNameLabel"
         return label
     }()
     let dashboardButton = Button(type: .wide, label: "See dashboard")
