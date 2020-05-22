@@ -3,11 +3,20 @@
 
 target 'fit-swift-client' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-#  use_frameworks!
+  use_frameworks!
 
   # Pods for fit-swift-client
   pod 'EasyPeasy'
   pod 'Alamofire', '~> 4.8.2'
   pod 'RxSwift'
 
+end
+
+def testing_pods
+    pod 'Quick'
+    pod 'Nimble'
+end
+
+target 'FitHubTests' do
+    testing_pods
 end

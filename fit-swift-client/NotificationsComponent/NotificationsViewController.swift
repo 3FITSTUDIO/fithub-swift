@@ -54,7 +54,6 @@ class NotificationsViewController: BasicComponentViewController, UITableViewDele
         componentName = "Notifications"
         super.viewDidLoad()
         addBottomNavigationBar()
-        manager.delegate = self
         setupTableView()
         setupRefreshButton()
     }

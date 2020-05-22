@@ -11,7 +11,7 @@ import Foundation
 class SignUpViewModel {
     private var store: UserStore
     weak var vc: SignUpViewController?
-    
+        
     init() {
         store = mainStore.userStore
     }
@@ -26,11 +26,11 @@ class SignUpViewModel {
     
     func handleSignupAction(enteredData: [String?]) {
         let result = verifyEnteredData(data: enteredData)
-        handleValidationResult(result: result)
+        handleValidationResult(result: result, data: enteredData)
     }
     
     func verifyEnteredData(data: [String?]) -> ValidationResult {
-        var validationResult: ValidationResult = .emptyFields
+        var validationResult: ValidationResult = .success
         
         // no empty data
         var flag = true
@@ -58,14 +58,10 @@ class SignUpViewModel {
         guard data[4] == data[5] else {
             return .passwordsDontMatch
         }
-        
-        store.tryCreateNewUser(data: data) { result in
-            validationResult = result ? .success : .unknownError
-        }
         return validationResult
     }
     
-    private func handleValidationResult(result: ValidationResult) {
+    private func handleValidationResult(result: ValidationResult, data: [String?]) {
         switch result {
         case .emptyFields:
             vc?.displayAlert(type: .emptyFields)
@@ -74,7 +70,10 @@ class SignUpViewModel {
         case .passwordsDontMatch:
             vc?.displayAlert(type: .passwordsDontMatch)
         case .success:
-            vc?.displayAlert(type: .success)
+            store.tryCreateNewUser(data: data) { [weak self] result in
+                let postResult: SignUpViewController.AlertType = result ? .success : .unknownServerError
+                self?.vc?.displayAlert(type: postResult)
+            }
         case .unknownError:
             vc?.displayAlert(type: .unknownServerError)
         }

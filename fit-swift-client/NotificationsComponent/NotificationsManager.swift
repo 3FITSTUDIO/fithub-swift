@@ -12,7 +12,6 @@ import RxSwift
 class NotificationsManager {
     
     private let apiClient = NotificationsNetworking()
-    weak var delegate: NotificationsViewController?
     
     private var notificationDataSubject = BehaviorSubject.init(value: [FithubNotification]())
     var notificationDataObservable: Observable<[FithubNotification]> {
