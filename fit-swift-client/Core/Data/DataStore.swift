@@ -17,7 +17,7 @@ class DataStore {
     var handler: DataNetworkHandler!
     var dashboardViewModel: DashboardViewModel?
     var profileViewModel: ProfileViewModel?
-        
+    
     var initialConfigComplete = false
     
     enum DataType {
@@ -94,33 +94,41 @@ class DataStore {
             onComplete()
             return
         }
+        var flag = true
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
-        handler.fetchWeightData {
+        handler.fetchWeightData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        handler.fetchCaloriesData {
+        handler.fetchCaloriesData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        handler.fetchTrainingData {
+        handler.fetchTrainingData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        handler.fetchSleepData {
+        handler.fetchSleepData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        handler.fetchPulseData {
+        handler.fetchPulseData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        handler.fetchStepsData {
+        handler.fetchStepsData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        handler.fetchMeasurementsData {
+        handler.fetchMeasurementsData { result in
+            flag = result
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
@@ -130,11 +138,23 @@ class DataStore {
         
         dispatchGroup.notify(queue: .main) {
             debugPrint("Finished fetching all data.")
-            self.notificationsManager.updateAllNotifications() {
-                self.initialConfigComplete = true
+            self.notificationsManager.updateAllNotifications() { [weak self] in
+                self?.initialConfigComplete = flag
+                self?.generateDataFetchMessage(flag)
                 onComplete()
             }
         }
+    }
+    
+    private func generateDataFetchMessage(_ fetchResult: Bool) {
+        var messageType: DataAssistantNotificationHandler.LocalNotificationType
+        if fetchResult {
+            messageType = .allDataFetched
+        }
+        else {
+            messageType = .dataNotFetched
+        }
+        dataAssistant.triggerLocalMessage(messageType)
     }
     
 }

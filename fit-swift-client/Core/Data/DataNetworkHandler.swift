@@ -61,94 +61,103 @@ class DataNetworkHandler {
     }
     
     // MARK: Dashboard View Controller, Fetching data, Posting data
-    func fetchWeightData(onComplete: @escaping() -> Void)  {
+    func fetchWeightData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .weights) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.weightDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
+            
         }
     }
     
-    func fetchCaloriesData(onComplete: @escaping() -> Void)  {
+    func fetchCaloriesData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .calories) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.caloriesDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
+            
         }
     }
     
-    func fetchTrainingData(onComplete: @escaping() -> Void)  {
+    func fetchTrainingData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .trainings) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.trainingDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
         }
     }
     
-    func fetchSleepData(onComplete: @escaping() -> Void)  {
+    func fetchSleepData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .sleep) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.sleepDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
         }
     }
     
-    func fetchPulseData(onComplete: @escaping() -> Void)  {
+    func fetchPulseData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .pulse) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.pulseDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
         }
     }
     
-    func fetchStepsData(onComplete: @escaping() -> Void)  {
+    func fetchStepsData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchRegularData(forUserId: user.id, dataType: .steps) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.stepsDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
         }
     }
     
-    func fetchMeasurementsData(onComplete: @escaping() -> Void)  {
+    func fetchMeasurementsData(onComplete: @escaping(Bool) -> Void)  {
         guard let user = authenticateUserProfile() else { return }
         apiClient.fetchBodyMeasurementsData(forUserId: user.id, dataType: .measurements) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
+                onComplete(false)
             case .success(let fetchedData):
                 self?.measurementsDataSubject.onNext(fetchedData)
+                onComplete(true)
             }
-            onComplete()
         }
     }
     
@@ -166,8 +175,10 @@ class DataNetworkHandler {
             apiClient.postStepsData(steps, forId: user.id) { [weak self] result in
                 // notification + "synchronised steps data"
                 if result {
-                    self?.fetchStepsData {
-                        self?.isStepsDataPosted = true
+                    self?.fetchStepsData { result in
+                        if result {
+                            self?.isStepsDataPosted = true
+                        }
                         onComplete(result)
                     }
                 }
@@ -192,32 +203,32 @@ class DataNetworkHandler {
             if result {
                 switch type {
                 case .weights:
-                    self?.fetchWeightData {
-                        onComplete(true)
+                    self?.fetchWeightData { result in
+                        onComplete(result)
                     }
                 case .kcal:
-                    self?.fetchCaloriesData {
-                        onComplete(true)
+                    self?.fetchCaloriesData { result in
+                        onComplete(result)
                     }
                 case .training:
-                    self?.fetchTrainingData {
-                        onComplete(true)
+                    self?.fetchTrainingData { result in
+                        onComplete(result)
                     }
                 case .sleep:
-                    self?.fetchSleepData {
-                        onComplete(true)
+                    self?.fetchSleepData { result in
+                        onComplete(result)
                     }
                 case .pulse:
-                    self?.fetchPulseData {
-                        onComplete(true)
+                    self?.fetchPulseData { result in
+                        onComplete(result)
                     }
                 case .steps:
-                    self?.fetchStepsData {
-                        onComplete(true)
+                    self?.fetchStepsData { result in
+                        onComplete(result)
                     }
                 case .measurements:
-                    self?.fetchMeasurementsData {
-                        onComplete(true)
+                    self?.fetchMeasurementsData { result in
+                        onComplete(result)
                     }
                 }
             }
@@ -237,8 +248,8 @@ class DataNetworkHandler {
         apiClient.postBodyData(values: values, forId: user.id) { [weak self] result in
             // notification + "synchronised steps data"
             if result {
-                self?.fetchMeasurementsData {
-                    onComplete(result)
+                self?.fetchMeasurementsData { result2 in
+                    onComplete(result2)
                 }
             }
             else {

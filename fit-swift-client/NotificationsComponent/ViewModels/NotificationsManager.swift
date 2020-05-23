@@ -32,6 +32,10 @@ class NotificationsManager {
         return user
     }
     
+    func clearAllData() {
+        notificationData.removeAll()
+    }
+    
     func updateAllNotifications(onComplete: @escaping() -> Void) {
         guard let user = authenticateUserProfile() else {
             onComplete()
@@ -67,13 +71,20 @@ class NotificationsManager {
         }
     }
     
+    func createNewLocalNotification(message: String) {
+        guard let userId = authenticateUserProfile()?.id else {
+            return
+        }
+        let date = FitHubDateFormatter.formatDate(Date())
+        let notification = FithubNotification(id: 0, userId: userId, date: date, message: message, isGlobal: false)
+        notificationData.append(notification)
+    }
+    
+    // MARK: Notification View Controller Data Source
+    
     func dataForNotification(forIndex index: Int) -> FithubNotification {
         let notification = notificationData[index]
         return notification
-    }
-    
-    func clearAllData() {
-        notificationData = [FithubNotification]()
     }
     
     func markAsRead(atIndex index: Int, onComplete: @escaping() -> Void) {
@@ -84,17 +95,22 @@ class NotificationsManager {
     
     func deleteNotification(atIndex index: Int, onComplete: @escaping() -> Void) {
         let removed = notificationData.remove(at: index)
-        apiClient.deleteNotification(id: removed.id) { [weak self] result in
-            if result {
-                self?.updateAllNotifications() {
-                    debugPrint("Notification update completed")
+        if removed.isGlobal {
+            apiClient.deleteNotification(id: removed.id) { [weak self] result in
+                if result {
+                    self?.updateAllNotifications() {
+                        debugPrint("Notification update completed")
+                        onComplete()
+                    }
+                }
+                else {
+                    debugPrint("Notification update failed.")
                     onComplete()
                 }
             }
-            else {
-                debugPrint("Notification update failed.")
-                onComplete()
-            }
+        }
+        else {
+            onComplete()
         }
     }
 }

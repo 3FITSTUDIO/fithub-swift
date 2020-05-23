@@ -13,8 +13,17 @@ class FithubNotification {
     var userId: Int
     var date: String
     var message: String
+    var isGlobal: Bool
     
-    init(json: [String: Any]) throws {
+    init(id: Int, userId: Int, date: String, message: String, isGlobal: Bool = true) {
+        self.id = id
+        self.userId = userId
+        self.date = date
+        self.message = message
+        self.isGlobal = isGlobal
+    }
+    
+    convenience init(json: [String: Any]) throws {
         guard let id = json["id"] as? Int else {
             throw SerializationError.missing("id")
         }
@@ -31,10 +40,7 @@ class FithubNotification {
             throw SerializationError.missing("message")
         }
         
-        self.id = id
-        self.userId = userId
-        self.date = date
-        self.message = message
+        self.init(id: id, userId: userId, date: date, message: message)
     }
 }
 
@@ -44,6 +50,7 @@ extension FithubNotification: Equatable {
         guard lhs.userId == rhs.userId else { return false }
         guard lhs.message == rhs.message else { return false }
         guard lhs.date == rhs.date else { return false }
+        guard lhs.isGlobal == rhs.isGlobal else { return false }
         return  true
     }
 }

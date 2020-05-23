@@ -9,6 +9,12 @@
 import Foundation
 
 class DataAssistantNotificationHandler {
+    enum LocalNotificationType: String {
+        case welcome = "Hi! Welcome to Fithub, make sure to check your data in Dashboard."
+        case dataNotFetched = "Unfortunately we were unable to fetch some data. Try updating again or re-login."
+        case allDataFetched = "All data has been fetched! Make sure to check it in Dashboard."
+        case checkWebVersion = "Make sure to check the online version of our app!"
+    }
     enum NotificationType: String {
         case bmi = "BMI calculated from you weight and height"
     }
@@ -33,6 +39,23 @@ class DataAssistantNotificationHandler {
             onComplete()
             return
         }
+    }
+    
+    func generateLocalNotifications(messages: [String]) {
+        for message in messages {
+            store.notificationsManager.createNewLocalNotification(message: message)
+        }
+    }
+    
+    func generateLocalNotificationMessage(type: LocalNotificationType) -> String {
+        return type.rawValue
+    }
+    
+    func generateAllLocalNotificationMessages() -> [String] {
+        var messages = [String]()
+        messages.append(generateLocalNotificationMessage(type: .welcome))
+        messages.append(generateLocalNotificationMessage(type: .checkWebVersion))
+        return messages
     }
     
     func generateNotificationMessage(type: NotificationType) -> String {

@@ -61,6 +61,7 @@
 		84BA31B72465A1250064330F /* NewValueSelectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */; };
 		84BBB96423B3C99C0017737D /* UserNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB96323B3C99C0017737D /* UserNetworking.swift */; };
 		84BC82C3234E508500821DD5 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC82C2234E508500821DD5 /* LoginRouter.swift */; };
+		84C02E55247961990098C43B /* NofiticationSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C02E54247961990098C43B /* NofiticationSpecs.swift */; };
 		84C1181D245F14FF00F5CFF1 /* SleepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */; };
 		84C1181F245F1BF500F5CFF1 /* TrainingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */; };
 		84C11821245F1C1A00F5CFF1 /* PulseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */; };
@@ -181,6 +182,7 @@
 		84BA31B62465A1250064330F /* NewValueSelectionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewValueSelectionRouter.swift; sourceTree = "<group>"; };
 		84BBB96323B3C99C0017737D /* UserNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetworking.swift; sourceTree = "<group>"; };
 		84BC82C2234E508500821DD5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		84C02E54247961990098C43B /* NofiticationSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NofiticationSpecs.swift; sourceTree = "<group>"; };
 		84C1181C245F14FF00F5CFF1 /* SleepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewModel.swift; sourceTree = "<group>"; };
 		84C1181E245F1BF500F5CFF1 /* TrainingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsViewModel.swift; sourceTree = "<group>"; };
 		84C11820245F1C1A00F5CFF1 /* PulseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		8452C421235CCB16009E99E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84FEA3D52472C03900093E30 /* FithubNotification.swift */,
 				8452C422235CCB2D009E99E8 /* User.swift */,
 				8489FE4023C4DC2700104C7A /* Record.swift */,
 				84E1A1852461C3D500551D6B /* BodyMeasurements.swift */,
@@ -545,6 +548,39 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		84C02E56247966850098C43B /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */,
+				845420FE2475B375001825C2 /* NotificationsCountIcon.swift */,
+			);
+			path = VIews;
+			sourceTree = "<group>";
+		};
+		84C02E57247966910098C43B /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				84FEA3CF2472B4BC00093E30 /* NotificationsRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		84C02E58247966990098C43B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84FEA3CD2472B47900093E30 /* NotificationsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		84C02E59247966A40098C43B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				84FEA3D12472B50800093E30 /* NotificationsManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		84ED39EF24782C1D00D0D19F /* FitHubTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +594,7 @@
 		84ED39F824782C4000D0D19F /* ModelTests */ = {
 			isa = PBXGroup;
 			children = (
+				84C02E54247961990098C43B /* NofiticationSpecs.swift */,
 				84ED3A1B24787F9E00D0D19F /* ProfileViewModelSpecs.swift */,
 				84ED3A1924787E3800D0D19F /* SecuritySpecs.swift */,
 				84ED3A172478735800D0D19F /* DataStoreSpecs.swift */,
@@ -574,12 +611,10 @@
 		84FEA3CC2472B46400093E30 /* NotificationsComponent */ = {
 			isa = PBXGroup;
 			children = (
-				84FEA3CD2472B47900093E30 /* NotificationsViewController.swift */,
-				84FEA3CF2472B4BC00093E30 /* NotificationsRouter.swift */,
-				84FEA3D12472B50800093E30 /* NotificationsManager.swift */,
-				84FEA3D32472BF4800093E30 /* NotificationTableViewCell.swift */,
-				84FEA3D52472C03900093E30 /* FithubNotification.swift */,
-				845420FE2475B375001825C2 /* NotificationsCountIcon.swift */,
+				84C02E59247966A40098C43B /* ViewModels */,
+				84C02E58247966990098C43B /* ViewControllers */,
+				84C02E57247966910098C43B /* Routers */,
+				84C02E56247966850098C43B /* VIews */,
 			);
 			path = NotificationsComponent;
 			sourceTree = "<group>";
@@ -916,6 +951,7 @@
 				84ED3A002478431C00D0D19F /* ValidationSpecs.swift in Sources */,
 				84ED39FC24782FD500D0D19F /* BodyMeasurementsSpec.swift in Sources */,
 				84ED3A022478450800D0D19F /* SignupValidationSpecs.swift in Sources */,
+				84C02E55247961990098C43B /* NofiticationSpecs.swift in Sources */,
 				84ED3A182478735800D0D19F /* DataStoreSpecs.swift in Sources */,
 				84ED3A062478534A00D0D19F /* Mocks.swift in Sources */,
 				84ED39FE2478418200D0D19F /* UserModelSpecs.swift in Sources */,

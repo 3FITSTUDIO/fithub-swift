@@ -23,6 +23,7 @@ class DataAssistantAnalyst {
     var bmiValue: Int?
     
     private var messagesPending = [String]()
+    private var localMessagesPending = [String]()
     
     private var weightData = [Record]()
     
@@ -60,6 +61,17 @@ class DataAssistantAnalyst {
     private func prepareAllPendingMessages() {
         // bmi
         messagesPending.append(notificationHandler.generateNotificationMessage(type: .bmi))
+        let localMessages = notificationHandler.generateAllLocalNotificationMessages()
+        for message in localMessages {
+            localMessagesPending.append(message)
+        }
+    }
+    
+    func triggerLocalMessage(_ messageType: DataAssistantNotificationHandler.LocalNotificationType) {
+        let message = notificationHandler.generateLocalNotificationMessage(type: messageType)
+        localMessagesPending.append(message)
+        notificationHandler.generateLocalNotifications(messages: localMessagesPending)
+        localMessagesPending.removeAll()
     }
     
     private func calculateBMI() -> Int? {
