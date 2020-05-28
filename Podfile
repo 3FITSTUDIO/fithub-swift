@@ -7,6 +7,17 @@ target 'fit-swift-client' do
 
   # Pods for fit-swift-client
   pod 'EasyPeasy'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.8.2'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
+end
+
+def testing_pods
+    pod 'Quick'
+    pod 'Nimble'
+end
+
+target 'FitHubTests' do
+    testing_pods
 end

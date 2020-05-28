@@ -11,7 +11,7 @@ import Foundation
 class FitHubDateFormatter {
     static func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
         let dateFormatted = formatter.string(from: date)
         return dateFormatted
     }

@@ -9,7 +9,7 @@
 import UIKit
 import HealthKit
 
-var mainStore = MainStore()
+let mainStore = MainStore()
 let generator = UISelectionFeedbackGenerator()
 
 @UIApplicationMain
@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         healthStore = HKHealthStore()
         if let healthStore = healthStore {
-            HealthClockManager.getHealthKitPermission(healthStore)
+            HealthKitDataHandler.getHealthKitPermission(healthStore)
         }
         
         return true
