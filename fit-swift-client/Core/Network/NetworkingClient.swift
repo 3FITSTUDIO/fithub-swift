@@ -17,8 +17,8 @@ class NetworkingClient {
         case noAuthentication
     }
     
-    let urlBase = "http://localhost:8080"
-    //    let urlBase = "https://dcfed692.ngrok.io"
+//    let urlBase = "http://localhost:3000"
+    let urlBase = "http://90f49fbd800a.ngrok.io"
     
     typealias WebServiceResponse = ([[String: Any]]?, Error?) -> Void
     

@@ -15,7 +15,7 @@ class NotificationsManager {
     
     private var notificationDataSubject = BehaviorSubject.init(value: [FithubNotification]())
     var notificationDataObservable: Observable<[FithubNotification]> {
-        return notificationDataSubject.asObservable()
+        return notificationDataSubject.asObservable().distinctUntilChanged()
     }
     
     var notificationData = [FithubNotification]() {

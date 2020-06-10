@@ -35,10 +35,10 @@ class DataStore {
     init(dataHandler: DataNetworkHandler = DataNetworkHandler()) {
         handler = dataHandler
         handler.store = self
+        bindToHandler(dataHandler)
         dataAssistant.store = self
         dataAssistant.configureNotificationsHandler()
         clearCurrentData()
-        bindToHandler(dataHandler)
         var backgroundUpdateTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: { _ in
             self.dashboardViewModel?.updateData(force: true)
             self.profileViewModel?.updateTriggered()
@@ -131,17 +131,15 @@ class DataStore {
             flag = result
             dispatchGroup.leave()
         }
-        dispatchGroup.enter()
-        dataAssistant.performGeneralAnalysis {
-            dispatchGroup.leave()
-        }
         
         dispatchGroup.notify(queue: .main) {
             debugPrint("Finished fetching all data.")
-            self.notificationsManager.updateAllNotifications() { [weak self] in
-                self?.initialConfigComplete = flag
-                self?.generateDataFetchMessage(flag)
-                onComplete()
+            self.dataAssistant.performGeneralAnalysis {
+                self.notificationsManager.updateAllNotifications() { [weak self] in
+                    self?.initialConfigComplete = flag
+//                    self?.generateDataFetchMessage(flag)
+                    onComplete()
+                }
             }
         }
     }
