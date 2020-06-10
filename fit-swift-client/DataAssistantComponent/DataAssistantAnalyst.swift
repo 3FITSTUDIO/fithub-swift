@@ -20,7 +20,7 @@ class DataAssistantAnalyst {
     
     private var weeklyReportKey = "weekly_report_complete"
     
-    var bmiValue: Int?
+    var bmiValue: Float?
     
     private var messagesPending = [String]()
     private var localMessagesPending = [String]()
@@ -61,10 +61,10 @@ class DataAssistantAnalyst {
     private func prepareAllPendingMessages() {
         // bmi
         messagesPending.append(notificationHandler.generateNotificationMessage(type: .bmi))
-        let localMessages = notificationHandler.generateAllLocalNotificationMessages()
-        for message in localMessages {
-            localMessagesPending.append(message)
-        }
+//        let localMessages = notificationHandler.generateAllLocalNotificationMessages()
+//        for message in localMessages {
+//            localMessagesPending.append(message)
+//        }
     }
     
     func triggerLocalMessage(_ messageType: DataAssistantNotificationHandler.LocalNotificationType) {
@@ -74,11 +74,12 @@ class DataAssistantAnalyst {
         localMessagesPending.removeAll()
     }
     
-    private func calculateBMI() -> Int? {
-        guard let weightFloatValue = weightData.last?.value else { return nil }
+    private func calculateBMI() -> Float? {
+        weightData = store.weightData
+        guard let weightFloat = weightData.last?.value else { return nil }
         guard let heightUnwrapped = store.handler.authenticateUserProfile()?.height else { return nil }
+        let heightInMeters = Float(Float(heightUnwrapped)/100)
         
-        let weight = Int(weightFloatValue)
-        return weight / (heightUnwrapped * heightUnwrapped)
+        return weightFloat / (heightInMeters * heightInMeters)
     }
 }

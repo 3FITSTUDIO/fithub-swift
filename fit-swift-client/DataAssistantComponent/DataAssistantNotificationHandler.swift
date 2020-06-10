@@ -42,8 +42,17 @@ class DataAssistantNotificationHandler {
     }
     
     func generateLocalNotifications(messages: [String]) {
+        let group = DispatchGroup()
         for message in messages {
-            store.notificationsManager.createNewLocalNotification(message: message)
+            group.enter()
+            store.notificationsManager.createNewNotification(message: message) { result in
+                if result {
+                    group.leave()
+                }
+            }
+        }
+        group.notify(queue: .main) {
+            return
         }
     }
     
@@ -61,10 +70,16 @@ class DataAssistantNotificationHandler {
     func generateNotificationMessage(type: NotificationType) -> String {
         guard let analyst = analyst else { return "Something went wrong, sorry!" }
         var message = "Your " + type.rawValue + " is equal to: "
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        
         switch type {
         case .bmi:
             if let bmi = analyst.bmiValue {
-                message +=  String(bmi)
+                if let bmiFormatted = formatter.string(for: bmi) {
+                    message +=  String(bmiFormatted)
+                }
             }
         }
         return message
