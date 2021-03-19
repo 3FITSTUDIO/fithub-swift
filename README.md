@@ -6,6 +6,20 @@ Bachelor's degree thesis at University of Gdansk, faculty of Mathematics, Physic
 
 Fork this repo, run `pod install` and build the app on the desired device/simulator!
 
+### What's used
+
+- MVVM+Router
+- Store
+- Protocols
+- UIKit (programatically)
+- Basic HealthKit integration
+- Alamofire networking
+- Simple reactiveness with RxSwift to propagate data
+- Basic CommonCrypto usage (password hashing)
+- DIY Chart using UIKit and UIAnimation
+- Unit tests (Quick / Nimble)
+- Cocoapods (EasyPeasy, Alamofire, RxSwift)
+
 ### Prerequisites
 
 - Xcode
@@ -51,8 +65,9 @@ To run the tests simply use the keyboard shortcut CMD+U. This will trigger a new
 * [Cocoapods](https://cocoapods.org) - Dependency manager in iOS development
 * [Alamofire](https://github.com/Alamofire/Alamofire) - HTTP networking library
 * [Easypeasy](https://github.com/nakiostudio/EasyPeasy) - Swift Autolayout Framework
-* [JSON Server](https://github.com/typicode/json-server) - JS REST API framework (for both local and online dev environment)
-* [NGROK](https://ngrok.com) - SSH tunnels tool for exposing local APIs in mobile development testing
+* [RxSwift](https://github.com/ReactiveX/RxSwift) - Reactive Programming in Swift
+* [JSON Server](https://github.com/typicode/json-server) - JS REST API framework (for both local and online dev environment) (outside this repo)
+* [NGROK](https://ngrok.com) - SSH tunnels tool for exposing local APIs in mobile development testing (outside this repo)
 
 ## Contributing
 
@@ -60,7 +75,7 @@ As this is a university project, no contribution is desired nor allowed.
 
 ## Authors
 
-* **Dominik Urbaez Gomez** - *Initial work* - [Github profile](https://github.com/durbaezgomez)
+* **Dominik Urbaez Gomez** - [Github profile](https://github.com/durbaezgomez)
 
 ## License
 
